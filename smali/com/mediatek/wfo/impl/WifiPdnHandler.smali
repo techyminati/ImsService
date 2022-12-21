@@ -2211,10 +2211,7 @@
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 807
-    invoke-static {}, Landroid/os/storage/StorageManager;->inCryptKeeperBounce()Z
-
-    move-result v0
+    const/4 v0, 0x0
 
     if-nez v0, :cond_1e
 
