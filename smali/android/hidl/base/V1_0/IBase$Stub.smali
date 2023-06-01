@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 415
     invoke-direct {p0}, Landroid/os/HwBinder;-><init>()V
@@ -30,14 +30,14 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IHwBinder;
-    .locals 0
+    .registers 1
 
     .line 418
     return-object p0
 .end method
 
 .method public debug(Landroid/os/NativeHandle;Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 3
     .param p1, "fd"    # Landroid/os/NativeHandle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,7 +55,7 @@
 .end method
 
 .method public final getDebugInfo()Landroid/hidl/base/V1_0/DebugInfo;
-    .locals 3
+    .registers 4
 
     .line 466
     new-instance v0, Landroid/hidl/base/V1_0/DebugInfo;
@@ -85,7 +85,7 @@
 .end method
 
 .method public final getHashChain()Ljava/util/ArrayList;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -105,7 +105,7 @@
 
     new-array v2, v2, [B
 
-    fill-array-data v2, :array_0
+    fill-array-data v2, :array_18
 
     const/4 v3, 0x0
 
@@ -121,7 +121,7 @@
 
     nop
 
-    :array_0
+    :array_18
     .array-data 1
         -0x14t
         0x7ft
@@ -159,7 +159,7 @@
 .end method
 
 .method public final interfaceChain()Ljava/util/ArrayList;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -188,7 +188,7 @@
 .end method
 
 .method public final interfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 436
     const-string v0, "android.hidl.base@1.0::IBase"
@@ -197,7 +197,7 @@
 .end method
 
 .method public final linkToDeath(Landroid/os/IHwBinder$DeathRecipient;J)Z
-    .locals 1
+    .registers 5
     .param p1, "recipient"    # Landroid/os/IHwBinder$DeathRecipient;
     .param p2, "cookie"    # J
 
@@ -208,7 +208,7 @@
 .end method
 
 .method public final notifySyspropsChanged()V
-    .locals 0
+    .registers 1
 
     .line 476
     invoke-static {}, Landroid/os/HwBinder;->enableInstrumentation()V
@@ -218,7 +218,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
-    .locals 10
+    .registers 15
     .param p1, "_hidl_code"    # I
     .param p2, "_hidl_request"    # Landroid/os/HwParcel;
     .param p3, "_hidl_reply"    # Landroid/os/HwParcel;
@@ -234,22 +234,22 @@
 
     const-string v1, "android.hidl.base@1.0::IBase"
 
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_c6
 
-    goto/16 :goto_1
+    goto/16 :goto_c5
 
     .line 611
-    :sswitch_0
+    :sswitch_8
     invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 613
     invoke-virtual {p0}, Landroid/hidl/base/V1_0/IBase$Stub;->notifySyspropsChanged()V
 
     .line 614
-    goto/16 :goto_1
+    goto/16 :goto_c5
 
     .line 600
-    :sswitch_1
+    :sswitch_10
     invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 602
@@ -268,11 +268,11 @@
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     .line 606
-    goto/16 :goto_1
+    goto/16 :goto_c5
 
     .line 590
     .end local v1    # "_hidl_out_info":Landroid/hidl/base/V1_0/DebugInfo;
-    :sswitch_2
+    :sswitch_22
     invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 592
@@ -285,24 +285,24 @@
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     .line 595
-    goto/16 :goto_1
+    goto/16 :goto_c5
 
     .line 585
-    :sswitch_3
-    goto/16 :goto_1
+    :sswitch_30
+    goto/16 :goto_c5
 
     .line 577
-    :sswitch_4
+    :sswitch_32
     invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 579
     invoke-virtual {p0}, Landroid/hidl/base/V1_0/IBase$Stub;->setHALInstrumentation()V
 
     .line 580
-    goto/16 :goto_1
+    goto/16 :goto_c5
 
     .line 543
-    :sswitch_5
+    :sswitch_3a
     invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 545
@@ -350,8 +350,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v3, :cond_1
+    :goto_61
+    if-ge v4, v3, :cond_82
 
     .line 556
     mul-int/lit8 v5, v4, 0x20
@@ -368,13 +368,13 @@
 
     .line 559
     .local v7, "_hidl_array_item_1":[B
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_7a
 
     array-length v8, v7
 
     const/16 v9, 0x20
 
-    if-ne v8, v9, :cond_0
+    if-ne v8, v9, :cond_7a
 
     .line 563
     invoke-virtual {v0, v5, v6, v7}, Landroid/os/HwBlob;->putInt8Array(J[B)V
@@ -387,12 +387,12 @@
     .end local v7    # "_hidl_array_item_1":[B
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_61
 
     .line 560
     .restart local v5    # "_hidl_array_offset_1":J
     .restart local v7    # "_hidl_array_item_1":[B
-    :cond_0
+    :cond_7a
     new-instance v8, Ljava/lang/IllegalArgumentException;
 
     const-string v9, "Array element is not of the expected length"
@@ -405,7 +405,7 @@
     .end local v4    # "_hidl_index_0":I
     .end local v5    # "_hidl_array_offset_1":J
     .end local v7    # "_hidl_array_item_1":[B
-    :cond_1
+    :cond_82
     const-wide/16 v4, 0x0
 
     invoke-virtual {v2, v4, v5, v0}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
@@ -420,11 +420,11 @@
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     .line 572
-    goto :goto_1
+    goto :goto_c5
 
     .line 532
     .end local v1    # "_hidl_out_hashchain":Ljava/util/ArrayList;, "Ljava/util/ArrayList<[B>;"
-    :sswitch_6
+    :sswitch_8e
     invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 534
@@ -443,11 +443,11 @@
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     .line 538
-    goto :goto_1
+    goto :goto_c5
 
     .line 520
     .end local v1    # "_hidl_out_descriptor":Ljava/lang/String;
-    :sswitch_7
+    :sswitch_9f
     invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 522
@@ -472,12 +472,12 @@
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     .line 527
-    goto :goto_1
+    goto :goto_c5
 
     .line 509
     .end local v1    # "fd":Landroid/os/NativeHandle;
     .end local v2    # "options":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :sswitch_8
+    :sswitch_b4
     invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 511
@@ -500,32 +500,32 @@
 
     .line 623
     .end local v1    # "_hidl_out_descriptors":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :goto_1
+    :goto_c5
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_c6
     .sparse-switch
-        0xf43484e -> :sswitch_8
-        0xf444247 -> :sswitch_7
-        0xf445343 -> :sswitch_6
-        0xf485348 -> :sswitch_5
-        0xf494e54 -> :sswitch_4
-        0xf4c5444 -> :sswitch_3
-        0xf504e47 -> :sswitch_2
-        0xf524546 -> :sswitch_1
-        0xf535953 -> :sswitch_0
+        0xf43484e -> :sswitch_b4
+        0xf444247 -> :sswitch_9f
+        0xf445343 -> :sswitch_8e
+        0xf485348 -> :sswitch_3a
+        0xf494e54 -> :sswitch_32
+        0xf4c5444 -> :sswitch_30
+        0xf504e47 -> :sswitch_22
+        0xf524546 -> :sswitch_10
+        0xf535953 -> :sswitch_8
     .end sparse-switch
 .end method
 
 .method public final ping()V
-    .locals 0
+    .registers 1
 
     .line 460
     return-void
 .end method
 
 .method public queryLocalInterface(Ljava/lang/String;)Landroid/os/IHwInterface;
-    .locals 1
+    .registers 3
     .param p1, "descriptor"    # Ljava/lang/String;
 
     .line 488
@@ -535,20 +535,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 489
     return-object p0
 
     .line 491
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public registerAsService(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "serviceName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -564,14 +564,14 @@
 .end method
 
 .method public final setHALInstrumentation()V
-    .locals 0
+    .registers 1
 
     .line 450
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 500
     new-instance v0, Ljava/lang/StringBuilder;
@@ -596,7 +596,7 @@
 .end method
 
 .method public final unlinkToDeath(Landroid/os/IHwBinder$DeathRecipient;)Z
-    .locals 1
+    .registers 3
     .param p1, "recipient"    # Landroid/os/IHwBinder$DeathRecipient;
 
     .line 482

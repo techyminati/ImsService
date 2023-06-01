@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 334
     new-instance v0, Lcom/mediatek/wfo/ril/MwiRIL$WfcFeatureState;
@@ -86,7 +86,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -100,7 +100,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/mediatek/wfo/ril/MwiRIL$WfcFeatureState;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 333
@@ -116,7 +116,7 @@
 .end method
 
 .method public static values()[Lcom/mediatek/wfo/ril/MwiRIL$WfcFeatureState;
-    .locals 1
+    .registers 1
 
     .line 333
     sget-object v0, Lcom/mediatek/wfo/ril/MwiRIL$WfcFeatureState;->$VALUES:[Lcom/mediatek/wfo/ril/MwiRIL$WfcFeatureState;

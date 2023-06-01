@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/IHwBinder;)V
-    .locals 1
+    .registers 3
     .param p1, "remote"    # Landroid/os/IHwBinder;
 
     .line 206
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IHwBinder;
-    .locals 1
+    .registers 2
 
     .line 212
     iget-object v0, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
@@ -54,7 +54,7 @@
 .end method
 
 .method public audioIndication(III)V
-    .locals 5
+    .registers 9
     .param p1, "type"    # I
     .param p2, "callId"    # I
     .param p3, "audio"    # I
@@ -91,7 +91,7 @@
 
     .line 1040
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_18
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x2d
@@ -102,8 +102,8 @@
 
     .line 1041
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_18 .. :try_end_23} :catchall_28
 
     .line 1043
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -115,7 +115,7 @@
     return-void
 
     .line 1043
-    :catchall_0
+    :catchall_28
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -125,7 +125,7 @@
 .end method
 
 .method public callAdditionalInfoInd(IILjava/util/ArrayList;)V
-    .locals 5
+    .registers 9
     .param p1, "type"    # I
     .param p2, "ciType"    # I
     .annotation system Ldalvik/annotation/Signature;
@@ -171,7 +171,7 @@
 
     .line 1075
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_18
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x2f
@@ -182,8 +182,8 @@
 
     .line 1076
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_18 .. :try_end_23} :catchall_28
 
     .line 1078
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -195,7 +195,7 @@
     return-void
 
     .line 1078
-    :catchall_0
+    :catchall_28
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -205,7 +205,7 @@
 .end method
 
 .method public callInfoIndication(ILjava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -247,7 +247,7 @@
 
     .line 263
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/4 v3, 0x2
@@ -258,8 +258,8 @@
 
     .line 264
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1f
+    .catchall {:try_start_15 .. :try_end_1f} :catchall_24
 
     .line 266
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -271,7 +271,7 @@
     return-void
 
     .line 266
-    :catchall_0
+    :catchall_24
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -281,7 +281,7 @@
 .end method
 
 .method public callRatIndication(III)V
-    .locals 5
+    .registers 9
     .param p1, "type"    # I
     .param p2, "domain"    # I
     .param p3, "rat"    # I
@@ -318,7 +318,7 @@
 
     .line 1110
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_18
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x31
@@ -329,8 +329,8 @@
 
     .line 1111
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_18 .. :try_end_23} :catchall_28
 
     .line 1113
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -342,7 +342,7 @@
     return-void
 
     .line 1113
-    :catchall_0
+    :catchall_28
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -352,7 +352,7 @@
 .end method
 
 .method public callmodChangeIndicator(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 12
     .param p1, "type"    # I
     .param p2, "callId"    # Ljava/lang/String;
     .param p3, "callMode"    # Ljava/lang/String;
@@ -401,7 +401,7 @@
 
     .line 328
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_21
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/4 v3, 0x5
@@ -412,8 +412,8 @@
 
     .line 329
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_21 .. :try_end_2b} :catchall_30
 
     .line 331
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -425,7 +425,7 @@
     return-void
 
     .line 331
-    :catchall_0
+    :catchall_30
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -435,7 +435,7 @@
 .end method
 
 .method public cdmaNewSmsEx(ILandroid/hardware/radio/V1_0/CdmaSmsMessage;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .param p2, "msg"    # Landroid/hardware/radio/V1_0/CdmaSmsMessage;
     .annotation system Ldalvik/annotation/Throws;
@@ -468,7 +468,7 @@
 
     .line 890
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x25
@@ -479,8 +479,8 @@
 
     .line 891
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 893
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -492,7 +492,7 @@
     return-void
 
     .line 893
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -502,7 +502,7 @@
 .end method
 
 .method public debug(Landroid/os/NativeHandle;Ljava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "fd"    # Landroid/os/NativeHandle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -545,7 +545,7 @@
 
     .line 1253
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const v3, 0xf444247
@@ -559,8 +559,8 @@
 
     .line 1255
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_15 .. :try_end_24} :catchall_29
 
     .line 1257
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -572,7 +572,7 @@
     return-void
 
     .line 1257
-    :catchall_0
+    :catchall_29
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -582,7 +582,7 @@
 .end method
 
 .method public econfResultIndication(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 13
     .param p1, "type"    # I
     .param p2, "confCallId"    # Ljava/lang/String;
     .param p3, "op"    # Ljava/lang/String;
@@ -635,7 +635,7 @@
 
     .line 285
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_24
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/4 v3, 0x3
@@ -646,8 +646,8 @@
 
     .line 286
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_24 .. :try_end_2e} :catchall_33
 
     .line 288
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -659,7 +659,7 @@
     return-void
 
     .line 288
-    :catchall_0
+    :catchall_33
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -669,7 +669,7 @@
 .end method
 
 .method public ectIndication(IIII)V
-    .locals 5
+    .registers 10
     .param p1, "type"    # I
     .param p2, "call_id"    # I
     .param p3, "ectResult"    # I
@@ -710,7 +710,7 @@
 
     .line 558
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_1b
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x12
@@ -721,8 +721,8 @@
 
     .line 559
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_1b .. :try_end_26} :catchall_2b
 
     .line 561
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -734,7 +734,7 @@
     return-void
 
     .line 561
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -744,7 +744,7 @@
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .param p1, "other"    # Ljava/lang/Object;
 
     .line 227
@@ -755,8 +755,8 @@
     return v0
 .end method
 
-.method public getDebugInfo()Landroid/hidl/base/V1_0/DebugInfo;
-    .locals 5
+.method public getDebugInfo()Landroid/internal/hidl/base/V1_0/DebugInfo;
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -781,7 +781,7 @@
 
     .line 1363
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_f
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const v3, 0xf524546
@@ -797,15 +797,15 @@
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
 
     .line 1367
-    new-instance v2, Landroid/hidl/base/V1_0/DebugInfo;
+    new-instance v2, Landroid/internal/hidl/base/V1_0/DebugInfo;
 
-    invoke-direct {v2}, Landroid/hidl/base/V1_0/DebugInfo;-><init>()V
+    invoke-direct {v2}, Landroid/internal/hidl/base/V1_0/DebugInfo;-><init>()V
 
     .line 1368
-    .local v2, "_hidl_out_info":Landroid/hidl/base/V1_0/DebugInfo;
-    invoke-virtual {v2, v1}, Landroid/hidl/base/V1_0/DebugInfo;->readFromParcel(Landroid/os/HwParcel;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .local v2, "_hidl_out_info":Landroid/internal/hidl/base/V1_0/DebugInfo;
+    invoke-virtual {v2, v1}, Landroid/internal/hidl/base/V1_0/DebugInfo;->readFromParcel(Landroid/os/HwParcel;)V
+    :try_end_26
+    .catchall {:try_start_f .. :try_end_26} :catchall_2b
 
     .line 1369
     nop
@@ -817,8 +817,8 @@
     return-object v2
 
     .line 1371
-    .end local v2    # "_hidl_out_info":Landroid/hidl/base/V1_0/DebugInfo;
-    :catchall_0
+    .end local v2    # "_hidl_out_info":Landroid/internal/hidl/base/V1_0/DebugInfo;
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -828,7 +828,7 @@
 .end method
 
 .method public getHashChain()Ljava/util/ArrayList;
-    .locals 13
+    .registers 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -861,7 +861,7 @@
 
     .line 1288
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_f
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const v3, 0xf485348
@@ -933,8 +933,8 @@
     const/4 v3, 0x0
 
     .local v3, "_hidl_index_0":I
-    :goto_0
-    if-ge v3, v12, :cond_0
+    :goto_45
+    if-ge v3, v12, :cond_59
 
     .line 1303
     const/16 v4, 0x20
@@ -957,8 +957,8 @@
     .line 1309
     .end local v6    # "_hidl_array_offset_1":J
     invoke-virtual {v10, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_55
+    .catchall {:try_start_f .. :try_end_55} :catchall_5e
 
     .line 1302
     nop
@@ -966,14 +966,14 @@
     .end local v5    # "_hidl_vec_element":[B
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_45
 
     .line 1313
     .end local v2    # "childBlob":Landroid/os/HwBlob;
     .end local v3    # "_hidl_index_0":I
     .end local v11    # "_hidl_blob":Landroid/os/HwBlob;
     .end local v12    # "_hidl_vec_size":I
-    :cond_0
+    :cond_59
     nop
 
     .line 1315
@@ -984,7 +984,7 @@
 
     .line 1315
     .end local v10    # "_hidl_out_hashchain":Ljava/util/ArrayList;, "Ljava/util/ArrayList<[B>;"
-    :catchall_0
+    :catchall_5e
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -994,7 +994,7 @@
 .end method
 
 .method public getProvisionDone(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 9
     .param p1, "type"    # I
     .param p2, "result1"    # Ljava/lang/String;
     .param p3, "result2"    # Ljava/lang/String;
@@ -1031,7 +1031,7 @@
 
     .line 383
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_18
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x8
@@ -1042,8 +1042,8 @@
 
     .line 384
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_18 .. :try_end_23} :catchall_28
 
     .line 386
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1055,7 +1055,7 @@
     return-void
 
     .line 386
-    :catchall_0
+    :catchall_28
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1065,7 +1065,7 @@
 .end method
 
 .method public final hashCode()I
-    .locals 1
+    .registers 2
 
     .line 232
     invoke-virtual {p0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->asBinder()Landroid/os/IHwBinder;
@@ -1080,7 +1080,7 @@
 .end method
 
 .method public imsBearerInit(I)V
-    .locals 5
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1109,7 +1109,7 @@
 
     .line 610
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x15
@@ -1120,8 +1120,8 @@
 
     .line 611
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_12 .. :try_end_1d} :catchall_22
 
     .line 613
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1133,7 +1133,7 @@
     return-void
 
     .line 613
-    :catchall_0
+    :catchall_22
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1143,7 +1143,7 @@
 .end method
 
 .method public imsBearerStateNotify(IIILjava/lang/String;)V
-    .locals 5
+    .registers 10
     .param p1, "type"    # I
     .param p2, "aid"    # I
     .param p3, "action"    # I
@@ -1184,7 +1184,7 @@
 
     .line 594
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_1b
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x14
@@ -1195,8 +1195,8 @@
 
     .line 595
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_1b .. :try_end_26} :catchall_2b
 
     .line 597
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1208,7 +1208,7 @@
     return-void
 
     .line 597
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1218,7 +1218,7 @@
 .end method
 
 .method public imsCfgConfigChanged(IILjava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 10
     .param p1, "type"    # I
     .param p2, "phoneId"    # I
     .param p3, "configId"    # Ljava/lang/String;
@@ -1259,7 +1259,7 @@
 
     .line 804
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_1b
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x20
@@ -1270,8 +1270,8 @@
 
     .line 805
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_1b .. :try_end_26} :catchall_2b
 
     .line 807
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1283,7 +1283,7 @@
     return-void
 
     .line 807
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1293,7 +1293,7 @@
 .end method
 
 .method public imsCfgConfigLoaded(I)V
-    .locals 5
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1322,7 +1322,7 @@
 
     .line 820
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x21
@@ -1333,8 +1333,8 @@
 
     .line 821
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_12 .. :try_end_1d} :catchall_22
 
     .line 823
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1346,7 +1346,7 @@
     return-void
 
     .line 823
-    :catchall_0
+    :catchall_22
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1356,7 +1356,7 @@
 .end method
 
 .method public imsCfgDynamicImsSwitchComplete(I)V
-    .locals 5
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1385,7 +1385,7 @@
 
     .line 766
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x1e
@@ -1396,8 +1396,8 @@
 
     .line 767
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_12 .. :try_end_1d} :catchall_22
 
     .line 769
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1409,7 +1409,7 @@
     return-void
 
     .line 769
-    :catchall_0
+    :catchall_22
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1419,7 +1419,7 @@
 .end method
 
 .method public imsCfgFeatureChanged(IIII)V
-    .locals 5
+    .registers 10
     .param p1, "type"    # I
     .param p2, "phoneId"    # I
     .param p3, "featureId"    # I
@@ -1460,7 +1460,7 @@
 
     .line 785
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_1b
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x1f
@@ -1471,8 +1471,8 @@
 
     .line 786
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_1b .. :try_end_26} :catchall_2b
 
     .line 788
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1484,7 +1484,7 @@
     return-void
 
     .line 788
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1494,7 +1494,7 @@
 .end method
 
 .method public imsConferenceInfoIndication(ILjava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1536,7 +1536,7 @@
 
     .line 712
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x1b
@@ -1547,8 +1547,8 @@
 
     .line 713
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 715
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1560,7 +1560,7 @@
     return-void
 
     .line 715
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1570,7 +1570,7 @@
 .end method
 
 .method public imsDataInfoNotify(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 10
     .param p1, "type"    # I
     .param p2, "capability"    # Ljava/lang/String;
     .param p3, "event"    # Ljava/lang/String;
@@ -1611,7 +1611,7 @@
 
     .line 839
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_1b
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x22
@@ -1622,8 +1622,8 @@
 
     .line 840
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_1b .. :try_end_26} :catchall_2b
 
     .line 842
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1635,7 +1635,7 @@
     return-void
 
     .line 842
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1645,7 +1645,7 @@
 .end method
 
 .method public imsDeregDone(I)V
-    .locals 5
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1674,7 +1674,7 @@
 
     .line 626
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x16
@@ -1685,8 +1685,8 @@
 
     .line 627
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_12 .. :try_end_1d} :catchall_22
 
     .line 629
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1698,7 +1698,7 @@
     return-void
 
     .line 629
-    :catchall_0
+    :catchall_22
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1708,7 +1708,7 @@
 .end method
 
 .method public imsDialogIndication(ILjava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1750,7 +1750,7 @@
 
     .line 750
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x1d
@@ -1761,8 +1761,8 @@
 
     .line 751
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 753
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1774,7 +1774,7 @@
     return-void
 
     .line 753
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1784,7 +1784,7 @@
 .end method
 
 .method public imsDisableDone(I)V
-    .locals 5
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1813,7 +1813,7 @@
 
     .line 507
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0xf
@@ -1824,8 +1824,8 @@
 
     .line 508
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_12 .. :try_end_1d} :catchall_22
 
     .line 510
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1837,7 +1837,7 @@
     return-void
 
     .line 510
-    :catchall_0
+    :catchall_22
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1847,7 +1847,7 @@
 .end method
 
 .method public imsDisableStart(I)V
-    .locals 5
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1876,7 +1876,7 @@
 
     .line 539
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x11
@@ -1887,8 +1887,8 @@
 
     .line 540
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_12 .. :try_end_1d} :catchall_22
 
     .line 542
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1900,7 +1900,7 @@
     return-void
 
     .line 542
-    :catchall_0
+    :catchall_22
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1910,7 +1910,7 @@
 .end method
 
 .method public imsEnableDone(I)V
-    .locals 5
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1939,7 +1939,7 @@
 
     .line 491
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0xe
@@ -1950,8 +1950,8 @@
 
     .line 492
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_12 .. :try_end_1d} :catchall_22
 
     .line 494
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1963,7 +1963,7 @@
     return-void
 
     .line 494
-    :catchall_0
+    :catchall_22
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -1973,7 +1973,7 @@
 .end method
 
 .method public imsEnableStart(I)V
-    .locals 5
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2002,7 +2002,7 @@
 
     .line 523
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x10
@@ -2013,8 +2013,8 @@
 
     .line 524
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_12 .. :try_end_1d} :catchall_22
 
     .line 526
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2026,7 +2026,7 @@
     return-void
 
     .line 526
-    :catchall_0
+    :catchall_22
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2036,7 +2036,7 @@
 .end method
 
 .method public imsEventPackageIndication(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 12
     .param p1, "type"    # I
     .param p2, "callId"    # Ljava/lang/String;
     .param p3, "ptype"    # Ljava/lang/String;
@@ -2085,7 +2085,7 @@
 
     .line 457
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_21
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0xc
@@ -2096,8 +2096,8 @@
 
     .line 458
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_21 .. :try_end_2c} :catchall_31
 
     .line 460
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2109,7 +2109,7 @@
     return-void
 
     .line 460
-    :catchall_0
+    :catchall_31
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2119,7 +2119,7 @@
 .end method
 
 .method public imsRadioInfoChange(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 9
     .param p1, "type"    # I
     .param p2, "iid"    # Ljava/lang/String;
     .param p3, "info"    # Ljava/lang/String;
@@ -2156,7 +2156,7 @@
 
     .line 678
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_18
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x19
@@ -2167,8 +2167,8 @@
 
     .line 679
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_18 .. :try_end_23} :catchall_28
 
     .line 681
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2180,7 +2180,7 @@
     return-void
 
     .line 681
-    :catchall_0
+    :catchall_28
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2190,7 +2190,7 @@
 .end method
 
 .method public imsRedialEmergencyIndication(ILjava/lang/String;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .param p2, "callId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -2223,7 +2223,7 @@
 
     .line 923
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x27
@@ -2234,8 +2234,8 @@
 
     .line 924
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 926
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2247,7 +2247,7 @@
     return-void
 
     .line 926
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2257,7 +2257,7 @@
 .end method
 
 .method public imsRegInfoInd(ILjava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2299,7 +2299,7 @@
 
     .line 1163
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x34
@@ -2310,8 +2310,8 @@
 
     .line 1164
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 1166
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2323,7 +2323,7 @@
     return-void
 
     .line 1166
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2333,7 +2333,7 @@
 .end method
 
 .method public imsRegStatusReport(ILvendor/mediatek/hardware/mtkradioex/V2_0/ImsRegStatusInfo;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .param p2, "report"    # Lvendor/mediatek/hardware/mtkradioex/V2_0/ImsRegStatusInfo;
     .annotation system Ldalvik/annotation/Throws;
@@ -2366,7 +2366,7 @@
 
     .line 1146
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x33
@@ -2377,8 +2377,8 @@
 
     .line 1147
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 1149
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2390,7 +2390,7 @@
     return-void
 
     .line 1149
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2400,7 +2400,7 @@
 .end method
 
 .method public imsRegistrationInfo(III)V
-    .locals 5
+    .registers 9
     .param p1, "type"    # I
     .param p2, "registerState"    # I
     .param p3, "capability"    # I
@@ -2437,7 +2437,7 @@
 
     .line 475
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_18
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0xd
@@ -2448,8 +2448,8 @@
 
     .line 476
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_18 .. :try_end_23} :catchall_28
 
     .line 478
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2461,7 +2461,7 @@
     return-void
 
     .line 478
-    :catchall_0
+    :catchall_28
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2471,7 +2471,7 @@
 .end method
 
 .method public imsRtpInfo(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 14
     .param p1, "type"    # I
     .param p2, "pdnId"    # Ljava/lang/String;
     .param p3, "networkId"    # Ljava/lang/String;
@@ -2528,7 +2528,7 @@
 
     .line 946
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_27
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x28
@@ -2539,8 +2539,8 @@
 
     .line 947
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_32
+    .catchall {:try_start_27 .. :try_end_32} :catchall_37
 
     .line 949
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2552,7 +2552,7 @@
     return-void
 
     .line 949
-    :catchall_0
+    :catchall_37
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2562,7 +2562,7 @@
 .end method
 
 .method public imsSupportEcc(II)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .param p2, "supportLteEcc"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -2595,7 +2595,7 @@
 
     .line 660
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x18
@@ -2606,8 +2606,8 @@
 
     .line 661
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 663
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2619,7 +2619,7 @@
     return-void
 
     .line 663
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2629,7 +2629,7 @@
 .end method
 
 .method public incomingCallIndication(ILvendor/mediatek/hardware/mtkradioex/V2_0/IncomingCallNotification;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .param p2, "inCallNotify"    # Lvendor/mediatek/hardware/mtkradioex/V2_0/IncomingCallNotification;
     .annotation system Ldalvik/annotation/Throws;
@@ -2662,7 +2662,7 @@
 
     .line 246
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/4 v3, 0x1
@@ -2671,8 +2671,8 @@
 
     .line 247
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_15 .. :try_end_1e} :catchall_23
 
     .line 249
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2684,7 +2684,7 @@
     return-void
 
     .line 249
-    :catchall_0
+    :catchall_23
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2694,7 +2694,7 @@
 .end method
 
 .method public interfaceChain()Ljava/util/ArrayList;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2728,7 +2728,7 @@
 
     .line 1232
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_f
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const v3, 0xf43484e
@@ -2747,8 +2747,8 @@
     invoke-virtual {v1}, Landroid/os/HwParcel;->readStringVector()Ljava/util/ArrayList;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_f .. :try_end_22} :catchall_27
 
     .line 1237
     .local v2, "_hidl_out_descriptors":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
@@ -2762,7 +2762,7 @@
 
     .line 1239
     .end local v2    # "_hidl_out_descriptors":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :catchall_0
+    :catchall_27
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2772,7 +2772,7 @@
 .end method
 
 .method public interfaceDescriptor()Ljava/lang/String;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2797,7 +2797,7 @@
 
     .line 1269
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_f
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const v3, 0xf445343
@@ -2816,8 +2816,8 @@
     invoke-virtual {v1}, Landroid/os/HwParcel;->readString()Ljava/lang/String;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_f .. :try_end_22} :catchall_27
 
     .line 1274
     .local v2, "_hidl_out_descriptor":Ljava/lang/String;
@@ -2831,7 +2831,7 @@
 
     .line 1276
     .end local v2    # "_hidl_out_descriptor":Ljava/lang/String;
-    :catchall_0
+    :catchall_27
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2841,7 +2841,7 @@
 .end method
 
 .method public linkToDeath(Landroid/os/IHwBinder$DeathRecipient;J)Z
-    .locals 1
+    .registers 5
     .param p1, "recipient"    # Landroid/os/IHwBinder$DeathRecipient;
     .param p2, "cookie"    # J
     .annotation system Ldalvik/annotation/Throws;
@@ -2861,7 +2861,7 @@
 .end method
 
 .method public lteMessageWaitingIndication(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 12
     .param p1, "type"    # I
     .param p2, "callId"    # Ljava/lang/String;
     .param p3, "ptype"    # Ljava/lang/String;
@@ -2910,7 +2910,7 @@
 
     .line 733
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_21
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x1c
@@ -2921,8 +2921,8 @@
 
     .line 734
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_21 .. :try_end_2c} :catchall_31
 
     .line 736
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2934,7 +2934,7 @@
     return-void
 
     .line 736
-    :catchall_0
+    :catchall_31
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -2944,7 +2944,7 @@
 .end method
 
 .method public multiImsCount(II)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -2977,7 +2977,7 @@
 
     .line 643
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x17
@@ -2988,8 +2988,8 @@
 
     .line 644
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 646
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3001,7 +3001,7 @@
     return-void
 
     .line 646
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3011,7 +3011,7 @@
 .end method
 
 .method public newSmsEx(ILjava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3053,7 +3053,7 @@
 
     .line 856
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x23
@@ -3064,8 +3064,8 @@
 
     .line 857
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 859
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3077,7 +3077,7 @@
     return-void
 
     .line 859
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3087,7 +3087,7 @@
 .end method
 
 .method public newSmsStatusReportEx(ILjava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3129,7 +3129,7 @@
 
     .line 873
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x24
@@ -3140,8 +3140,8 @@
 
     .line 874
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 876
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3153,7 +3153,7 @@
     return-void
 
     .line 876
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3163,7 +3163,7 @@
 .end method
 
 .method public noEmergencyCallbackMode(I)V
-    .locals 5
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3192,7 +3192,7 @@
 
     .line 906
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_12
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x26
@@ -3203,8 +3203,8 @@
 
     .line 907
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_12 .. :try_end_1d} :catchall_22
 
     .line 909
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3216,7 +3216,7 @@
     return-void
 
     .line 909
-    :catchall_0
+    :catchall_22
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3226,7 +3226,7 @@
 .end method
 
 .method public notifySyspropsChanged()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3251,7 +3251,7 @@
 
     .line 1383
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_f
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const v3, 0xf535953
@@ -3262,8 +3262,8 @@
 
     .line 1384
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_f .. :try_end_1b} :catchall_20
 
     .line 1386
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3275,7 +3275,7 @@
     return-void
 
     .line 1386
-    :catchall_0
+    :catchall_20
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3285,7 +3285,7 @@
 .end method
 
 .method public onMDInternetUsageInd(ILjava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3327,7 +3327,7 @@
 
     .line 1198
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x36
@@ -3338,8 +3338,8 @@
 
     .line 1199
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 1201
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3351,7 +3351,7 @@
     return-void
 
     .line 1201
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3361,7 +3361,7 @@
 .end method
 
 .method public onSsacStatus(ILjava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3403,7 +3403,7 @@
 
     .line 1180
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x35
@@ -3414,8 +3414,8 @@
 
     .line 1181
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 1183
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3427,7 +3427,7 @@
     return-void
 
     .line 1183
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3437,7 +3437,7 @@
 .end method
 
 .method public onUssi(IILjava/lang/String;)V
-    .locals 5
+    .registers 9
     .param p1, "type"    # I
     .param p2, "modeType"    # I
     .param p3, "msg"    # Ljava/lang/String;
@@ -3474,7 +3474,7 @@
 
     .line 365
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_18
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/4 v3, 0x7
@@ -3485,8 +3485,8 @@
 
     .line 366
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_18 .. :try_end_22} :catchall_27
 
     .line 368
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3498,7 +3498,7 @@
     return-void
 
     .line 368
-    :catchall_0
+    :catchall_27
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3508,7 +3508,7 @@
 .end method
 
 .method public onVolteSubscription(II)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -3541,7 +3541,7 @@
 
     .line 419
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0xa
@@ -3552,8 +3552,8 @@
 
     .line 420
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 422
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3565,7 +3565,7 @@
     return-void
 
     .line 422
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3575,7 +3575,7 @@
 .end method
 
 .method public onXui(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 10
     .param p1, "type"    # I
     .param p2, "accountId"    # Ljava/lang/String;
     .param p3, "broadcastFlag"    # Ljava/lang/String;
@@ -3616,7 +3616,7 @@
 
     .line 402
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_1b
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x9
@@ -3627,8 +3627,8 @@
 
     .line 403
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_1b .. :try_end_26} :catchall_2b
 
     .line 405
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3640,7 +3640,7 @@
     return-void
 
     .line 405
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3650,7 +3650,7 @@
 .end method
 
 .method public ping()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3675,7 +3675,7 @@
 
     .line 1347
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_f
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const v3, 0xf504e47
@@ -3689,8 +3689,8 @@
 
     .line 1349
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_f .. :try_end_1e} :catchall_23
 
     .line 1351
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3702,7 +3702,7 @@
     return-void
 
     .line 1351
-    :catchall_0
+    :catchall_23
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3712,7 +3712,7 @@
 .end method
 
 .method public rttCapabilityIndication(IIIIII)V
-    .locals 5
+    .registers 12
     .param p1, "type"    # I
     .param p2, "callId"    # I
     .param p3, "localCap"    # I
@@ -3761,7 +3761,7 @@
 
     .line 967
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_21
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x29
@@ -3772,8 +3772,8 @@
 
     .line 968
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_21 .. :try_end_2c} :catchall_31
 
     .line 970
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3785,7 +3785,7 @@
     return-void
 
     .line 970
-    :catchall_0
+    :catchall_31
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3795,7 +3795,7 @@
 .end method
 
 .method public rttModifyRequestReceive(III)V
-    .locals 5
+    .registers 9
     .param p1, "type"    # I
     .param p2, "callId"    # I
     .param p3, "rttType"    # I
@@ -3832,7 +3832,7 @@
 
     .line 1022
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_18
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x2c
@@ -3843,8 +3843,8 @@
 
     .line 1023
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_18 .. :try_end_23} :catchall_28
 
     .line 1025
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3856,7 +3856,7 @@
     return-void
 
     .line 1025
-    :catchall_0
+    :catchall_28
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3866,7 +3866,7 @@
 .end method
 
 .method public rttModifyResponse(III)V
-    .locals 5
+    .registers 9
     .param p1, "type"    # I
     .param p2, "callId"    # I
     .param p3, "result"    # I
@@ -3903,7 +3903,7 @@
 
     .line 985
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_18
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x2a
@@ -3914,8 +3914,8 @@
 
     .line 986
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_18 .. :try_end_23} :catchall_28
 
     .line 988
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3927,7 +3927,7 @@
     return-void
 
     .line 988
-    :catchall_0
+    :catchall_28
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -3937,7 +3937,7 @@
 .end method
 
 .method public rttTextReceive(IIILjava/lang/String;)V
-    .locals 5
+    .registers 10
     .param p1, "type"    # I
     .param p2, "callId"    # I
     .param p3, "lenOfString"    # I
@@ -3978,7 +3978,7 @@
 
     .line 1004
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_1b
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x2b
@@ -3989,8 +3989,8 @@
 
     .line 1005
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_1b .. :try_end_26} :catchall_2b
 
     .line 1007
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4002,7 +4002,7 @@
     return-void
 
     .line 1007
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4012,7 +4012,7 @@
 .end method
 
 .method public sendVopsIndication(II)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .param p2, "vops"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -4045,7 +4045,7 @@
 
     .line 1057
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x2e
@@ -4056,8 +4056,8 @@
 
     .line 1058
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 1060
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4069,7 +4069,7 @@
     return-void
 
     .line 1060
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4079,7 +4079,7 @@
 .end method
 
 .method public setHALInstrumentation()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4104,7 +4104,7 @@
 
     .line 1327
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_f
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const v3, 0xf494e54
@@ -4115,8 +4115,8 @@
 
     .line 1328
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_f .. :try_end_1b} :catchall_20
 
     .line 1330
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4128,7 +4128,7 @@
     return-void
 
     .line 1330
-    :catchall_0
+    :catchall_20
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4138,7 +4138,7 @@
 .end method
 
 .method public sipCallProgressIndicator(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 13
     .param p1, "type"    # I
     .param p2, "callId"    # Ljava/lang/String;
     .param p3, "dir"    # Ljava/lang/String;
@@ -4191,7 +4191,7 @@
 
     .line 307
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_24
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/4 v3, 0x4
@@ -4202,8 +4202,8 @@
 
     .line 308
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_24 .. :try_end_2e} :catchall_33
 
     .line 310
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4215,7 +4215,7 @@
     return-void
 
     .line 310
-    :catchall_0
+    :catchall_33
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4225,7 +4225,7 @@
 .end method
 
 .method public sipHeaderReport(ILjava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -4267,7 +4267,7 @@
 
     .line 1092
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x30
@@ -4278,8 +4278,8 @@
 
     .line 1093
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 1095
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4291,7 +4291,7 @@
     return-void
 
     .line 1095
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4301,7 +4301,7 @@
 .end method
 
 .method public sipRegInfoInd(IIILjava/util/ArrayList;)V
-    .locals 5
+    .registers 10
     .param p1, "type"    # I
     .param p2, "account_id"    # I
     .param p3, "response_code"    # I
@@ -4351,7 +4351,7 @@
 
     .line 1129
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_1b
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x32
@@ -4362,8 +4362,8 @@
 
     .line 1130
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_1b .. :try_end_26} :catchall_2b
 
     .line 1132
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4375,7 +4375,7 @@
     return-void
 
     .line 1132
-    :catchall_0
+    :catchall_2b
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4385,7 +4385,7 @@
 .end method
 
 .method public speechCodecInfoIndication(II)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .param p2, "info"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -4418,7 +4418,7 @@
 
     .line 695
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x1a
@@ -4429,8 +4429,8 @@
 
     .line 696
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 698
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4442,7 +4442,7 @@
     return-void
 
     .line 698
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4452,7 +4452,7 @@
 .end method
 
 .method public suppSvcNotify(ILandroid/hardware/radio/V1_0/SuppSvcNotification;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .param p2, "suppSvc"    # Landroid/hardware/radio/V1_0/SuppSvcNotification;
     .annotation system Ldalvik/annotation/Throws;
@@ -4485,7 +4485,7 @@
 
     .line 436
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0xb
@@ -4496,8 +4496,8 @@
 
     .line 437
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 439
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4509,7 +4509,7 @@
     return-void
 
     .line 439
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4519,7 +4519,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 218
     :try_start_0
@@ -4540,13 +4540,13 @@
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_15} :catch_16
 
     return-object v0
 
     .line 219
-    :catch_0
+    :catch_16
     move-exception v0
 
     .line 222
@@ -4556,7 +4556,7 @@
 .end method
 
 .method public unlinkToDeath(Landroid/os/IHwBinder$DeathRecipient;)Z
-    .locals 1
+    .registers 3
     .param p1, "recipient"    # Landroid/os/IHwBinder$DeathRecipient;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4575,7 +4575,7 @@
 .end method
 
 .method public videoCapabilityIndicator(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .registers 10
     .param p1, "type"    # I
     .param p2, "callId"    # Ljava/lang/String;
     .param p3, "localVideoCap"    # Ljava/lang/String;
@@ -4616,7 +4616,7 @@
 
     .line 347
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_1b
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/4 v3, 0x6
@@ -4627,8 +4627,8 @@
 
     .line 348
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catchall {:try_start_1b .. :try_end_25} :catchall_2a
 
     .line 350
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4640,7 +4640,7 @@
     return-void
 
     .line 350
-    :catchall_0
+    :catchall_2a
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4650,7 +4650,7 @@
 .end method
 
 .method public videoRingtoneEventInd(ILjava/util/ArrayList;)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -4692,7 +4692,7 @@
 
     .line 1216
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x37
@@ -4703,8 +4703,8 @@
 
     .line 1217
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 1219
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4716,7 +4716,7 @@
     return-void
 
     .line 1219
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4726,7 +4726,7 @@
 .end method
 
 .method public volteSetting(IZ)V
-    .locals 5
+    .registers 8
     .param p1, "type"    # I
     .param p2, "isEnable"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -4759,7 +4759,7 @@
 
     .line 575
     .local v1, "_hidl_reply":Landroid/os/HwParcel;
-    :try_start_0
+    :try_start_15
     iget-object v2, p0, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Proxy;->mRemote:Landroid/os/IHwBinder;
 
     const/16 v3, 0x13
@@ -4770,8 +4770,8 @@
 
     .line 576
     invoke-virtual {v0}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_15 .. :try_end_20} :catchall_25
 
     .line 578
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
@@ -4783,7 +4783,7 @@
     return-void
 
     .line 578
-    :catchall_0
+    :catchall_25
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/HwParcel;->release()V

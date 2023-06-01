@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -121,7 +121,7 @@
 .end method
 
 .method public static final readVectorFromParcel(Landroid/os/HwParcel;)Ljava/util/ArrayList;
-    .locals 12
+    .registers 13
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -185,8 +185,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_24
+    if-ge v4, v2, :cond_37
 
     .line 170
     new-instance v5, Landroid/hardware/radio/V1_0/DataProfileInfo;
@@ -208,18 +208,18 @@
     .end local v5    # "_hidl_vec_element":Landroid/hardware/radio/V1_0/DataProfileInfo;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 176
     .end local v2    # "_hidl_vec_size":I
     .end local v3    # "childBlob":Landroid/os/HwBlob;
     .end local v4    # "_hidl_index_0":I
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method public static final writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
-    .locals 7
+    .registers 9
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -270,8 +270,8 @@
     const/4 v3, 0x0
 
     .local v3, "_hidl_index_0":I
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_1e
+    if-ge v3, v1, :cond_2f
 
     .line 251
     invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -289,11 +289,11 @@
     .line 250
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 253
     .end local v3    # "_hidl_index_0":I
-    :cond_0
+    :cond_2f
     const-wide/16 v3, 0x0
 
     invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
@@ -310,41 +310,41 @@
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "otherObject"    # Ljava/lang/Object;
 
     .line 25
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 26
     return v0
 
     .line 28
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 29
     return v1
 
     .line 31
-    :cond_1
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
     const-class v3, Landroid/hardware/radio/V1_0/DataProfileInfo;
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_11
 
     .line 32
     return v1
 
     .line 34
-    :cond_2
+    :cond_11
     move-object v2, p1
 
     check-cast v2, Landroid/hardware/radio/V1_0/DataProfileInfo;
@@ -355,13 +355,13 @@
 
     iget v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->profileId:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     .line 36
     return v1
 
     .line 38
-    :cond_3
+    :cond_1b
     iget-object v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->apn:Ljava/lang/String;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->apn:Ljava/lang/String;
@@ -370,13 +370,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_26
 
     .line 39
     return v1
 
     .line 41
-    :cond_4
+    :cond_26
     iget-object v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->protocol:Ljava/lang/String;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->protocol:Ljava/lang/String;
@@ -385,13 +385,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_31
 
     .line 42
     return v1
 
     .line 44
-    :cond_5
+    :cond_31
     iget-object v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->roamingProtocol:Ljava/lang/String;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->roamingProtocol:Ljava/lang/String;
@@ -400,24 +400,24 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_3c
 
     .line 45
     return v1
 
     .line 47
-    :cond_6
+    :cond_3c
     iget v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->authType:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->authType:I
 
-    if-eq v3, v4, :cond_7
+    if-eq v3, v4, :cond_43
 
     .line 48
     return v1
 
     .line 50
-    :cond_7
+    :cond_43
     iget-object v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->user:Ljava/lang/String;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->user:Ljava/lang/String;
@@ -426,13 +426,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_4e
 
     .line 51
     return v1
 
     .line 53
-    :cond_8
+    :cond_4e
     iget-object v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->password:Ljava/lang/String;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->password:Ljava/lang/String;
@@ -441,68 +441,68 @@
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_59
 
     .line 54
     return v1
 
     .line 56
-    :cond_9
+    :cond_59
     iget v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->type:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->type:I
 
-    if-eq v3, v4, :cond_a
+    if-eq v3, v4, :cond_60
 
     .line 57
     return v1
 
     .line 59
-    :cond_a
+    :cond_60
     iget v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->maxConnsTime:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->maxConnsTime:I
 
-    if-eq v3, v4, :cond_b
+    if-eq v3, v4, :cond_67
 
     .line 60
     return v1
 
     .line 62
-    :cond_b
+    :cond_67
     iget v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->maxConns:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->maxConns:I
 
-    if-eq v3, v4, :cond_c
+    if-eq v3, v4, :cond_6e
 
     .line 63
     return v1
 
     .line 65
-    :cond_c
+    :cond_6e
     iget v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->waitTime:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->waitTime:I
 
-    if-eq v3, v4, :cond_d
+    if-eq v3, v4, :cond_75
 
     .line 66
     return v1
 
     .line 68
-    :cond_d
+    :cond_75
     iget-boolean v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->enabled:Z
 
     iget-boolean v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->enabled:Z
 
-    if-eq v3, v4, :cond_e
+    if-eq v3, v4, :cond_7c
 
     .line 69
     return v1
 
     .line 71
-    :cond_e
+    :cond_7c
     iget v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->supportedApnTypesBitmap:I
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -519,13 +519,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_f
+    if-nez v3, :cond_8f
 
     .line 72
     return v1
 
     .line 74
-    :cond_f
+    :cond_8f
     iget v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->bearerBitmap:I
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -542,35 +542,35 @@
 
     move-result v3
 
-    if-nez v3, :cond_10
+    if-nez v3, :cond_a2
 
     .line 75
     return v1
 
     .line 77
-    :cond_10
+    :cond_a2
     iget v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->mtu:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->mtu:I
 
-    if-eq v3, v4, :cond_11
+    if-eq v3, v4, :cond_a9
 
     .line 78
     return v1
 
     .line 80
-    :cond_11
+    :cond_a9
     iget v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->mvnoType:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->mvnoType:I
 
-    if-eq v3, v4, :cond_12
+    if-eq v3, v4, :cond_b0
 
     .line 81
     return v1
 
     .line 83
-    :cond_12
+    :cond_b0
     iget-object v3, p0, Landroid/hardware/radio/V1_0/DataProfileInfo;->mvnoMatchData:Ljava/lang/String;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/DataProfileInfo;->mvnoMatchData:Ljava/lang/String;
@@ -579,18 +579,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_13
+    if-nez v3, :cond_bb
 
     .line 84
     return v1
 
     .line 86
-    :cond_13
+    :cond_bb
     return v0
 .end method
 
 .method public final hashCode()I
-    .locals 3
+    .registers 4
 
     .line 91
     const/16 v0, 0x11
@@ -905,7 +905,7 @@
 .end method
 
 .method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
-    .locals 15
+    .registers 20
     .param p1, "parcel"    # Landroid/os/HwParcel;
     .param p2, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p3, "_hidl_offset"    # J
@@ -1276,7 +1276,7 @@
 .end method
 
 .method public final readFromParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 154
@@ -1297,7 +1297,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 113
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1518,7 +1518,7 @@
 .end method
 
 .method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-    .locals 3
+    .registers 7
     .param p1, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p2, "_hidl_offset"    # J
 
@@ -1680,7 +1680,7 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 237

@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 51
     invoke-direct {p0}, Landroid/app/Application;-><init>()V
@@ -23,14 +23,14 @@
 
 # virtual methods
 .method public onCreate()V
-    .locals 2
+    .registers 3
 
     .line 56
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 57
     invoke-super {p0}, Landroid/app/Application;->onCreate()V
@@ -43,12 +43,12 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 60
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public onTerminate()V
-    .locals 2
+    .registers 3
 
     .line 64
     const-string v0, "WfoApp"

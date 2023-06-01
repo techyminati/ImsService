@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 54
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method public factoryReset()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -51,7 +51,7 @@
 .end method
 
 .method public getDisconnectCause(I)Lcom/mediatek/wfo/DisconnectCause;
-    .locals 1
+    .registers 3
     .param p1, "simIdx"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -66,7 +66,7 @@
 .end method
 
 .method public getMccMncAllowList(I)[Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "mode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -81,7 +81,7 @@
 .end method
 
 .method public getRatType(I)I
-    .locals 1
+    .registers 3
     .param p1, "simIdx"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -96,7 +96,7 @@
 .end method
 
 .method public isWifiConnected()Z
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -110,7 +110,7 @@
 .end method
 
 .method public registerForHandoverEvent(Lcom/mediatek/wfo/IWifiOffloadListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/mediatek/wfo/IWifiOffloadListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -123,7 +123,7 @@
 .end method
 
 .method public setEpdgFqdn(ILjava/lang/String;Z)V
-    .locals 0
+    .registers 4
     .param p1, "simIdx"    # I
     .param p2, "fqdn"    # Ljava/lang/String;
     .param p3, "wfcEnabled"    # Z
@@ -138,7 +138,7 @@
 .end method
 
 .method public setMccMncAllowList([Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "allowList"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -153,7 +153,7 @@
 .end method
 
 .method public setWifiOff()Z
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -167,7 +167,7 @@
 .end method
 
 .method public unregisterForHandoverEvent(Lcom/mediatek/wfo/IWifiOffloadListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/mediatek/wfo/IWifiOffloadListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -180,7 +180,7 @@
 .end method
 
 .method public updateCallState(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "simIdx"    # I
     .param p2, "callId"    # I
     .param p3, "callType"    # I
@@ -196,7 +196,7 @@
 .end method
 
 .method public updateRadioState(II)V
-    .locals 0
+    .registers 3
     .param p1, "simIdx"    # I
     .param p2, "radioState"    # I
     .annotation system Ldalvik/annotation/Throws;

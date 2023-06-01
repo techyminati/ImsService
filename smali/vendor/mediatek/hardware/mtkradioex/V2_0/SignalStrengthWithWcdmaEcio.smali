@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -93,7 +93,7 @@
 .end method
 
 .method public static final readVectorFromParcel(Landroid/os/HwParcel;)Ljava/util/ArrayList;
-    .locals 12
+    .registers 13
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -157,8 +157,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_24
+    if-ge v4, v2, :cond_37
 
     .line 156
     new-instance v5, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;
@@ -180,18 +180,18 @@
     .end local v5    # "_hidl_vec_element":Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 162
     .end local v2    # "_hidl_vec_size":I
     .end local v3    # "childBlob":Landroid/os/HwBlob;
     .end local v4    # "_hidl_index_0":I
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method public static final writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
-    .locals 7
+    .registers 9
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -242,8 +242,8 @@
     const/4 v3, 0x0
 
     .local v3, "_hidl_index_0":I
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_1e
+    if-ge v3, v1, :cond_2f
 
     .line 199
     invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -261,11 +261,11 @@
     .line 198
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 201
     .end local v3    # "_hidl_index_0":I
-    :cond_0
+    :cond_2f
     const-wide/16 v3, 0x0
 
     invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
@@ -282,41 +282,41 @@
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "otherObject"    # Ljava/lang/Object;
 
     .line 23
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 24
     return v0
 
     .line 26
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 27
     return v1
 
     .line 29
-    :cond_1
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
     const-class v3, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_11
 
     .line 30
     return v1
 
     .line 32
-    :cond_2
+    :cond_11
     move-object v2, p1
 
     check-cast v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;
@@ -327,172 +327,172 @@
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->gsm_signalStrength:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     .line 34
     return v1
 
     .line 36
-    :cond_3
+    :cond_1b
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->gsm_bitErrorRate:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->gsm_bitErrorRate:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_22
 
     .line 37
     return v1
 
     .line 39
-    :cond_4
+    :cond_22
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->wcdma_rscp:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->wcdma_rscp:I
 
-    if-eq v3, v4, :cond_5
+    if-eq v3, v4, :cond_29
 
     .line 40
     return v1
 
     .line 42
-    :cond_5
+    :cond_29
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->wcdma_ecio:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->wcdma_ecio:I
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v4, :cond_30
 
     .line 43
     return v1
 
     .line 45
-    :cond_6
+    :cond_30
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->cdma_dbm:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->cdma_dbm:I
 
-    if-eq v3, v4, :cond_7
+    if-eq v3, v4, :cond_37
 
     .line 46
     return v1
 
     .line 48
-    :cond_7
+    :cond_37
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->cdma_ecio:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->cdma_ecio:I
 
-    if-eq v3, v4, :cond_8
+    if-eq v3, v4, :cond_3e
 
     .line 49
     return v1
 
     .line 51
-    :cond_8
+    :cond_3e
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->evdo_dbm:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->evdo_dbm:I
 
-    if-eq v3, v4, :cond_9
+    if-eq v3, v4, :cond_45
 
     .line 52
     return v1
 
     .line 54
-    :cond_9
+    :cond_45
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->evdo_ecio:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->evdo_ecio:I
 
-    if-eq v3, v4, :cond_a
+    if-eq v3, v4, :cond_4c
 
     .line 55
     return v1
 
     .line 57
-    :cond_a
+    :cond_4c
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->evdo_signalNoiseRatio:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->evdo_signalNoiseRatio:I
 
-    if-eq v3, v4, :cond_b
+    if-eq v3, v4, :cond_53
 
     .line 58
     return v1
 
     .line 60
-    :cond_b
+    :cond_53
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->lte_signalStrength:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->lte_signalStrength:I
 
-    if-eq v3, v4, :cond_c
+    if-eq v3, v4, :cond_5a
 
     .line 61
     return v1
 
     .line 63
-    :cond_c
+    :cond_5a
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->lte_rsrp:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->lte_rsrp:I
 
-    if-eq v3, v4, :cond_d
+    if-eq v3, v4, :cond_61
 
     .line 64
     return v1
 
     .line 66
-    :cond_d
+    :cond_61
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->lte_rsrq:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->lte_rsrq:I
 
-    if-eq v3, v4, :cond_e
+    if-eq v3, v4, :cond_68
 
     .line 67
     return v1
 
     .line 69
-    :cond_e
+    :cond_68
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->lte_rssnr:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->lte_rssnr:I
 
-    if-eq v3, v4, :cond_f
+    if-eq v3, v4, :cond_6f
 
     .line 70
     return v1
 
     .line 72
-    :cond_f
+    :cond_6f
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->lte_cqi:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->lte_cqi:I
 
-    if-eq v3, v4, :cond_10
+    if-eq v3, v4, :cond_76
 
     .line 73
     return v1
 
     .line 75
-    :cond_10
+    :cond_76
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->tdscdma_rscp:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/SignalStrengthWithWcdmaEcio;->tdscdma_rscp:I
 
-    if-eq v3, v4, :cond_11
+    if-eq v3, v4, :cond_7d
 
     .line 76
     return v1
 
     .line 78
-    :cond_11
+    :cond_7d
     return v0
 .end method
 
 .method public final hashCode()I
-    .locals 3
+    .registers 4
 
     .line 83
     const/16 v0, 0xf
@@ -793,7 +793,7 @@
 .end method
 
 .method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
-    .locals 2
+    .registers 7
     .param p1, "parcel"    # Landroid/os/HwParcel;
     .param p2, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p3, "_hidl_offset"    # J
@@ -968,7 +968,7 @@
 .end method
 
 .method public final readFromParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 140
@@ -989,7 +989,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 103
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1166,7 +1166,7 @@
 .end method
 
 .method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-    .locals 3
+    .registers 7
     .param p1, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p2, "_hidl_offset"    # J
 
@@ -1310,7 +1310,7 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 185

@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 59
@@ -48,7 +48,7 @@
 
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_12
 
     .line 62
     const-string v2, "UNKNOWN"
@@ -59,7 +59,7 @@
     or-int/lit8 v1, v1, -0x1
 
     .line 65
-    :cond_0
+    :cond_12
     const-string v2, "IP"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -69,7 +69,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 67
     const-string v2, "IPV6"
@@ -80,12 +80,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 70
-    :cond_1
+    :cond_23
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2f
 
     .line 71
     const-string v2, "IPV4V6"
@@ -96,12 +96,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 74
-    :cond_2
+    :cond_2f
     and-int/lit8 v2, p0, 0x3
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_3b
 
     .line 75
     const-string v2, "PPP"
@@ -112,12 +112,12 @@
     or-int/lit8 v1, v1, 0x3
 
     .line 78
-    :cond_3
+    :cond_3b
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_47
 
     .line 79
     const-string v2, "NON_IP"
@@ -128,12 +128,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 82
-    :cond_4
+    :cond_47
     and-int/lit8 v2, p0, 0x5
 
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_53
 
     .line 83
     const-string v2, "UNSTRUCTURED"
@@ -144,8 +144,8 @@
     or-int/lit8 v1, v1, 0x5
 
     .line 86
-    :cond_5
-    if-eq p0, v1, :cond_6
+    :cond_53
+    if-eq p0, v1, :cond_6f
 
     .line 87
     new-instance v2, Ljava/lang/StringBuilder;
@@ -173,7 +173,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 89
-    :cond_6
+    :cond_6f
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -184,13 +184,13 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 34
     const/4 v0, -0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_6
 
     .line 35
     const-string v0, "UNKNOWN"
@@ -198,8 +198,8 @@
     return-object v0
 
     .line 37
-    :cond_0
-    if-nez p0, :cond_1
+    :cond_6
+    if-nez p0, :cond_b
 
     .line 38
     const-string v0, "IP"
@@ -207,10 +207,10 @@
     return-object v0
 
     .line 40
-    :cond_1
+    :cond_b
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_11
 
     .line 41
     const-string v0, "IPV6"
@@ -218,10 +218,10 @@
     return-object v0
 
     .line 43
-    :cond_2
+    :cond_11
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_17
 
     .line 44
     const-string v0, "IPV4V6"
@@ -229,10 +229,10 @@
     return-object v0
 
     .line 46
-    :cond_3
+    :cond_17
     const/4 v0, 0x3
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1d
 
     .line 47
     const-string v0, "PPP"
@@ -240,10 +240,10 @@
     return-object v0
 
     .line 49
-    :cond_4
+    :cond_1d
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_23
 
     .line 50
     const-string v0, "NON_IP"
@@ -251,10 +251,10 @@
     return-object v0
 
     .line 52
-    :cond_5
+    :cond_23
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_29
 
     .line 53
     const-string v0, "UNSTRUCTURED"
@@ -262,7 +262,7 @@
     return-object v0
 
     .line 55
-    :cond_6
+    :cond_29
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/impl/WifiPdnHandler;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     .line 1579
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAvailable(Landroid/net/Network;)V
-    .locals 5
+    .registers 7
     .param p1, "network"    # Landroid/net/Network;
 
     .line 1583
@@ -50,6 +50,7 @@
 
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$2;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WifiPdnHandler;->mWifiConnState:I
     invoke-static {v2}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->access$400(Lcom/mediatek/wfo/impl/WifiPdnHandler;)I
 
     move-result v2
@@ -65,6 +66,7 @@
     .line 1584
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$2;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WifiPdnHandler;->mWifiConnState:I
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->access$400(Lcom/mediatek/wfo/impl/WifiPdnHandler;)I
 
     move-result v0
@@ -75,7 +77,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_3f
 
     .line 1585
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$2;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
@@ -106,6 +108,6 @@
 
     .line 1591
     .end local v0    # "msg":Landroid/os/Message;
-    :cond_0
+    :cond_3f
     return-void
 .end method

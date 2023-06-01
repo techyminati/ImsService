@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/impl/WfcLocationHandler;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 700
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onAvailable(Landroid/net/Network;)V
-    .locals 2
+    .registers 4
     .param p1, "network"    # Landroid/net/Network;
 
     .line 703
@@ -49,6 +49,7 @@
 
     const/4 v1, 0x1
 
+    # setter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkAvailable:Z
     invoke-static {v0, v1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$402(Lcom/mediatek/wfo/impl/WfcLocationHandler;Z)Z
 
     .line 705
@@ -63,7 +64,7 @@
 .end method
 
 .method public onLost(Landroid/net/Network;)V
-    .locals 2
+    .registers 4
     .param p1, "network"    # Landroid/net/Network;
 
     .line 710
@@ -78,6 +79,7 @@
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkAvailable:Z
     invoke-static {v0, v1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$402(Lcom/mediatek/wfo/impl/WfcLocationHandler;Z)Z
 
     .line 712

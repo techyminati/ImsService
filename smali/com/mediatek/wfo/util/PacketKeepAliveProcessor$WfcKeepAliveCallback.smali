@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;)V
-    .locals 1
+    .registers 4
     .param p1, "this$0"    # Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;
     .param p2, "config"    # Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method private errorToString(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "error"    # I
 
     .line 194
@@ -59,85 +59,85 @@
 
     .line 195
     .local v0, "str":Ljava/lang/String;
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_1c
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_5
+    goto :goto_1b
 
     .line 197
-    :pswitch_1
+    :pswitch_6
     const-string v0, "ERROR_INVALID_NETWORK"
 
     .line 198
-    goto :goto_0
+    goto :goto_1b
 
     .line 200
-    :pswitch_2
+    :pswitch_9
     const-string v0, "ERROR_INVALID_IP_ADDRESS"
 
     .line 201
-    goto :goto_0
+    goto :goto_1b
 
     .line 203
-    :pswitch_3
+    :pswitch_c
     const-string v0, "ERROR_INVALID_PORT"
 
     .line 204
-    goto :goto_0
+    goto :goto_1b
 
     .line 206
-    :pswitch_4
+    :pswitch_f
     const-string v0, "ERROR_INVALID_LENGTH"
 
     .line 207
-    goto :goto_0
+    goto :goto_1b
 
     .line 209
-    :pswitch_5
+    :pswitch_12
     const-string v0, "ERROR_INVALID_INTERVAL"
 
     .line 210
-    goto :goto_0
+    goto :goto_1b
 
     .line 212
-    :pswitch_6
+    :pswitch_15
     const-string v0, "ERROR_HARDWARE_UNSUPPORTED"
 
     .line 213
-    goto :goto_0
+    goto :goto_1b
 
     .line 215
-    :pswitch_7
+    :pswitch_18
     const-string v0, "ERROR_HARDWARE_ERROR"
 
     .line 216
     nop
 
     .line 220
-    :goto_0
+    :goto_1b
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch -0x1f
-        :pswitch_7
-        :pswitch_6
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_18
+        :pswitch_15
         :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_5
+        :pswitch_5
+        :pswitch_5
+        :pswitch_5
+        :pswitch_12
+        :pswitch_f
+        :pswitch_c
+        :pswitch_9
+        :pswitch_6
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public isError()Z
-    .locals 1
+    .registers 2
 
     .line 165
     iget-boolean v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$WfcKeepAliveCallback;->mIsError:Z
@@ -146,7 +146,7 @@
 .end method
 
 .method public isStarted()Z
-    .locals 1
+    .registers 2
 
     .line 161
     iget-boolean v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$WfcKeepAliveCallback;->mIsStarted:Z
@@ -155,7 +155,7 @@
 .end method
 
 .method public onError(I)V
-    .locals 2
+    .registers 4
     .param p1, "error"    # I
 
     .line 188
@@ -199,7 +199,7 @@
 .end method
 
 .method public onStarted()V
-    .locals 5
+    .registers 6
 
     .line 170
     const-string v0, "PacketKeepAliveProcessor"
@@ -239,7 +239,7 @@
 .end method
 
 .method public onStopped()V
-    .locals 5
+    .registers 6
 
     .line 178
     const-string v0, "PacketKeepAliveProcessor"

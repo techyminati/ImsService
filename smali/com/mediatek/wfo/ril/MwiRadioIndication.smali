@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/ril/MwiRIL;I)V
-    .locals 2
+    .registers 5
     .param p1, "ril"    # Lcom/mediatek/wfo/ril/MwiRIL;
     .param p2, "phoneId"    # I
 
@@ -48,7 +48,7 @@
 .end method
 
 .method private convertArrayListToIntArray(Ljava/util/ArrayList;)[I
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,12 +71,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_7
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1c
 
     .line 186
     invoke-virtual {p1, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -94,18 +94,18 @@
     .line 185
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 188
     .end local v1    # "i":I
-    :cond_0
+    :cond_1c
     return-object v0
 .end method
 
 
 # virtual methods
 .method public onLocationRequest(ILjava/util/ArrayList;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -166,7 +166,7 @@
 
     iget-object v1, v1, Lcom/mediatek/wfo/ril/MwiRIL;->mRequestGeoLocationRegistrants:Landroid/os/RegistrantList;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3b
 
     .line 103
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRadioIndication;->mRil:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -182,12 +182,12 @@
     invoke-virtual {v1, v2}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
     .line 106
-    :cond_0
+    :cond_3b
     return-void
 .end method
 
 .method public onNattKeepAliveChanged(ILjava/util/ArrayList;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -248,7 +248,7 @@
 
     iget-object v1, v1, Lcom/mediatek/wfo/ril/MwiRIL;->mNattKeepAliveChangedRegistrants:Landroid/os/RegistrantList;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3b
 
     .line 131
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRadioIndication;->mRil:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -264,12 +264,12 @@
     invoke-virtual {v1, v2}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
     .line 134
-    :cond_0
+    :cond_3b
     return-void
 .end method
 
 .method public onPdnHandover(ILjava/util/ArrayList;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -298,7 +298,7 @@
 
     iget-object v0, v0, Lcom/mediatek/wfo/ril/MwiRIL;->mWifiPdnHandoverRegistrants:Landroid/os/RegistrantList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 71
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRadioIndication;->mRil:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -320,12 +320,12 @@
     invoke-virtual {v0, v1}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
     .line 74
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method public onWfcPdnError(ILjava/util/ArrayList;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -354,7 +354,7 @@
 
     iget-object v0, v0, Lcom/mediatek/wfo/ril/MwiRIL;->mWifiPdnErrorRegistrants:Landroid/os/RegistrantList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 58
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRadioIndication;->mRil:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -376,12 +376,12 @@
     invoke-virtual {v0, v1}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
     .line 61
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method public onWfcPdnStateChanged(ILjava/util/ArrayList;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -410,7 +410,7 @@
 
     iget-object v0, v0, Lcom/mediatek/wfo/ril/MwiRIL;->mWfcPdnStateChangedRegistrants:Landroid/os/RegistrantList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 116
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRadioIndication;->mRil:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -432,12 +432,12 @@
     invoke-virtual {v0, v1}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
     .line 119
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method public onWifiLock(ILjava/util/ArrayList;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -498,7 +498,7 @@
 
     iget-object v1, v1, Lcom/mediatek/wfo/ril/MwiRIL;->mWifiLockRegistrants:Landroid/os/RegistrantList;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3b
 
     .line 164
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRadioIndication;->mRil:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -514,12 +514,12 @@
     invoke-virtual {v1, v2}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
     .line 166
-    :cond_0
+    :cond_3b
     return-void
 .end method
 
 .method public onWifiMonitoringThreshouldChanged(ILjava/util/ArrayList;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -548,7 +548,7 @@
 
     iget-object v0, v0, Lcom/mediatek/wfo/ril/MwiRIL;->mRssiThresholdChangedRegistrants:Landroid/os/RegistrantList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 32
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRadioIndication;->mRil:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -570,12 +570,12 @@
     invoke-virtual {v0, v1}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
     .line 35
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method public onWifiPdnActivate(ILjava/util/ArrayList;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -604,7 +604,7 @@
 
     iget-object v0, v0, Lcom/mediatek/wfo/ril/MwiRIL;->mWifiPdnActivatedRegistrants:Landroid/os/RegistrantList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 45
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRadioIndication;->mRil:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -626,12 +626,12 @@
     invoke-virtual {v0, v1}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
     .line 48
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method public onWifiPdnOOS(ILjava/util/ArrayList;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -692,7 +692,7 @@
 
     iget-object v1, v1, Lcom/mediatek/wfo/ril/MwiRIL;->mWifiPdnOosRegistrants:Landroid/os/RegistrantList;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3b
 
     .line 148
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRadioIndication;->mRil:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -708,12 +708,12 @@
     invoke-virtual {v1, v2}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
     .line 150
-    :cond_0
+    :cond_3b
     return-void
 .end method
 
 .method public onWifiPingRequest(ILjava/util/ArrayList;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -742,7 +742,7 @@
 
     iget-object v0, v0, Lcom/mediatek/wfo/ril/MwiRIL;->mWifiPingRequestRegistrants:Landroid/os/RegistrantList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 178
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRadioIndication;->mRil:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -764,12 +764,12 @@
     invoke-virtual {v0, v1}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
     .line 181
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method public onWifiRoveout(ILjava/util/ArrayList;)V
-    .locals 4
+    .registers 7
     .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -830,7 +830,7 @@
 
     iget-object v1, v1, Lcom/mediatek/wfo/ril/MwiRIL;->mWifiPdnRoveOutRegistrants:Landroid/os/RegistrantList;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3b
 
     .line 87
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRadioIndication;->mRil:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -846,6 +846,6 @@
     invoke-virtual {v1, v2}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
     .line 90
-    :cond_0
+    :cond_3b
     return-void
 .end method

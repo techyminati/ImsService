@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "instanceId"    # I
 
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public registerNattKeepAliveChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "h"    # Landroid/os/Handler;
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
@@ -154,7 +154,7 @@
 .end method
 
 .method public registerRequestGeoLocation(Landroid/os/Handler;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "h"    # Landroid/os/Handler;
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
@@ -175,7 +175,7 @@
 .end method
 
 .method public registerRssiThresholdChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "h"    # Landroid/os/Handler;
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
@@ -196,7 +196,7 @@
 .end method
 
 .method public registerWfcPdnStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "h"    # Landroid/os/Handler;
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
@@ -217,7 +217,7 @@
 .end method
 
 .method public registerWifiLock(Landroid/os/Handler;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "h"    # Landroid/os/Handler;
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
@@ -238,7 +238,7 @@
 .end method
 
 .method public registerWifiPdnActivated(Landroid/os/Handler;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "h"    # Landroid/os/Handler;
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
@@ -259,7 +259,7 @@
 .end method
 
 .method public registerWifiPdnError(Landroid/os/Handler;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "h"    # Landroid/os/Handler;
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
@@ -280,7 +280,7 @@
 .end method
 
 .method public registerWifiPdnHandover(Landroid/os/Handler;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "h"    # Landroid/os/Handler;
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
@@ -301,7 +301,7 @@
 .end method
 
 .method public registerWifiPdnOos(Landroid/os/Handler;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "h"    # Landroid/os/Handler;
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
@@ -322,7 +322,7 @@
 .end method
 
 .method public registerWifiPdnRoveOut(Landroid/os/Handler;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "h"    # Landroid/os/Handler;
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
@@ -343,7 +343,7 @@
 .end method
 
 .method public registerWifiPingRequest(Landroid/os/Handler;ILjava/lang/Object;)V
-    .locals 2
+    .registers 6
     .param p1, "h"    # Landroid/os/Handler;
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
@@ -364,7 +364,7 @@
 .end method
 
 .method public unregisterRequestGeoLocation(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "h"    # Landroid/os/Handler;
 
     .line 138
@@ -377,7 +377,7 @@
 .end method
 
 .method public unregisterRssiThresholdChanged(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "h"    # Landroid/os/Handler;
 
     .line 83
@@ -390,7 +390,7 @@
 .end method
 
 .method public unregisterWfcPdnStateChanged(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "h"    # Landroid/os/Handler;
 
     .line 149
@@ -403,7 +403,7 @@
 .end method
 
 .method public unregisterWifiLock(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "h"    # Landroid/os/Handler;
 
     .line 182
@@ -416,7 +416,7 @@
 .end method
 
 .method public unregisterWifiPdnActivate(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "h"    # Landroid/os/Handler;
 
     .line 94
@@ -429,7 +429,7 @@
 .end method
 
 .method public unregisterWifiPdnError(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "h"    # Landroid/os/Handler;
 
     .line 105
@@ -442,7 +442,7 @@
 .end method
 
 .method public unregisterWifiPdnHandover(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "h"    # Landroid/os/Handler;
 
     .line 116
@@ -455,7 +455,7 @@
 .end method
 
 .method public unregisterWifiPdnOos(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "h"    # Landroid/os/Handler;
 
     .line 171
@@ -468,7 +468,7 @@
 .end method
 
 .method public unregisterWifiPdnRoveOut(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "h"    # Landroid/os/Handler;
 
     .line 127
@@ -481,7 +481,7 @@
 .end method
 
 .method public unregisterWifiPingRequest(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "h"    # Landroid/os/Handler;
 
     .line 160
@@ -494,7 +494,7 @@
 .end method
 
 .method public unrgisterNattKeepAliveChanged(Landroid/os/Handler;)V
-    .locals 1
+    .registers 3
     .param p1, "h"    # Landroid/os/Handler;
 
     .line 193

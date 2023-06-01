@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method public static final readVectorFromParcel(Landroid/os/HwParcel;)Ljava/util/ArrayList;
-    .locals 12
+    .registers 13
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -119,8 +119,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_24
+    if-ge v4, v2, :cond_37
 
     .line 204
     new-instance v5, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;
@@ -142,18 +142,18 @@
     .end local v5    # "_hidl_vec_element":Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 210
     .end local v2    # "_hidl_vec_size":I
     .end local v3    # "childBlob":Landroid/os/HwBlob;
     .end local v4    # "_hidl_index_0":I
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method public static final writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
-    .locals 7
+    .registers 9
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -204,8 +204,8 @@
     const/4 v3, 0x0
 
     .local v3, "_hidl_index_0":I
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_1e
+    if-ge v3, v1, :cond_2f
 
     .line 306
     invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -223,11 +223,11 @@
     .line 305
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 308
     .end local v3    # "_hidl_index_0":I
-    :cond_0
+    :cond_2f
     const-wide/16 v3, 0x0
 
     invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
@@ -244,41 +244,41 @@
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "otherObject"    # Ljava/lang/Object;
 
     .line 128
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 129
     return v0
 
     .line 131
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 132
     return v1
 
     .line 134
-    :cond_1
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
     const-class v3, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_11
 
     .line 135
     return v1
 
     .line 137
-    :cond_2
+    :cond_11
     move-object v2, p1
 
     check-cast v2, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;
@@ -289,13 +289,13 @@
 
     iget-byte v4, v2, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_d:B
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     .line 139
     return v1
 
     .line 141
-    :cond_3
+    :cond_1b
     iget-object v3, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
@@ -304,18 +304,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_26
 
     .line 142
     return v1
 
     .line 144
-    :cond_4
+    :cond_26
     return v0
 .end method
 
 .method public eutranBands()Ljava/util/ArrayList;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -330,12 +330,12 @@
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_48
 
     .line 90
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -345,14 +345,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const-string v0, "null"
 
     .line 91
     .local v0, "className":Ljava/lang/String;
-    :goto_0
+    :goto_14
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -400,10 +400,10 @@
 
     .line 97
     .end local v0    # "className":Ljava/lang/String;
-    :cond_1
+    :cond_48
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5d
 
     const-class v1, Ljava/util/ArrayList;
 
@@ -411,12 +411,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_55
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 98
-    :cond_2
+    :cond_55
     new-instance v0, Ljava/lang/Error;
 
     const-string v1, "Union is in a corrupted state."
@@ -426,8 +426,8 @@
     throw v0
 
     .line 100
-    :cond_3
-    :goto_1
+    :cond_5d
+    :goto_5d
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
     check-cast v0, Ljava/util/ArrayList;
@@ -436,7 +436,7 @@
 .end method
 
 .method public eutranBands(Ljava/util/ArrayList;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -460,7 +460,7 @@
 .end method
 
 .method public geranBands()Ljava/util/ArrayList;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -473,12 +473,12 @@
     .line 49
     iget-byte v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_d:B
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
     .line 50
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -488,14 +488,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const-string v0, "null"
 
     .line 51
     .local v0, "className":Ljava/lang/String;
-    :goto_0
+    :goto_13
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -543,10 +543,10 @@
 
     .line 57
     .end local v0    # "className":Ljava/lang/String;
-    :cond_1
+    :cond_47
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5c
 
     const-class v1, Ljava/util/ArrayList;
 
@@ -554,12 +554,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_54
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 58
-    :cond_2
+    :cond_54
     new-instance v0, Ljava/lang/Error;
 
     const-string v1, "Union is in a corrupted state."
@@ -569,8 +569,8 @@
     throw v0
 
     .line 60
-    :cond_3
-    :goto_1
+    :cond_5c
+    :goto_5c
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
     check-cast v0, Ljava/util/ArrayList;
@@ -579,7 +579,7 @@
 .end method
 
 .method public geranBands(Ljava/util/ArrayList;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -603,7 +603,7 @@
 .end method
 
 .method public getDiscriminator()B
-    .locals 1
+    .registers 2
 
     .line 124
     iget-byte v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_d:B
@@ -612,7 +612,7 @@
 .end method
 
 .method public final hashCode()I
-    .locals 3
+    .registers 4
 
     .line 149
     const/4 v0, 0x2
@@ -662,7 +662,7 @@
 .end method
 
 .method public ngranBands()Ljava/util/ArrayList;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -677,12 +677,12 @@
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_48
 
     .line 110
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -692,14 +692,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const-string v0, "null"
 
     .line 111
     .local v0, "className":Ljava/lang/String;
-    :goto_0
+    :goto_14
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -747,10 +747,10 @@
 
     .line 117
     .end local v0    # "className":Ljava/lang/String;
-    :cond_1
+    :cond_48
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5d
 
     const-class v1, Ljava/util/ArrayList;
 
@@ -758,12 +758,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_55
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 118
-    :cond_2
+    :cond_55
     new-instance v0, Ljava/lang/Error;
 
     const-string v1, "Union is in a corrupted state."
@@ -773,8 +773,8 @@
     throw v0
 
     .line 120
-    :cond_3
-    :goto_1
+    :cond_5d
+    :goto_5d
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
     check-cast v0, Ljava/util/ArrayList;
@@ -783,7 +783,7 @@
 .end method
 
 .method public ngranBands(Ljava/util/ArrayList;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -807,7 +807,7 @@
 .end method
 
 .method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
-    .locals 16
+    .registers 21
     .param p1, "parcel"    # Landroid/os/HwParcel;
     .param p2, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p3, "_hidl_offset"    # J
@@ -830,7 +830,7 @@
     .line 216
     const-wide/16 v5, 0x8
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_138
 
     .line 286
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -860,7 +860,7 @@
     throw v2
 
     .line 269
-    :pswitch_0
+    :pswitch_31
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
@@ -912,8 +912,8 @@
     const/4 v3, 0x0
 
     .local v3, "_hidl_index_0":I
-    :goto_0
-    if-ge v3, v4, :cond_0
+    :goto_59
+    if-ge v3, v4, :cond_71
 
     .line 278
     const/4 v5, 0x0
@@ -943,17 +943,17 @@
     .end local v5    # "_hidl_vec_element":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_59
 
     .line 283
     .end local v2    # "childBlob":Landroid/os/HwBlob;
     .end local v3    # "_hidl_index_0":I
     .end local v4    # "_hidl_vec_size":I
-    :cond_0
-    goto/16 :goto_4
+    :cond_71
+    goto/16 :goto_137
 
     .line 252
-    :pswitch_1
+    :pswitch_73
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
@@ -1005,8 +1005,8 @@
     const/4 v3, 0x0
 
     .restart local v3    # "_hidl_index_0":I
-    :goto_1
-    if-ge v3, v4, :cond_1
+    :goto_9b
+    if-ge v3, v4, :cond_b3
 
     .line 261
     const/4 v5, 0x0
@@ -1036,17 +1036,17 @@
     .end local v5    # "_hidl_vec_element":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_9b
 
     .line 266
     .end local v2    # "childBlob":Landroid/os/HwBlob;
     .end local v3    # "_hidl_index_0":I
     .end local v4    # "_hidl_vec_size":I
-    :cond_1
-    goto/16 :goto_4
+    :cond_b3
+    goto/16 :goto_137
 
     .line 235
-    :pswitch_2
+    :pswitch_b5
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
@@ -1098,8 +1098,8 @@
     const/4 v3, 0x0
 
     .restart local v3    # "_hidl_index_0":I
-    :goto_2
-    if-ge v3, v4, :cond_2
+    :goto_dd
+    if-ge v3, v4, :cond_f5
 
     .line 244
     const/4 v5, 0x0
@@ -1129,17 +1129,17 @@
     .end local v5    # "_hidl_vec_element":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_dd
 
     .line 249
     .end local v2    # "childBlob":Landroid/os/HwBlob;
     .end local v3    # "_hidl_index_0":I
     .end local v4    # "_hidl_vec_size":I
-    :cond_2
-    goto :goto_4
+    :cond_f5
+    goto :goto_137
 
     .line 218
-    :pswitch_3
+    :pswitch_f6
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
@@ -1191,8 +1191,8 @@
     const/4 v3, 0x0
 
     .restart local v3    # "_hidl_index_0":I
-    :goto_3
-    if-ge v3, v4, :cond_3
+    :goto_11e
+    if-ge v3, v4, :cond_136
 
     .line 227
     const/4 v5, 0x0
@@ -1222,30 +1222,30 @@
     .end local v5    # "_hidl_vec_element":I
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_11e
 
     .line 232
     .end local v2    # "childBlob":Landroid/os/HwBlob;
     .end local v3    # "_hidl_index_0":I
     .end local v4    # "_hidl_vec_size":I
-    :cond_3
+    :cond_136
     nop
 
     .line 289
-    :goto_4
+    :goto_137
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_138
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_f6
+        :pswitch_b5
+        :pswitch_73
+        :pswitch_31
     .end packed-switch
 .end method
 
 .method public final readFromParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 188
@@ -1266,7 +1266,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 156
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1282,7 +1282,7 @@
     .line 158
     iget-byte v1, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_d:B
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_6c
 
     .line 180
     new-instance v1, Ljava/lang/Error;
@@ -1312,7 +1312,7 @@
     throw v1
 
     .line 175
-    :pswitch_0
+    :pswitch_2d
     const-string v1, ".ngranBands = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1325,10 +1325,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 177
-    goto :goto_0
+    goto :goto_61
 
     .line 170
-    :pswitch_1
+    :pswitch_3a
     const-string v1, ".eutranBands = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1341,10 +1341,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 172
-    goto :goto_0
+    goto :goto_61
 
     .line 165
-    :pswitch_2
+    :pswitch_47
     const-string v1, ".utranBands = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1357,10 +1357,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 167
-    goto :goto_0
+    goto :goto_61
 
     .line 160
-    :pswitch_3
+    :pswitch_54
     const-string v1, ".geranBands = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1376,7 +1376,7 @@
     nop
 
     .line 183
-    :goto_0
+    :goto_61
     const-string v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1390,17 +1390,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6c
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_54
+        :pswitch_47
+        :pswitch_3a
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public utranBands()Ljava/util/ArrayList;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1415,12 +1415,12 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_48
 
     .line 70
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -1430,14 +1430,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const-string v0, "null"
 
     .line 71
     .local v0, "className":Ljava/lang/String;
-    :goto_0
+    :goto_14
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1485,10 +1485,10 @@
 
     .line 77
     .end local v0    # "className":Ljava/lang/String;
-    :cond_1
+    :cond_48
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5d
 
     const-class v1, Ljava/util/ArrayList;
 
@@ -1496,12 +1496,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_55
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 78
-    :cond_2
+    :cond_55
     new-instance v0, Ljava/lang/Error;
 
     const-string v1, "Union is in a corrupted state."
@@ -1511,8 +1511,8 @@
     throw v0
 
     .line 80
-    :cond_3
-    :goto_1
+    :cond_5d
+    :goto_5d
     iget-object v0, p0, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->hidl_o:Ljava/lang/Object;
 
     check-cast v0, Ljava/util/ArrayList;
@@ -1521,7 +1521,7 @@
 .end method
 
 .method public utranBands(Ljava/util/ArrayList;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1545,7 +1545,7 @@
 .end method
 
 .method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-    .locals 10
+    .registers 14
     .param p1, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p2, "_hidl_offset"    # J
 
@@ -1567,7 +1567,7 @@
 
     const-wide/16 v6, 0x8
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_120
 
     .line 371
     new-instance v0, Ljava/lang/Error;
@@ -1597,7 +1597,7 @@
     throw v0
 
     .line 359
-    :pswitch_0
+    :pswitch_31
     invoke-virtual {p0}, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->ngranBands()Ljava/util/ArrayList;
 
     move-result-object v2
@@ -1633,8 +1633,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_4d
+    if-ge v4, v2, :cond_66
 
     .line 364
     mul-int/lit8 v5, v4, 0x4
@@ -1660,11 +1660,11 @@
     .line 363
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 366
     .end local v4    # "_hidl_index_0":I
-    :cond_0
+    :cond_66
     add-long/2addr v6, p2
 
     add-long/2addr v6, v0
@@ -1674,10 +1674,10 @@
     .line 368
     .end local v2    # "_hidl_vec_size":I
     .end local v3    # "childBlob":Landroid/os/HwBlob;
-    goto/16 :goto_4
+    goto/16 :goto_11f
 
     .line 346
-    :pswitch_1
+    :pswitch_6d
     invoke-virtual {p0}, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->eutranBands()Ljava/util/ArrayList;
 
     move-result-object v2
@@ -1713,8 +1713,8 @@
     const/4 v4, 0x0
 
     .restart local v4    # "_hidl_index_0":I
-    :goto_1
-    if-ge v4, v2, :cond_1
+    :goto_89
+    if-ge v4, v2, :cond_a2
 
     .line 351
     mul-int/lit8 v5, v4, 0x4
@@ -1740,11 +1740,11 @@
     .line 350
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_89
 
     .line 353
     .end local v4    # "_hidl_index_0":I
-    :cond_1
+    :cond_a2
     add-long/2addr v6, p2
 
     add-long/2addr v6, v0
@@ -1754,10 +1754,10 @@
     .line 355
     .end local v2    # "_hidl_vec_size":I
     .end local v3    # "childBlob":Landroid/os/HwBlob;
-    goto/16 :goto_4
+    goto/16 :goto_11f
 
     .line 333
-    :pswitch_2
+    :pswitch_a9
     invoke-virtual {p0}, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->utranBands()Ljava/util/ArrayList;
 
     move-result-object v2
@@ -1793,8 +1793,8 @@
     const/4 v4, 0x0
 
     .restart local v4    # "_hidl_index_0":I
-    :goto_2
-    if-ge v4, v2, :cond_2
+    :goto_c5
+    if-ge v4, v2, :cond_de
 
     .line 338
     mul-int/lit8 v5, v4, 0x4
@@ -1820,11 +1820,11 @@
     .line 337
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_c5
 
     .line 340
     .end local v4    # "_hidl_index_0":I
-    :cond_2
+    :cond_de
     add-long/2addr v6, p2
 
     add-long/2addr v6, v0
@@ -1834,10 +1834,10 @@
     .line 342
     .end local v2    # "_hidl_vec_size":I
     .end local v3    # "childBlob":Landroid/os/HwBlob;
-    goto :goto_4
+    goto :goto_11f
 
     .line 320
-    :pswitch_3
+    :pswitch_e4
     invoke-virtual {p0}, Landroid/hardware/radio/V1_5/RadioAccessSpecifier$Bands;->geranBands()Ljava/util/ArrayList;
 
     move-result-object v2
@@ -1873,8 +1873,8 @@
     const/4 v4, 0x0
 
     .restart local v4    # "_hidl_index_0":I
-    :goto_3
-    if-ge v4, v2, :cond_3
+    :goto_100
+    if-ge v4, v2, :cond_119
 
     .line 325
     mul-int/lit8 v5, v4, 0x4
@@ -1900,11 +1900,11 @@
     .line 324
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_100
 
     .line 327
     .end local v4    # "_hidl_index_0":I
-    :cond_3
+    :cond_119
     add-long/2addr v6, p2
 
     add-long/2addr v6, v0
@@ -1917,20 +1917,20 @@
     nop
 
     .line 374
-    :goto_4
+    :goto_11f
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_120
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_e4
+        :pswitch_a9
+        :pswitch_6d
+        :pswitch_31
     .end packed-switch
 .end method
 
 .method public final writeToParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 292

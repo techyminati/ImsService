@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 42
@@ -55,7 +55,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_17
 
     .line 46
     const-string v2, "INTERNATIONAL_OR_DATA_IP"
@@ -66,12 +66,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 49
-    :cond_0
+    :cond_17
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 50
     const-string v2, "NATIONAL_OR_INTERNET_MAIL"
@@ -82,12 +82,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 53
-    :cond_1
+    :cond_23
     and-int/lit8 v2, p0, 0x3
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2f
 
     .line 54
     const-string v2, "NETWORK"
@@ -98,12 +98,12 @@
     or-int/lit8 v1, v1, 0x3
 
     .line 57
-    :cond_2
+    :cond_2f
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_3b
 
     .line 58
     const-string v2, "SUBSCRIBER"
@@ -114,12 +114,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 61
-    :cond_3
+    :cond_3b
     and-int/lit8 v2, p0, 0x5
 
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_47
 
     .line 62
     const-string v2, "ALPHANUMERIC"
@@ -130,12 +130,12 @@
     or-int/lit8 v1, v1, 0x5
 
     .line 65
-    :cond_4
+    :cond_47
     and-int/lit8 v2, p0, 0x6
 
     const/4 v3, 0x6
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_53
 
     .line 66
     const-string v2, "ABBREVIATED"
@@ -146,12 +146,12 @@
     or-int/lit8 v1, v1, 0x6
 
     .line 69
-    :cond_5
+    :cond_53
     and-int/lit8 v2, p0, 0x7
 
     const/4 v3, 0x7
 
-    if-ne v2, v3, :cond_6
+    if-ne v2, v3, :cond_5f
 
     .line 70
     const-string v2, "RESERVED_7"
@@ -162,8 +162,8 @@
     or-int/lit8 v1, v1, 0x7
 
     .line 73
-    :cond_6
-    if-eq p0, v1, :cond_7
+    :cond_5f
+    if-eq p0, v1, :cond_7b
 
     .line 74
     new-instance v2, Ljava/lang/StringBuilder;
@@ -191,7 +191,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 76
-    :cond_7
+    :cond_7b
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -202,11 +202,11 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 14
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 15
     const-string v0, "UNKNOWN"
@@ -214,10 +214,10 @@
     return-object v0
 
     .line 17
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_b
 
     .line 18
     const-string v0, "INTERNATIONAL_OR_DATA_IP"
@@ -225,10 +225,10 @@
     return-object v0
 
     .line 20
-    :cond_1
+    :cond_b
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_11
 
     .line 21
     const-string v0, "NATIONAL_OR_INTERNET_MAIL"
@@ -236,10 +236,10 @@
     return-object v0
 
     .line 23
-    :cond_2
+    :cond_11
     const/4 v0, 0x3
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_17
 
     .line 24
     const-string v0, "NETWORK"
@@ -247,10 +247,10 @@
     return-object v0
 
     .line 26
-    :cond_3
+    :cond_17
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1d
 
     .line 27
     const-string v0, "SUBSCRIBER"
@@ -258,10 +258,10 @@
     return-object v0
 
     .line 29
-    :cond_4
+    :cond_1d
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_23
 
     .line 30
     const-string v0, "ALPHANUMERIC"
@@ -269,10 +269,10 @@
     return-object v0
 
     .line 32
-    :cond_5
+    :cond_23
     const/4 v0, 0x6
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_29
 
     .line 33
     const-string v0, "ABBREVIATED"
@@ -280,10 +280,10 @@
     return-object v0
 
     .line 35
-    :cond_6
+    :cond_29
     const/4 v0, 0x7
 
-    if-ne p0, v0, :cond_7
+    if-ne p0, v0, :cond_2f
 
     .line 36
     const-string v0, "RESERVED_7"
@@ -291,7 +291,7 @@
     return-object v0
 
     .line 38
-    :cond_7
+    :cond_2f
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

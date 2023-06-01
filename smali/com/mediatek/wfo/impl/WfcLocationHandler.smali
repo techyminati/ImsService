@@ -231,14 +231,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 98
     const/16 v0, 0x20
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_4e
 
     sput-object v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->STANDARD_NORMAL_DISTRIBUTION_TABLE:[F
 
@@ -291,7 +291,7 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3f
 
     sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
 
@@ -302,20 +302,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3d
 
-    goto :goto_0
+    goto :goto_3f
 
-    :cond_0
+    :cond_3d
     move v0, v1
 
-    goto :goto_1
+    goto :goto_40
 
-    :cond_1
-    :goto_0
+    :cond_3f
+    :goto_3f
     move v0, v2
 
-    :goto_1
+    :goto_40
     sput-boolean v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->USR_BUILD:Z
 
     .line 186
@@ -325,16 +325,16 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_4b
 
     move v1, v2
 
-    :cond_2
+    :cond_4b
     sput-boolean v1, Lcom/mediatek/wfo/impl/WfcLocationHandler;->TELDBG:Z
 
     return-void
 
-    :array_0
+    :array_4e
     .array-data 4
         0x3f000000    # 0.5f
         0x3f0a3055    # 0.5398f
@@ -372,7 +372,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/mediatek/wfo/impl/WfcHandler;Lcom/mediatek/wfo/impl/WifiPdnHandler;ILandroid/os/Looper;[Lcom/mediatek/wfo/ril/MwiRIL;)V
-    .locals 3
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "wfcHandler"    # Lcom/mediatek/wfo/impl/WfcHandler;
     .param p3, "wifiPdnHandler"    # Lcom/mediatek/wfo/impl/WifiPdnHandler;
@@ -493,7 +493,7 @@
     iput-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mDeviceContext:Landroid/content/Context;
 
     .line 557
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6e
 
     .line 558
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mContext:Landroid/content/Context;
@@ -506,7 +506,7 @@
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
 
     .line 561
-    :cond_0
+    :cond_6e
     iput-object p2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mWfcHandler:Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 562
@@ -515,11 +515,11 @@
     .line 563
     const/4 v0, 0x4
 
-    if-gt p4, v0, :cond_1
+    if-gt p4, v0, :cond_76
 
     move v0, p4
 
-    :cond_1
+    :cond_76
     iput v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mSimCount:I
 
     .line 564
@@ -667,7 +667,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -679,7 +679,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -689,7 +689,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -699,7 +699,7 @@
 .end method
 
 .method static synthetic access$1102(Lcom/mediatek/wfo/impl/WfcLocationHandler;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
     .param p1, "x1"    # Z
 
@@ -710,7 +710,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/mediatek/wfo/impl/WfcLocationHandler;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
     .param p1, "x1"    # Ljava/lang/String;
 
@@ -723,7 +723,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/mediatek/wfo/impl/WfcLocationHandler;Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;Ljava/lang/Boolean;)Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
     .param p1, "x1"    # Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
     .param p2, "x2"    # Ljava/lang/Boolean;
@@ -737,7 +737,7 @@
 .end method
 
 .method static synthetic access$1400(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -749,7 +749,7 @@
 .end method
 
 .method static synthetic access$1500(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Landroid/location/LocationManager;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -759,7 +759,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -769,7 +769,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Lcom/mediatek/wfo/impl/WifiPdnHandler;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -779,7 +779,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -789,7 +789,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/mediatek/wfo/impl/WfcLocationHandler;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
     .param p1, "x1"    # Z
 
@@ -800,7 +800,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/mediatek/wfo/impl/WfcLocationHandler;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -810,7 +810,7 @@
 .end method
 
 .method static synthetic access$600()Z
-    .locals 1
+    .registers 1
 
     .line 88
     sget-boolean v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->ENGLOAD:Z
@@ -819,7 +819,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Ljava/util/ArrayList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -829,7 +829,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/mediatek/wfo/impl/WfcLocationHandler;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -839,7 +839,7 @@
 .end method
 
 .method static synthetic access$808(Lcom/mediatek/wfo/impl/WfcLocationHandler;)I
-    .locals 2
+    .registers 3
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -853,7 +853,7 @@
 .end method
 
 .method static synthetic access$810(Lcom/mediatek/wfo/impl/WfcLocationHandler;)I
-    .locals 2
+    .registers 3
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -867,7 +867,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/mediatek/wfo/impl/WfcLocationHandler;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 88
@@ -877,7 +877,7 @@
 .end method
 
 .method private addPackageInLocationSettingsWhitelist()V
-    .locals 7
+    .registers 8
 
     .line 1335
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mContext:Landroid/content/Context;
@@ -904,7 +904,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1d
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
@@ -912,19 +912,19 @@
 
     const/4 v6, -0x1
 
-    if-ne v5, v6, :cond_2
+    if-ne v5, v6, :cond_5c
 
     .line 1340
-    :cond_0
+    :cond_1d
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_24
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_1
+    :cond_24
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -941,7 +941,7 @@
 
     .line 1341
     .local v3, "outStr":Ljava/lang/String;
-    :goto_0
+    :goto_35
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -978,12 +978,12 @@
 
     .line 1346
     .end local v3    # "outStr":Ljava/lang/String;
-    :cond_2
+    :cond_5c
     return-void
 .end method
 
 .method private addRetryLocationRequest(Landroid/os/Message;)V
-    .locals 12
+    .registers 14
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 620
@@ -992,7 +992,7 @@
     monitor-enter v0
 
     .line 621
-    :try_start_0
+    :try_start_3
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
@@ -1015,16 +1015,16 @@
 
     .line 626
     .local v5, "delayRet":[Ljava/lang/String;
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_6c
 
     array-length v6, v2
 
-    if-le v6, v3, :cond_0
+    if-le v6, v3, :cond_16
 
-    goto :goto_1
+    goto :goto_6c
 
     .line 631
-    :cond_0
+    :cond_16
     array-length v3, v2
 
     const/4 v6, 0x0
@@ -1067,23 +1067,23 @@
 
     move-result v10
 
-    if-nez v10, :cond_1
+    if-nez v10, :cond_3f
 
     .line 639
     iget-object v6, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPendingLocationRequest:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_44
 
     .line 642
-    :cond_1
+    :cond_3f
     iget-object v10, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPendingLocationRequest:Ljava/util/ArrayList;
 
     invoke-virtual {v10, v6, v9}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 644
-    :goto_0
+    :goto_44
     const-string v6, "WfcLocationHandler"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1142,8 +1142,8 @@
     .restart local v2    # "result":[Ljava/lang/String;
     .restart local v4    # "retryRet":[Ljava/lang/String;
     .restart local v5    # "delayRet":[Ljava/lang/String;
-    :cond_2
-    :goto_1
+    :cond_6c
+    :goto_6c
     const-string v3, "WfcLocationHandler"
 
     const-string v6, "addRetryLocationRequest: params invalid"
@@ -1160,18 +1160,18 @@
     .end local v2    # "result":[Ljava/lang/String;
     .end local v4    # "retryRet":[Ljava/lang/String;
     .end local v5    # "delayRet":[Ljava/lang/String;
-    :catchall_0
+    :catchall_75
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_77
+    .catchall {:try_start_3 .. :try_end_77} :catchall_75
 
     throw v1
 .end method
 
 .method private addRetryLocationRequestForECC()V
-    .locals 6
+    .registers 7
 
     .line 652
     const-string v0, "0"
@@ -1223,17 +1223,17 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_31
 
     .line 660
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPendingLocationRequest:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_37
 
     .line 663
-    :cond_0
+    :cond_31
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPendingLocationRequest:Ljava/util/ArrayList;
 
     const/4 v4, 0x0
@@ -1241,7 +1241,7 @@
     invoke-virtual {v3, v4, v2}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 665
-    :goto_0
+    :goto_37
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1273,7 +1273,7 @@
 .end method
 
 .method private adjustAccuracyForConfidence(FFF)F
-    .locals 2
+    .registers 6
     .param p1, "srcAccuracy"    # F
     .param p2, "srcConf"    # F
     .param p3, "destConf"    # F
@@ -1295,7 +1295,7 @@
 .end method
 
 .method private cancelNetworkLocationRequest()V
-    .locals 4
+    .registers 5
 
     .line 1319
     const/16 v0, 0xbc4
@@ -1304,20 +1304,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     .line 1320
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->removeMessages(I)V
 
     .line 1322
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationManager:Landroid/location/LocationManager;
 
     const-string v1, "WfcLocationHandler"
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
     .line 1323
     iput-boolean v2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationRequestRegistered:Z
@@ -1331,7 +1331,7 @@
     return-void
 
     .line 1327
-    :cond_1
+    :cond_1a
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationListener:Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationListenerImp;
 
     invoke-virtual {v0, v3}, Landroid/location/LocationManager;->removeUpdates(Landroid/location/LocationListener;)V
@@ -1349,7 +1349,7 @@
 .end method
 
 .method private checkLocationProxyAppPermission()Z
-    .locals 5
+    .registers 6
 
     .line 1614
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->loadProxyNameFromCarrierConfig()Ljava/lang/String;
@@ -1363,13 +1363,13 @@
 
     const-string v2, "WfcLocationHandler"
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 1617
     const-string v0, "The package name is empty, treat it as granted"
@@ -1380,14 +1380,14 @@
     return v1
 
     .line 1621
-    :cond_0
+    :cond_17
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mGnssProxyPackageName:Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->isPackageInstalled(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_43
 
     .line 1623
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -1400,15 +1400,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2c
 
     .line 1624
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_1
+    :cond_2c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_2d
     move v0, v1
 
     .line 1625
@@ -1434,7 +1434,7 @@
 
     .line 1629
     .end local v0    # "proxyAppLocationGranted":Z
-    :cond_2
+    :cond_43
     const-string v0, "non-FWK permission app not installed, treat it as granted"
 
     invoke-static {v2, v0}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
@@ -1444,7 +1444,7 @@
 .end method
 
 .method private dispatchLocationRequest(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)V
-    .locals 8
+    .registers 10
     .param p1, "info"    # Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
 
     .line 778
@@ -1464,25 +1464,25 @@
 
     cmpl-double v7, v0, v5
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_19
 
     cmpl-double v5, v2, v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_19
 
     const/4 v5, 0x0
 
     cmpl-float v5, v4, v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_19
 
     .line 783
     invoke-direct {p0, p1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->proccessLocationFromNetwork(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)V
 
-    goto :goto_0
+    goto :goto_39
 
     .line 785
-    :cond_0
+    :cond_19
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->cancelNetworkLocationRequest()V
 
     .line 786
@@ -1493,13 +1493,13 @@
     .line 787
     const/4 v6, 0x0
 
-    :try_start_0
+    :try_start_20
     iput-boolean v6, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationTimeout:Z
 
     .line 788
     monitor-exit v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_20 .. :try_end_23} :catchall_50
 
     .line 789
     const-string v5, "removeMessages: EVENT_GET_LAST_KNOWN_LOCATION"
@@ -1525,7 +1525,7 @@
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->pollLocationInfo()V
 
     .line 795
-    :goto_0
+    :goto_39
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -1548,19 +1548,19 @@
     return-void
 
     .line 788
-    :catchall_0
+    :catchall_50
     move-exception v6
 
-    :try_start_1
+    :try_start_51
     monitor-exit v5
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_52
+    .catchall {:try_start_51 .. :try_end_52} :catchall_50
 
     throw v6
 .end method
 
 .method private getGeoLocationFromLatLong(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;Ljava/lang/Boolean;)Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    .locals 12
+    .registers 15
     .param p1, "location"    # Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
     .param p2, "retry"    # Ljava/lang/Boolean;
 
@@ -1574,7 +1574,7 @@
     .line 1067
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mGeoCoder:Landroid/location/Geocoder;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
     .line 1068
     const-string v0, "getGeoLocationFromLatLong: empty geoCoder, return an empty location"
@@ -1585,12 +1585,12 @@
     return-object p1
 
     .line 1072
-    :cond_0
+    :cond_f
     invoke-static {}, Landroid/location/Geocoder;->isPresent()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1b
 
     .line 1073
     const-string v0, "getGeoLocationFromLatLong: this system has no GeoCoder implementation!!"
@@ -1601,7 +1601,7 @@
     return-object p1
 
     .line 1077
-    :cond_1
+    :cond_1b
     iget-wide v7, p1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mLatitude:D
 
     .line 1078
@@ -1614,7 +1614,7 @@
 
     .line 1082
     .local v11, "lstAddress":Ljava/util/List;, "Ljava/util/List<Landroid/location/Address;>;"
-    :try_start_0
+    :try_start_20
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mGeoCoder:Landroid/location/Geocoder;
 
     const/4 v6, 0x1
@@ -1626,18 +1626,18 @@
     invoke-virtual/range {v1 .. v6}, Landroid/location/Geocoder;->getFromLocation(DDI)Ljava/util/List;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/io/IOException; {:try_start_20 .. :try_end_29} :catch_32
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_20 .. :try_end_29} :catch_2b
 
     move-object v11, v1
 
     .line 1087
-    :goto_0
-    goto :goto_1
+    :goto_2a
+    goto :goto_48
 
     .line 1085
-    :catch_0
+    :catch_2b
     move-exception v1
 
     .line 1086
@@ -1646,11 +1646,11 @@
 
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_48
 
     .line 1083
     .end local v1    # "e2":Ljava/lang/IllegalArgumentException;
-    :catch_1
+    :catch_32
     move-exception v1
 
     .line 1084
@@ -1672,22 +1672,22 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
 
     .end local v1    # "e":Ljava/io/IOException;
-    goto :goto_0
+    goto :goto_2a
 
     .line 1089
-    :goto_1
-    if-eqz v11, :cond_6
+    :goto_48
+    if-eqz v11, :cond_c7
 
     invoke-interface {v11}, Ljava/util/List;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_51
 
-    goto :goto_2
+    goto :goto_c7
 
     .line 1103
-    :cond_2
+    :cond_51
     invoke-interface {v11, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1707,7 +1707,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_71
 
     .line 1105
     invoke-interface {v11, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1723,7 +1723,7 @@
     iput-object v1, p1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mCity:Ljava/lang/String;
 
     .line 1107
-    :cond_3
+    :cond_71
     invoke-interface {v11, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1743,7 +1743,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_91
 
     .line 1109
     invoke-interface {v11, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1759,7 +1759,7 @@
     iput-object v1, p1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mState:Ljava/lang/String;
 
     .line 1111
-    :cond_4
+    :cond_91
     invoke-interface {v11, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1790,13 +1790,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_b2
 
     .line 1115
     invoke-direct {p0, p1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->saveLocationCache(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)V
 
     .line 1118
-    :cond_5
+    :cond_b2
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1817,8 +1817,8 @@
     return-object p1
 
     .line 1090
-    :cond_6
-    :goto_2
+    :cond_c7
+    :goto_c7
     const-string v0, "getGeoLocationFromLatLong: get empty address"
 
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
@@ -1828,7 +1828,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_e2
 
     .line 1092
     invoke-direct {p0, p1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->getLocationCache(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
@@ -1842,7 +1842,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_e1
 
     .line 1094
     const/4 v0, 0x0
@@ -1850,11 +1850,11 @@
     return-object v0
 
     .line 1096
-    :cond_7
+    :cond_e1
     return-object p1
 
     .line 1098
-    :cond_8
+    :cond_e2
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -1866,7 +1866,7 @@
 .end method
 
 .method private getIntCarrierConfig(Ljava/lang/String;II)I
-    .locals 5
+    .registers 9
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "def"    # I
     .param p3, "simIdx"    # I
@@ -1888,7 +1888,7 @@
     .line 919
     const-string v1, "WfcLocationHandler"
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 920
     const-string v0, "getIntCarrierConfig: Carrier Config service is NOT ready"
@@ -1899,7 +1899,7 @@
     return p2
 
     .line 924
-    :cond_0
+    :cond_16
     invoke-direct {p0, p3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->getSubIdBySlot(I)I
 
     move-result v0
@@ -1910,7 +1910,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     .line 926
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mConfigManager:Landroid/telephony/CarrierConfigManager;
@@ -1919,15 +1919,15 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     const/4 v2, 0x0
 
     .line 927
     .local v2, "configs":Landroid/os/PersistableBundle;
-    :goto_0
-    if-nez v2, :cond_2
+    :goto_28
+    if-nez v2, :cond_33
 
     .line 928
     const-string v3, "getIntCarrierConfig: SIM not ready, use default carrier config"
@@ -1940,7 +1940,7 @@
     move-result-object v2
 
     .line 932
-    :cond_2
+    :cond_33
     invoke-virtual {v2, p1, p2}, Landroid/os/PersistableBundle;->getInt(Ljava/lang/String;I)I
 
     move-result v1
@@ -1980,7 +1980,7 @@
 .end method
 
 .method private getIntCarrierConfigEx(Ljava/lang/String;II)I
-    .locals 6
+    .registers 10
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "def"    # I
     .param p3, "simIdx"    # I
@@ -2002,7 +2002,7 @@
     .line 941
     const-string v1, "WfcLocationHandler"
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 942
     const-string v0, "getIntCarrierConfigEx: Carrier Config service is NOT ready"
@@ -2013,7 +2013,7 @@
     return p2
 
     .line 946
-    :cond_0
+    :cond_16
     move v0, p2
 
     .line 947
@@ -2026,7 +2026,7 @@
     .local v2, "simState":I
     const/4 v3, 0x1
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_3f
 
     .line 949
     invoke-direct {p0, p3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->getSubIdBySlot(I)I
@@ -2039,7 +2039,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2f
 
     .line 951
     iget-object v4, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mConfigManager:Landroid/telephony/CarrierConfigManager;
@@ -2048,15 +2048,15 @@
 
     move-result-object v4
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_1
+    :cond_2f
     const/4 v4, 0x0
 
     .line 952
     .local v4, "configs":Landroid/os/PersistableBundle;
-    :goto_0
-    if-nez v4, :cond_2
+    :goto_30
+    if-nez v4, :cond_3b
 
     .line 953
     const-string v5, "getIntCarrierConfigEx: SIM not ready, use default carrier config"
@@ -2069,7 +2069,7 @@
     move-result-object v4
 
     .line 956
-    :cond_2
+    :cond_3b
     invoke-virtual {v4, p1, p2}, Landroid/os/PersistableBundle;->getInt(Ljava/lang/String;I)I
 
     move-result v0
@@ -2077,7 +2077,7 @@
     .line 959
     .end local v3    # "subId":I
     .end local v4    # "configs":Landroid/os/PersistableBundle;
-    :cond_3
+    :cond_3f
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2117,7 +2117,7 @@
 .end method
 
 .method private getLastKnownLocation(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)Z
-    .locals 11
+    .registers 13
     .param p1, "info"    # Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
 
     .line 1201
@@ -2130,7 +2130,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 1204
     const-string v0, "getLastKnownLocation: empty locationManager, return"
@@ -2141,12 +2141,12 @@
     return v1
 
     .line 1208
-    :cond_0
+    :cond_10
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->isCtaNotAllow()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 1209
     const-string v0, "WfcLocationHandler"
@@ -2159,7 +2159,7 @@
     return v1
 
     .line 1214
-    :cond_1
+    :cond_1e
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationManager:Landroid/location/LocationManager;
 
     const-string v2, "gps"
@@ -2168,7 +2168,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2e
 
     .line 1215
     const-string v0, "getLastKnownLocation: GPS_PROVIDER doesn\'t exist or not ready"
@@ -2179,7 +2179,7 @@
     return v1
 
     .line 1220
-    :cond_2
+    :cond_2e
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationManager:Landroid/location/LocationManager;
 
     .line 1221
@@ -2195,7 +2195,7 @@
 
     const-wide/32 v4, 0x1b7740
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_65
 
     .line 1225
     new-instance v6, Ljava/lang/StringBuilder;
@@ -2227,7 +2227,7 @@
 
     cmp-long v6, v6, v4
 
-    if-gez v6, :cond_3
+    if-gez v6, :cond_65
 
     .line 1227
     invoke-virtual {p0, v3, v1, v1, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
@@ -2241,7 +2241,7 @@
     return v2
 
     .line 1235
-    :cond_3
+    :cond_65
     iget-object v6, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationManager:Landroid/location/LocationManager;
 
     const-string v7, "network"
@@ -2250,7 +2250,7 @@
 
     move-result-object v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_75
 
     .line 1236
     const-string v2, "getLastKnownLocation: NETWORK_PROVIDER doesn\'t exist or not ready"
@@ -2261,7 +2261,7 @@
     return v1
 
     .line 1242
-    :cond_4
+    :cond_75
     iget-object v6, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationManager:Landroid/location/LocationManager;
 
     .line 1243
@@ -2271,7 +2271,7 @@
 
     .line 1245
     .local v6, "networkLocation":Landroid/location/Location;
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_a6
 
     .line 1247
     new-instance v7, Ljava/lang/StringBuilder;
@@ -2303,7 +2303,7 @@
 
     cmp-long v4, v7, v4
 
-    if-gez v4, :cond_5
+    if-gez v4, :cond_a6
 
     .line 1249
     invoke-virtual {p0, v3, v1, v1, v6}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
@@ -2317,7 +2317,7 @@
     return v2
 
     .line 1256
-    :cond_5
+    :cond_a6
     const-string v2, "getLastKnownLocation: no last known location"
 
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
@@ -2330,7 +2330,7 @@
 .end method
 
 .method private getLocationCache(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    .locals 5
+    .registers 7
     .param p1, "location"    # Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
 
     .line 1176
@@ -2355,7 +2355,7 @@
     .line 1180
     iget v1, p1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mBroadcastFlag:I
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1b
 
     .line 1181
     const-string v1, "key_broadcastflag"
@@ -2367,7 +2367,7 @@
     iput v1, p1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mBroadcastFlag:I
 
     .line 1184
-    :cond_0
+    :cond_1b
     const-string v1, "key_latitude"
 
     const/4 v2, 0x0
@@ -2471,7 +2471,7 @@
 .end method
 
 .method private getLocationCacheEnable()Z
-    .locals 4
+    .registers 5
 
     .line 1142
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mDeviceContext:Landroid/content/Context;
@@ -2515,7 +2515,7 @@
 .end method
 
 .method private getMainCapabilityPhoneId()I
-    .locals 3
+    .registers 4
 
     .line 1423
     const-string v0, "persist.vendor.radio.simswitch"
@@ -2530,16 +2530,16 @@
 
     .line 1424
     .local v0, "phoneId":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_f
 
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_26
 
     .line 1425
-    :cond_0
+    :cond_f
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2562,7 +2562,7 @@
     const/4 v0, -0x1
 
     .line 1428
-    :cond_1
+    :cond_26
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2584,7 +2584,7 @@
 .end method
 
 .method private getMwiRil()Lcom/mediatek/wfo/ril/MwiRIL;
-    .locals 3
+    .registers 4
 
     .line 1433
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->getMainCapabilityPhoneId()I
@@ -2595,7 +2595,7 @@
     .local v0, "phoneId":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 1437
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
@@ -2607,7 +2607,7 @@
     return-object v1
 
     .line 1439
-    :cond_0
+    :cond_d
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
 
     aget-object v1, v1, v0
@@ -2616,11 +2616,11 @@
 .end method
 
 .method private getMwiRil(I)Lcom/mediatek/wfo/ril/MwiRIL;
-    .locals 1
+    .registers 3
     .param p1, "phoneId"    # I
 
     .line 1444
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_c
 
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
@@ -2630,14 +2630,14 @@
 
     move-result v0
 
-    if-lt p1, v0, :cond_1
+    if-lt p1, v0, :cond_d
 
     .line 1445
-    :cond_0
+    :cond_c
     const/4 p1, 0x0
 
     .line 1447
-    :cond_1
+    :cond_d
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
 
     aget-object v0, v0, p1
@@ -2646,7 +2646,7 @@
 .end method
 
 .method private getSigmaFromConf(F)F
-    .locals 11
+    .registers 13
     .param p1, "conf"    # F
 
     .line 965
@@ -2658,7 +2658,7 @@
 
     cmpl-float v1, p1, v1
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_a
 
     .line 970
     const/high16 v1, 0x40c00000    # 6.0f
@@ -2666,47 +2666,47 @@
     return v1
 
     .line 973
-    :cond_0
+    :cond_a
     const/4 v1, 0x0
 
     cmpg-float v2, p1, v1
 
     const/high16 v3, 0x3f800000    # 1.0f
 
-    if-gtz v2, :cond_1
+    if-gtz v2, :cond_12
 
     .line 975
     return v3
 
     .line 978
-    :cond_1
+    :cond_12
     const/high16 v2, 0x42860000    # 67.0f
 
     cmpl-float v2, p1, v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_19
 
     .line 979
     return v3
 
     .line 980
-    :cond_2
+    :cond_19
     const/high16 v2, 0x42880000    # 68.0f
 
     cmpl-float v2, p1, v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_20
 
     .line 981
     return v3
 
     .line 982
-    :cond_3
+    :cond_20
     const/high16 v2, 0x42b40000    # 90.0f
 
     cmpl-float v2, p1, v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_2a
 
     .line 983
     const v1, 0x3fd33333    # 1.65f
@@ -2714,12 +2714,12 @@
     return v1
 
     .line 984
-    :cond_4
+    :cond_2a
     const/high16 v2, 0x42be0000    # 95.0f
 
     cmpl-float v2, p1, v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_34
 
     .line 985
     const v1, 0x3ffae148    # 1.96f
@@ -2727,7 +2727,7 @@
     return v1
 
     .line 987
-    :cond_5
+    :cond_34
     const-wide/high16 v2, 0x4059000000000000L    # 100.0
 
     float-to-double v4, p1
@@ -2744,12 +2744,12 @@
     .local v2, "distribution":F
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_3d
     sget-object v3, Lcom/mediatek/wfo/impl/WfcLocationHandler;->STANDARD_NORMAL_DISTRIBUTION_TABLE:[F
 
     array-length v4, v3
 
-    if-ge v0, v4, :cond_8
+    if-ge v0, v4, :cond_75
 
     .line 989
     aget v4, v3, v0
@@ -2758,7 +2758,7 @@
 
     const-wide v5, 0x3fb999999999999aL    # 0.1
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_51
 
     .line 990
     int-to-double v3, v0
@@ -2770,16 +2770,16 @@
     return v1
 
     .line 992
-    :cond_6
+    :cond_51
     const/4 v4, 0x1
 
-    if-lt v0, v4, :cond_7
+    if-lt v0, v4, :cond_72
 
     aget v4, v3, v0
 
     cmpl-float v4, v4, v2
 
-    if-lez v4, :cond_7
+    if-lez v4, :cond_72
 
     .line 993
     add-int/lit8 v1, v0, -0x1
@@ -2820,18 +2820,18 @@
 
     .line 988
     .end local v1    # "RetVal":F
-    :cond_7
+    :cond_72
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 999
-    :cond_8
+    :cond_75
     return v1
 .end method
 
 .method private getSimCountryCode()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 1124
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mTelephonyManager:Landroid/telephony/TelephonyManager;
@@ -2869,7 +2869,7 @@
 .end method
 
 .method private getSubIdBySlot(I)I
-    .locals 2
+    .registers 4
     .param p1, "slot"    # I
 
     .line 912
@@ -2879,25 +2879,25 @@
 
     .line 913
     .local v0, "subId":[I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v1, 0x0
 
     aget v1, v0, v1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_a
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
 
     move-result v1
 
-    :goto_0
+    :goto_e
     return v1
 .end method
 
 .method private handleAllRetryLocationRequest()V
-    .locals 4
+    .registers 5
 
     .line 681
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2930,30 +2930,30 @@
     .line 683
     const/16 v1, 0xbbf
 
-    :try_start_0
+    :try_start_1f
     invoke-virtual {p0, v1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->hasMessages(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_28
 
     .line 684
     invoke-virtual {p0, v1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->removeMessages(I)V
 
     .line 686
-    :cond_0
+    :cond_28
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPendingLocationRequest:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_2e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_51
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2969,34 +2969,34 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_4d
 
     iget-boolean v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkAvailable:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_47
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 690
-    :cond_1
+    :cond_47
     const-string v3, "Network not available, ignore EVENT_RETRY_GET_LOCATION_REQUEST."
 
     invoke-virtual {p0, v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_50
 
     .line 688
-    :cond_2
-    :goto_1
+    :cond_4d
+    :goto_4d
     invoke-direct {p0, v2}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->handleLocationRequest(Landroid/os/Message;)V
 
     .line 692
     .end local v2    # "msg":Landroid/os/Message;
-    :goto_2
-    goto :goto_0
+    :goto_50
+    goto :goto_2e
 
     .line 693
-    :cond_3
+    :cond_51
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPendingLocationRequest:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
@@ -3008,18 +3008,18 @@
     return-void
 
     .line 694
-    :catchall_0
+    :catchall_58
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5a
+    .catchall {:try_start_1f .. :try_end_5a} :catchall_58
 
     throw v1
 .end method
 
 .method private handleLocationRequest(Landroid/os/Message;)V
-    .locals 20
+    .registers 22
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 718
@@ -3031,7 +3031,7 @@
 
     const-string v1, "WfcLocationHandler"
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 719
     const-string v0, "handleLocationInfo(): msg.obj is null"
@@ -3042,7 +3042,7 @@
     return-void
 
     .line 722
-    :cond_0
+    :cond_10
     iget-object v0, v13, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     move-object v14, v0
@@ -3063,7 +3063,7 @@
 
     .line 726
     .local v2, "confidence":I
-    if-nez v15, :cond_1
+    if-nez v15, :cond_23
 
     .line 727
     const-string v0, "handleLocationInfo(): result is null"
@@ -3074,12 +3074,12 @@
     return-void
 
     .line 731
-    :cond_1
+    :cond_23
     array-length v0, v15
 
     const/4 v3, 0x7
 
-    if-ge v0, v3, :cond_2
+    if-ge v0, v3, :cond_2d
 
     .line 732
     const-string v0, "handleLocationInfo(): params invalid"
@@ -3090,14 +3090,14 @@
     return-void
 
     .line 737
-    :cond_2
+    :cond_2d
     const/16 v16, 0x6
 
     const/16 v17, 0x1
 
     const/16 v18, 0x0
 
-    :try_start_0
+    :try_start_33
     aget-object v0, v15, v18
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -3152,7 +3152,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_66
 
     .line 743
     aget-object v0, v15, v0
@@ -3160,43 +3160,43 @@
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
+    :try_end_63
+    .catch Ljava/lang/Exception; {:try_start_33 .. :try_end_63} :catch_a6
 
     move v2, v0
 
     move v11, v2
 
-    goto :goto_0
+    goto :goto_67
 
     .line 742
-    :cond_3
+    :cond_66
     move v11, v2
 
     .line 745
     .end local v2    # "confidence":I
     .local v11, "confidence":I
-    :goto_0
-    :try_start_1
+    :goto_67
+    :try_start_67
     aget-object v0, v15, v16
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v3
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+    :try_end_6d
+    .catch Ljava/lang/Exception; {:try_start_67 .. :try_end_6d} :catch_a0
 
     .line 748
     .local v3, "simIdx":I
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_75
 
     .line 749
-    :try_start_2
+    :try_start_6f
     iput v11, v12, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mConfidenceLevel:I
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_71
+    .catch Ljava/lang/Exception; {:try_start_6f .. :try_end_71} :catch_72
 
-    goto :goto_1
+    goto :goto_75
 
     .line 760
     .end local v3    # "simIdx":I
@@ -3205,12 +3205,12 @@
     .end local v6    # "latitude":D
     .end local v8    # "longitude":D
     .end local v10    # "accuracy":F
-    :catch_0
+    :catch_72
     move-exception v0
 
     move v2, v11
 
-    goto :goto_2
+    goto :goto_a7
 
     .line 752
     .restart local v3    # "simIdx":I
@@ -3219,12 +3219,12 @@
     .restart local v6    # "latitude":D
     .restart local v8    # "longitude":D
     .restart local v10    # "accuracy":F
-    :cond_4
-    :goto_1
-    :try_start_3
+    :cond_75
+    :goto_75
+    :try_start_75
     new-instance v0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+    :try_end_77
+    .catch Ljava/lang/Exception; {:try_start_75 .. :try_end_77} :catch_a0
 
     move-object v1, v0
 
@@ -3234,7 +3234,7 @@
 
     .end local v11    # "confidence":I
     .local v19, "confidence":I
-    :try_start_4
+    :try_start_7c
     invoke-direct/range {v1 .. v11}, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;-><init>(Lcom/mediatek/wfo/impl/WfcLocationHandler;IIIDDFI)V
 
     .line 756
@@ -3260,8 +3260,8 @@
 
     .line 759
     invoke-direct {v12, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->dispatchLocationRequest(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)V
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+    :try_end_99
+    .catch Ljava/lang/Exception; {:try_start_7c .. :try_end_99} :catch_9c
 
     .line 764
     .end local v0    # "locationInfo":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
@@ -3273,19 +3273,19 @@
     .end local v10    # "accuracy":F
     move/from16 v11, v19
 
-    goto :goto_3
+    goto :goto_eb
 
     .line 760
-    :catch_1
+    :catch_9c
     move-exception v0
 
     move/from16 v2, v19
 
-    goto :goto_2
+    goto :goto_a7
 
     .end local v19    # "confidence":I
     .restart local v11    # "confidence":I
-    :catch_2
+    :catch_a0
     move-exception v0
 
     move/from16 v19, v11
@@ -3294,16 +3294,16 @@
 
     .end local v11    # "confidence":I
     .restart local v19    # "confidence":I
-    goto :goto_2
+    goto :goto_a7
 
     .end local v19    # "confidence":I
     .restart local v2    # "confidence":I
-    :catch_3
+    :catch_a6
     move-exception v0
 
     .line 761
     .local v0, "e":Ljava/lang/Exception;
-    :goto_2
+    :goto_a7
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -3364,18 +3364,18 @@
     .end local v0    # "e":Ljava/lang/Exception;
     .end local v2    # "confidence":I
     .restart local v11    # "confidence":I
-    :goto_3
+    :goto_eb
     return-void
 .end method
 
 .method private handleNetworkLocationUpdate(Landroid/location/Location;)V
-    .locals 18
+    .registers 20
     .param p1, "location"    # Landroid/location/Location;
 
     .line 799
     move-object/from16 v0, p0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     .line 800
     const-string v1, "network location get null, unexpected result"
@@ -3386,7 +3386,7 @@
     return-void
 
     .line 804
-    :cond_0
+    :cond_a
     invoke-virtual/range {p1 .. p1}, Landroid/location/Location;->getLatitude()D
 
     move-result-wide v1
@@ -3470,12 +3470,12 @@
 
     move-result-object v12
 
-    :goto_0
+    :goto_59
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_b8
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3518,12 +3518,12 @@
 
     move-result-object v14
 
-    :goto_1
+    :goto_7e
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v15
 
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_98
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3541,22 +3541,22 @@
 
     iget v2, v13, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mAccountId:I
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_95
 
     .line 833
     invoke-virtual {v11, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 835
     .end local v15    # "gpsLocationInfo":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    :cond_1
+    :cond_95
     move-wide/from16 v1, v16
 
-    goto :goto_1
+    goto :goto_7e
 
     .line 836
     .end local v16    # "latitude":D
     .restart local v1    # "latitude":D
-    :cond_2
+    :cond_98
     move-wide/from16 v16, v1
 
     .end local v1    # "latitude":D
@@ -3565,12 +3565,12 @@
 
     move-result-object v1
 
-    :goto_2
+    :goto_9e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_b0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3586,10 +3586,10 @@
 
     .line 838
     .end local v2    # "gpsLocationInfo":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    goto :goto_2
+    goto :goto_9e
 
     .line 839
-    :cond_3
+    :cond_b0
     iget-object v1, v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationInfoQueue:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -3598,12 +3598,12 @@
     .end local v13    # "locationInfo":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
     move-wide/from16 v1, v16
 
-    goto :goto_0
+    goto :goto_59
 
     .line 842
     .end local v16    # "latitude":D
     .restart local v1    # "latitude":D
-    :cond_4
+    :cond_b8
     move-wide/from16 v16, v1
 
     .end local v1    # "latitude":D
@@ -3620,7 +3620,7 @@
 .end method
 
 .method private handleRetryLocationRequest(Landroid/os/Message;)V
-    .locals 3
+    .registers 5
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 670
@@ -3629,7 +3629,7 @@
     monitor-enter v0
 
     .line 671
-    :try_start_0
+    :try_start_3
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -3659,47 +3659,47 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_30
 
     iget-boolean v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkAvailable:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2a
 
-    goto :goto_0
+    goto :goto_30
 
     .line 675
-    :cond_0
+    :cond_2a
     const-string v1, "Network not available, ignore EVENT_RETRY_GET_LOCATION_REQUEST."
 
     invoke-virtual {p0, v1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_33
 
     .line 673
-    :cond_1
-    :goto_0
+    :cond_30
+    :goto_30
     invoke-direct {p0, p1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->handleLocationRequest(Landroid/os/Message;)V
 
     .line 677
-    :goto_1
+    :goto_33
     monitor-exit v0
 
     .line 678
     return-void
 
     .line 677
-    :catchall_0
+    :catchall_35
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_37
+    .catchall {:try_start_3 .. :try_end_37} :catchall_35
 
     throw v1
 .end method
 
 .method private isCtaNotAllow()Z
-    .locals 6
+    .registers 7
 
     .line 1556
     const/4 v0, 0x0
@@ -3716,31 +3716,31 @@
 
     const/4 v3, 0x1
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_d
 
     move v1, v3
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move v1, v2
 
     .line 1561
     .local v1, "isCtaSet":Z
-    :goto_0
+    :goto_e
     const-string v4, "ro.vendor.mtk_mobile_management"
 
     invoke-static {v4, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
     move-result v4
 
-    if-ne v4, v3, :cond_1
+    if-ne v4, v3, :cond_17
 
     move v2, v3
 
     .line 1563
     .local v2, "isCtaSecurity":Z
-    :cond_1
+    :cond_17
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationManager:Landroid/location/LocationManager;
 
     .line 1564
@@ -3781,17 +3781,17 @@
     invoke-virtual {p0, v4}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
 
     .line 1568
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4a
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4a
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_4a
 
     .line 1569
     const/4 v0, 0x1
 
     .line 1571
-    :cond_2
+    :cond_4a
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -3815,7 +3815,7 @@
 .end method
 
 .method private isEccInProgress()Z
-    .locals 3
+    .registers 4
 
     .line 1515
     const/4 v0, 0x0
@@ -3824,7 +3824,7 @@
     .local v0, "isInEcc":Z
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mTelecomManager:Landroid/telecom/TelecomManager;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     .line 1517
     invoke-virtual {v1}, Landroid/telecom/TelecomManager;->isInEmergencyCall()Z
@@ -3832,7 +3832,7 @@
     move-result v0
 
     .line 1519
-    :cond_0
+    :cond_9
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -3856,7 +3856,7 @@
 .end method
 
 .method private isGetLocationAlways()Z
-    .locals 6
+    .registers 7
 
     .line 1529
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mContext:Landroid/content/Context;
@@ -3875,7 +3875,7 @@
     .line 1531
     const-string v1, "WfcLocationHandler"
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 1532
     const-string v0, "isGetLocationAlways: Carrier Config service is NOT ready"
@@ -3888,7 +3888,7 @@
     return v0
 
     .line 1536
-    :cond_0
+    :cond_17
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
 
     move-result v0
@@ -3899,7 +3899,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_28
 
     .line 1538
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mConfigManager:Landroid/telephony/CarrierConfigManager;
@@ -3908,15 +3908,15 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_1
+    :cond_28
     const/4 v2, 0x0
 
     .line 1539
     .local v2, "configs":Landroid/os/PersistableBundle;
-    :goto_0
-    if-nez v2, :cond_2
+    :goto_29
+    if-nez v2, :cond_34
 
     .line 1540
     const-string v3, "isGetLocationAlways: SIM not ready, use default carrier config"
@@ -3929,7 +3929,7 @@
     move-result-object v2
 
     .line 1544
-    :cond_2
+    :cond_34
     nop
 
     .line 1545
@@ -3962,7 +3962,7 @@
 .end method
 
 .method private isPackageInLocationSettingsWhitelist()Z
-    .locals 5
+    .registers 6
 
     .line 1375
     const/4 v0, 0x0
@@ -3991,14 +3991,14 @@
     .local v2, "whitelist":Ljava/lang/String;
     iget-boolean v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationSetting:Z
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_22
 
     .line 1381
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_23
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
@@ -4006,14 +4006,14 @@
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_23
 
     .line 1382
-    :cond_0
+    :cond_22
     const/4 v0, 0x1
 
     .line 1385
-    :cond_1
+    :cond_23
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -4049,18 +4049,18 @@
 .end method
 
 .method private isPackageInstalled(Ljava/lang/String;)Z
-    .locals 4
+    .registers 6
     .param p1, "packagename"    # Ljava/lang/String;
 
     .line 1605
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPackageManager:Landroid/content/pm/PackageManager;
 
     invoke-virtual {v1, p1, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_6} :catch_8
 
     .line 1606
     const/4 v0, 0x1
@@ -4068,7 +4068,7 @@
     return v0
 
     .line 1607
-    :catch_0
+    :catch_8
     move-exception v1
 
     .line 1608
@@ -4096,7 +4096,7 @@
 .end method
 
 .method private loadProxyNameFromCarrierConfig()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 1576
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mContext:Landroid/content/Context;
@@ -4115,7 +4115,7 @@
     .line 1578
     const-string v1, ""
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 1579
     const-string v0, "loadProxyNameFromCarrierConfig: Carrier Config service is NOT ready"
@@ -4126,7 +4126,7 @@
     return-object v1
 
     .line 1583
-    :cond_0
+    :cond_16
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
 
     move-result v0
@@ -4137,7 +4137,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     .line 1585
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mConfigManager:Landroid/telephony/CarrierConfigManager;
@@ -4146,15 +4146,15 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     const/4 v2, 0x0
 
     .line 1586
     .local v2, "configs":Landroid/os/PersistableBundle;
-    :goto_0
-    if-nez v2, :cond_2
+    :goto_28
+    if-nez v2, :cond_33
 
     .line 1587
     const-string v3, "SIM not ready, use default carrier config"
@@ -4167,7 +4167,7 @@
     move-result-object v2
 
     .line 1591
-    :cond_2
+    :cond_33
     const-string v3, "gps.nfw_proxy_apps"
 
     invoke-virtual {v2, v3}, Landroid/os/PersistableBundle;->get(Ljava/lang/String;)Ljava/lang/Object;
@@ -4195,7 +4195,7 @@
     invoke-virtual {p0, v4}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
 
     .line 1593
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_5f
 
     .line 1594
     invoke-virtual {v3}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -4218,7 +4218,7 @@
 
     .line 1598
     .end local v1    # "strings":[Ljava/lang/String;
-    :cond_3
+    :cond_5f
     const-string v4, "Cannot get location proxy APP package name"
 
     invoke-virtual {p0, v4}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
@@ -4228,7 +4228,7 @@
 .end method
 
 .method private maskString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "s"    # Ljava/lang/String;
 
     .line 1635
@@ -4242,13 +4242,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 1637
     return-object p1
 
     .line 1639
-    :cond_0
+    :cond_c
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -4261,7 +4261,7 @@
 
     const/4 v3, 0x1
 
-    if-ge v1, v3, :cond_1
+    if-ge v1, v3, :cond_1f
 
     .line 1641
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -4274,12 +4274,12 @@
     return-object v2
 
     .line 1644
-    :cond_1
+    :cond_1f
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_2
+    :goto_20
+    if-ge v3, v1, :cond_28
 
     .line 1645
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -4287,11 +4287,11 @@
     .line 1644
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
     .line 1647
     .end local v3    # "i":I
-    :cond_2
+    :cond_28
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -4316,13 +4316,13 @@
 .end method
 
 .method private messageToString(Landroid/os/Message;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 508
     iget v0, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_38
 
     .line 543
     const-string v0, "UNKNOWN"
@@ -4330,124 +4330,124 @@
     return-object v0
 
     .line 527
-    :sswitch_0
+    :sswitch_8
     const-string v0, "RESPONSE_SET_LOCATION_ENABLED"
 
     return-object v0
 
     .line 525
-    :sswitch_1
+    :sswitch_b
     const-string v0, "RESPONSE_SET_LOCATION_INFO"
 
     return-object v0
 
     .line 537
-    :sswitch_2
+    :sswitch_e
     const-string v0, "EVENT_LOCATION_PROVIDERS_CHANGED"
 
     return-object v0
 
     .line 541
-    :sswitch_3
+    :sswitch_11
     const-string v0, "EVENT_RETRY_NETWORK_LOCATION_REQUEST"
 
     return-object v0
 
     .line 539
-    :sswitch_4
+    :sswitch_14
     const-string v0, "EVENT_LOCATION_CACHE"
 
     return-object v0
 
     .line 529
-    :sswitch_5
+    :sswitch_17
     const-string v0, "EVENT_REQUEST_NETWORK_LOCATION"
 
     return-object v0
 
     .line 535
-    :sswitch_6
+    :sswitch_1a
     const-string v0, "EVENT_LOCATION_MODE_CHANGED"
 
     return-object v0
 
     .line 533
-    :sswitch_7
+    :sswitch_1d
     const-string v0, "EVENT_ALL_RETRY_GET_LOCATION_REQUST"
 
     return-object v0
 
     .line 531
-    :sswitch_8
+    :sswitch_20
     const-string v0, "EVENT_RETRY_GET_LOCATION_REQUEST"
 
     return-object v0
 
     .line 523
-    :sswitch_9
+    :sswitch_23
     const-string v0, "EVENT_DIALING_E911"
 
     return-object v0
 
     .line 517
-    :sswitch_a
+    :sswitch_26
     const-string v0, "EVENT_SET_COUNTRY_CODE"
 
     return-object v0
 
     .line 515
-    :sswitch_b
+    :sswitch_29
     const-string v0, "EVENT_SET_LOCATION_INFO"
 
     return-object v0
 
     .line 521
-    :sswitch_c
+    :sswitch_2c
     const-string v0, "EVENT_HANDLE_LAST_KNOWN_LOCATION_RESPONSE"
 
     return-object v0
 
     .line 513
-    :sswitch_d
+    :sswitch_2f
     const-string v0, "EVENT_HANDLE_NETWORK_LOCATION_RESPONSE"
 
     return-object v0
 
     .line 519
-    :sswitch_e
+    :sswitch_32
     const-string v0, "EVENT_GET_LAST_KNOWN_LOCATION"
 
     return-object v0
 
     .line 511
-    :sswitch_f
+    :sswitch_35
     const-string v0, "EVENT_GET_LOCATION_REQUEST"
 
     return-object v0
 
-    :sswitch_data_0
+    :sswitch_data_38
     .sparse-switch
-        0xbb8 -> :sswitch_f
-        0xbb9 -> :sswitch_e
-        0xbba -> :sswitch_d
-        0xbbb -> :sswitch_c
-        0xbbc -> :sswitch_b
-        0xbbd -> :sswitch_a
-        0xbbe -> :sswitch_9
-        0xbbf -> :sswitch_8
-        0xbc0 -> :sswitch_7
-        0xbc1 -> :sswitch_6
-        0xbc2 -> :sswitch_5
-        0xbc3 -> :sswitch_4
-        0xbc4 -> :sswitch_3
-        0xbc5 -> :sswitch_2
-        0xc1c -> :sswitch_1
-        0xc1d -> :sswitch_0
+        0xbb8 -> :sswitch_35
+        0xbb9 -> :sswitch_32
+        0xbba -> :sswitch_2f
+        0xbbb -> :sswitch_2c
+        0xbbc -> :sswitch_29
+        0xbbd -> :sswitch_26
+        0xbbe -> :sswitch_23
+        0xbbf -> :sswitch_20
+        0xbc0 -> :sswitch_1d
+        0xbc1 -> :sswitch_1a
+        0xbc2 -> :sswitch_17
+        0xbc3 -> :sswitch_14
+        0xbc4 -> :sswitch_11
+        0xbc5 -> :sswitch_e
+        0xc1c -> :sswitch_b
+        0xc1d -> :sswitch_8
     .end sparse-switch
 .end method
 
 .method private pollLocationInfo()V
-    .locals 3
+    .registers 4
 
     .line 879
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationInfoQueue:Ljava/util/ArrayList;
@@ -4456,7 +4456,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 880
     const-string v0, "No GeoLocation task"
@@ -4467,7 +4467,7 @@
     return-void
 
     .line 885
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationInfoQueue:Ljava/util/ArrayList;
@@ -4497,7 +4497,7 @@
 .end method
 
 .method private proccessLocationFromNetwork(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)V
-    .locals 5
+    .registers 7
     .param p1, "info"    # Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
 
     .line 847
@@ -4517,7 +4517,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4d
 
     .line 850
     const-string v0, "requestLocationFromNetworkLocation failed"
@@ -4534,7 +4534,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_27
 
     .line 855
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->removeMessages(I)V
@@ -4545,14 +4545,14 @@
     iput v2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkLocationRetry:I
 
     .line 858
-    :cond_0
+    :cond_27
     iget v2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkLocationRetry:I
 
     add-int/lit8 v3, v2, -0x1
 
     iput v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkLocationRetry:I
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_3f
 
     .line 859
     const-string v2, "requestLocationFromNetworkLocation retry."
@@ -4572,10 +4572,10 @@
     .line 860
     invoke-virtual {p0, v0, v2, v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 864
-    :cond_1
+    :cond_3f
     const-string v0, "requestLocationFromNetworkLocation retry fail, skip."
 
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
@@ -4591,15 +4591,15 @@
     iput v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkLocationRetry:I
 
     .line 869
-    :cond_2
-    :goto_0
+    :cond_4d
+    :goto_4d
     const/16 v0, 0xbb9
 
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->hasMessages(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_6c
 
     .line 871
     const-string v2, "Add delayed message: EVENT_GET_LAST_KNOWN_LOCATION"
@@ -4629,12 +4629,12 @@
 
     .line 876
     .end local v2    # "timeout":I
-    :cond_3
+    :cond_6c
     return-void
 .end method
 
 .method private registerDefaultNetwork()V
-    .locals 2
+    .registers 3
 
     .line 698
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mContext:Landroid/content/Context;
@@ -4660,7 +4660,7 @@
 .end method
 
 .method private registerForBroadcast()V
-    .locals 3
+    .registers 4
 
     .line 1497
     new-instance v0, Landroid/content/IntentFilter;
@@ -4700,16 +4700,16 @@
 .end method
 
 .method private registerIndication()V
-    .locals 4
+    .registers 5
 
     .line 1508
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mSimCount:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_12
 
     .line 1509
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
@@ -4725,16 +4725,16 @@
     .line 1508
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1512
     .end local v0    # "i":I
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method private removePackageInLocationSettingsWhitelist()V
-    .locals 10
+    .registers 11
 
     .line 1349
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mContext:Landroid/content/Context;
@@ -4771,7 +4771,7 @@
 
     const/4 v8, -0x1
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_4f
 
     .line 1356
     new-instance v7, Ljava/lang/StringBuilder;
@@ -4793,7 +4793,7 @@
     move-result v5
 
     .line 1357
-    if-eq v5, v8, :cond_0
+    if-eq v5, v8, :cond_45
 
     .line 1358
     new-instance v7, Ljava/lang/StringBuilder;
@@ -4812,16 +4812,16 @@
 
     move-result-object v6
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 1360
-    :cond_0
+    :cond_45
     invoke-virtual {v4, v0}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v5
 
     .line 1361
-    if-eq v5, v8, :cond_1
+    if-eq v5, v8, :cond_4f
 
     .line 1362
     invoke-virtual {v4, v0, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
@@ -4829,9 +4829,9 @@
     move-result-object v6
 
     .line 1367
-    :cond_1
-    :goto_0
-    if-eq v5, v8, :cond_2
+    :cond_4f
+    :goto_4f
+    if-eq v5, v8, :cond_69
 
     .line 1368
     new-instance v3, Ljava/lang/StringBuilder;
@@ -4856,12 +4856,12 @@
     invoke-static {v1, v2, v6, v3}, Landroid/provider/DeviceConfig;->setProperty(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
 
     .line 1372
-    :cond_2
+    :cond_69
     return-void
 .end method
 
 .method private requestLocationFromNetworkLocation()Z
-    .locals 11
+    .registers 12
 
     .line 1263
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationManager:Landroid/location/LocationManager;
@@ -4870,7 +4870,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 1264
     const-string v0, "requestLocationFromNetworkLocation failed: empty locationManager"
@@ -4881,14 +4881,14 @@
     return v2
 
     .line 1269
-    :cond_0
+    :cond_d
     const-string v3, "network"
 
     invoke-virtual {v0, v3}, Landroid/location/LocationManager;->getProvider(Ljava/lang/String;)Landroid/location/LocationProvider;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     .line 1270
     const-string v0, "requestLocationFromNetworkLocation failed: NETWORK_PROVIDER not ready"
@@ -4899,12 +4899,12 @@
     return v2
 
     .line 1275
-    :cond_1
+    :cond_1b
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->isCtaNotAllow()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_27
 
     .line 1276
     const-string v0, "requestLocationFromNetworkLocation failed: CTA not allow"
@@ -4915,7 +4915,7 @@
     return v2
 
     .line 1280
-    :cond_2
+    :cond_27
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->checkLocationProxyAppPermission()Z
 
     move-result v0
@@ -4936,39 +4936,39 @@
     .local v4, "isGetLocAlways":Z
     const/4 v5, 0x1
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_3b
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_39
 
-    goto :goto_0
+    goto :goto_3b
 
-    :cond_3
+    :cond_39
     move v6, v2
 
-    goto :goto_1
+    goto :goto_3c
 
-    :cond_4
-    :goto_0
+    :cond_3b
+    :goto_3b
     move v6, v5
 
     .line 1284
     .local v6, "mustGetLocation":Z
-    :goto_1
-    if-eqz v6, :cond_5
+    :goto_3c
+    if-eqz v6, :cond_41
 
     .line 1289
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->isPackageInLocationSettingsWhitelist()Z
 
     .line 1291
-    :cond_5
-    if-nez v6, :cond_7
+    :cond_41
+    if-nez v6, :cond_4c
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_46
 
-    goto :goto_2
+    goto :goto_4c
 
     .line 1312
-    :cond_6
+    :cond_46
     const-string v5, "requestLocationFromNetworkLocation failed: is NOT in ECC & non-framework location proxy app is NOT granted"
 
     invoke-static {v1, v5}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
@@ -4977,24 +4977,24 @@
     return v2
 
     .line 1292
-    :cond_7
-    :goto_2
+    :cond_4c
+    :goto_4c
     iget-boolean v7, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationRequestRegistered:Z
 
-    if-nez v7, :cond_a
+    if-nez v7, :cond_7d
 
     .line 1293
     const-string v7, "network"
 
     .line 1294
     .local v7, "method":Ljava/lang/String;
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_56
 
     .line 1295
     const-string v7, "fused"
 
     .line 1297
-    :cond_8
+    :cond_56
     sget v8, Lcom/mediatek/wfo/impl/WfcLocationHandler;->NETWORK_LOCATION_UPDATE_TIME:I
 
     int-to-long v8, v8
@@ -5010,7 +5010,7 @@
     invoke-virtual {v2, v5}, Landroid/location/LocationRequest;->setHideFromAppOps(Z)V
 
     .line 1301
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_68
 
     .line 1302
     const/16 v8, 0x64
@@ -5018,7 +5018,7 @@
     invoke-virtual {v2, v8}, Landroid/location/LocationRequest;->setQuality(I)Landroid/location/LocationRequest;
 
     .line 1304
-    :cond_9
+    :cond_68
     invoke-virtual {v2, v6}, Landroid/location/LocationRequest;->setLocationSettingsIgnored(Z)Landroid/location/LocationRequest;
 
     .line 1305
@@ -5045,12 +5045,12 @@
     .line 1310
     .end local v2    # "request":Landroid/location/LocationRequest;
     .end local v7    # "method":Ljava/lang/String;
-    :cond_a
+    :cond_7d
     return v5
 .end method
 
 .method private saveLocationCache(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)V
-    .locals 14
+    .registers 16
     .param p1, "location"    # Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
 
     .line 1149
@@ -5165,7 +5165,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_73
 
     .line 1168
     const-string v3, "Failed to commit saveLocationCache"
@@ -5173,7 +5173,7 @@
     invoke-static {v1, v3}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1171
-    :cond_0
+    :cond_73
     new-instance v1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
 
     const/4 v6, 0x0
@@ -5203,7 +5203,7 @@
 .end method
 
 .method private setCountryCode(Ljava/lang/String;)V
-    .locals 11
+    .registers 13
     .param p1, "iso"    # Ljava/lang/String;
 
     .line 1491
@@ -5239,7 +5239,7 @@
 .end method
 
 .method private setLocationCacheEnable(Z)V
-    .locals 4
+    .registers 6
     .param p1, "enable"    # Z
 
     .line 1131
@@ -5285,7 +5285,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_30
 
     .line 1137
     const-string v2, "Failed to commit location cache"
@@ -5293,12 +5293,12 @@
     invoke-static {v3, v2}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1139
-    :cond_0
+    :cond_30
     return-void
 .end method
 
 .method private setLocationEnabled()V
-    .locals 5
+    .registers 6
 
     .line 1404
     const/16 v0, 0xc1d
@@ -5349,17 +5349,17 @@
     .line 1411
     iget-boolean v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationSetting:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_37
 
     const-string v3, "1"
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_0
+    :cond_37
     const-string v3, "0"
 
     .line 1410
-    :goto_0
+    :goto_39
     const-string v4, "locenable"
 
     invoke-virtual {v1, v2, v4, v3, v0}, Lcom/mediatek/wfo/ril/MwiRIL;->setWfcConfig(ILjava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
@@ -5374,7 +5374,7 @@
 .end method
 
 .method private setLocationInfo(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)V
-    .locals 25
+    .registers 27
     .param p1, "info"    # Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
 
     .line 1007
@@ -5388,7 +5388,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_10
 
     .line 1008
     const-string v2, "Unknown"
@@ -5396,7 +5396,7 @@
     iput-object v2, v1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mState:Ljava/lang/String;
 
     .line 1011
-    :cond_0
+    :cond_10
     iget-object v2, v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPlmnCountryCode:Ljava/lang/String;
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -5405,7 +5405,7 @@
 
     const/4 v3, 0x2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_21
 
     iget-object v2, v1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mCountryCode:Ljava/lang/String;
 
@@ -5413,9 +5413,9 @@
 
     move-result v2
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2b
 
-    :cond_1
+    :cond_21
     iget-object v2, v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPlmnCountryCode:Ljava/lang/String;
 
     .line 1012
@@ -5425,25 +5425,25 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_30
 
     .line 1013
-    :cond_2
+    :cond_2b
     iget-object v2, v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPlmnCountryCode:Ljava/lang/String;
 
     iput-object v2, v1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mCountryCode:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_53
 
     .line 1014
-    :cond_3
+    :cond_30
     iget-object v2, v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPlmnCountryCode:Ljava/lang/String;
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_47
 
     iget-object v2, v1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mCountryCode:Ljava/lang/String;
 
@@ -5452,7 +5452,7 @@
 
     move-result v2
 
-    if-eq v2, v3, :cond_4
+    if-eq v2, v3, :cond_47
 
     .line 1017
     invoke-direct/range {p0 .. p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->getSimCountryCode()Ljava/lang/String;
@@ -5461,17 +5461,17 @@
 
     iput-object v2, v1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mCountryCode:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_53
 
     .line 1018
-    :cond_4
+    :cond_47
     iget-object v2, v1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mCountryCode:Ljava/lang/String;
 
     invoke-static {v2}, Landroid/text/TextUtils;->length(Ljava/lang/String;)I
 
     move-result v2
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_53
 
     .line 1020
     iget-object v2, v1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mCountryCode:Ljava/lang/String;
@@ -5479,8 +5479,8 @@
     iput-object v2, v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPlmnCountryCode:Ljava/lang/String;
 
     .line 1022
-    :cond_5
-    :goto_0
+    :cond_53
+    :goto_53
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -5512,20 +5512,20 @@
 
     .line 1025
     .local v2, "destConf":I
-    if-nez v2, :cond_7
+    if-nez v2, :cond_88
 
     .line 1026
     iget v3, v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mConfidenceLevel:I
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_7e
 
     .line 1027
     iget v2, v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mConfidenceLevel:I
 
-    goto :goto_1
+    goto :goto_88
 
     .line 1029
-    :cond_6
+    :cond_7e
     const/16 v3, 0x5a
 
     iget v4, v1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mSimIdx:I
@@ -5537,8 +5537,8 @@
     move-result v2
 
     .line 1033
-    :cond_7
-    :goto_1
+    :cond_88
+    :goto_88
     iget v3, v1, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mAccuracy:F
 
     const/high16 v4, 0x42880000    # 68.0f
@@ -5705,7 +5705,7 @@
 .end method
 
 .method private updateCountryCodeForVoWifiOnly()V
-    .locals 2
+    .registers 3
 
     .line 769
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPlmnCountryCode:Ljava/lang/String;
@@ -5714,24 +5714,24 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     return-void
 
     .line 771
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     invoke-virtual {v0}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->isWifiConnected()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_12
 
     return-void
 
     .line 773
-    :cond_1
+    :cond_12
     const-string v0, "updateCountryCodeForVoWifiOnly"
 
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
@@ -5754,7 +5754,7 @@
 .end method
 
 .method private utGeoLocationRequest()V
-    .locals 11
+    .registers 12
 
     .line 1391
     new-instance v10, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
@@ -5786,7 +5786,7 @@
 .end method
 
 .method private utNetworkLocationRequest()V
-    .locals 11
+    .registers 12
 
     .line 1397
     new-instance v10, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
@@ -5820,14 +5820,14 @@
 
 # virtual methods
 .method public getHandler()Landroid/os/Handler;
-    .locals 0
+    .registers 1
 
     .line 548
     return-object p0
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 17
+    .registers 19
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 381
@@ -5862,16 +5862,16 @@
 
     const/4 v13, 0x1
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_1a6
 
-    goto/16 :goto_3
+    goto/16 :goto_1a4
 
     .line 464
-    :sswitch_0
-    goto/16 :goto_3
+    :sswitch_25
+    goto/16 :goto_1a4
 
     .line 487
-    :sswitch_1
+    :sswitch_27
     iget-object v0, v12, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
@@ -5882,7 +5882,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_1a4
 
     .line 489
     iget v2, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkLocationRetry:I
@@ -5891,7 +5891,7 @@
 
     iput v3, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkLocationRetry:I
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_4b
 
     .line 490
     const-string v2, "EVENT_RETRY_NETWORK_LOCATION_REQUEST retry."
@@ -5911,10 +5911,10 @@
     .line 491
     invoke-virtual {v11, v1, v2, v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_1a4
 
     .line 495
-    :cond_0
+    :cond_4b
     const-string v1, "EVENT_RETRY_NETWORK_LOCATION_REQUEST retry fail, skip."
 
     invoke-virtual {v11, v1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
@@ -5929,11 +5929,11 @@
 
     iput v1, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkLocationRetry:I
 
-    goto/16 :goto_3
+    goto/16 :goto_1a4
 
     .line 466
     .end local v0    # "info":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    :sswitch_2
+    :sswitch_5b
     iget v0, v12, Landroid/os/Message;->arg1:I
 
     .line 467
@@ -5972,7 +5972,7 @@
 
     .line 471
     .local v15, "editor":Landroid/content/SharedPreferences$Editor;
-    if-ne v0, v13, :cond_1
+    if-ne v0, v13, :cond_a8
 
     .line 472
     new-instance v10, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
@@ -6023,10 +6023,10 @@
 
     .line 477
     .end local v1    # "locationInfo":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    goto/16 :goto_3
+    goto/16 :goto_1a4
 
     .line 478
-    :cond_1
+    :cond_a8
     invoke-direct {v11, v1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->setLocationCacheEnable(Z)V
 
     .line 479
@@ -6034,7 +6034,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_b6
 
     .line 480
     const-string v1, "Failed to commit location cache"
@@ -6042,17 +6042,17 @@
     invoke-virtual {v11, v1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
 
     .line 482
-    :cond_2
+    :cond_b6
     invoke-direct/range {p0 .. p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->cancelNetworkLocationRequest()V
 
     .line 484
-    goto/16 :goto_3
+    goto/16 :goto_1a4
 
     .line 430
     .end local v0    # "cacheEnable":I
     .end local v14    # "sp":Landroid/content/SharedPreferences;
     .end local v15    # "editor":Landroid/content/SharedPreferences$Editor;
-    :sswitch_3
+    :sswitch_bb
     iget-object v0, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationManager:Landroid/location/LocationManager;
 
     invoke-virtual {v0}, Landroid/location/LocationManager;->isLocationEnabled()Z
@@ -6064,15 +6064,15 @@
     .line 432
     iget-boolean v1, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLastLocationSetting:Z
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_cc
 
     .line 433
     invoke-direct/range {p0 .. p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->setLocationEnabled()V
 
-    goto/16 :goto_3
+    goto/16 :goto_1a4
 
     .line 435
-    :cond_3
+    :cond_cc
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -6092,24 +6092,24 @@
     invoke-virtual {v11, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->log(Ljava/lang/String;)V
 
     .line 437
-    goto/16 :goto_3
+    goto/16 :goto_1a4
 
     .line 398
-    :sswitch_4
+    :sswitch_e4
     invoke-direct/range {p0 .. p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->handleAllRetryLocationRequest()V
 
     .line 399
-    goto/16 :goto_3
+    goto/16 :goto_1a4
 
     .line 395
-    :sswitch_5
+    :sswitch_e9
     invoke-direct/range {p0 .. p1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->handleRetryLocationRequest(Landroid/os/Message;)V
 
     .line 396
-    goto/16 :goto_3
+    goto/16 :goto_1a4
 
     .line 442
-    :sswitch_6
+    :sswitch_ee
     new-instance v0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
 
     invoke-direct/range {p0 .. p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->getMainCapabilityPhoneId()I
@@ -6135,10 +6135,10 @@
     invoke-direct {v11, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->dispatchLocationRequest(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)V
 
     .line 444
-    goto/16 :goto_3
+    goto/16 :goto_1a4
 
     .line 412
-    :sswitch_7
+    :sswitch_106
     iget-object v0, v12, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/String;
@@ -6149,7 +6149,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_1a4
 
     .line 414
     iget-object v1, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPlmnCountryCode:Ljava/lang/String;
@@ -6158,22 +6158,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_11c
 
     .line 416
     invoke-direct {v11, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->setCountryCode(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_148
 
     .line 417
-    :cond_4
+    :cond_11c
     iget-object v1, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPlmnCountryCode:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_148
 
     .line 418
     iget-object v1, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
@@ -6182,23 +6182,23 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_135
 
     iget-boolean v1, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkAvailable:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_131
 
-    goto :goto_0
+    goto :goto_135
 
     .line 423
-    :cond_5
+    :cond_131
     invoke-direct {v11, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->setCountryCode(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_148
 
     .line 420
-    :cond_6
-    :goto_0
+    :cond_135
+    :goto_135
     new-instance v13, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
 
     const/4 v3, 0x0
@@ -6222,15 +6222,15 @@
     invoke-direct {v11, v13}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->dispatchLocationRequest(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)V
 
     .line 426
-    :cond_7
-    :goto_1
+    :cond_148
+    :goto_148
     iput-object v0, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mPlmnCountryCode:Ljava/lang/String;
 
-    goto :goto_3
+    goto :goto_1a4
 
     .line 407
     .end local v0    # "iso":Ljava/lang/String;
-    :sswitch_8
+    :sswitch_14b
     iget-object v0, v12, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
@@ -6240,11 +6240,11 @@
     invoke-direct {v11, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->setLocationInfo(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;)V
 
     .line 409
-    goto :goto_3
+    goto :goto_1a4
 
     .line 402
     .end local v0    # "locationInfo":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    :sswitch_9
+    :sswitch_153
     iget-object v0, v12, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/location/Location;
@@ -6254,11 +6254,11 @@
     invoke-direct {v11, v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->handleNetworkLocationUpdate(Landroid/location/Location;)V
 
     .line 404
-    goto :goto_3
+    goto :goto_1a4
 
     .line 446
     .end local v0    # "location":Landroid/location/Location;
-    :sswitch_a
+    :sswitch_15b
     iget-object v1, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationTimeoutLock:Ljava/lang/Object;
 
     monitor-enter v1
@@ -6266,26 +6266,26 @@
     .line 447
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_15f
     iput-boolean v0, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationTimeout:Z
 
     .line 448
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_162
+    .catchall {:try_start_15f .. :try_end_162} :catchall_17f
 
     .line 449
     iget-object v0, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mWfcHandler:Lcom/mediatek/wfo/impl/WfcHandler;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_16a
 
     .line 450
     invoke-virtual {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->onLocationTimeout()V
 
-    goto :goto_2
+    goto :goto_171
 
     .line 452
-    :cond_8
+    :cond_16a
     const-string v0, "WfcLocationHandler"
 
     const-string v1, "EVENT_GET_LAST_KNOWN_LOCATION: WfcHandler null"
@@ -6293,7 +6293,7 @@
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 454
-    :goto_2
+    :goto_171
     iget-object v0, v12, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
@@ -6306,50 +6306,50 @@
 
     .line 457
     .local v1, "getLocationSuccess":Z
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_1a4
 
     .line 458
     invoke-direct/range {p0 .. p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->cancelNetworkLocationRequest()V
 
-    goto :goto_3
+    goto :goto_1a4
 
     .line 448
     .end local v0    # "info":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
     .end local v1    # "getLocationSuccess":Z
-    :catchall_0
+    :catchall_17f
     move-exception v0
 
-    :try_start_1
+    :try_start_180
     monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_181
+    .catchall {:try_start_180 .. :try_end_181} :catchall_17f
 
     throw v0
 
     .line 384
-    :sswitch_b
+    :sswitch_182
     invoke-direct/range {p0 .. p0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->isCtaNotAllow()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_189
 
     .line 385
     return-void
 
     .line 387
-    :cond_9
+    :cond_189
     iget-object v0, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     invoke-virtual {v0}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->isWifiConnected()Z
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_1a0
 
     iget-boolean v0, v11, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkAvailable:Z
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_1a0
 
     .line 388
     const-string v0, "WfcLocationHandler"
@@ -6365,66 +6365,66 @@
     return-void
 
     .line 392
-    :cond_a
+    :cond_1a0
     invoke-direct/range {p0 .. p1}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->handleLocationRequest(Landroid/os/Message;)V
 
     .line 393
     nop
 
     .line 505
-    :cond_b
-    :goto_3
+    :cond_1a4
+    :goto_1a4
     return-void
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_1a6
     .sparse-switch
-        0xbb8 -> :sswitch_b
-        0xbb9 -> :sswitch_a
-        0xbba -> :sswitch_9
-        0xbbb -> :sswitch_9
-        0xbbc -> :sswitch_8
-        0xbbd -> :sswitch_7
-        0xbbe -> :sswitch_6
-        0xbbf -> :sswitch_5
-        0xbc0 -> :sswitch_4
-        0xbc1 -> :sswitch_3
-        0xbc2 -> :sswitch_6
-        0xbc3 -> :sswitch_2
-        0xbc4 -> :sswitch_1
-        0xbc5 -> :sswitch_6
-        0xc1c -> :sswitch_0
-        0xc1d -> :sswitch_0
+        0xbb8 -> :sswitch_182
+        0xbb9 -> :sswitch_15b
+        0xbba -> :sswitch_153
+        0xbbb -> :sswitch_153
+        0xbbc -> :sswitch_14b
+        0xbbd -> :sswitch_106
+        0xbbe -> :sswitch_ee
+        0xbbf -> :sswitch_e9
+        0xbc0 -> :sswitch_e4
+        0xbc1 -> :sswitch_bb
+        0xbc2 -> :sswitch_ee
+        0xbc3 -> :sswitch_5b
+        0xbc4 -> :sswitch_27
+        0xbc5 -> :sswitch_ee
+        0xc1c -> :sswitch_25
+        0xc1d -> :sswitch_25
     .end sparse-switch
 .end method
 
 .method protected log(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "s"    # Ljava/lang/String;
 
     .line 614
     sget-boolean v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->USR_BUILD:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     sget-boolean v0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->TELDBG:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     .line 615
-    :cond_0
+    :cond_8
     const-string v0, "WfcLocationHandler"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 617
-    :cond_1
+    :cond_d
     return-void
 .end method
 
 .method protected notifyMultiSimConfigChanged(I[Lcom/mediatek/wfo/ril/MwiRIL;)V
-    .locals 5
+    .registers 8
     .param p1, "activeModemCount"    # I
     .param p2, "mwiRil"    # [Lcom/mediatek/wfo/ril/MwiRIL;
 
@@ -6469,26 +6469,26 @@
     invoke-static {v2, v1}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 599
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_2f
 
     return-void
 
     .line 601
-    :cond_0
+    :cond_2f
     iput p1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mSimCount:I
 
     .line 603
-    if-le v0, p1, :cond_1
+    if-le v0, p1, :cond_34
 
-    goto :goto_1
+    goto :goto_44
 
     .line 606
-    :cond_1
+    :cond_34
     move v1, v0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p1, :cond_2
+    :goto_35
+    if-ge v1, p1, :cond_44
 
     .line 607
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
@@ -6504,11 +6504,11 @@
     .line 606
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_35
 
     .line 611
     .end local v1    # "i":I
-    :cond_2
-    :goto_1
+    :cond_44
+    :goto_44
     return-void
 .end method

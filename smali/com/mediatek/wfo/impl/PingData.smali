@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(IDI)V
-    .locals 0
+    .registers 5
     .param p1, "simId"    # I
     .param p2, "latency"    # D
     .param p4, "lostData"    # I
@@ -39,7 +39,7 @@
 .end method
 
 .method private debugInfo(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "info"    # Ljava/lang/String;
 
     .line 63
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public getPacketLoss()I
-    .locals 2
+    .registers 3
 
     .line 58
     new-instance v0, Ljava/lang/StringBuilder;
@@ -104,7 +104,7 @@
 .end method
 
 .method public getPingLatency()D
-    .locals 3
+    .registers 4
 
     .line 53
     new-instance v0, Ljava/lang/StringBuilder;

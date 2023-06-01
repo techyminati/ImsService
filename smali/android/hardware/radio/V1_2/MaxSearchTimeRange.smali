@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 18
@@ -38,7 +38,7 @@
 
     const/16 v3, 0x3c
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_13
 
     .line 21
     const-string v2, "MIN"
@@ -49,12 +49,12 @@
     or-int/lit8 v1, v1, 0x3c
 
     .line 24
-    :cond_0
+    :cond_13
     and-int/lit16 v2, p0, 0xe10
 
     const/16 v3, 0xe10
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_20
 
     .line 25
     const-string v2, "MAX"
@@ -65,8 +65,8 @@
     or-int/lit16 v1, v1, 0xe10
 
     .line 28
-    :cond_1
-    if-eq p0, v1, :cond_2
+    :cond_20
+    if-eq p0, v1, :cond_3c
 
     .line 29
     new-instance v2, Ljava/lang/StringBuilder;
@@ -94,7 +94,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 31
-    :cond_2
+    :cond_3c
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -105,13 +105,13 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 8
     const/16 v0, 0x3c
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_7
 
     .line 9
     const-string v0, "MIN"
@@ -119,10 +119,10 @@
     return-object v0
 
     .line 11
-    :cond_0
+    :cond_7
     const/16 v0, 0xe10
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_e
 
     .line 12
     const-string v0, "MAX"
@@ -130,7 +130,7 @@
     return-object v0
 
     .line 14
-    :cond_1
+    :cond_e
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

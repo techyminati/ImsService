@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 68
     const/4 v0, 0x0
@@ -30,7 +30,7 @@
 .end method
 
 .method private constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 84
@@ -44,13 +44,13 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Lcom/mediatek/wfo/impl/WfoService;
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
 
     .line 78
     sget-object v0, Lcom/mediatek/wfo/impl/WfoService;->mInstance:Lcom/mediatek/wfo/impl/WfoService;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 79
     new-instance v0, Lcom/mediatek/wfo/impl/WfoService;
@@ -60,7 +60,7 @@
     sput-object v0, Lcom/mediatek/wfo/impl/WfoService;->mInstance:Lcom/mediatek/wfo/impl/WfoService;
 
     .line 81
-    :cond_0
+    :cond_b
     sget-object v0, Lcom/mediatek/wfo/impl/WfoService;->mInstance:Lcom/mediatek/wfo/impl/WfoService;
 
     return-object v0
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public makeWfoService()V
-    .locals 4
+    .registers 5
 
     .line 89
     const-string v0, "ro.vendor.mtk_ril_mode"
@@ -88,7 +88,7 @@
 
     const-string v2, "WfoService"
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 90
     const-string v0, "WfoService new MWIService"
@@ -113,10 +113,10 @@
 
     invoke-static {v2, v0, v1}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;Z)V
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 95
-    :cond_0
+    :cond_28
     const-string v0, "WfoService new WifiOffloadService"
 
     invoke-static {v2, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
@@ -139,17 +139,17 @@
     iput-object v3, p0, Lcom/mediatek/wfo/impl/WfoService;->mService:Lcom/mediatek/wfo/IWifiOffloadService$Stub;
 
     .line 98
-    if-nez v3, :cond_1
+    if-nez v3, :cond_43
 
     .line 99
     const-string v1, "WfoService cannot be found"
 
     invoke-static {v2, v1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 102
-    :cond_1
+    :cond_43
     invoke-virtual {v3}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -160,6 +160,6 @@
 
     .line 105
     .end local v0    # "factory":Lcom/mediatek/wfo/plugin/LegacyComponentFactory;
-    :goto_0
+    :goto_4c
     return-void
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/impl/MwiService;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/mediatek/wfo/impl/MwiService;
 
     .line 128
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 8
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -66,6 +66,7 @@
     iget-object v3, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
     .line 137
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mSimCount:I
     invoke-static {v3}, Lcom/mediatek/wfo/impl/MwiService;->access$000(Lcom/mediatek/wfo/impl/MwiService;)I
 
     move-result v3
@@ -94,15 +95,16 @@
     invoke-static {v3, v2}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 139
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_b1
 
     iget-object v2, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mSimCount:I
     invoke-static {v2}, Lcom/mediatek/wfo/impl/MwiService;->access$000(Lcom/mediatek/wfo/impl/MwiService;)I
 
     move-result v2
 
-    if-eq v2, v0, :cond_2
+    if-eq v2, v0, :cond_b1
 
     .line 140
     const-string v2, "com.mediatek.ims"
@@ -111,15 +113,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_4a
 
     .line 141
     return-void
 
     .line 143
-    :cond_0
+    :cond_4a
     iget-object v2, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
     invoke-static {v2}, Lcom/mediatek/wfo/impl/MwiService;->access$100(Lcom/mediatek/wfo/impl/MwiService;)[Lcom/mediatek/wfo/ril/MwiRIL;
 
     move-result-object v2
@@ -130,11 +133,13 @@
     .local v2, "prevActiveModemCount":I
     iget-object v3, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
+    # setter for: Lcom/mediatek/wfo/impl/MwiService;->mSimCount:I
     invoke-static {v3, v0}, Lcom/mediatek/wfo/impl/MwiService;->access$002(Lcom/mediatek/wfo/impl/MwiService;I)I
 
     .line 146
     iget-object v3, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
     invoke-static {v3}, Lcom/mediatek/wfo/impl/MwiService;->access$100(Lcom/mediatek/wfo/impl/MwiService;)[Lcom/mediatek/wfo/ril/MwiRIL;
 
     move-result-object v4
@@ -145,18 +150,20 @@
 
     check-cast v4, [Lcom/mediatek/wfo/ril/MwiRIL;
 
+    # setter for: Lcom/mediatek/wfo/impl/MwiService;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
     invoke-static {v3, v4}, Lcom/mediatek/wfo/impl/MwiService;->access$102(Lcom/mediatek/wfo/impl/MwiService;[Lcom/mediatek/wfo/ril/MwiRIL;)[Lcom/mediatek/wfo/ril/MwiRIL;
 
     .line 148
     move v3, v2
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v0, :cond_1
+    :goto_66
+    if-ge v3, v0, :cond_86
 
     .line 149
     iget-object v4, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
     invoke-static {v4}, Lcom/mediatek/wfo/impl/MwiService;->access$100(Lcom/mediatek/wfo/impl/MwiService;)[Lcom/mediatek/wfo/ril/MwiRIL;
 
     move-result-object v4
@@ -165,6 +172,7 @@
 
     iget-object v6, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/mediatek/wfo/impl/MwiService;->access$200(Lcom/mediatek/wfo/impl/MwiService;)Landroid/content/Context;
 
     move-result-object v6
@@ -184,17 +192,19 @@
     .line 148
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_66
 
     .line 151
     .end local v3    # "i":I
-    :cond_1
+    :cond_86
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
     invoke-static {}, Lcom/mediatek/wfo/impl/MwiService;->access$300()Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
     invoke-static {v4}, Lcom/mediatek/wfo/impl/MwiService;->access$100(Lcom/mediatek/wfo/impl/MwiService;)[Lcom/mediatek/wfo/ril/MwiRIL;
 
     move-result-object v4
@@ -204,12 +214,14 @@
     .line 152
     iget-object v3, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mWfcHandler:Lcom/mediatek/wfo/impl/WfcHandler;
     invoke-static {v3}, Lcom/mediatek/wfo/impl/MwiService;->access$400(Lcom/mediatek/wfo/impl/MwiService;)Lcom/mediatek/wfo/impl/WfcHandler;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
     invoke-static {v4}, Lcom/mediatek/wfo/impl/MwiService;->access$100(Lcom/mediatek/wfo/impl/MwiService;)[Lcom/mediatek/wfo/ril/MwiRIL;
 
     move-result-object v4
@@ -219,12 +231,14 @@
     .line 153
     iget-object v3, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mWfcLocationHandler:Lcom/mediatek/wfo/impl/WfcLocationHandler;
     invoke-static {v3}, Lcom/mediatek/wfo/impl/MwiService;->access$500(Lcom/mediatek/wfo/impl/MwiService;)Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/mediatek/wfo/impl/MwiService$1;->this$0:Lcom/mediatek/wfo/impl/MwiService;
 
+    # getter for: Lcom/mediatek/wfo/impl/MwiService;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
     invoke-static {v4}, Lcom/mediatek/wfo/impl/MwiService;->access$100(Lcom/mediatek/wfo/impl/MwiService;)[Lcom/mediatek/wfo/ril/MwiRIL;
 
     move-result-object v4
@@ -233,6 +247,6 @@
 
     .line 156
     .end local v2    # "prevActiveModemCount":I
-    :cond_2
+    :cond_b1
     return-void
 .end method

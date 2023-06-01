@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 70
@@ -53,7 +53,7 @@
 
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_17
 
     .line 74
     const-string v2, "ALL"
@@ -64,12 +64,12 @@
     or-int/lit8 v1, v1, -0x1
 
     .line 77
-    :cond_0
+    :cond_17
     and-int/lit8 v2, p0, 0x1
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 78
     const-string v2, "SIGNAL_STRENGTH"
@@ -80,12 +80,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 81
-    :cond_1
+    :cond_23
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2f
 
     .line 82
     const-string v2, "FULL_NETWORK_STATE"
@@ -96,12 +96,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 85
-    :cond_2
+    :cond_2f
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_3b
 
     .line 86
     const-string v2, "DATA_CALL_DORMANCY_CHANGED"
@@ -112,12 +112,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 89
-    :cond_3
+    :cond_3b
     and-int/lit8 v2, p0, 0x8
 
     const/16 v3, 0x8
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_48
 
     .line 90
     const-string v2, "LINK_CAPACITY_ESTIMATE"
@@ -128,12 +128,12 @@
     or-int/lit8 v1, v1, 0x8
 
     .line 93
-    :cond_4
+    :cond_48
     and-int/lit8 v2, p0, 0x10
 
     const/16 v3, 0x10
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_55
 
     .line 94
     const-string v2, "PHYSICAL_CHANNEL_CONFIG"
@@ -144,8 +144,8 @@
     or-int/lit8 v1, v1, 0x10
 
     .line 97
-    :cond_5
-    if-eq p0, v1, :cond_6
+    :cond_55
+    if-eq p0, v1, :cond_71
 
     .line 98
     new-instance v2, Ljava/lang/StringBuilder;
@@ -173,7 +173,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 100
-    :cond_6
+    :cond_71
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -184,11 +184,11 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 45
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 46
     const-string v0, "NONE"
@@ -196,10 +196,10 @@
     return-object v0
 
     .line 48
-    :cond_0
+    :cond_5
     const/4 v0, -0x1
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_b
 
     .line 49
     const-string v0, "ALL"
@@ -207,10 +207,10 @@
     return-object v0
 
     .line 51
-    :cond_1
+    :cond_b
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_11
 
     .line 52
     const-string v0, "SIGNAL_STRENGTH"
@@ -218,10 +218,10 @@
     return-object v0
 
     .line 54
-    :cond_2
+    :cond_11
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_17
 
     .line 55
     const-string v0, "FULL_NETWORK_STATE"
@@ -229,10 +229,10 @@
     return-object v0
 
     .line 57
-    :cond_3
+    :cond_17
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1d
 
     .line 58
     const-string v0, "DATA_CALL_DORMANCY_CHANGED"
@@ -240,10 +240,10 @@
     return-object v0
 
     .line 60
-    :cond_4
+    :cond_1d
     const/16 v0, 0x8
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_24
 
     .line 61
     const-string v0, "LINK_CAPACITY_ESTIMATE"
@@ -251,10 +251,10 @@
     return-object v0
 
     .line 63
-    :cond_5
+    :cond_24
     const/16 v0, 0x10
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_2b
 
     .line 64
     const-string v0, "PHYSICAL_CHANNEL_CONFIG"
@@ -262,7 +262,7 @@
     return-object v0
 
     .line 66
-    :cond_6
+    :cond_2b
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

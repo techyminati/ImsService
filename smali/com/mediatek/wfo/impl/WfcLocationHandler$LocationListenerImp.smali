@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/mediatek/wfo/impl/WfcLocationHandler;)V
-    .locals 0
+    .registers 2
 
     .line 249
     iput-object p1, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationListenerImp;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/mediatek/wfo/impl/WfcLocationHandler;Lcom/mediatek/wfo/impl/WfcLocationHandler$1;)V
-    .locals 0
+    .registers 3
     .param p1, "x0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
     .param p2, "x1"    # Lcom/mediatek/wfo/impl/WfcLocationHandler$1;
 
@@ -47,15 +47,16 @@
 
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
-    .locals 9
+    .registers 11
     .param p1, "location"    # Landroid/location/Location;
 
     .line 252
+    # getter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->ENGLOAD:Z
     invoke-static {}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$600()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 253
     const-string v0, "WfcLocationHandler"
@@ -76,10 +77,10 @@
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_24
 
     .line 255
-    :cond_0
+    :cond_1d
     const-string v0, "WfcLocationHandler"
 
     const-string v1, "onLocationChanged"
@@ -87,7 +88,7 @@
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 258
-    :goto_0
+    :goto_24
     invoke-virtual {p1}, Landroid/location/Location;->getTime()J
 
     move-result-wide v0
@@ -119,6 +120,7 @@
     .local v2, "isCache":Z
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationListenerImp;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationInfoQueue:Ljava/util/ArrayList;
     invoke-static {v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$700(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -127,12 +129,12 @@
 
     move-result-object v3
 
-    :goto_1
+    :goto_49
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_75
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -167,19 +169,19 @@
 
     cmp-long v5, v5, v0
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_74
 
     .line 264
     const/4 v2, 0x1
 
     .line 266
     .end local v4    # "locationInfo":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    :cond_1
-    goto :goto_1
+    :cond_74
+    goto :goto_49
 
     .line 268
-    :cond_2
-    if-eqz v2, :cond_3
+    :cond_75
+    if-eqz v2, :cond_92
 
     .line 269
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationListenerImp;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
@@ -203,17 +205,20 @@
     .line 270
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationListenerImp;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # operator++ for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mGeocodingFailRetry:I
     invoke-static {v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$808(Lcom/mediatek/wfo/impl/WfcLocationHandler;)I
 
     .line 273
-    :cond_3
+    :cond_92
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationListenerImp;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcLocationHandler;->cancelNetworkLocationRequest()V
     invoke-static {v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$900(Lcom/mediatek/wfo/impl/WfcLocationHandler;)V
 
     .line 274
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationListenerImp;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationTimeoutLock:Ljava/lang/Object;
     invoke-static {v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$1000(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Ljava/lang/Object;
 
     move-result-object v3
@@ -221,17 +226,18 @@
     monitor-enter v3
 
     .line 275
-    :try_start_0
+    :try_start_9e
     iget-object v4, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationListenerImp;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     const/4 v5, 0x0
 
+    # setter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mLocationTimeout:Z
     invoke-static {v4, v5}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$1102(Lcom/mediatek/wfo/impl/WfcLocationHandler;Z)Z
 
     .line 276
     monitor-exit v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a5
+    .catchall {:try_start_9e .. :try_end_a5} :catchall_bf
 
     .line 278
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationListenerImp;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
@@ -263,19 +269,19 @@
     return-void
 
     .line 276
-    :catchall_0
+    :catchall_bf
     move-exception v4
 
-    :try_start_1
+    :try_start_c0
     monitor-exit v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_c1
+    .catchall {:try_start_c0 .. :try_end_c1} :catchall_bf
 
     throw v4
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "provider"    # Ljava/lang/String;
 
     .line 287
@@ -302,7 +308,7 @@
 .end method
 
 .method public onProviderEnabled(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "provider"    # Ljava/lang/String;
 
     .line 292
@@ -329,7 +335,7 @@
 .end method
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
-    .locals 3
+    .registers 7
     .param p1, "provider"    # Ljava/lang/String;
     .param p2, "status"    # I
     .param p3, "extras"    # Landroid/os/Bundle;

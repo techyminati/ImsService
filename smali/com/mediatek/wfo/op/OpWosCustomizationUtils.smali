@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 51
     new-instance v0, Ljava/util/ArrayList;
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,7 +79,7 @@
 .end method
 
 .method public static declared-synchronized getOpFactory(Landroid/content/Context;)Lcom/mediatek/wfo/op/OpWosCustomizationFactoryBase;
-    .locals 4
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
 
     const-class v0, Lcom/mediatek/wfo/op/OpWosCustomizationUtils;
@@ -87,7 +87,7 @@
     monitor-enter v0
 
     .line 72
-    :try_start_0
+    :try_start_3
     sget-object v1, Lcom/mediatek/wfo/op/OpWosCustomizationUtils;->sOperatorFactoryInfoList:Ljava/util/List;
 
     .line 73
@@ -98,28 +98,28 @@
     check-cast v1, Lcom/mediatek/wfo/op/OpWosCustomizationFactoryBase;
 
     sput-object v1, Lcom/mediatek/wfo/op/OpWosCustomizationUtils;->sFactory:Lcom/mediatek/wfo/op/OpWosCustomizationFactoryBase;
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catch Ljava/lang/ClassCastException; {:try_start_3 .. :try_end_d} :catch_10
+    .catchall {:try_start_3 .. :try_end_d} :catchall_e
 
     .line 76
-    goto :goto_0
+    goto :goto_18
 
     .line 71
     .end local p0    # "context":Landroid/content/Context;
-    :catchall_0
+    :catchall_e
     move-exception p0
 
-    goto :goto_1
+    goto :goto_27
 
     .line 74
     .restart local p0    # "context":Landroid/content/Context;
-    :catch_0
+    :catch_10
     move-exception v1
 
     .line 75
     .local v1, "e":Ljava/lang/ClassCastException;
-    :try_start_1
+    :try_start_11
     const-string v2, "OpWosCustomizationUtils"
 
     const-string v3, "OpWosCustomizationFactoryBase ClassCastException"
@@ -128,10 +128,10 @@
 
     .line 77
     .end local v1    # "e":Ljava/lang/ClassCastException;
-    :goto_0
+    :goto_18
     sget-object v1, Lcom/mediatek/wfo/op/OpWosCustomizationUtils;->sFactory:Lcom/mediatek/wfo/op/OpWosCustomizationFactoryBase;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_23
 
     .line 78
     new-instance v1, Lcom/mediatek/wfo/op/OpWosCustomizationFactoryBase;
@@ -141,10 +141,10 @@
     sput-object v1, Lcom/mediatek/wfo/op/OpWosCustomizationUtils;->sFactory:Lcom/mediatek/wfo/op/OpWosCustomizationFactoryBase;
 
     .line 81
-    :cond_0
+    :cond_23
     sget-object v1, Lcom/mediatek/wfo/op/OpWosCustomizationUtils;->sFactory:Lcom/mediatek/wfo/op/OpWosCustomizationFactoryBase;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_25
+    .catchall {:try_start_11 .. :try_end_25} :catchall_e
 
     monitor-exit v0
 
@@ -152,7 +152,7 @@
 
     .line 71
     .end local p0    # "context":Landroid/content/Context;
-    :goto_1
+    :goto_27
     monitor-exit v0
 
     throw p0

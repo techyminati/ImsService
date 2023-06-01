@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 2885
     invoke-direct {p0}, Landroid/os/HwBinder;-><init>()V
@@ -30,14 +30,14 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IHwBinder;
-    .locals 0
+    .registers 1
 
     .line 2888
     return-object p0
 .end method
 
 .method public debug(Landroid/os/NativeHandle;Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 3
     .param p1, "fd"    # Landroid/os/NativeHandle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,7 +55,7 @@
 .end method
 
 .method public final getDebugInfo()Landroid/hidl/base/V1_0/DebugInfo;
-    .locals 3
+    .registers 4
 
     .line 2942
     new-instance v0, Landroid/hidl/base/V1_0/DebugInfo;
@@ -85,7 +85,7 @@
 .end method
 
 .method public final getHashChain()Ljava/util/ArrayList;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -105,7 +105,7 @@
 
     new-array v3, v2, [B
 
-    fill-array-data v3, :array_0
+    fill-array-data v3, :array_30
 
     const/4 v4, 0x0
 
@@ -113,7 +113,7 @@
 
     new-array v3, v2, [B
 
-    fill-array-data v3, :array_1
+    fill-array-data v3, :array_44
 
     const/4 v4, 0x1
 
@@ -121,7 +121,7 @@
 
     new-array v3, v2, [B
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_58
 
     const/4 v4, 0x2
 
@@ -129,7 +129,7 @@
 
     new-array v2, v2, [B
 
-    fill-array-data v2, :array_3
+    fill-array-data v2, :array_6c
 
     const/4 v3, 0x3
 
@@ -145,7 +145,7 @@
 
     nop
 
-    :array_0
+    :array_30
     .array-data 1
         -0x26t
         -0x74t
@@ -181,7 +181,7 @@
         -0x49t
     .end array-data
 
-    :array_1
+    :array_44
     .array-data 1
         0x0t
         0x36t
@@ -217,7 +217,7 @@
         -0x66t
     .end array-data
 
-    :array_2
+    :array_58
     .array-data 1
         -0x44t
         0x3ct
@@ -253,7 +253,7 @@
         -0x43t
     .end array-data
 
-    :array_3
+    :array_6c
     .array-data 1
         -0x14t
         0x7ft
@@ -291,7 +291,7 @@
 .end method
 
 .method public final interfaceChain()Ljava/util/ArrayList;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -326,7 +326,7 @@
 .end method
 
 .method public final interfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 2909
     const-string v0, "android.hardware.radio@1.2::IRadioResponse"
@@ -335,7 +335,7 @@
 .end method
 
 .method public final linkToDeath(Landroid/os/IHwBinder$DeathRecipient;J)Z
-    .locals 1
+    .registers 5
     .param p1, "recipient"    # Landroid/os/IHwBinder$DeathRecipient;
     .param p2, "cookie"    # J
 
@@ -346,7 +346,7 @@
 .end method
 
 .method public final notifySyspropsChanged()V
-    .locals 0
+    .registers 1
 
     .line 2952
     invoke-static {}, Landroid/os/HwBinder;->enableInstrumentation()V
@@ -356,7 +356,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
-    .locals 16
+    .registers 21
     .param p1, "_hidl_code"    # I
     .param p2, "_hidl_request"    # Landroid/os/HwParcel;
     .param p3, "_hidl_reply"    # Landroid/os/HwParcel;
@@ -384,22 +384,22 @@
 
     const-string v4, "android.hardware.radio@1.0::IRadioResponse"
 
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_b96
 
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4630
-    :sswitch_0
+    :sswitch_14
     invoke-virtual {v8, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4632
     invoke-virtual/range {p0 .. p0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->notifySyspropsChanged()V
 
     .line 4633
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4619
-    :sswitch_1
+    :sswitch_1c
     invoke-virtual {v8, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4621
@@ -418,11 +418,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 4625
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4609
     .end local v0    # "_hidl_out_info":Landroid/hidl/base/V1_0/DebugInfo;
-    :sswitch_2
+    :sswitch_2e
     invoke-virtual {v8, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4611
@@ -435,24 +435,24 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 4614
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4604
-    :sswitch_3
-    goto/16 :goto_1
+    :sswitch_3c
+    goto/16 :goto_b94
 
     .line 4596
-    :sswitch_4
+    :sswitch_3e
     invoke-virtual {v8, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4598
     invoke-virtual/range {p0 .. p0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setHALInstrumentation()V
 
     .line 4599
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4562
-    :sswitch_5
+    :sswitch_46
     invoke-virtual {v8, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4564
@@ -500,8 +500,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v3, :cond_1
+    :goto_6d
+    if-ge v4, v3, :cond_8e
 
     .line 4575
     mul-int/lit8 v5, v4, 0x20
@@ -518,13 +518,13 @@
 
     .line 4578
     .local v10, "_hidl_array_item_1":[B
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_86
 
     array-length v11, v10
 
     const/16 v12, 0x20
 
-    if-ne v11, v12, :cond_0
+    if-ne v11, v12, :cond_86
 
     .line 4582
     invoke-virtual {v1, v5, v6, v10}, Landroid/os/HwBlob;->putInt8Array(J[B)V
@@ -537,12 +537,12 @@
     .end local v10    # "_hidl_array_item_1":[B
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 4579
     .restart local v5    # "_hidl_array_offset_1":J
     .restart local v10    # "_hidl_array_item_1":[B
-    :cond_0
+    :cond_86
     new-instance v11, Ljava/lang/IllegalArgumentException;
 
     const-string v12, "Array element is not of the expected length"
@@ -555,7 +555,7 @@
     .end local v4    # "_hidl_index_0":I
     .end local v5    # "_hidl_array_offset_1":J
     .end local v10    # "_hidl_array_item_1":[B
-    :cond_1
+    :cond_8e
     const-wide/16 v4, 0x0
 
     invoke-virtual {v2, v4, v5, v1}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
@@ -570,11 +570,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 4591
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4551
     .end local v0    # "_hidl_out_hashchain":Ljava/util/ArrayList;, "Ljava/util/ArrayList<[B>;"
-    :sswitch_6
+    :sswitch_9b
     invoke-virtual {v8, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4553
@@ -593,11 +593,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 4557
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4539
     .end local v0    # "_hidl_out_descriptor":Ljava/lang/String;
-    :sswitch_7
+    :sswitch_ad
     invoke-virtual {v8, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4541
@@ -622,12 +622,12 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 4546
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4528
     .end local v0    # "fd":Landroid/os/NativeHandle;
     .end local v2    # "options":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :sswitch_8
+    :sswitch_c3
     invoke-virtual {v8, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4530
@@ -646,11 +646,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 4534
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4516
     .end local v0    # "_hidl_out_descriptors":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :sswitch_9
+    :sswitch_d5
     invoke-virtual {v8, v3}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4518
@@ -675,12 +675,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getDataRegistrationStateResponse_1_2(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_2/DataRegStateResult;)V
 
     .line 4523
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4504
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "dataRegResponse":Landroid/hardware/radio/V1_2/DataRegStateResult;
-    :sswitch_a
+    :sswitch_ed
     invoke-virtual {v8, v3}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4506
@@ -705,12 +705,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getVoiceRegistrationStateResponse_1_2(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_2/VoiceRegStateResult;)V
 
     .line 4511
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4492
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "voiceRegResponse":Landroid/hardware/radio/V1_2/VoiceRegStateResult;
-    :sswitch_b
+    :sswitch_105
     invoke-virtual {v8, v3}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4494
@@ -735,12 +735,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getSignalStrengthResponse_1_2(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_2/SignalStrength;)V
 
     .line 4499
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4481
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "signalStrength":Landroid/hardware/radio/V1_2/SignalStrength;
-    :sswitch_c
+    :sswitch_11d
     invoke-virtual {v8, v3}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4483
@@ -762,12 +762,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getCurrentCallsResponse_1_2(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 4487
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4471
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "calls":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/radio/V1_2/Call;>;"
-    :sswitch_d
+    :sswitch_131
     invoke-virtual {v8, v3}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4473
@@ -783,11 +783,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setLinkCapacityReportingCriteriaResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4476
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4461
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_e
+    :sswitch_141
     invoke-virtual {v8, v3}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4463
@@ -803,11 +803,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setSignalStrengthReportingCriteriaResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4466
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4449
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_f
+    :sswitch_151
     invoke-virtual {v8, v3}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4451
@@ -832,12 +832,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getIccCardStatusResponse_1_2(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_2/CardStatus;)V
 
     .line 4456
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4438
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "cardStatus":Landroid/hardware/radio/V1_2/CardStatus;
-    :sswitch_10
+    :sswitch_169
     invoke-virtual {v8, v3}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4440
@@ -859,12 +859,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getCellInfoListResponse_1_2(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 4444
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4428
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "cellInfo":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/radio/V1_2/CellInfo;>;"
-    :sswitch_11
+    :sswitch_17d
     invoke-virtual {v8, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4430
@@ -880,11 +880,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->stopKeepaliveResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4433
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4416
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_12
+    :sswitch_18d
     invoke-virtual {v8, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4418
@@ -909,12 +909,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->startKeepaliveResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_1/KeepaliveStatus;)V
 
     .line 4423
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4406
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "status":Landroid/hardware/radio/V1_1/KeepaliveStatus;
-    :sswitch_13
+    :sswitch_1a5
     invoke-virtual {v8, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4408
@@ -930,11 +930,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->stopNetworkScanResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4411
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4396
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_14
+    :sswitch_1b5
     invoke-virtual {v8, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4398
@@ -950,11 +950,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->startNetworkScanResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4401
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4386
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_15
+    :sswitch_1c5
     invoke-virtual {v8, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4388
@@ -970,11 +970,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setSimCardPowerResponse_1_1(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4391
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4376
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_16
+    :sswitch_1d5
     invoke-virtual {v8, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4378
@@ -990,11 +990,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setCarrierInfoForImsiEncryptionResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4381
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4367
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_17
+    :sswitch_1e5
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4369
@@ -1007,11 +1007,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->acknowledgeRequest(I)V
 
     .line 4371
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4357
     .end local v0    # "serial":I
-    :sswitch_18
+    :sswitch_1f1
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4359
@@ -1027,11 +1027,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setSimCardPowerResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4362
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4347
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_19
+    :sswitch_201
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4349
@@ -1047,11 +1047,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setIndicationFilterResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4352
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4337
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_1a
+    :sswitch_211
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4339
@@ -1067,11 +1067,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendDeviceStateResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4342
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4324
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_1b
+    :sswitch_221
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4326
@@ -1102,13 +1102,13 @@
     invoke-virtual {v7, v0, v1, v2}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getAllowedCarriersResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;ZLandroid/hardware/radio/V1_0/CarrierRestrictions;)V
 
     .line 4332
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4313
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "allAllowed":Z
     .end local v2    # "carriers":Landroid/hardware/radio/V1_0/CarrierRestrictions;
-    :sswitch_1c
+    :sswitch_23d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4315
@@ -1130,12 +1130,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setAllowedCarriersResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 4319
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4301
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "numAllowed":I
-    :sswitch_1d
+    :sswitch_251
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4303
@@ -1160,12 +1160,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getModemActivityInfoResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/ActivityStatsInfo;)V
 
     .line 4308
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4289
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "activityInfo":Landroid/hardware/radio/V1_0/ActivityStatsInfo;
-    :sswitch_1e
+    :sswitch_269
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4291
@@ -1190,12 +1190,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->pullLceDataResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/LceDataInfo;)V
 
     .line 4296
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4277
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "lceInfo":Landroid/hardware/radio/V1_0/LceDataInfo;
-    :sswitch_1f
+    :sswitch_281
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4279
@@ -1220,12 +1220,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->stopLceServiceResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/LceStatusInfo;)V
 
     .line 4284
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4265
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "statusInfo":Landroid/hardware/radio/V1_0/LceStatusInfo;
-    :sswitch_20
+    :sswitch_299
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4267
@@ -1250,12 +1250,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->startLceServiceResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/LceStatusInfo;)V
 
     .line 4272
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4253
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "statusInfo":Landroid/hardware/radio/V1_0/LceStatusInfo;
-    :sswitch_21
+    :sswitch_2b1
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4255
@@ -1280,12 +1280,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setRadioCapabilityResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/RadioCapability;)V
 
     .line 4260
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4241
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "rc":Landroid/hardware/radio/V1_0/RadioCapability;
-    :sswitch_22
+    :sswitch_2c9
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4243
@@ -1310,12 +1310,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getRadioCapabilityResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/RadioCapability;)V
 
     .line 4248
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4231
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "rc":Landroid/hardware/radio/V1_0/RadioCapability;
-    :sswitch_23
+    :sswitch_2e1
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4233
@@ -1331,11 +1331,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->requestShutdownResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4236
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4221
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_24
+    :sswitch_2f1
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4223
@@ -1351,11 +1351,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setDataProfileResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4226
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4209
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_25
+    :sswitch_301
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4211
@@ -1380,12 +1380,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->requestIccSimAuthenticationResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/IccIoResult;)V
 
     .line 4216
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4198
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "result":Landroid/hardware/radio/V1_0/IccIoResult;
-    :sswitch_26
+    :sswitch_319
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4200
@@ -1407,12 +1407,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getHardwareConfigResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 4204
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4188
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "config":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/radio/V1_0/HardwareConfig;>;"
-    :sswitch_27
+    :sswitch_32d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4190
@@ -1428,11 +1428,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setDataAllowedResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4193
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4178
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_28
+    :sswitch_33d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4180
@@ -1448,11 +1448,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setUiccSubscriptionResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4183
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4168
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_29
+    :sswitch_34d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4170
@@ -1468,11 +1468,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->nvResetConfigResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4173
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4158
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_2a
+    :sswitch_35d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4160
@@ -1488,11 +1488,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->nvWriteCdmaPrlResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4163
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4148
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_2b
+    :sswitch_36d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4150
@@ -1508,11 +1508,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->nvWriteItemResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4153
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4137
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_2c
+    :sswitch_37d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4139
@@ -1534,12 +1534,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->nvReadItemResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/String;)V
 
     .line 4143
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4125
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "result":Ljava/lang/String;
-    :sswitch_2d
+    :sswitch_391
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4127
@@ -1564,12 +1564,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->iccTransmitApduLogicalChannelResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/IccIoResult;)V
 
     .line 4132
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4115
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "result":Landroid/hardware/radio/V1_0/IccIoResult;
-    :sswitch_2e
+    :sswitch_3a9
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4117
@@ -1585,11 +1585,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->iccCloseLogicalChannelResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4120
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4103
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_2f
+    :sswitch_3b9
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4105
@@ -1617,13 +1617,13 @@
     invoke-virtual {v7, v0, v1, v2}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->iccOpenLogicalChannelResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;ILjava/util/ArrayList;)V
 
     .line 4110
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4091
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "channelId":I
     .end local v2    # "selectResponse":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Byte;>;"
-    :sswitch_30
+    :sswitch_3d1
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4093
@@ -1648,12 +1648,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->iccTransmitApduBasicChannelResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/IccIoResult;)V
 
     .line 4098
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4079
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "result":Landroid/hardware/radio/V1_0/IccIoResult;
-    :sswitch_31
+    :sswitch_3e9
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4081
@@ -1678,12 +1678,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendImsSmsResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/SendSmsResult;)V
 
     .line 4086
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4067
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "sms":Landroid/hardware/radio/V1_0/SendSmsResult;
-    :sswitch_32
+    :sswitch_401
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4069
@@ -1711,13 +1711,13 @@
     invoke-virtual {v7, v0, v1, v2}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getImsRegistrationStateResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;ZI)V
 
     .line 4074
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4057
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "isRegistered":Z
     .end local v2    # "ratFamily":I
-    :sswitch_33
+    :sswitch_419
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4059
@@ -1733,11 +1733,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setInitialAttachApnResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4062
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4047
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_34
+    :sswitch_429
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4049
@@ -1753,11 +1753,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setCellInfoListRateResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4052
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4036
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_35
+    :sswitch_439
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4038
@@ -1779,12 +1779,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getCellInfoListResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 4042
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4025
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "cellInfo":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/radio/V1_0/CellInfo;>;"
-    :sswitch_36
+    :sswitch_44d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4027
@@ -1806,12 +1806,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getVoiceRadioTechnologyResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 4031
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4013
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "rat":I
-    :sswitch_37
+    :sswitch_461
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4015
@@ -1836,12 +1836,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendEnvelopeWithStatusResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/IccIoResult;)V
 
     .line 4020
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 4003
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "iccIo":Landroid/hardware/radio/V1_0/IccIoResult;
-    :sswitch_38
+    :sswitch_479
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 4005
@@ -1857,11 +1857,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->acknowledgeIncomingGsmSmsWithPduResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 4008
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3992
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_39
+    :sswitch_489
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3994
@@ -1883,12 +1883,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->requestIsimAuthenticationResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/String;)V
 
     .line 3998
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3981
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "response":Ljava/lang/String;
-    :sswitch_3a
+    :sswitch_49d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3983
@@ -1910,12 +1910,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getCdmaSubscriptionSourceResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3987
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3971
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "source":I
-    :sswitch_3b
+    :sswitch_4b1
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3973
@@ -1931,11 +1931,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->reportStkServiceIsRunningResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3976
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3961
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_3c
+    :sswitch_4c1
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3963
@@ -1951,11 +1951,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->reportSmsMemoryStatusResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3966
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3951
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_3d
+    :sswitch_4d1
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3953
@@ -1971,11 +1971,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setSmscAddressResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3956
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3940
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_3e
+    :sswitch_4e1
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3942
@@ -1997,12 +1997,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getSmscAddressResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/String;)V
 
     .line 3946
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3930
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "smsc":Ljava/lang/String;
-    :sswitch_3f
+    :sswitch_4f5
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3932
@@ -2018,11 +2018,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->exitEmergencyCallbackModeResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3935
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3916
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_40
+    :sswitch_505
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3918
@@ -2076,7 +2076,7 @@
     invoke-virtual/range {v0 .. v5}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getDeviceIdentityResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 3925
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3906
     .end local v6    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
@@ -2084,7 +2084,7 @@
     .end local v11    # "imeisv":Ljava/lang/String;
     .end local v12    # "esn":Ljava/lang/String;
     .end local v13    # "meid":Ljava/lang/String;
-    :sswitch_41
+    :sswitch_52d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3908
@@ -2100,11 +2100,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->deleteSmsOnRuimResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3911
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3895
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_42
+    :sswitch_53d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3897
@@ -2126,12 +2126,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->writeSmsToRuimResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3901
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3880
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "index":I
-    :sswitch_43
+    :sswitch_551
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3882
@@ -2193,7 +2193,7 @@
     invoke-virtual/range {v0 .. v6}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getCDMASubscriptionResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 3890
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3870
     .end local v10    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
@@ -2202,7 +2202,7 @@
     .end local v13    # "hNid":Ljava/lang/String;
     .end local v14    # "min":Ljava/lang/String;
     .end local v15    # "prl":Ljava/lang/String;
-    :sswitch_44
+    :sswitch_57e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3872
@@ -2218,11 +2218,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setCdmaBroadcastActivationResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3875
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3860
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_45
+    :sswitch_58e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3862
@@ -2238,11 +2238,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setCdmaBroadcastConfigResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3865
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3849
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_46
+    :sswitch_59e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3851
@@ -2264,12 +2264,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getCdmaBroadcastConfigResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 3855
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3839
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "configs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/radio/V1_0/CdmaBroadcastSmsConfigInfo;>;"
-    :sswitch_47
+    :sswitch_5b2
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3841
@@ -2285,11 +2285,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setGsmBroadcastActivationResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3844
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3829
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_48
+    :sswitch_5c2
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3831
@@ -2305,11 +2305,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setGsmBroadcastConfigResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3834
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3818
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_49
+    :sswitch_5d2
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3820
@@ -2331,12 +2331,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getGsmBroadcastConfigResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 3824
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3808
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "configs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/radio/V1_0/GsmBroadcastSmsConfigInfo;>;"
-    :sswitch_4a
+    :sswitch_5e6
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3810
@@ -2352,11 +2352,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->acknowledgeLastIncomingCdmaSmsResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3813
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3796
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_4b
+    :sswitch_5f6
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3798
@@ -2381,12 +2381,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendCdmaSmsResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/SendSmsResult;)V
 
     .line 3803
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3786
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "sms":Landroid/hardware/radio/V1_0/SendSmsResult;
-    :sswitch_4c
+    :sswitch_60e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3788
@@ -2402,11 +2402,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendBurstDtmfResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3791
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3776
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_4d
+    :sswitch_61e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3778
@@ -2422,11 +2422,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendCDMAFeatureCodeResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3781
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3765
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_4e
+    :sswitch_62e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3767
@@ -2448,12 +2448,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getPreferredVoicePrivacyResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Z)V
 
     .line 3771
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3755
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "enable":Z
-    :sswitch_4f
+    :sswitch_642
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3757
@@ -2469,11 +2469,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setPreferredVoicePrivacyResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3760
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3744
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_50
+    :sswitch_652
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3746
@@ -2495,12 +2495,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getTTYModeResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3750
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3734
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "mode":I
-    :sswitch_51
+    :sswitch_666
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3736
@@ -2516,11 +2516,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setTTYModeResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3739
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3723
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_52
+    :sswitch_676
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3725
@@ -2542,12 +2542,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getCdmaRoamingPreferenceResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3729
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3713
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "type":I
-    :sswitch_53
+    :sswitch_68a
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3715
@@ -2563,11 +2563,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setCdmaRoamingPreferenceResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3718
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3703
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_54
+    :sswitch_69a
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3705
@@ -2583,11 +2583,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setCdmaSubscriptionSourceResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3708
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3693
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_55
+    :sswitch_6aa
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3695
@@ -2603,11 +2603,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setLocationUpdatesResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3698
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3682
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_56
+    :sswitch_6ba
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3684
@@ -2629,12 +2629,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getNeighboringCidsResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 3688
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3671
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "cells":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/radio/V1_0/NeighboringCell;>;"
-    :sswitch_57
+    :sswitch_6ce
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3673
@@ -2656,12 +2656,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getPreferredNetworkTypeResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3677
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3661
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "nwType":I
-    :sswitch_58
+    :sswitch_6e2
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3663
@@ -2677,11 +2677,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setPreferredNetworkTypeResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3666
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3651
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_59
+    :sswitch_6f2
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3653
@@ -2697,11 +2697,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->explicitCallTransferResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3656
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3641
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_5a
+    :sswitch_702
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3643
@@ -2717,11 +2717,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->handleStkCallSetupRequestFromSimResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3646
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3631
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_5b
+    :sswitch_712
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3633
@@ -2737,11 +2737,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendTerminalResponseToSimResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3636
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3620
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_5c
+    :sswitch_722
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3622
@@ -2763,12 +2763,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendEnvelopeResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/String;)V
 
     .line 3626
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3609
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "commandResponse":Ljava/lang/String;
-    :sswitch_5d
+    :sswitch_736
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3611
@@ -2790,12 +2790,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getAvailableBandModesResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 3615
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3599
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "bandModes":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
-    :sswitch_5e
+    :sswitch_74a
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3601
@@ -2811,11 +2811,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setBandModeResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3604
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3589
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_5f
+    :sswitch_75a
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3591
@@ -2831,11 +2831,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->deleteSmsOnSimResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3594
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3578
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_60
+    :sswitch_76a
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3580
@@ -2857,12 +2857,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->writeSmsToSimResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3584
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3568
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "index":I
-    :sswitch_61
+    :sswitch_77e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3570
@@ -2878,11 +2878,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setSuppServiceNotificationsResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3573
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3557
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_62
+    :sswitch_78e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3559
@@ -2904,12 +2904,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getDataCallListResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 3563
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3546
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "dcResponse":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/radio/V1_0/SetupDataCallResult;>;"
-    :sswitch_63
+    :sswitch_7a2
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3548
@@ -2931,12 +2931,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getClipResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3552
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3535
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "status":I
-    :sswitch_64
+    :sswitch_7b6
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3537
@@ -2958,12 +2958,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getMuteResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Z)V
 
     .line 3541
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3525
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "enable":Z
-    :sswitch_65
+    :sswitch_7ca
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3527
@@ -2979,11 +2979,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setMuteResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3530
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3515
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_66
+    :sswitch_7da
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3517
@@ -2999,11 +2999,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->separateConnectionResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3520
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3504
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_67
+    :sswitch_7ea
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3506
@@ -3025,12 +3025,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getBasebandVersionResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/String;)V
 
     .line 3510
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3494
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "version":Ljava/lang/String;
-    :sswitch_68
+    :sswitch_7fe
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3496
@@ -3046,11 +3046,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->stopDtmfResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3499
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3484
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_69
+    :sswitch_80e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3486
@@ -3066,11 +3066,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->startDtmfResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3489
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3473
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_6a
+    :sswitch_81e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3475
@@ -3092,12 +3092,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getAvailableNetworksResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 3479
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3463
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "networkInfos":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/radio/V1_0/OperatorInfo;>;"
-    :sswitch_6b
+    :sswitch_832
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3465
@@ -3113,11 +3113,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setNetworkSelectionModeManualResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3468
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3453
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_6c
+    :sswitch_842
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3455
@@ -3133,11 +3133,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setNetworkSelectionModeAutomaticResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3458
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3442
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_6d
+    :sswitch_852
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3444
@@ -3159,12 +3159,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getNetworkSelectionModeResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Z)V
 
     .line 3448
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3432
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "manual":Z
-    :sswitch_6e
+    :sswitch_866
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3434
@@ -3180,11 +3180,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setBarringPasswordResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3437
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3421
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_6f
+    :sswitch_876
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3423
@@ -3206,12 +3206,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setFacilityLockForAppResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3427
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3410
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "retry":I
-    :sswitch_70
+    :sswitch_88a
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3412
@@ -3233,12 +3233,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getFacilityLockForAppResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3416
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3400
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "response":I
-    :sswitch_71
+    :sswitch_89e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3402
@@ -3254,11 +3254,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->deactivateDataCallResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3405
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3390
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_72
+    :sswitch_8ae
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3392
@@ -3274,11 +3274,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->acceptCallResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3395
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3380
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_73
+    :sswitch_8be
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3382
@@ -3294,11 +3294,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->acknowledgeLastIncomingGsmSmsResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3385
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3370
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_74
+    :sswitch_8ce
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3372
@@ -3314,11 +3314,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setCallWaitingResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3375
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3358
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_75
+    :sswitch_8de
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3360
@@ -3346,13 +3346,13 @@
     invoke-virtual {v7, v0, v1, v2}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getCallWaitingResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;ZI)V
 
     .line 3365
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3348
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "enable":Z
     .end local v2    # "serviceClass":I
-    :sswitch_76
+    :sswitch_8f6
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3350
@@ -3368,11 +3368,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setCallForwardResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3353
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3337
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_77
+    :sswitch_906
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3339
@@ -3394,12 +3394,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getCallForwardStatusResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 3343
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3327
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "callForwardInfos":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/radio/V1_0/CallForwardInfo;>;"
-    :sswitch_78
+    :sswitch_91a
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3329
@@ -3415,11 +3415,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setClirResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3332
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3315
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_79
+    :sswitch_92a
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3317
@@ -3447,13 +3447,13 @@
     invoke-virtual {v7, v0, v1, v2}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getClirResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;II)V
 
     .line 3322
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3305
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "n":I
     .end local v2    # "m":I
-    :sswitch_7a
+    :sswitch_942
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3307
@@ -3469,11 +3469,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->cancelPendingUssdResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3310
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3295
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_7b
+    :sswitch_952
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3297
@@ -3489,11 +3489,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendUssdResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3300
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3283
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_7c
+    :sswitch_962
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3285
@@ -3518,12 +3518,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->iccIOForAppResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/IccIoResult;)V
 
     .line 3290
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3271
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "iccIo":Landroid/hardware/radio/V1_0/IccIoResult;
-    :sswitch_7d
+    :sswitch_97a
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3273
@@ -3548,12 +3548,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setupDataCallResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/SetupDataCallResult;)V
 
     .line 3278
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3259
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "dcResponse":Landroid/hardware/radio/V1_0/SetupDataCallResult;
-    :sswitch_7e
+    :sswitch_992
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3261
@@ -3578,12 +3578,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendSMSExpectMoreResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/SendSmsResult;)V
 
     .line 3266
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3247
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "sms":Landroid/hardware/radio/V1_0/SendSmsResult;
-    :sswitch_7f
+    :sswitch_9aa
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3249
@@ -3608,12 +3608,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendSmsResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/SendSmsResult;)V
 
     .line 3254
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3237
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "sms":Landroid/hardware/radio/V1_0/SendSmsResult;
-    :sswitch_80
+    :sswitch_9c2
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3239
@@ -3629,11 +3629,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->sendDtmfResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3242
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3227
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_81
+    :sswitch_9d2
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3229
@@ -3649,11 +3649,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->setRadioPowerResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3232
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3214
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_82
+    :sswitch_9e2
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3216
@@ -3687,14 +3687,14 @@
     invoke-virtual {v7, v0, v1, v2, v3}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getOperatorResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 3222
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3202
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "longName":Ljava/lang/String;
     .end local v2    # "shortName":Ljava/lang/String;
     .end local v3    # "numeric":Ljava/lang/String;
-    :sswitch_83
+    :sswitch_9fe
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3204
@@ -3719,12 +3719,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getDataRegistrationStateResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/DataRegStateResult;)V
 
     .line 3209
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3190
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "dataRegResponse":Landroid/hardware/radio/V1_0/DataRegStateResult;
-    :sswitch_84
+    :sswitch_a16
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3192
@@ -3749,12 +3749,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getVoiceRegistrationStateResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/VoiceRegStateResult;)V
 
     .line 3197
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3178
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "voiceRegResponse":Landroid/hardware/radio/V1_0/VoiceRegStateResult;
-    :sswitch_85
+    :sswitch_a2e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3180
@@ -3779,12 +3779,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getSignalStrengthResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/SignalStrength;)V
 
     .line 3185
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3166
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "sigStrength":Landroid/hardware/radio/V1_0/SignalStrength;
-    :sswitch_86
+    :sswitch_a46
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3168
@@ -3809,12 +3809,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getLastCallFailCauseResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/LastCallFailCauseInfo;)V
 
     .line 3173
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3156
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "failCauseinfo":Landroid/hardware/radio/V1_0/LastCallFailCauseInfo;
-    :sswitch_87
+    :sswitch_a5e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3158
@@ -3830,11 +3830,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->rejectCallResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3161
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3146
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_88
+    :sswitch_a6e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3148
@@ -3850,11 +3850,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->conferenceResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3151
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3136
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_89
+    :sswitch_a7e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3138
@@ -3870,11 +3870,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->switchWaitingOrHoldingAndActiveResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3141
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3126
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_8a
+    :sswitch_a8e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3128
@@ -3890,11 +3890,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->hangupForegroundResumeBackgroundResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3131
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3116
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_8b
+    :sswitch_a9e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3118
@@ -3910,11 +3910,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->hangupWaitingOrBackgroundResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3121
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3106
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_8c
+    :sswitch_aae
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3108
@@ -3930,11 +3930,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->hangupConnectionResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3111
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3095
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_8d
+    :sswitch_abe
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3097
@@ -3956,12 +3956,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getIMSIForAppResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/String;)V
 
     .line 3101
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3085
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "imsi":Ljava/lang/String;
-    :sswitch_8e
+    :sswitch_ad2
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3087
@@ -3977,11 +3977,11 @@
     invoke-virtual {v7, v0}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->dialResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)V
 
     .line 3090
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3074
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    :sswitch_8f
+    :sswitch_ae2
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3076
@@ -4003,12 +4003,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->getCurrentCallsResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/util/ArrayList;)V
 
     .line 3080
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3063
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "calls":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/radio/V1_0/Call;>;"
-    :sswitch_90
+    :sswitch_af6
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3065
@@ -4030,12 +4030,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->supplyNetworkDepersonalizationResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3069
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3052
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "remainingRetries":I
-    :sswitch_91
+    :sswitch_b0a
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3054
@@ -4057,12 +4057,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->changeIccPin2ForAppResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3058
-    goto/16 :goto_1
+    goto/16 :goto_b94
 
     .line 3041
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "remainingRetries":I
-    :sswitch_92
+    :sswitch_b1e
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3043
@@ -4084,12 +4084,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->changeIccPinForAppResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3047
-    goto :goto_1
+    goto :goto_b94
 
     .line 3030
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "remainingRetries":I
-    :sswitch_93
+    :sswitch_b31
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3032
@@ -4111,12 +4111,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->supplyIccPuk2ForAppResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3036
-    goto :goto_1
+    goto :goto_b94
 
     .line 3019
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "remainingRetries":I
-    :sswitch_94
+    :sswitch_b44
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3021
@@ -4138,12 +4138,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->supplyIccPin2ForAppResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3025
-    goto :goto_1
+    goto :goto_b94
 
     .line 3008
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "remainingRetries":I
-    :sswitch_95
+    :sswitch_b57
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 3010
@@ -4165,12 +4165,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->supplyIccPukForAppResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3014
-    goto :goto_1
+    goto :goto_b94
 
     .line 2997
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "remainingRetries":I
-    :sswitch_96
+    :sswitch_b6a
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2999
@@ -4192,12 +4192,12 @@
     invoke-virtual {v7, v0, v1}, Landroid/hardware/radio/V1_2/IRadioResponse$Stub;->supplyIccPinForAppResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;I)V
 
     .line 3003
-    goto :goto_1
+    goto :goto_b94
 
     .line 2985
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "remainingRetries":I
-    :sswitch_97
+    :sswitch_b7d
     invoke-virtual {v8, v4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2987
@@ -4227,177 +4227,177 @@
     .line 4642
     .end local v0    # "info":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .end local v1    # "cardStatus":Landroid/hardware/radio/V1_0/CardStatus;
-    :goto_1
+    :goto_b94
     return-void
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_b96
     .sparse-switch
-        0x1 -> :sswitch_97
-        0x2 -> :sswitch_96
-        0x3 -> :sswitch_95
-        0x4 -> :sswitch_94
-        0x5 -> :sswitch_93
-        0x6 -> :sswitch_92
-        0x7 -> :sswitch_91
-        0x8 -> :sswitch_90
-        0x9 -> :sswitch_8f
-        0xa -> :sswitch_8e
-        0xb -> :sswitch_8d
-        0xc -> :sswitch_8c
-        0xd -> :sswitch_8b
-        0xe -> :sswitch_8a
-        0xf -> :sswitch_89
-        0x10 -> :sswitch_88
-        0x11 -> :sswitch_87
-        0x12 -> :sswitch_86
-        0x13 -> :sswitch_85
-        0x14 -> :sswitch_84
-        0x15 -> :sswitch_83
-        0x16 -> :sswitch_82
-        0x17 -> :sswitch_81
-        0x18 -> :sswitch_80
-        0x19 -> :sswitch_7f
-        0x1a -> :sswitch_7e
-        0x1b -> :sswitch_7d
-        0x1c -> :sswitch_7c
-        0x1d -> :sswitch_7b
-        0x1e -> :sswitch_7a
-        0x1f -> :sswitch_79
-        0x20 -> :sswitch_78
-        0x21 -> :sswitch_77
-        0x22 -> :sswitch_76
-        0x23 -> :sswitch_75
-        0x24 -> :sswitch_74
-        0x25 -> :sswitch_73
-        0x26 -> :sswitch_72
-        0x27 -> :sswitch_71
-        0x28 -> :sswitch_70
-        0x29 -> :sswitch_6f
-        0x2a -> :sswitch_6e
-        0x2b -> :sswitch_6d
-        0x2c -> :sswitch_6c
-        0x2d -> :sswitch_6b
-        0x2e -> :sswitch_6a
-        0x2f -> :sswitch_69
-        0x30 -> :sswitch_68
-        0x31 -> :sswitch_67
-        0x32 -> :sswitch_66
-        0x33 -> :sswitch_65
-        0x34 -> :sswitch_64
-        0x35 -> :sswitch_63
-        0x36 -> :sswitch_62
-        0x37 -> :sswitch_61
-        0x38 -> :sswitch_60
-        0x39 -> :sswitch_5f
-        0x3a -> :sswitch_5e
-        0x3b -> :sswitch_5d
-        0x3c -> :sswitch_5c
-        0x3d -> :sswitch_5b
-        0x3e -> :sswitch_5a
-        0x3f -> :sswitch_59
-        0x40 -> :sswitch_58
-        0x41 -> :sswitch_57
-        0x42 -> :sswitch_56
-        0x43 -> :sswitch_55
-        0x44 -> :sswitch_54
-        0x45 -> :sswitch_53
-        0x46 -> :sswitch_52
-        0x47 -> :sswitch_51
-        0x48 -> :sswitch_50
-        0x49 -> :sswitch_4f
-        0x4a -> :sswitch_4e
-        0x4b -> :sswitch_4d
-        0x4c -> :sswitch_4c
-        0x4d -> :sswitch_4b
-        0x4e -> :sswitch_4a
-        0x4f -> :sswitch_49
-        0x50 -> :sswitch_48
-        0x51 -> :sswitch_47
-        0x52 -> :sswitch_46
-        0x53 -> :sswitch_45
-        0x54 -> :sswitch_44
-        0x55 -> :sswitch_43
-        0x56 -> :sswitch_42
-        0x57 -> :sswitch_41
-        0x58 -> :sswitch_40
-        0x59 -> :sswitch_3f
-        0x5a -> :sswitch_3e
-        0x5b -> :sswitch_3d
-        0x5c -> :sswitch_3c
-        0x5d -> :sswitch_3b
-        0x5e -> :sswitch_3a
-        0x5f -> :sswitch_39
-        0x60 -> :sswitch_38
-        0x61 -> :sswitch_37
-        0x62 -> :sswitch_36
-        0x63 -> :sswitch_35
-        0x64 -> :sswitch_34
-        0x65 -> :sswitch_33
-        0x66 -> :sswitch_32
-        0x67 -> :sswitch_31
-        0x68 -> :sswitch_30
-        0x69 -> :sswitch_2f
-        0x6a -> :sswitch_2e
-        0x6b -> :sswitch_2d
-        0x6c -> :sswitch_2c
-        0x6d -> :sswitch_2b
-        0x6e -> :sswitch_2a
-        0x6f -> :sswitch_29
-        0x70 -> :sswitch_28
-        0x71 -> :sswitch_27
-        0x72 -> :sswitch_26
-        0x73 -> :sswitch_25
-        0x74 -> :sswitch_24
-        0x75 -> :sswitch_23
-        0x76 -> :sswitch_22
-        0x77 -> :sswitch_21
-        0x78 -> :sswitch_20
-        0x79 -> :sswitch_1f
-        0x7a -> :sswitch_1e
-        0x7b -> :sswitch_1d
-        0x7c -> :sswitch_1c
-        0x7d -> :sswitch_1b
-        0x7e -> :sswitch_1a
-        0x7f -> :sswitch_19
-        0x80 -> :sswitch_18
-        0x81 -> :sswitch_17
-        0x82 -> :sswitch_16
-        0x83 -> :sswitch_15
-        0x84 -> :sswitch_14
-        0x85 -> :sswitch_13
-        0x86 -> :sswitch_12
-        0x87 -> :sswitch_11
-        0x88 -> :sswitch_10
-        0x89 -> :sswitch_f
-        0x8a -> :sswitch_e
-        0x8b -> :sswitch_d
-        0x8c -> :sswitch_c
-        0x8d -> :sswitch_b
-        0x8e -> :sswitch_a
-        0x8f -> :sswitch_9
-        0xf43484e -> :sswitch_8
-        0xf444247 -> :sswitch_7
-        0xf445343 -> :sswitch_6
-        0xf485348 -> :sswitch_5
-        0xf494e54 -> :sswitch_4
-        0xf4c5444 -> :sswitch_3
-        0xf504e47 -> :sswitch_2
-        0xf524546 -> :sswitch_1
-        0xf535953 -> :sswitch_0
+        0x1 -> :sswitch_b7d
+        0x2 -> :sswitch_b6a
+        0x3 -> :sswitch_b57
+        0x4 -> :sswitch_b44
+        0x5 -> :sswitch_b31
+        0x6 -> :sswitch_b1e
+        0x7 -> :sswitch_b0a
+        0x8 -> :sswitch_af6
+        0x9 -> :sswitch_ae2
+        0xa -> :sswitch_ad2
+        0xb -> :sswitch_abe
+        0xc -> :sswitch_aae
+        0xd -> :sswitch_a9e
+        0xe -> :sswitch_a8e
+        0xf -> :sswitch_a7e
+        0x10 -> :sswitch_a6e
+        0x11 -> :sswitch_a5e
+        0x12 -> :sswitch_a46
+        0x13 -> :sswitch_a2e
+        0x14 -> :sswitch_a16
+        0x15 -> :sswitch_9fe
+        0x16 -> :sswitch_9e2
+        0x17 -> :sswitch_9d2
+        0x18 -> :sswitch_9c2
+        0x19 -> :sswitch_9aa
+        0x1a -> :sswitch_992
+        0x1b -> :sswitch_97a
+        0x1c -> :sswitch_962
+        0x1d -> :sswitch_952
+        0x1e -> :sswitch_942
+        0x1f -> :sswitch_92a
+        0x20 -> :sswitch_91a
+        0x21 -> :sswitch_906
+        0x22 -> :sswitch_8f6
+        0x23 -> :sswitch_8de
+        0x24 -> :sswitch_8ce
+        0x25 -> :sswitch_8be
+        0x26 -> :sswitch_8ae
+        0x27 -> :sswitch_89e
+        0x28 -> :sswitch_88a
+        0x29 -> :sswitch_876
+        0x2a -> :sswitch_866
+        0x2b -> :sswitch_852
+        0x2c -> :sswitch_842
+        0x2d -> :sswitch_832
+        0x2e -> :sswitch_81e
+        0x2f -> :sswitch_80e
+        0x30 -> :sswitch_7fe
+        0x31 -> :sswitch_7ea
+        0x32 -> :sswitch_7da
+        0x33 -> :sswitch_7ca
+        0x34 -> :sswitch_7b6
+        0x35 -> :sswitch_7a2
+        0x36 -> :sswitch_78e
+        0x37 -> :sswitch_77e
+        0x38 -> :sswitch_76a
+        0x39 -> :sswitch_75a
+        0x3a -> :sswitch_74a
+        0x3b -> :sswitch_736
+        0x3c -> :sswitch_722
+        0x3d -> :sswitch_712
+        0x3e -> :sswitch_702
+        0x3f -> :sswitch_6f2
+        0x40 -> :sswitch_6e2
+        0x41 -> :sswitch_6ce
+        0x42 -> :sswitch_6ba
+        0x43 -> :sswitch_6aa
+        0x44 -> :sswitch_69a
+        0x45 -> :sswitch_68a
+        0x46 -> :sswitch_676
+        0x47 -> :sswitch_666
+        0x48 -> :sswitch_652
+        0x49 -> :sswitch_642
+        0x4a -> :sswitch_62e
+        0x4b -> :sswitch_61e
+        0x4c -> :sswitch_60e
+        0x4d -> :sswitch_5f6
+        0x4e -> :sswitch_5e6
+        0x4f -> :sswitch_5d2
+        0x50 -> :sswitch_5c2
+        0x51 -> :sswitch_5b2
+        0x52 -> :sswitch_59e
+        0x53 -> :sswitch_58e
+        0x54 -> :sswitch_57e
+        0x55 -> :sswitch_551
+        0x56 -> :sswitch_53d
+        0x57 -> :sswitch_52d
+        0x58 -> :sswitch_505
+        0x59 -> :sswitch_4f5
+        0x5a -> :sswitch_4e1
+        0x5b -> :sswitch_4d1
+        0x5c -> :sswitch_4c1
+        0x5d -> :sswitch_4b1
+        0x5e -> :sswitch_49d
+        0x5f -> :sswitch_489
+        0x60 -> :sswitch_479
+        0x61 -> :sswitch_461
+        0x62 -> :sswitch_44d
+        0x63 -> :sswitch_439
+        0x64 -> :sswitch_429
+        0x65 -> :sswitch_419
+        0x66 -> :sswitch_401
+        0x67 -> :sswitch_3e9
+        0x68 -> :sswitch_3d1
+        0x69 -> :sswitch_3b9
+        0x6a -> :sswitch_3a9
+        0x6b -> :sswitch_391
+        0x6c -> :sswitch_37d
+        0x6d -> :sswitch_36d
+        0x6e -> :sswitch_35d
+        0x6f -> :sswitch_34d
+        0x70 -> :sswitch_33d
+        0x71 -> :sswitch_32d
+        0x72 -> :sswitch_319
+        0x73 -> :sswitch_301
+        0x74 -> :sswitch_2f1
+        0x75 -> :sswitch_2e1
+        0x76 -> :sswitch_2c9
+        0x77 -> :sswitch_2b1
+        0x78 -> :sswitch_299
+        0x79 -> :sswitch_281
+        0x7a -> :sswitch_269
+        0x7b -> :sswitch_251
+        0x7c -> :sswitch_23d
+        0x7d -> :sswitch_221
+        0x7e -> :sswitch_211
+        0x7f -> :sswitch_201
+        0x80 -> :sswitch_1f1
+        0x81 -> :sswitch_1e5
+        0x82 -> :sswitch_1d5
+        0x83 -> :sswitch_1c5
+        0x84 -> :sswitch_1b5
+        0x85 -> :sswitch_1a5
+        0x86 -> :sswitch_18d
+        0x87 -> :sswitch_17d
+        0x88 -> :sswitch_169
+        0x89 -> :sswitch_151
+        0x8a -> :sswitch_141
+        0x8b -> :sswitch_131
+        0x8c -> :sswitch_11d
+        0x8d -> :sswitch_105
+        0x8e -> :sswitch_ed
+        0x8f -> :sswitch_d5
+        0xf43484e -> :sswitch_c3
+        0xf444247 -> :sswitch_ad
+        0xf445343 -> :sswitch_9b
+        0xf485348 -> :sswitch_46
+        0xf494e54 -> :sswitch_3e
+        0xf4c5444 -> :sswitch_3c
+        0xf504e47 -> :sswitch_2e
+        0xf524546 -> :sswitch_1c
+        0xf535953 -> :sswitch_14
     .end sparse-switch
 .end method
 
 .method public final ping()V
-    .locals 0
+    .registers 1
 
     .line 2936
     return-void
 .end method
 
 .method public queryLocalInterface(Ljava/lang/String;)Landroid/os/IHwInterface;
-    .locals 1
+    .registers 3
     .param p1, "descriptor"    # Ljava/lang/String;
 
     .line 2964
@@ -4407,20 +4407,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 2965
     return-object p0
 
     .line 2967
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public registerAsService(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "serviceName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4436,14 +4436,14 @@
 .end method
 
 .method public final setHALInstrumentation()V
-    .locals 0
+    .registers 1
 
     .line 2926
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 2976
     new-instance v0, Ljava/lang/StringBuilder;
@@ -4468,7 +4468,7 @@
 .end method
 
 .method public final unlinkToDeath(Landroid/os/IHwBinder$DeathRecipient;)Z
-    .locals 1
+    .registers 3
     .param p1, "recipient"    # Landroid/os/IHwBinder$DeathRecipient;
 
     .line 2958

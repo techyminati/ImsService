@@ -125,7 +125,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 280
     new-instance v0, Landroid/util/SparseArray;
@@ -153,7 +153,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/os/Looper;)V
-    .locals 8
+    .registers 12
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "instanceId"    # I
     .param p3, "looper"    # Landroid/os/Looper;
@@ -377,11 +377,11 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_cd
 
     move v0, v4
 
-    :cond_0
+    :cond_cd
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -395,7 +395,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/mediatek/wfo/ril/MwiRIL;I)Z
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/mediatek/wfo/ril/MwiRIL;
     .param p1, "x1"    # I
 
@@ -408,7 +408,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/mediatek/wfo/ril/MwiRIL;I)Lcom/mediatek/wfo/ril/RILRequest;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/mediatek/wfo/ril/MwiRIL;
     .param p1, "x1"    # I
 
@@ -421,7 +421,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/mediatek/wfo/ril/RILRequest;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/ril/RILRequest;
 
     .line 242
@@ -433,7 +433,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/mediatek/wfo/ril/MwiRIL;)Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/ril/MwiRIL;
 
     .line 242
@@ -443,7 +443,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/mediatek/wfo/ril/MwiRIL;Lcom/mediatek/wfo/ril/RILRequest;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/ril/MwiRIL;
     .param p1, "x1"    # Lcom/mediatek/wfo/ril/RILRequest;
 
@@ -454,7 +454,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/mediatek/wfo/ril/MwiRIL;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/mediatek/wfo/ril/MwiRIL;
 
     .line 242
@@ -464,7 +464,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/mediatek/wfo/ril/MwiRIL;Landroid/os/Message;)Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/mediatek/wfo/ril/MwiRIL;
     .param p1, "x1"    # Landroid/os/Message;
 
@@ -477,7 +477,7 @@
 .end method
 
 .method private acquireWakeLock(Lcom/mediatek/wfo/ril/RILRequest;I)V
-    .locals 7
+    .registers 10
     .param p1, "rr"    # Lcom/mediatek/wfo/ril/RILRequest;
     .param p2, "wakeLockType"    # I
 
@@ -485,12 +485,12 @@
     monitor-enter p1
 
     .line 1133
-    :try_start_0
+    :try_start_1
     iget v0, p1, Lcom/mediatek/wfo/ril/RILRequest;->mWakeLockType:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_22
 
     .line 1134
     const-string v0, "MwiRIL"
@@ -521,24 +521,24 @@
     return-void
 
     .line 1138
-    :cond_0
-    packed-switch p2, :pswitch_data_0
+    :cond_22
+    packed-switch p2, :pswitch_data_ca
 
     .line 1174
     const-string v0, "MwiRIL"
 
-    goto/16 :goto_2
+    goto/16 :goto_b1
 
     .line 1164
-    :pswitch_0
+    :pswitch_29
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mAckWakeLock:Landroid/os/PowerManager$WakeLock;
 
     monitor-enter v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_2c
+    .catchall {:try_start_1 .. :try_end_2c} :catchall_c7
 
     .line 1165
-    :try_start_1
+    :try_start_2c
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mAckWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->acquire()V
@@ -581,35 +581,35 @@
     monitor-exit v0
 
     .line 1172
-    goto :goto_1
+    goto :goto_aa
 
     .line 1171
-    :catchall_0
+    :catchall_4d
     move-exception v1
 
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_4f
+    .catchall {:try_start_2c .. :try_end_4f} :catchall_4d
 
     .end local p0    # "this":Lcom/mediatek/wfo/ril/MwiRIL;
     .end local p1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local p2    # "wakeLockType":I
-    :try_start_2
+    :try_start_4f
     throw v1
 
     .line 1140
     .restart local p0    # "this":Lcom/mediatek/wfo/ril/MwiRIL;
     .restart local p1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .restart local p2    # "wakeLockType":I
-    :pswitch_1
+    :pswitch_50
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     monitor-enter v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_53
+    .catchall {:try_start_4f .. :try_end_53} :catchall_c7
 
     .line 1141
-    :try_start_3
+    :try_start_53
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->acquire()V
@@ -643,28 +643,28 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_87
 
     .line 1147
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mActiveWakelockWorkSource:Landroid/os/WorkSource;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_7c
 
     .line 1148
     iget-object v3, p1, Lcom/mediatek/wfo/ril/RILRequest;->mWorkSource:Landroid/os/WorkSource;
 
     invoke-virtual {v2, v3}, Landroid/os/WorkSource;->add(Landroid/os/WorkSource;)Z
 
-    goto :goto_0
+    goto :goto_80
 
     .line 1150
-    :cond_1
+    :cond_7c
     iget-object v2, p1, Lcom/mediatek/wfo/ril/RILRequest;->mWorkSource:Landroid/os/WorkSource;
 
     iput-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mActiveWakelockWorkSource:Landroid/os/WorkSource;
 
     .line 1152
-    :goto_0
+    :goto_80
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     iget-object v3, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mActiveWakelockWorkSource:Landroid/os/WorkSource;
@@ -672,7 +672,7 @@
     invoke-virtual {v2, v3}, Landroid/os/PowerManager$WakeLock;->setWorkSource(Landroid/os/WorkSource;)V
 
     .line 1155
-    :cond_2
+    :cond_87
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mClientWakelockTracker:Lcom/android/internal/telephony/ClientWakelockTracker;
 
     iget-object v3, p1, Lcom/mediatek/wfo/ril/RILRequest;->mClientId:Ljava/lang/String;
@@ -715,45 +715,45 @@
     .end local v1    # "clientId":Ljava/lang/String;
     .end local v2    # "msg":Landroid/os/Message;
     monitor-exit v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_a9
+    .catchall {:try_start_53 .. :try_end_a9} :catchall_ae
 
     .line 1162
     nop
 
     .line 1177
-    :goto_1
-    :try_start_4
+    :goto_aa
+    :try_start_aa
     iput p2, p1, Lcom/mediatek/wfo/ril/RILRequest;->mWakeLockType:I
 
     .line 1178
     monitor-exit p1
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_ad
+    .catchall {:try_start_aa .. :try_end_ad} :catchall_c7
 
     .line 1179
     return-void
 
     .line 1161
-    :catchall_1
+    :catchall_ae
     move-exception v1
 
-    :try_start_5
+    :try_start_af
     monitor-exit v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_b0
+    .catchall {:try_start_af .. :try_end_b0} :catchall_ae
 
     .end local p0    # "this":Lcom/mediatek/wfo/ril/MwiRIL;
     .end local p1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local p2    # "wakeLockType":I
-    :try_start_6
+    :try_start_b0
     throw v1
 
     .line 1174
     .restart local p0    # "this":Lcom/mediatek/wfo/ril/MwiRIL;
     .restart local p1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .restart local p2    # "wakeLockType":I
-    :goto_2
+    :goto_b1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -776,24 +776,24 @@
     return-void
 
     .line 1178
-    :catchall_2
+    :catchall_c7
     move-exception v0
 
     monitor-exit p1
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+    :try_end_c9
+    .catchall {:try_start_b0 .. :try_end_c9} :catchall_c7
 
     throw v0
 
-    :pswitch_data_0
+    :pswitch_data_ca
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_50
+        :pswitch_29
     .end packed-switch
 .end method
 
 .method private addRequest(Lcom/mediatek/wfo/ril/RILRequest;)V
-    .locals 3
+    .registers 5
     .param p1, "rr"    # Lcom/mediatek/wfo/ril/RILRequest;
 
     .line 579
@@ -807,7 +807,7 @@
     monitor-enter v0
 
     .line 581
-    :try_start_0
+    :try_start_7
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v1
@@ -828,18 +828,18 @@
     return-void
 
     .line 583
-    :catchall_0
+    :catchall_16
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_7 .. :try_end_18} :catchall_16
 
     throw v1
 .end method
 
 .method private addToRilHistogram(Lcom/mediatek/wfo/ril/RILRequest;)V
-    .locals 9
+    .registers 11
     .param p1, "rr"    # Lcom/mediatek/wfo/ril/RILRequest;
 
     .line 1281
@@ -862,7 +862,7 @@
     monitor-enter v3
 
     .line 1285
-    :try_start_0
+    :try_start_c
     sget-object v4, Lcom/mediatek/wfo/ril/MwiRIL;->mRilTimeHistograms:Landroid/util/SparseArray;
 
     iget v5, p1, Lcom/mediatek/wfo/ril/RILRequest;->mRequest:I
@@ -875,7 +875,7 @@
 
     .line 1286
     .local v4, "entry":Landroid/telephony/TelephonyHistogram;
-    if-nez v4, :cond_0
+    if-nez v4, :cond_29
 
     .line 1288
     new-instance v5, Landroid/telephony/TelephonyHistogram;
@@ -898,7 +898,7 @@
     invoke-virtual {v5, v6, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 1292
-    :cond_0
+    :cond_29
     invoke-virtual {v4, v2}, Landroid/telephony/TelephonyHistogram;->addTimeTaken(I)V
 
     .line 1293
@@ -909,18 +909,18 @@
     return-void
 
     .line 1293
-    :catchall_0
+    :catchall_2e
     move-exception v4
 
     monitor-exit v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_30
+    .catchall {:try_start_c .. :try_end_30} :catchall_2e
 
     throw v4
 .end method
 
 .method private clearRequestList(IZ)V
-    .locals 7
+    .registers 10
     .param p1, "error"    # I
     .param p2, "loggable"    # Z
 
@@ -930,7 +930,7 @@
     monitor-enter v0
 
     .line 1248
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRequestList:Landroid/util/SparseArray;
 
     invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
@@ -939,7 +939,7 @@
 
     .line 1249
     .local v1, "count":I
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_2b
 
     .line 1250
     const-string v2, "MwiRIL"
@@ -969,12 +969,12 @@
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1254
-    :cond_0
+    :cond_2b
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_2c
+    if-ge v2, v1, :cond_6e
 
     .line 1255
     iget-object v3, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRequestList:Landroid/util/SparseArray;
@@ -987,7 +987,7 @@
 
     .line 1256
     .local v3, "rr":Lcom/mediatek/wfo/ril/RILRequest;
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_61
 
     .line 1257
     const-string v4, "MwiRIL"
@@ -1027,7 +1027,7 @@
     invoke-static {v4, v5}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1260
-    :cond_1
+    :cond_61
     const/4 v4, 0x0
 
     invoke-virtual {v3, p1, v4}, Lcom/mediatek/wfo/ril/RILRequest;->onError(ILjava/lang/Object;)V
@@ -1041,12 +1041,12 @@
     .line 1254
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 1264
     .end local v2    # "i":I
     .end local v3    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
-    :cond_2
+    :cond_6e
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRequestList:Landroid/util/SparseArray;
 
     invoke-virtual {v2}, Landroid/util/SparseArray;->clear()V
@@ -1059,18 +1059,18 @@
     return-void
 
     .line 1265
-    :catchall_0
+    :catchall_75
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_77
+    .catchall {:try_start_3 .. :try_end_77} :catchall_75
 
     throw v1
 .end method
 
 .method private clearWakeLock(I)Z
-    .locals 6
+    .registers 8
     .param p1, "wakeLockType"    # I
 
     .line 1220
@@ -1078,7 +1078,7 @@
 
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_46
 
     .line 1221
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -1086,10 +1086,10 @@
     monitor-enter v2
 
     .line 1222
-    :try_start_0
+    :try_start_7
     iget v3, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mWakeLockCount:I
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_15
 
     iget-object v3, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -1097,14 +1097,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_15
 
     monitor-exit v2
 
     return v1
 
     .line 1223
-    :cond_0
+    :cond_15
     const-string v3, "MwiRIL"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1153,37 +1153,37 @@
     return v0
 
     .line 1230
-    :catchall_0
+    :catchall_43
     move-exception v0
 
     monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_45
+    .catchall {:try_start_7 .. :try_end_45} :catchall_43
 
     throw v0
 
     .line 1232
-    :cond_1
+    :cond_46
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mAckWakeLock:Landroid/os/PowerManager$WakeLock;
 
     monitor-enter v2
 
     .line 1233
-    :try_start_1
+    :try_start_49
     iget-object v3, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mAckWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_53
 
     monitor-exit v2
 
     return v1
 
     .line 1234
-    :cond_2
+    :cond_53
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mAckWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
@@ -1194,48 +1194,48 @@
     return v0
 
     .line 1236
-    :catchall_1
+    :catchall_5a
     move-exception v0
 
     monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_5c
+    .catchall {:try_start_49 .. :try_end_5c} :catchall_5a
 
     throw v0
 .end method
 
 .method private decrementWakeLock(Lcom/mediatek/wfo/ril/RILRequest;)V
-    .locals 8
+    .registers 10
     .param p1, "rr"    # Lcom/mediatek/wfo/ril/RILRequest;
 
     .line 1182
     monitor-enter p1
 
     .line 1183
-    :try_start_0
+    :try_start_1
     iget v0, p1, Lcom/mediatek/wfo/ril/RILRequest;->mWakeLockType:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_7e
 
     .line 1213
     const-string v0, "MwiRIL"
 
-    goto :goto_2
+    goto :goto_5f
 
     .line 1209
-    :pswitch_0
-    goto :goto_3
+    :pswitch_9
+    goto :goto_75
 
     .line 1185
-    :pswitch_1
+    :pswitch_a
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     monitor-enter v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_d
+    .catchall {:try_start_1 .. :try_end_d} :catchall_7a
 
     .line 1186
-    :try_start_1
+    :try_start_d
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mClientWakelockTracker:Lcom/android/internal/telephony/ClientWakelockTracker;
 
     iget-object v2, p1, Lcom/mediatek/wfo/ril/RILRequest;->mClientId:Ljava/lang/String;
@@ -1251,17 +1251,17 @@
 
     const/4 v7, 0x1
 
-    if-le v5, v7, :cond_0
+    if-le v5, v7, :cond_1d
 
     sub-int/2addr v5, v7
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     move v5, v6
 
     .line 1186
-    :goto_0
+    :goto_1e
     invoke-virtual {v1, v2, v3, v4, v5}, Lcom/android/internal/telephony/ClientWakelockTracker;->stopTracking(Ljava/lang/String;III)V
 
     .line 1189
@@ -1279,11 +1279,11 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_4a
 
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mActiveWakelockWorkSource:Landroid/os/WorkSource;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4a
 
     .line 1192
     iget-object v3, p1, Lcom/mediatek/wfo/ril/RILRequest;->mWorkSource:Landroid/os/WorkSource;
@@ -1297,7 +1297,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_43
 
     .line 1194
     const/4 v2, 0x0
@@ -1305,7 +1305,7 @@
     iput-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mActiveWakelockWorkSource:Landroid/os/WorkSource;
 
     .line 1196
-    :cond_1
+    :cond_43
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     iget-object v3, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mActiveWakelockWorkSource:Landroid/os/WorkSource;
@@ -1313,20 +1313,20 @@
     invoke-virtual {v2, v3}, Landroid/os/PowerManager$WakeLock;->setWorkSource(Landroid/os/WorkSource;)V
 
     .line 1199
-    :cond_2
+    :cond_4a
     iget v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mWakeLockCount:I
 
-    if-le v2, v7, :cond_3
+    if-le v2, v7, :cond_52
 
     .line 1200
     sub-int/2addr v2, v7
 
     iput v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mWakeLockCount:I
 
-    goto :goto_1
+    goto :goto_59
 
     .line 1202
-    :cond_3
+    :cond_52
     iput v6, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mWakeLockCount:I
 
     .line 1203
@@ -1336,33 +1336,33 @@
 
     .line 1205
     .end local v1    # "clientId":Ljava/lang/String;
-    :goto_1
+    :goto_59
     monitor-exit v0
 
     .line 1206
-    goto :goto_3
+    goto :goto_75
 
     .line 1205
-    :catchall_0
+    :catchall_5b
     move-exception v1
 
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5d
+    .catchall {:try_start_d .. :try_end_5d} :catchall_5b
 
     .end local p0    # "this":Lcom/mediatek/wfo/ril/MwiRIL;
     .end local p1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
-    :try_start_2
+    :try_start_5d
     throw v1
 
     .line 1211
     .restart local p0    # "this":Lcom/mediatek/wfo/ril/MwiRIL;
     .restart local p1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
-    :pswitch_2
-    goto :goto_3
+    :pswitch_5e
+    goto :goto_75
 
     .line 1213
-    :goto_2
+    :goto_5f
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1382,7 +1382,7 @@
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1215
-    :goto_3
+    :goto_75
     const/4 v0, -0x1
 
     iput v0, p1, Lcom/mediatek/wfo/ril/RILRequest;->mWakeLockType:I
@@ -1394,27 +1394,27 @@
     return-void
 
     .line 1216
-    :catchall_1
+    :catchall_7a
     move-exception v0
 
     monitor-exit p1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_7c
+    .catchall {:try_start_5d .. :try_end_7c} :catchall_7a
 
     throw v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_7e
     .packed-switch -0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_5e
+        :pswitch_a
+        :pswitch_9
     .end packed-switch
 .end method
 
 .method private findAndRemoveRequestFromList(I)Lcom/mediatek/wfo/ril/RILRequest;
-    .locals 3
+    .registers 5
     .param p1, "serial"    # I
 
     .line 1269
@@ -1427,7 +1427,7 @@
     monitor-enter v1
 
     .line 1271
-    :try_start_0
+    :try_start_4
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRequestList:Landroid/util/SparseArray;
 
     invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -1439,7 +1439,7 @@
     move-object v0, v2
 
     .line 1272
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 1273
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRequestList:Landroid/util/SparseArray;
@@ -1447,40 +1447,40 @@
     invoke-virtual {v2, p1}, Landroid/util/SparseArray;->remove(I)V
 
     .line 1275
-    :cond_0
+    :cond_14
     monitor-exit v1
 
     .line 1277
     return-object v0
 
     .line 1275
-    :catchall_0
+    :catchall_16
     move-exception v2
 
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_4 .. :try_end_18} :catchall_16
 
     throw v2
 .end method
 
 .method private getDeafultWorkSourceIfInvalid(Landroid/os/WorkSource;)Landroid/os/WorkSource;
-    .locals 0
+    .registers 2
     .param p1, "workSource"    # Landroid/os/WorkSource;
 
     .line 1107
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 1108
     iget-object p1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRILDefaultWorkSource:Landroid/os/WorkSource;
 
     .line 1111
-    :cond_0
+    :cond_4
     return-object p1
 .end method
 
 .method private getRadioProxy(Landroid/os/Message;)Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    .locals 5
+    .registers 7
     .param p1, "result"    # Landroid/os/Message;
 
     .line 493
@@ -1488,16 +1488,16 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 495
     return-object v1
 
     .line 498
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRadioProxy:Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     .line 499
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRadioProxy:Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
@@ -1505,25 +1505,25 @@
     return-object v0
 
     .line 503
-    :cond_1
-    :try_start_0
+    :cond_d
+    :try_start_d
     sget-object v0, Lcom/mediatek/wfo/ril/MwiRIL;->IMS_HIDL_SERVICE_NAME:[Ljava/lang/String;
 
     .line 504
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mPhoneId:Ljava/lang/Integer;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_15
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_2
+    :cond_15
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
-    :goto_0
+    :goto_19
     aget-object v0, v0, v2
 
     .line 503
@@ -1541,7 +1541,7 @@
     .line 506
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRadioProxy:Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_50
 
     .line 507
     const-string v0, "mRadioProxy getService() done 2"
@@ -1582,23 +1582,23 @@
 
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLoge(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_55
 
     .line 516
-    :cond_3
+    :cond_50
     const-string v0, "getRadioProxy: mRadioProxy == null"
 
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLoge(Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_55
+    .catch Landroid/os/RemoteException; {:try_start_d .. :try_end_55} :catch_56
+    .catch Ljava/lang/RuntimeException; {:try_start_d .. :try_end_55} :catch_56
 
     .line 521
-    :goto_1
-    goto :goto_2
+    :goto_55
+    goto :goto_6d
 
     .line 518
-    :catch_0
+    :catch_56
     move-exception v0
 
     .line 519
@@ -1624,13 +1624,13 @@
 
     .line 523
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_2
+    :goto_6d
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRadioProxy:Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_94
 
     .line 524
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_7e
 
     .line 525
     const/4 v0, 0x1
@@ -1647,7 +1647,7 @@
     invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
     .line 531
-    :cond_4
+    :cond_7e
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRilHandler:Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;
 
     const/4 v1, 0x6
@@ -1674,14 +1674,14 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 537
-    :cond_5
+    :cond_94
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRadioProxy:Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
 
     return-object v0
 .end method
 
 .method private static getResponseForTimedOutRILRequest(Lcom/mediatek/wfo/ril/RILRequest;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "rr"    # Lcom/mediatek/wfo/ril/RILRequest;
 
     .line 448
@@ -1691,7 +1691,7 @@
 .end method
 
 .method public static getTelephonyRILTimingHistograms()Ljava/util/List;
-    .locals 5
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1707,7 +1707,7 @@
     monitor-enter v0
 
     .line 346
-    :try_start_0
+    :try_start_3
     new-instance v1, Ljava/util/ArrayList;
 
     sget-object v2, Lcom/mediatek/wfo/ril/MwiRIL;->mRilTimeHistograms:Landroid/util/SparseArray;
@@ -1723,14 +1723,14 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_f
     sget-object v3, Lcom/mediatek/wfo/ril/MwiRIL;->mRilTimeHistograms:Landroid/util/SparseArray;
 
     invoke-virtual {v3}, Landroid/util/SparseArray;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_2b
 
     .line 348
     new-instance v3, Landroid/telephony/TelephonyHistogram;
@@ -1755,11 +1755,11 @@
     .end local v3    # "entry":Landroid/telephony/TelephonyHistogram;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 351
     .end local v2    # "i":I
-    :cond_0
+    :cond_2b
     monitor-exit v0
 
     .line 352
@@ -1767,22 +1767,22 @@
 
     .line 351
     .end local v1    # "list":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/TelephonyHistogram;>;"
-    :catchall_0
+    :catchall_2d
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2f
+    .catchall {:try_start_3 .. :try_end_2f} :catchall_2d
 
     throw v1
 .end method
 
 .method private getWorkSourceClientId(Landroid/os/WorkSource;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "workSource"    # Landroid/os/WorkSource;
 
     .line 1115
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_24
 
     .line 1116
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1818,14 +1818,14 @@
     return-object v0
 
     .line 1119
-    :cond_0
+    :cond_24
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private handleRadioProxyExceptionForRR(Lcom/mediatek/wfo/ril/RILRequest;Ljava/lang/String;Ljava/lang/Exception;)V
-    .locals 4
+    .registers 8
     .param p1, "rr"    # Lcom/mediatek/wfo/ril/RILRequest;
     .param p2, "caller"    # Ljava/lang/String;
     .param p3, "e"    # Ljava/lang/Exception;
@@ -1883,7 +1883,7 @@
 .end method
 
 .method private obtainRequest(ILandroid/os/Message;Landroid/os/WorkSource;)Lcom/mediatek/wfo/ril/RILRequest;
-    .locals 1
+    .registers 5
     .param p1, "request"    # I
     .param p2, "result"    # Landroid/os/Message;
     .param p3, "workSource"    # Landroid/os/WorkSource;
@@ -1902,11 +1902,11 @@
 .end method
 
 .method static requestToString(I)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "request"    # I
 
     .line 1326
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_28
 
     .line 1350
     const-string v0, "<unknown request>"
@@ -1914,91 +1914,91 @@
     return-object v0
 
     .line 1349
-    :sswitch_0
+    :sswitch_6
     const-string v0, "MwiRILConstants.RIL_REQUEST_GET_WFC_CONFIG"
 
     return-object v0
 
     .line 1347
-    :sswitch_1
+    :sswitch_9
     const-string v0, "MwiRILConstants.RIL_REQUEST_SET_WFC_CONFIG"
 
     return-object v0
 
     .line 1345
-    :sswitch_2
+    :sswitch_c
     const-string v0, "MwiRILConstants.RIL_REQUEST_NOTIFY_EPDG_SCREEN_STATE"
 
     return-object v0
 
     .line 1342
-    :sswitch_3
+    :sswitch_f
     const-string v0, "MwiRILConstants.RIL_REQUEST_SET_WIFI_PING_RESULT"
 
     return-object v0
 
     .line 1340
-    :sswitch_4
+    :sswitch_12
     const-string v0, "MwiRILConstants.RIL_REQUEST_SET_NATT_KEEPALIVE_STATUS"
 
     return-object v0
 
     .line 1338
-    :sswitch_5
+    :sswitch_15
     const-string v0, "MwiRILConstants.RIL_REQUEST_SET_EMERGENCY_ADDRESS_ID"
 
     return-object v0
 
     .line 1336
-    :sswitch_6
+    :sswitch_18
     const-string v0, "MwiRILConstants.RIL_REQUEST_SET_GEO_LOCATION"
 
     return-object v0
 
     .line 1334
-    :sswitch_7
+    :sswitch_1b
     const-string v0, "MwiRILConstants.RIL_REQUEST_SET_WIFI_IP_ADDRESS"
 
     return-object v0
 
     .line 1332
-    :sswitch_8
+    :sswitch_1e
     const-string v0, "MwiRILConstants.RIL_REQUEST_SET_WIFI_SIGNAL_LEVEL"
 
     return-object v0
 
     .line 1330
-    :sswitch_9
+    :sswitch_21
     const-string v0, "MwiRILConstants.RIL_REQUEST_SET_WIFI_ASSOCIATED"
 
     return-object v0
 
     .line 1328
-    :sswitch_a
+    :sswitch_24
     const-string v0, "MwiRILConstants.RIL_REQUEST_SET_WIFI_ENABLED"
 
     return-object v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_28
     .sparse-switch
-        0x844 -> :sswitch_a
-        0x845 -> :sswitch_9
-        0x846 -> :sswitch_8
-        0x847 -> :sswitch_7
-        0x848 -> :sswitch_6
-        0x849 -> :sswitch_5
-        0x853 -> :sswitch_4
-        0x854 -> :sswitch_3
-        0x883 -> :sswitch_2
-        0x88b -> :sswitch_1
-        0x88c -> :sswitch_0
+        0x844 -> :sswitch_24
+        0x845 -> :sswitch_21
+        0x846 -> :sswitch_1e
+        0x847 -> :sswitch_1b
+        0x848 -> :sswitch_18
+        0x849 -> :sswitch_15
+        0x853 -> :sswitch_12
+        0x854 -> :sswitch_f
+        0x883 -> :sswitch_c
+        0x88b -> :sswitch_9
+        0x88c -> :sswitch_6
     .end sparse-switch
 .end method
 
 .method private resetProxyAndRequestList()V
-    .locals 2
+    .registers 3
 
     .line 476
     const/4 v0, 0x0
@@ -2025,11 +2025,11 @@
 .end method
 
 .method static responseToString(I)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "request"    # I
 
     .line 1298
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_28
 
     .line 1321
     const-string v0, "<unknown response>"
@@ -2037,103 +2037,103 @@
     return-object v0
 
     .line 1320
-    :sswitch_0
+    :sswitch_6
     const-string v0, "MwiRILConstants.RIL_UNSOL_WIFI_LOCK"
 
     return-object v0
 
     .line 1318
-    :sswitch_1
+    :sswitch_9
     const-string v0, "MwiRILConstants.RIL_UNSOL_WIFI_PDN_OOS"
 
     return-object v0
 
     .line 1316
-    :sswitch_2
+    :sswitch_c
     const-string v0, "MwiRILConstants.RIL_UNSOL_WIFI_PING_REQUEST"
 
     return-object v0
 
     .line 1314
-    :sswitch_3
+    :sswitch_f
     const-string v0, "MwiRILConstants.RIL_UNSOL_NATT_KEEP_ALIVE_CHANGED"
 
     return-object v0
 
     .line 1312
-    :sswitch_4
+    :sswitch_12
     const-string v0, "MwiRILConstants.RIL_UNSOL_WFC_PDN_STATE"
 
     return-object v0
 
     .line 1310
-    :sswitch_5
+    :sswitch_15
     const-string v0, "MwiRILConstants.RIL_UNSOL_REQUEST_GEO_LOCATION"
 
     return-object v0
 
     .line 1308
-    :sswitch_6
+    :sswitch_18
     const-string v0, "MwiRILConstants.RIL_UNSOL_WIFI_PDN_ERROR"
 
     return-object v0
 
     .line 1306
-    :sswitch_7
+    :sswitch_1b
     const-string v0, "MwiRILConstants.RIL_UNSOL_WIFI_RSSI_MONITORING_CONFIG"
 
     return-object v0
 
     .line 1304
-    :sswitch_8
+    :sswitch_1e
     const-string v0, "MwiRILConstants.RIL_UNSOL_ACTIVE_WIFI_PDN_COUNT"
 
     return-object v0
 
     .line 1302
-    :sswitch_9
+    :sswitch_21
     const-string v0, "MwiRILConstants.RIL_UNSOL_MOBILE_WIFI_HANDOVER"
 
     return-object v0
 
     .line 1300
-    :sswitch_a
+    :sswitch_24
     const-string v0, "MwiRILConstants.RIL_UNSOL_MOBILE_WIFI_ROVEOUT"
 
     return-object v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_28
     .sparse-switch
-        0xc03 -> :sswitch_a
-        0xc04 -> :sswitch_9
-        0xc05 -> :sswitch_8
-        0xc06 -> :sswitch_7
-        0xc07 -> :sswitch_6
-        0xc08 -> :sswitch_5
-        0xc09 -> :sswitch_4
-        0xc0e -> :sswitch_3
-        0xc0f -> :sswitch_2
-        0xc10 -> :sswitch_1
-        0xc37 -> :sswitch_0
+        0xc03 -> :sswitch_24
+        0xc04 -> :sswitch_21
+        0xc05 -> :sswitch_1e
+        0xc06 -> :sswitch_1b
+        0xc07 -> :sswitch_18
+        0xc08 -> :sswitch_15
+        0xc09 -> :sswitch_12
+        0xc0e -> :sswitch_f
+        0xc0f -> :sswitch_c
+        0xc10 -> :sswitch_9
+        0xc37 -> :sswitch_6
     .end sparse-switch
 .end method
 
 .method static retToString(ILjava/lang/Object;)Ljava/lang/String;
-    .locals 7
+    .registers 9
     .param p0, "req"    # I
     .param p1, "ret"    # Ljava/lang/Object;
 
     .line 1355
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     const-string v0, ""
 
     return-object v0
 
     .line 1360
-    :cond_0
+    :cond_5
     instance-of v0, p1, [I
 
     const-string v1, ", "
@@ -2142,7 +2142,7 @@
 
     const-string v3, "{"
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_39
 
     .line 1361
     move-object v0, p1
@@ -2163,7 +2163,7 @@
 
     .line 1364
     .local v3, "sb":Ljava/lang/StringBuilder;
-    if-lez v4, :cond_1
+    if-lez v4, :cond_31
 
     .line 1365
     const/4 v5, 0x0
@@ -2179,8 +2179,8 @@
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 1367
-    :goto_0
-    if-ge v6, v4, :cond_1
+    :goto_23
+    if-ge v6, v4, :cond_31
 
     .line 1368
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2195,11 +2195,11 @@
 
     move v6, v5
 
-    goto :goto_0
+    goto :goto_23
 
     .line 1371
     .end local v5    # "i":I
-    :cond_1
+    :cond_31
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1372
@@ -2209,15 +2209,15 @@
 
     .line 1373
     .local v0, "s":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_6b
 
     .end local v0    # "s":Ljava/lang/String;
     .end local v3    # "sb":Ljava/lang/StringBuilder;
     .end local v4    # "length":I
-    :cond_2
+    :cond_39
     instance-of v0, p1, [Ljava/lang/String;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_67
 
     .line 1374
     move-object v0, p1
@@ -2238,7 +2238,7 @@
 
     .line 1377
     .restart local v3    # "sb":Ljava/lang/StringBuilder;
-    if-lez v4, :cond_3
+    if-lez v4, :cond_5f
 
     .line 1378
     const/4 v5, 0x0
@@ -2254,8 +2254,8 @@
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1380
-    :goto_1
-    if-ge v6, v4, :cond_3
+    :goto_51
+    if-ge v6, v4, :cond_5f
 
     .line 1381
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2270,11 +2270,11 @@
 
     move v6, v5
 
-    goto :goto_1
+    goto :goto_51
 
     .line 1384
     .end local v5    # "i":I
-    :cond_3
+    :cond_5f
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1385
@@ -2284,25 +2284,25 @@
 
     .line 1386
     .local v0, "s":Ljava/lang/String;
-    goto :goto_2
+    goto :goto_6b
 
     .line 1387
     .end local v0    # "s":Ljava/lang/String;
     .end local v3    # "sb":Ljava/lang/StringBuilder;
     .end local v4    # "length":I
-    :cond_4
+    :cond_67
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 1389
     .restart local v0    # "s":Ljava/lang/String;
-    :goto_2
+    :goto_6b
     return-object v0
 .end method
 
 .method private sendAck()V
-    .locals 5
+    .registers 6
 
     .line 1089
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRILDefaultWorkSource:Landroid/os/WorkSource;
@@ -2328,21 +2328,21 @@
 
     .line 1093
     .local v1, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_32
 
     .line 1095
-    :try_start_0
+    :try_start_13
     invoke-interface {v1}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->responseAcknowledgementMtk()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Landroid/os/RemoteException; {:try_start_13 .. :try_end_16} :catch_17
+    .catch Ljava/lang/RuntimeException; {:try_start_13 .. :try_end_16} :catch_17
 
     .line 1099
-    :goto_0
-    goto :goto_1
+    :goto_16
+    goto :goto_39
 
     .line 1096
-    :catch_0
+    :catch_17
     move-exception v2
 
     .line 1097
@@ -2369,10 +2369,10 @@
     invoke-virtual {p0, v3}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLoge(Ljava/lang/String;)V
 
     .end local v2    # "e":Ljava/lang/Exception;
-    goto :goto_0
+    goto :goto_16
 
     .line 1101
-    :cond_0
+    :cond_32
     const-string v2, "MwiRIL"
 
     const-string v3, "Error trying to send ack, radioProxy = null"
@@ -2380,7 +2380,7 @@
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1103
-    :goto_1
+    :goto_39
     invoke-virtual {v0}, Lcom/mediatek/wfo/ril/RILRequest;->release()V
 
     .line 1104
@@ -2390,25 +2390,25 @@
 
 # virtual methods
 .method protected convertNullToEmptyString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "string"    # Ljava/lang/String;
 
     .line 623
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_4
     const-string v0, ""
 
-    :goto_0
+    :goto_6
     return-object v0
 .end method
 
 .method public getWfcConfig(ILandroid/os/Message;)V
-    .locals 4
+    .registers 7
     .param p1, "setting"    # I
     .param p2, "response"    # Landroid/os/Message;
 
@@ -2419,7 +2419,7 @@
 
     .line 799
     .local v0, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_43
 
     .line 800
     const/16 v1, 0x88c
@@ -2467,19 +2467,19 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 809
-    :try_start_0
+    :try_start_37
     iget v2, v1, Lcom/mediatek/wfo/ril/RILRequest;->mSerial:I
 
     invoke-interface {v0, v2, p1}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->getWfcConfig(II)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3c
+    .catch Landroid/os/RemoteException; {:try_start_37 .. :try_end_3c} :catch_3d
+    .catch Ljava/lang/RuntimeException; {:try_start_37 .. :try_end_3c} :catch_3d
 
     .line 812
-    goto :goto_0
+    goto :goto_43
 
     .line 810
-    :catch_0
+    :catch_3d
     move-exception v2
 
     .line 811
@@ -2491,13 +2491,13 @@
     .line 814
     .end local v1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local v2    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_43
+    :goto_43
     return-void
 .end method
 
 .method public handleRadioProxyForRadioAvailable()V
-    .locals 4
+    .registers 5
 
     .line 605
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRilHandler:Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;
@@ -2508,7 +2508,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3b
 
     .line 606
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2563,12 +2563,12 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 614
-    :cond_0
+    :cond_3b
     return-void
 .end method
 
 .method public notifyEPDGScreenState(ILandroid/os/Message;)V
-    .locals 4
+    .registers 7
     .param p1, "state"    # I
     .param p2, "response"    # Landroid/os/Message;
 
@@ -2579,7 +2579,7 @@
 
     .line 938
     .local v0, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3b
 
     .line 939
     const/16 v1, 0x883
@@ -2621,19 +2621,19 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 947
-    :try_start_0
+    :try_start_2f
     iget v2, v1, Lcom/mediatek/wfo/ril/RILRequest;->mSerial:I
 
     invoke-interface {v0, v2, p1}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->notifyEPDGScreenState(II)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_34
+    .catch Landroid/os/RemoteException; {:try_start_2f .. :try_end_34} :catch_35
+    .catch Ljava/lang/RuntimeException; {:try_start_2f .. :try_end_34} :catch_35
 
     .line 950
-    goto :goto_0
+    goto :goto_3b
 
     .line 948
-    :catch_0
+    :catch_35
     move-exception v2
 
     .line 949
@@ -2645,19 +2645,19 @@
     .line 952
     .end local v1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local v2    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_3b
+    :goto_3b
     return-void
 .end method
 
 .method processIndication(I)V
-    .locals 1
+    .registers 3
     .param p1, "indicationType"    # I
 
     .line 962
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_b
 
     .line 963
     invoke-direct {p0}, Lcom/mediatek/wfo/ril/MwiRIL;->sendAck()V
@@ -2668,12 +2668,12 @@
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 968
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method processRequestAck(I)V
-    .locals 4
+    .registers 6
     .param p1, "serial"    # I
 
     .line 972
@@ -2682,7 +2682,7 @@
     monitor-enter v0
 
     .line 973
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRequestList:Landroid/util/SparseArray;
 
     invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -2694,11 +2694,11 @@
     .line 974
     .local v1, "rr":Lcom/mediatek/wfo/ril/RILRequest;
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_4a
 
     .line 975
-    if-nez v1, :cond_0
+    if-nez v1, :cond_25
 
     .line 976
     const-string v0, "MwiRIL"
@@ -2719,10 +2719,10 @@
 
     invoke-static {v0, v2}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_49
 
     .line 980
-    :cond_0
+    :cond_25
     invoke-direct {p0, v1}, Lcom/mediatek/wfo/ril/MwiRIL;->decrementWakeLock(Lcom/mediatek/wfo/ril/RILRequest;)V
 
     .line 982
@@ -2755,24 +2755,24 @@
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 985
-    :goto_0
+    :goto_49
     return-void
 
     .line 974
     .end local v1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
-    :catchall_0
+    :catchall_4a
     move-exception v1
 
-    :try_start_1
+    :try_start_4b
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_4c
+    .catchall {:try_start_4b .. :try_end_4c} :catchall_4a
 
     throw v1
 .end method
 
 .method processResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)Lcom/mediatek/wfo/ril/RILRequest;
-    .locals 7
+    .registers 9
     .param p1, "responseInfo"    # Landroid/hardware/radio/V1_0/RadioResponseInfo;
 
     .line 995
@@ -2794,7 +2794,7 @@
     .local v3, "rr":Lcom/mediatek/wfo/ril/RILRequest;
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_1
+    if-ne v2, v4, :cond_58
 
     .line 1002
     iget-object v4, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRequestList:Landroid/util/SparseArray;
@@ -2802,7 +2802,7 @@
     monitor-enter v4
 
     .line 1003
-    :try_start_0
+    :try_start_d
     iget-object v5, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mRequestList:Landroid/util/SparseArray;
 
     invoke-virtual {v5, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -2815,11 +2815,11 @@
 
     .line 1004
     monitor-exit v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_d .. :try_end_17} :catchall_55
 
     .line 1005
-    if-nez v3, :cond_0
+    if-nez v3, :cond_30
 
     .line 1006
     const-string v4, "MwiRIL"
@@ -2840,10 +2840,10 @@
 
     invoke-static {v4, v5}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_54
 
     .line 1008
-    :cond_0
+    :cond_30
     invoke-direct {p0, v3}, Lcom/mediatek/wfo/ril/MwiRIL;->decrementWakeLock(Lcom/mediatek/wfo/ril/RILRequest;)V
 
     .line 1010
@@ -2876,28 +2876,28 @@
     invoke-virtual {p0, v4}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 1013
-    :goto_0
+    :goto_54
     return-object v3
 
     .line 1004
-    :catchall_0
+    :catchall_55
     move-exception v5
 
-    :try_start_1
+    :try_start_56
     monitor-exit v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_57
+    .catchall {:try_start_56 .. :try_end_57} :catchall_55
 
     throw v5
 
     .line 1016
-    :cond_1
+    :cond_58
     invoke-direct {p0, v0}, Lcom/mediatek/wfo/ril/MwiRIL;->findAndRemoveRequestFromList(I)Lcom/mediatek/wfo/ril/RILRequest;
 
     move-result-object v3
 
     .line 1017
-    if-nez v3, :cond_2
+    if-nez v3, :cond_7e
 
     .line 1018
     const-string v4, "MwiRIL"
@@ -2930,13 +2930,13 @@
     return-object v4
 
     .line 1024
-    :cond_2
+    :cond_7e
     invoke-direct {p0, v3}, Lcom/mediatek/wfo/ril/MwiRIL;->addToRilHistogram(Lcom/mediatek/wfo/ril/RILRequest;)V
 
     .line 1026
     const/4 v4, 0x2
 
-    if-ne v2, v4, :cond_3
+    if-ne v2, v4, :cond_b2
 
     .line 1027
     invoke-direct {p0}, Lcom/mediatek/wfo/ril/MwiRIL;->sendAck()V
@@ -2981,7 +2981,7 @@
     invoke-virtual {p0, v4}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 1039
-    :cond_3
+    :cond_b2
     iget v4, v3, Lcom/mediatek/wfo/ril/RILRequest;->mRequest:I
 
     .line 1044
@@ -2992,7 +2992,7 @@
 .end method
 
 .method processResponseDone(Lcom/mediatek/wfo/ril/RILRequest;Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/Object;)V
-    .locals 7
+    .registers 11
     .param p1, "rr"    # Lcom/mediatek/wfo/ril/RILRequest;
     .param p2, "responseInfo"    # Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .param p3, "ret"    # Ljava/lang/Object;
@@ -3002,7 +3002,7 @@
 
     const-string v1, "< "
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_34
 
     .line 1063
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3045,10 +3045,10 @@
     .line 1063
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_62
 
     .line 1068
-    :cond_0
+    :cond_34
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3089,7 +3089,7 @@
     invoke-virtual {p1, v0, p3}, Lcom/mediatek/wfo/ril/RILRequest;->onError(ILjava/lang/Object;)V
 
     .line 1073
-    :goto_0
+    :goto_62
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
 
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mPhoneId:Ljava/lang/Integer;
@@ -3109,27 +3109,27 @@
     invoke-virtual/range {v1 .. v6}, Lcom/android/internal/telephony/metrics/TelephonyMetrics;->writeOnRilSolicitedResponse(IIIILjava/lang/Object;)V
 
     .line 1075
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_80
 
     .line 1076
     iget v0, p2, Landroid/hardware/radio/V1_0/RadioResponseInfo;->type:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_7d
 
     .line 1077
     invoke-direct {p0, p1}, Lcom/mediatek/wfo/ril/MwiRIL;->decrementWakeLock(Lcom/mediatek/wfo/ril/RILRequest;)V
 
     .line 1079
-    :cond_1
+    :cond_7d
     invoke-virtual {p1}, Lcom/mediatek/wfo/ril/RILRequest;->release()V
 
     .line 1081
-    :cond_2
+    :cond_80
     return-void
 .end method
 
 .method riljLog(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "msg"    # Ljava/lang/String;
 
     .line 1393
@@ -3142,7 +3142,7 @@
     .line 1394
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mPhoneId:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -3164,12 +3164,12 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_25
     const-string v1, ""
 
-    :goto_0
+    :goto_27
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -3186,7 +3186,7 @@
 .end method
 
 .method riljLoge(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "msg"    # Ljava/lang/String;
 
     .line 1398
@@ -3199,7 +3199,7 @@
     .line 1399
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mPhoneId:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -3221,12 +3221,12 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_25
     const-string v1, ""
 
-    :goto_0
+    :goto_27
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -3243,7 +3243,7 @@
 .end method
 
 .method riljLoge(Ljava/lang/String;Ljava/lang/Exception;)V
-    .locals 3
+    .registers 6
     .param p1, "msg"    # Ljava/lang/String;
     .param p2, "e"    # Ljava/lang/Exception;
 
@@ -3257,7 +3257,7 @@
     .line 1404
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mPhoneId:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -3279,12 +3279,12 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_25
     const-string v1, ""
 
-    :goto_0
+    :goto_27
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -3301,7 +3301,7 @@
 .end method
 
 .method riljLogv(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1, "msg"    # Ljava/lang/String;
 
     .line 1408
@@ -3314,7 +3314,7 @@
     .line 1409
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL;->mPhoneId:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -3336,12 +3336,12 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_25
     const-string v1, ""
 
-    :goto_0
+    :goto_27
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -3358,7 +3358,7 @@
 .end method
 
 .method public setEmergencyAddressId(Ljava/lang/String;Landroid/os/Message;)V
-    .locals 4
+    .registers 7
     .param p1, "aid"    # Ljava/lang/String;
     .param p2, "response"    # Landroid/os/Message;
 
@@ -3369,7 +3369,7 @@
 
     .line 869
     .local v0, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_43
 
     .line 870
     const/16 v1, 0x849
@@ -3417,19 +3417,19 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 878
-    :try_start_0
+    :try_start_37
     iget v2, v1, Lcom/mediatek/wfo/ril/RILRequest;->mSerial:I
 
     invoke-interface {v0, v2, p1}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->setEmergencyAddressId(ILjava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3c
+    .catch Landroid/os/RemoteException; {:try_start_37 .. :try_end_3c} :catch_3d
+    .catch Ljava/lang/RuntimeException; {:try_start_37 .. :try_end_3c} :catch_3d
 
     .line 881
-    goto :goto_0
+    goto :goto_43
 
     .line 879
-    :catch_0
+    :catch_3d
     move-exception v2
 
     .line 880
@@ -3441,13 +3441,13 @@
     .line 883
     .end local v1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local v2    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_43
+    :goto_43
     return-void
 .end method
 
 .method public setLocationInfo(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .locals 16
+    .registers 34
     .param p1, "accountId"    # Ljava/lang/String;
     .param p2, "broadcastFlag"    # Ljava/lang/String;
     .param p3, "latitude"    # Ljava/lang/String;
@@ -3483,7 +3483,7 @@
 
     .line 828
     .local v6, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_f6
 
     .line 829
     const/16 v0, 0x848
@@ -3695,19 +3695,19 @@
     invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 859
-    :try_start_0
+    :try_start_e9
     iget v0, v7, Lcom/mediatek/wfo/ril/RILRequest;->mSerial:I
 
     invoke-interface {v6, v0, v9}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->setLocationInfo(ILjava/util/ArrayList;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_ee
+    .catch Landroid/os/RemoteException; {:try_start_e9 .. :try_end_ee} :catch_ef
+    .catch Ljava/lang/RuntimeException; {:try_start_e9 .. :try_end_ee} :catch_ef
 
     .line 862
-    goto :goto_0
+    goto :goto_104
 
     .line 860
-    :catch_0
+    :catch_ef
     move-exception v0
 
     .line 861
@@ -3716,13 +3716,13 @@
 
     invoke-direct {v1, v7, v2, v0}, Lcom/mediatek/wfo/ril/MwiRIL;->handleRadioProxyExceptionForRR(Lcom/mediatek/wfo/ril/RILRequest;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_0
+    goto :goto_104
 
     .line 828
     .end local v0    # "e":Ljava/lang/Exception;
     .end local v7    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local v9    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :cond_0
+    :cond_f6
     move-object/from16 v8, p1
 
     move-object/from16 v10, p3
@@ -3738,12 +3738,12 @@
     move-object/from16 v15, p10
 
     .line 864
-    :goto_0
+    :goto_104
     return-void
 .end method
 
 .method public setNattKeepAliveStatus(Ljava/lang/String;ZLjava/lang/String;ILjava/lang/String;ILandroid/os/Message;)V
-    .locals 15
+    .registers 23
     .param p1, "ifName"    # Ljava/lang/String;
     .param p2, "enable"    # Z
     .param p3, "srcIp"    # Ljava/lang/String;
@@ -3763,7 +3763,7 @@
 
     .line 890
     .local v11, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_60
 
     .line 891
     const/16 v0, 0x853
@@ -3821,7 +3821,7 @@
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 900
-    :try_start_0
+    :try_start_46
     iget v4, v12, Lcom/mediatek/wfo/ril/RILRequest;->mSerial:I
 
     move-object v3, v11
@@ -3839,15 +3839,15 @@
     move/from16 v10, p6
 
     invoke-interface/range {v3 .. v10}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->setNattKeepAliveStatus(ILjava/lang/String;ZLjava/lang/String;ILjava/lang/String;I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_58
+    .catch Landroid/os/RemoteException; {:try_start_46 .. :try_end_58} :catch_59
+    .catch Ljava/lang/RuntimeException; {:try_start_46 .. :try_end_58} :catch_59
 
     .line 904
-    goto :goto_0
+    goto :goto_64
 
     .line 902
-    :catch_0
+    :catch_59
     move-exception v0
 
     .line 903
@@ -3856,23 +3856,23 @@
 
     invoke-direct {p0, v12, v3, v0}, Lcom/mediatek/wfo/ril/MwiRIL;->handleRadioProxyExceptionForRR(Lcom/mediatek/wfo/ril/RILRequest;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_0
+    goto :goto_64
 
     .line 890
     .end local v0    # "e":Ljava/lang/Exception;
     .end local v12    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
-    :cond_0
+    :cond_60
     move-object/from16 v13, p1
 
     move/from16 v14, p2
 
     .line 906
-    :goto_0
+    :goto_64
     return-void
 .end method
 
 .method public setWfcConfig(ILjava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .locals 4
+    .registers 9
     .param p1, "setting"    # I
     .param p2, "ifName"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/String;
@@ -3885,7 +3885,7 @@
 
     .line 776
     .local v0, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_53
 
     .line 777
     const/16 v1, 0x88b
@@ -3945,19 +3945,19 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 788
-    :try_start_0
+    :try_start_47
     iget v2, v1, Lcom/mediatek/wfo/ril/RILRequest;->mSerial:I
 
     invoke-interface {v0, v2, p1, p2, p3}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->setWfcConfig(IILjava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4c
+    .catch Landroid/os/RemoteException; {:try_start_47 .. :try_end_4c} :catch_4d
+    .catch Ljava/lang/RuntimeException; {:try_start_47 .. :try_end_4c} :catch_4d
 
     .line 792
-    goto :goto_0
+    goto :goto_53
 
     .line 790
-    :catch_0
+    :catch_4d
     move-exception v2
 
     .line 791
@@ -3969,13 +3969,13 @@
     .line 794
     .end local v1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local v2    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_53
+    :goto_53
     return-void
 .end method
 
 .method public setWfcConfig_WifiUeMac(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .locals 1
+    .registers 5
     .param p1, "ifName"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
     .param p3, "response"    # Landroid/os/Message;
@@ -3994,7 +3994,7 @@
 .end method
 
 .method public setWifiAssociated(Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;ILjava/lang/String;ILandroid/os/Message;)V
-    .locals 5
+    .registers 14
     .param p1, "ifName"    # Ljava/lang/String;
     .param p2, "associated"    # Z
     .param p3, "ssid"    # Ljava/lang/String;
@@ -4011,7 +4011,7 @@
 
     .line 687
     .local v0, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_a2
 
     .line 688
     const/16 v1, 0x845
@@ -4077,7 +4077,7 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 698
-    :try_start_0
+    :try_start_4f
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
@@ -4091,18 +4091,18 @@
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 700
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5f
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_60
 
-    :cond_0
+    :cond_5f
     const/4 v3, 0x0
 
     .line 701
     .local v3, "assoc":I
-    :goto_0
+    :goto_60
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v4
@@ -4160,17 +4160,17 @@
     iget v4, v1, Lcom/mediatek/wfo/ril/RILRequest;->mSerial:I
 
     invoke-interface {v0, v4, v2}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->setWifiAssociated(ILjava/util/ArrayList;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9b
+    .catch Landroid/os/RemoteException; {:try_start_4f .. :try_end_9b} :catch_9c
+    .catch Ljava/lang/RuntimeException; {:try_start_4f .. :try_end_9b} :catch_9c
 
     .line 710
     .end local v2    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     .end local v3    # "assoc":I
-    goto :goto_1
+    goto :goto_a2
 
     .line 708
-    :catch_0
+    :catch_9c
     move-exception v2
 
     .line 709
@@ -4182,13 +4182,13 @@
     .line 712
     .end local v1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local v2    # "e":Ljava/lang/Exception;
-    :cond_1
-    :goto_1
+    :cond_a2
+    :goto_a2
     return-void
 .end method
 
 .method public setWifiEnabled(Ljava/lang/String;IILandroid/os/Message;)V
-    .locals 4
+    .registers 9
     .param p1, "ifName"    # Ljava/lang/String;
     .param p2, "isWifiEnabled"    # I
     .param p3, "isFlightModeOn"    # I
@@ -4201,7 +4201,7 @@
 
     .line 664
     .local v0, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_53
 
     .line 665
     const/16 v1, 0x844
@@ -4261,19 +4261,19 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 675
-    :try_start_0
+    :try_start_47
     iget v2, v1, Lcom/mediatek/wfo/ril/RILRequest;->mSerial:I
 
     invoke-interface {v0, v2, p1, p2, p3}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->setWifiEnabled(ILjava/lang/String;II)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4c
+    .catch Landroid/os/RemoteException; {:try_start_47 .. :try_end_4c} :catch_4d
+    .catch Ljava/lang/RuntimeException; {:try_start_47 .. :try_end_4c} :catch_4d
 
     .line 679
-    goto :goto_0
+    goto :goto_53
 
     .line 677
-    :catch_0
+    :catch_4d
     move-exception v2
 
     .line 678
@@ -4285,13 +4285,13 @@
     .line 681
     .end local v1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local v2    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_53
+    :goto_53
     return-void
 .end method
 
 .method public setWifiIpAddress(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/os/Message;)V
-    .locals 4
+    .registers 15
     .param p1, "ifName"    # Ljava/lang/String;
     .param p2, "ipv4Addr"    # Ljava/lang/String;
     .param p3, "ipv6Addr"    # Ljava/lang/String;
@@ -4310,7 +4310,7 @@
 
     .line 739
     .local v0, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c3
 
     .line 740
     const/16 v1, 0x847
@@ -4394,7 +4394,7 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 756
-    :try_start_0
+    :try_start_67
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
@@ -4479,16 +4479,16 @@
     iget v3, v1, Lcom/mediatek/wfo/ril/RILRequest;->mSerial:I
 
     invoke-interface {v0, v3, v2}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->setWifiIpAddress(ILjava/util/ArrayList;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_bc
+    .catch Landroid/os/RemoteException; {:try_start_67 .. :try_end_bc} :catch_bd
+    .catch Ljava/lang/RuntimeException; {:try_start_67 .. :try_end_bc} :catch_bd
 
     .line 769
     .end local v2    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    goto :goto_0
+    goto :goto_c3
 
     .line 767
-    :catch_0
+    :catch_bd
     move-exception v2
 
     .line 768
@@ -4500,13 +4500,13 @@
     .line 771
     .end local v1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local v2    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_c3
+    :goto_c3
     return-void
 .end method
 
 .method public setWifiPingResult(IIILandroid/os/Message;)V
-    .locals 4
+    .registers 9
     .param p1, "rat"    # I
     .param p2, "latency"    # I
     .param p3, "pktloss"    # I
@@ -4519,7 +4519,7 @@
 
     .line 911
     .local v0, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_53
 
     .line 912
     const/16 v1, 0x854
@@ -4579,19 +4579,19 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 922
-    :try_start_0
+    :try_start_47
     iget v2, v1, Lcom/mediatek/wfo/ril/RILRequest;->mSerial:I
 
     invoke-interface {v0, v2, p1, p2, p3}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->setWifiPingResult(IIII)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4c
+    .catch Landroid/os/RemoteException; {:try_start_47 .. :try_end_4c} :catch_4d
+    .catch Ljava/lang/RuntimeException; {:try_start_47 .. :try_end_4c} :catch_4d
 
     .line 926
-    goto :goto_0
+    goto :goto_53
 
     .line 924
-    :catch_0
+    :catch_4d
     move-exception v2
 
     .line 925
@@ -4603,13 +4603,13 @@
     .line 928
     .end local v1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local v2    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_53
+    :goto_53
     return-void
 .end method
 
 .method public setWifiSignalLevel(IILandroid/os/Message;)V
-    .locals 4
+    .registers 8
     .param p1, "rssi"    # I
     .param p2, "snr"    # I
     .param p3, "response"    # Landroid/os/Message;
@@ -4621,7 +4621,7 @@
 
     .line 717
     .local v0, "radioProxy":Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4b
 
     .line 718
     const/16 v1, 0x846
@@ -4675,19 +4675,19 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/ril/MwiRIL;->riljLog(Ljava/lang/String;)V
 
     .line 727
-    :try_start_0
+    :try_start_3f
     iget v2, v1, Lcom/mediatek/wfo/ril/RILRequest;->mSerial:I
 
     invoke-interface {v0, v2, p1, p2}, Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;->setWifiSignalLevel(III)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_44
+    .catch Landroid/os/RemoteException; {:try_start_3f .. :try_end_44} :catch_45
+    .catch Ljava/lang/RuntimeException; {:try_start_3f .. :try_end_44} :catch_45
 
     .line 730
-    goto :goto_0
+    goto :goto_4b
 
     .line 728
-    :catch_0
+    :catch_45
     move-exception v2
 
     .line 729
@@ -4699,13 +4699,13 @@
     .line 732
     .end local v1    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
     .end local v2    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_4b
+    :goto_4b
     return-void
 .end method
 
 .method unsljLog(I)V
-    .locals 2
+    .registers 4
     .param p1, "response"    # I
 
     .line 1413
@@ -4734,7 +4734,7 @@
 .end method
 
 .method unsljLogMore(ILjava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "response"    # I
     .param p2, "more"    # Ljava/lang/String;
 
@@ -4770,7 +4770,7 @@
 .end method
 
 .method unsljLogRet(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "response"    # I
     .param p2, "ret"    # Ljava/lang/Object;
 
@@ -4810,7 +4810,7 @@
 .end method
 
 .method unsljLogvRet(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .param p1, "response"    # I
     .param p2, "ret"    # Ljava/lang/Object;
 

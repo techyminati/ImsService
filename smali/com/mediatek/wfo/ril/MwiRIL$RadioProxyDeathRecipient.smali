@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/ril/MwiRIL;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/mediatek/wfo/ril/MwiRIL;
 
     .line 462
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public serviceDied(J)V
-    .locals 4
+    .registers 7
     .param p1, "cookie"    # J
 
     .line 466

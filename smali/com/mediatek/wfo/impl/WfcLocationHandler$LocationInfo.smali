@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/impl/WfcLocationHandler;IIIDDF)V
-    .locals 2
+    .registers 12
     .param p1, "this$0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
     .param p2, "simIdx"    # I
     .param p3, "accountId"    # I
@@ -134,7 +134,7 @@
 .end method
 
 .method constructor <init>(Lcom/mediatek/wfo/impl/WfcLocationHandler;IIIDDFI)V
-    .locals 2
+    .registers 13
     .param p1, "this$0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
     .param p2, "simIdx"    # I
     .param p3, "accountId"    # I
@@ -215,7 +215,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 356
     new-instance v0, Ljava/lang/StringBuilder;
@@ -381,6 +381,7 @@
 
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mCity:Ljava/lang/String;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcLocationHandler;->maskString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$1200(Lcom/mediatek/wfo/impl/WfcLocationHandler;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -406,6 +407,7 @@
 
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mState:Ljava/lang/String;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcLocationHandler;->maskString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$1200(Lcom/mediatek/wfo/impl/WfcLocationHandler;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -431,6 +433,7 @@
 
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mZip:Ljava/lang/String;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcLocationHandler;->maskString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$1200(Lcom/mediatek/wfo/impl/WfcLocationHandler;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -456,6 +459,7 @@
 
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;->mCountryCode:Ljava/lang/String;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcLocationHandler;->maskString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2, v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$1200(Lcom/mediatek/wfo/impl/WfcLocationHandler;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2

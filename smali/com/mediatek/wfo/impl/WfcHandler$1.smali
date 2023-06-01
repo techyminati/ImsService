@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/impl/WfcHandler;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 332
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public factoryReset()V
-    .locals 2
+    .registers 3
 
     .line 396
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
@@ -55,7 +55,7 @@
 .end method
 
 .method public getDisconnectCause(I)Lcom/mediatek/wfo/DisconnectCause;
-    .locals 2
+    .registers 4
     .param p1, "simIdx"    # I
 
     .line 353
@@ -63,11 +63,12 @@
 
     const-string v1, "getDisconnectCause()"
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcHandler;->checkInvalidSimIdx(ILjava/lang/String;)Z
     invoke-static {v0, p1, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$100(Lcom/mediatek/wfo/impl/WfcHandler;ILjava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 354
     const/4 v0, 0x0
@@ -75,9 +76,10 @@
     return-object v0
 
     .line 356
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mDisconnectCause:[Lcom/mediatek/wfo/DisconnectCause;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$200(Lcom/mediatek/wfo/impl/WfcHandler;)[Lcom/mediatek/wfo/DisconnectCause;
 
     move-result-object v0
@@ -88,7 +90,7 @@
 .end method
 
 .method public getMccMncAllowList(I)[Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "mode"    # I
 
     .line 390
@@ -105,7 +107,7 @@
 .end method
 
 .method public getRatType(I)I
-    .locals 2
+    .registers 4
     .param p1, "simIdx"    # I
 
     .line 347
@@ -122,11 +124,12 @@
 .end method
 
 .method public isWifiConnected()Z
-    .locals 1
+    .registers 2
 
     .line 371
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$300(Lcom/mediatek/wfo/impl/WfcHandler;)Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     move-result-object v0
@@ -139,7 +142,7 @@
 .end method
 
 .method public registerForHandoverEvent(Lcom/mediatek/wfo/IWifiOffloadListener;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Lcom/mediatek/wfo/IWifiOffloadListener;
 
     .line 335
@@ -168,6 +171,7 @@
     .line 336
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$000(Lcom/mediatek/wfo/impl/WfcHandler;)Landroid/os/RemoteCallbackList;
 
     move-result-object v0
@@ -179,7 +183,7 @@
 .end method
 
 .method public setEpdgFqdn(ILjava/lang/String;Z)V
-    .locals 2
+    .registers 6
     .param p1, "simIdx"    # I
     .param p2, "fqdn"    # Ljava/lang/String;
     .param p3, "wfcEnabled"    # Z
@@ -196,7 +200,7 @@
 .end method
 
 .method public setMccMncAllowList([Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p1, "allowList"    # [Ljava/lang/String;
 
     .line 384
@@ -213,11 +217,12 @@
 .end method
 
 .method public setWifiOff()Z
-    .locals 3
+    .registers 4
 
     .line 403
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$300(Lcom/mediatek/wfo/impl/WfcHandler;)Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     move-result-object v0
@@ -226,36 +231,39 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 404
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
     const/4 v1, 0x1
 
+    # setter for: Lcom/mediatek/wfo/impl/WfcHandler;->mHasWiFiDisabledPending:Z
     invoke-static {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$402(Lcom/mediatek/wfo/impl/WfcHandler;Z)Z
 
     .line 405
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$300(Lcom/mediatek/wfo/impl/WfcHandler;)Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->setWifiOff()V
 
-    goto :goto_0
+    goto :goto_22
 
     .line 408
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/mediatek/wfo/impl/WfcHandler;->mHasWiFiDisabledPending:Z
     invoke-static {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$402(Lcom/mediatek/wfo/impl/WfcHandler;Z)Z
 
     .line 410
-    :goto_0
+    :goto_22
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -268,6 +276,7 @@
 
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mHasWiFiDisabledPending:Z
     invoke-static {v2}, Lcom/mediatek/wfo/impl/WfcHandler;->access$400(Lcom/mediatek/wfo/impl/WfcHandler;)Z
 
     move-result v2
@@ -283,6 +292,7 @@
     .line 411
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mHasWiFiDisabledPending:Z
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$400(Lcom/mediatek/wfo/impl/WfcHandler;)Z
 
     move-result v0
@@ -291,7 +301,7 @@
 .end method
 
 .method public unregisterForHandoverEvent(Lcom/mediatek/wfo/IWifiOffloadListener;)V
-    .locals 3
+    .registers 5
     .param p1, "listener"    # Lcom/mediatek/wfo/IWifiOffloadListener;
 
     .line 341
@@ -320,6 +330,7 @@
     .line 342
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$000(Lcom/mediatek/wfo/impl/WfcHandler;)Landroid/os/RemoteCallbackList;
 
     move-result-object v0
@@ -331,7 +342,7 @@
 .end method
 
 .method public updateCallState(IIII)V
-    .locals 2
+    .registers 7
     .param p1, "simIdx"    # I
     .param p2, "callId"    # I
     .param p3, "callType"    # I
@@ -349,7 +360,7 @@
 .end method
 
 .method public updateRadioState(II)V
-    .locals 3
+    .registers 6
     .param p1, "simIdx"    # I
     .param p2, "radioState"    # I
 
@@ -381,15 +392,17 @@
     .line 377
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$300(Lcom/mediatek/wfo/impl/WfcHandler;)Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2f
 
     .line 378
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$1;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$300(Lcom/mediatek/wfo/impl/WfcHandler;)Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     move-result-object v0
@@ -397,6 +410,6 @@
     invoke-virtual {v0, p1, p2}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->handleRadioStateChanged(II)V
 
     .line 380
-    :cond_0
+    :cond_2f
     return-void
 .end method

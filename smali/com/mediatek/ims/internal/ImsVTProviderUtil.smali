@@ -556,7 +556,7 @@
     return v0
 .end method
 
-.method public static isVideoCallOnByPlatform()Z
+.method public static isVideoCallOnByPlatform_nope()Z
     .locals 3
 
     .line 888
@@ -897,7 +897,7 @@
     return-void
 .end method
 
-.method public bindInternal(Lcom/mediatek/ims/internal/ImsVTProvider;II)V
+.method public bindInternal_nope(Lcom/mediatek/ims/internal/ImsVTProvider;II)V
     .locals 8
     .param p1, "p"    # Lcom/mediatek/ims/internal/ImsVTProvider;
     .param p2, "CallId"    # I
@@ -3054,5 +3054,14 @@
 
     .line 847
     :cond_0
+    return-void
+.end method
+.method public static isVideoCallOnByPlatform()Z
+    .locals 1
+    const/4 v0, 0x0
+    return v0
+.end method
+.method public bindInternal(Lcom/mediatek/ims/internal/ImsVTProvider;II)V
+    .locals 0
     return-void
 .end method

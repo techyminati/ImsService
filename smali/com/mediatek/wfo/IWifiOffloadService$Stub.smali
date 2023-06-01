@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 62
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -66,11 +66,11 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/mediatek/wfo/IWifiOffloadService;
-    .locals 2
+    .registers 3
     .param p0, "obj"    # Landroid/os/IBinder;
 
     .line 71
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 72
     const/4 v0, 0x0
@@ -78,7 +78,7 @@
     return-object v0
 
     .line 74
-    :cond_0
+    :cond_4
     const-string v0, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -87,11 +87,11 @@
 
     .line 75
     .local v0, "iin":Landroid/os/IInterface;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     instance-of v1, v0, Lcom/mediatek/wfo/IWifiOffloadService;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     .line 76
     move-object v1, v0
@@ -101,7 +101,7 @@
     return-object v1
 
     .line 78
-    :cond_1
+    :cond_14
     new-instance v1, Lcom/mediatek/wfo/IWifiOffloadService$Stub$Proxy;
 
     invoke-direct {v1, p0}, Lcom/mediatek/wfo/IWifiOffloadService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
@@ -110,7 +110,7 @@
 .end method
 
 .method public static getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
-    .locals 1
+    .registers 1
 
     .line 544
     sget-object v0, Lcom/mediatek/wfo/IWifiOffloadService$Stub$Proxy;->sDefaultImpl:Lcom/mediatek/wfo/IWifiOffloadService;
@@ -119,16 +119,16 @@
 .end method
 
 .method public static setDefaultImpl(Lcom/mediatek/wfo/IWifiOffloadService;)Z
-    .locals 2
+    .registers 3
     .param p0, "impl"    # Lcom/mediatek/wfo/IWifiOffloadService;
 
     .line 534
     sget-object v0, Lcom/mediatek/wfo/IWifiOffloadService$Stub$Proxy;->sDefaultImpl:Lcom/mediatek/wfo/IWifiOffloadService;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_c
 
     .line 537
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     .line 538
     sput-object p0, Lcom/mediatek/wfo/IWifiOffloadService$Stub$Proxy;->sDefaultImpl:Lcom/mediatek/wfo/IWifiOffloadService;
@@ -139,13 +139,13 @@
     return v0
 
     .line 541
-    :cond_0
+    :cond_a
     const/4 v0, 0x0
 
     return v0
 
     .line 535
-    :cond_1
+    :cond_c
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "setDefaultImpl() called twice"
@@ -158,14 +158,14 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 0
+    .registers 1
 
     .line 82
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 6
+    .registers 11
     .param p1, "code"    # I
     .param p2, "data"    # Landroid/os/Parcel;
     .param p3, "reply"    # Landroid/os/Parcel;
@@ -183,12 +183,12 @@
     .local v0, "descriptor":Ljava/lang/String;
     const/4 v1, 0x1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_f4
 
     .line 95
     const/4 v2, 0x0
 
-    packed-switch p1, :pswitch_data_1
+    packed-switch p1, :pswitch_data_fa
 
     .line 225
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
@@ -198,14 +198,14 @@
     return v1
 
     .line 91
-    :pswitch_0
+    :pswitch_f
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 92
     return v1
 
     .line 217
-    :pswitch_1
+    :pswitch_13
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 218
@@ -225,7 +225,7 @@
 
     .line 210
     .end local v2    # "_result":Z
-    :pswitch_2
+    :pswitch_21
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 211
@@ -238,7 +238,7 @@
     return v1
 
     .line 200
-    :pswitch_3
+    :pswitch_2b
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 202
@@ -265,7 +265,7 @@
     .line 190
     .end local v2    # "_arg0":I
     .end local v3    # "_result":[Ljava/lang/String;
-    :pswitch_4
+    :pswitch_3d
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 192
@@ -292,7 +292,7 @@
     .line 179
     .end local v2    # "_arg0":[Ljava/lang/String;
     .end local v3    # "_result":Z
-    :pswitch_5
+    :pswitch_4f
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 181
@@ -319,7 +319,7 @@
     .line 171
     .end local v2    # "_arg0":I
     .end local v3    # "_arg1":I
-    :pswitch_6
+    :pswitch_61
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 172
@@ -339,7 +339,7 @@
 
     .line 156
     .end local v2    # "_result":Z
-    :pswitch_7
+    :pswitch_6f
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 158
@@ -380,7 +380,7 @@
     .end local v3    # "_arg1":I
     .end local v4    # "_arg2":I
     .end local v5    # "_arg3":I
-    :pswitch_8
+    :pswitch_89
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 145
@@ -400,13 +400,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_9b
 
     move v2, v1
 
     .line 150
     .local v2, "_arg2":Z
-    :cond_0
+    :cond_9b
     invoke-virtual {p0, v3, v4, v2}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->setEpdgFqdn(ILjava/lang/String;Z)V
 
     .line 151
@@ -419,7 +419,7 @@
     .end local v2    # "_arg2":Z
     .end local v3    # "_arg0":I
     .end local v4    # "_arg1":Ljava/lang/String;
-    :pswitch_9
+    :pswitch_a2
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 129
@@ -438,7 +438,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 132
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_b9
 
     .line 133
     invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -446,20 +446,20 @@
     .line 134
     invoke-virtual {v4, p3, v1}, Lcom/mediatek/wfo/DisconnectCause;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_0
+    goto :goto_bc
 
     .line 137
-    :cond_1
+    :cond_b9
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 139
-    :goto_0
+    :goto_bc
     return v1
 
     .line 117
     .end local v3    # "_arg0":I
     .end local v4    # "_result":Lcom/mediatek/wfo/DisconnectCause;
-    :pswitch_a
+    :pswitch_bd
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 119
@@ -486,7 +486,7 @@
     .line 108
     .end local v2    # "_arg0":I
     .end local v3    # "_result":I
-    :pswitch_b
+    :pswitch_cf
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 110
@@ -510,7 +510,7 @@
 
     .line 99
     .end local v2    # "_arg0":Lcom/mediatek/wfo/IWifiOffloadListener;
-    :pswitch_c
+    :pswitch_e1
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 101
@@ -534,24 +534,24 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_f4
     .packed-switch 0x5f4e5446
-        :pswitch_0
+        :pswitch_f
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_fa
     .packed-switch 0x1
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_e1
+        :pswitch_cf
+        :pswitch_bd
+        :pswitch_a2
+        :pswitch_89
+        :pswitch_6f
+        :pswitch_61
+        :pswitch_4f
+        :pswitch_3d
+        :pswitch_2b
+        :pswitch_21
+        :pswitch_13
     .end packed-switch
 .end method

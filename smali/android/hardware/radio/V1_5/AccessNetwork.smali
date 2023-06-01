@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 60
@@ -48,7 +48,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_12
 
     .line 63
     const-string v2, "GERAN"
@@ -59,12 +59,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 66
-    :cond_0
+    :cond_12
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_1e
 
     .line 67
     const-string v2, "UTRAN"
@@ -75,12 +75,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 70
-    :cond_1
+    :cond_1e
     and-int/lit8 v2, p0, 0x3
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2a
 
     .line 71
     const-string v2, "EUTRAN"
@@ -91,12 +91,12 @@
     or-int/lit8 v1, v1, 0x3
 
     .line 74
-    :cond_2
+    :cond_2a
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_36
 
     .line 75
     const-string v2, "CDMA2000"
@@ -107,12 +107,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 78
-    :cond_3
+    :cond_36
     and-int/lit8 v2, p0, 0x5
 
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_42
 
     .line 79
     const-string v2, "IWLAN"
@@ -123,7 +123,7 @@
     or-int/lit8 v1, v1, 0x5
 
     .line 82
-    :cond_4
+    :cond_42
     const-string v2, "UNKNOWN"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -133,7 +133,7 @@
 
     const/4 v3, 0x6
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_53
 
     .line 84
     const-string v2, "NGRAN"
@@ -144,8 +144,8 @@
     or-int/lit8 v1, v1, 0x6
 
     .line 87
-    :cond_5
-    if-eq p0, v1, :cond_6
+    :cond_53
+    if-eq p0, v1, :cond_6f
 
     .line 88
     new-instance v2, Ljava/lang/StringBuilder;
@@ -173,7 +173,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 90
-    :cond_6
+    :cond_6f
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -184,13 +184,13 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 35
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_6
 
     .line 36
     const-string v0, "GERAN"
@@ -198,10 +198,10 @@
     return-object v0
 
     .line 38
-    :cond_0
+    :cond_6
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_c
 
     .line 39
     const-string v0, "UTRAN"
@@ -209,10 +209,10 @@
     return-object v0
 
     .line 41
-    :cond_1
+    :cond_c
     const/4 v0, 0x3
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_12
 
     .line 42
     const-string v0, "EUTRAN"
@@ -220,10 +220,10 @@
     return-object v0
 
     .line 44
-    :cond_2
+    :cond_12
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_18
 
     .line 45
     const-string v0, "CDMA2000"
@@ -231,10 +231,10 @@
     return-object v0
 
     .line 47
-    :cond_3
+    :cond_18
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1e
 
     .line 48
     const-string v0, "IWLAN"
@@ -242,8 +242,8 @@
     return-object v0
 
     .line 50
-    :cond_4
-    if-nez p0, :cond_5
+    :cond_1e
+    if-nez p0, :cond_23
 
     .line 51
     const-string v0, "UNKNOWN"
@@ -251,10 +251,10 @@
     return-object v0
 
     .line 53
-    :cond_5
+    :cond_23
     const/4 v0, 0x6
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_29
 
     .line 54
     const-string v0, "NGRAN"
@@ -262,7 +262,7 @@
     return-object v0
 
     .line 56
-    :cond_6
+    :cond_29
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

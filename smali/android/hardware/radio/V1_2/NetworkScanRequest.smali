@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,7 +77,7 @@
 .end method
 
 .method public static final readVectorFromParcel(Landroid/os/HwParcel;)Ljava/util/ArrayList;
-    .locals 12
+    .registers 13
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -141,8 +141,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_24
+    if-ge v4, v2, :cond_37
 
     .line 136
     new-instance v5, Landroid/hardware/radio/V1_2/NetworkScanRequest;
@@ -164,18 +164,18 @@
     .end local v5    # "_hidl_vec_element":Landroid/hardware/radio/V1_2/NetworkScanRequest;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 142
     .end local v2    # "_hidl_vec_size":I
     .end local v3    # "childBlob":Landroid/os/HwBlob;
     .end local v4    # "_hidl_index_0":I
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method public static final writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
-    .locals 7
+    .registers 9
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -226,8 +226,8 @@
     const/4 v3, 0x0
 
     .local v3, "_hidl_index_0":I
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_1e
+    if-ge v3, v1, :cond_2f
 
     .line 201
     invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -245,11 +245,11 @@
     .line 200
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 203
     .end local v3    # "_hidl_index_0":I
-    :cond_0
+    :cond_2f
     const-wide/16 v3, 0x0
 
     invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
@@ -266,41 +266,41 @@
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "otherObject"    # Ljava/lang/Object;
 
     .line 51
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 52
     return v0
 
     .line 54
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 55
     return v1
 
     .line 57
-    :cond_1
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
     const-class v3, Landroid/hardware/radio/V1_2/NetworkScanRequest;
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_11
 
     .line 58
     return v1
 
     .line 60
-    :cond_2
+    :cond_11
     move-object v2, p1
 
     check-cast v2, Landroid/hardware/radio/V1_2/NetworkScanRequest;
@@ -311,24 +311,24 @@
 
     iget v4, v2, Landroid/hardware/radio/V1_2/NetworkScanRequest;->type:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     .line 62
     return v1
 
     .line 64
-    :cond_3
+    :cond_1b
     iget v3, p0, Landroid/hardware/radio/V1_2/NetworkScanRequest;->interval:I
 
     iget v4, v2, Landroid/hardware/radio/V1_2/NetworkScanRequest;->interval:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_22
 
     .line 65
     return v1
 
     .line 67
-    :cond_4
+    :cond_22
     iget-object v3, p0, Landroid/hardware/radio/V1_2/NetworkScanRequest;->specifiers:Ljava/util/ArrayList;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_2/NetworkScanRequest;->specifiers:Ljava/util/ArrayList;
@@ -337,46 +337,46 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_2d
 
     .line 68
     return v1
 
     .line 70
-    :cond_5
+    :cond_2d
     iget v3, p0, Landroid/hardware/radio/V1_2/NetworkScanRequest;->maxSearchTime:I
 
     iget v4, v2, Landroid/hardware/radio/V1_2/NetworkScanRequest;->maxSearchTime:I
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v4, :cond_34
 
     .line 71
     return v1
 
     .line 73
-    :cond_6
+    :cond_34
     iget-boolean v3, p0, Landroid/hardware/radio/V1_2/NetworkScanRequest;->incrementalResults:Z
 
     iget-boolean v4, v2, Landroid/hardware/radio/V1_2/NetworkScanRequest;->incrementalResults:Z
 
-    if-eq v3, v4, :cond_7
+    if-eq v3, v4, :cond_3b
 
     .line 74
     return v1
 
     .line 76
-    :cond_7
+    :cond_3b
     iget v3, p0, Landroid/hardware/radio/V1_2/NetworkScanRequest;->incrementalResultsPeriodicity:I
 
     iget v4, v2, Landroid/hardware/radio/V1_2/NetworkScanRequest;->incrementalResultsPeriodicity:I
 
-    if-eq v3, v4, :cond_8
+    if-eq v3, v4, :cond_42
 
     .line 77
     return v1
 
     .line 79
-    :cond_8
+    :cond_42
     iget-object v3, p0, Landroid/hardware/radio/V1_2/NetworkScanRequest;->mccMncs:Ljava/util/ArrayList;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_2/NetworkScanRequest;->mccMncs:Ljava/util/ArrayList;
@@ -385,18 +385,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_4d
 
     .line 80
     return v1
 
     .line 82
-    :cond_9
+    :cond_4d
     return v0
 .end method
 
 .method public final hashCode()I
-    .locals 3
+    .registers 4
 
     .line 87
     const/4 v0, 0x7
@@ -537,7 +537,7 @@
 .end method
 
 .method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
-    .locals 20
+    .registers 25
     .param p1, "parcel"    # Landroid/os/HwParcel;
     .param p2, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p3, "_hidl_offset"    # J
@@ -613,8 +613,8 @@
     const/4 v8, 0x0
 
     .local v8, "_hidl_index_0":I
-    :goto_0
-    if-ge v8, v6, :cond_0
+    :goto_39
+    if-ge v8, v6, :cond_50
 
     .line 157
     new-instance v9, Landroid/hardware/radio/V1_1/RadioAccessSpecifier;
@@ -640,9 +640,9 @@
     .end local v9    # "_hidl_vec_element":Landroid/hardware/radio/V1_1/RadioAccessSpecifier;
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_0
+    :cond_50
     move-object/from16 v15, p1
 
     .line 162
@@ -728,8 +728,8 @@
     const/4 v3, 0x0
 
     .local v3, "_hidl_index_0":I
-    :goto_1
-    if-ge v3, v4, :cond_1
+    :goto_93
+    if-ge v3, v4, :cond_c4
 
     .line 173
     new-instance v5, Ljava/lang/String;
@@ -789,18 +789,18 @@
     .end local v5    # "_hidl_vec_element":Ljava/lang/String;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_93
 
     .line 184
     .end local v2    # "childBlob":Landroid/os/HwBlob;
     .end local v3    # "_hidl_index_0":I
     .end local v4    # "_hidl_vec_size":I
-    :cond_1
+    :cond_c4
     return-void
 .end method
 
 .method public final readFromParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 120
@@ -821,7 +821,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 99
     new-instance v0, Ljava/lang/StringBuilder;
@@ -922,7 +922,7 @@
 .end method
 
 .method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-    .locals 15
+    .registers 19
     .param p1, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p2, "_hidl_offset"    # J
 
@@ -988,8 +988,8 @@
     const/4 v8, 0x0
 
     .local v8, "_hidl_index_0":I
-    :goto_0
-    if-ge v8, v4, :cond_0
+    :goto_34
+    if-ge v8, v4, :cond_47
 
     .line 219
     iget-object v12, v0, Landroid/hardware/radio/V1_2/NetworkScanRequest;->specifiers:Ljava/util/ArrayList;
@@ -1009,11 +1009,11 @@
     .line 218
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_34
 
     .line 221
     .end local v8    # "_hidl_index_0":I
-    :cond_0
+    :cond_47
     add-long v12, p2, v5
 
     add-long/2addr v12, v2
@@ -1085,8 +1085,8 @@
     const/4 v6, 0x0
 
     .local v6, "_hidl_index_0":I
-    :goto_1
-    if-ge v6, v4, :cond_1
+    :goto_84
+    if-ge v6, v4, :cond_97
 
     .line 232
     mul-int/lit8 v9, v6, 0x10
@@ -1106,11 +1106,11 @@
     .line 231
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_84
 
     .line 234
     .end local v6    # "_hidl_index_0":I
-    :cond_1
+    :cond_97
     add-long v6, p2, v7
 
     add-long/2addr v6, v2
@@ -1124,7 +1124,7 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 187

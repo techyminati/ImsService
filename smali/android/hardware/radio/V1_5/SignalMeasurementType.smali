@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 92
@@ -50,7 +50,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_12
 
     .line 95
     const-string v2, "RSSI"
@@ -61,12 +61,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 98
-    :cond_0
+    :cond_12
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_1e
 
     .line 99
     const-string v2, "RSCP"
@@ -77,12 +77,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 102
-    :cond_1
+    :cond_1e
     and-int/lit8 v2, p0, 0x3
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2a
 
     .line 103
     const-string v2, "RSRP"
@@ -93,12 +93,12 @@
     or-int/lit8 v1, v1, 0x3
 
     .line 106
-    :cond_2
+    :cond_2a
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_36
 
     .line 107
     const-string v2, "RSRQ"
@@ -109,12 +109,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 110
-    :cond_3
+    :cond_36
     and-int/lit8 v2, p0, 0x5
 
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_42
 
     .line 111
     const-string v2, "RSSNR"
@@ -125,12 +125,12 @@
     or-int/lit8 v1, v1, 0x5
 
     .line 114
-    :cond_4
+    :cond_42
     and-int/lit8 v2, p0, 0x6
 
     const/4 v3, 0x6
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_4e
 
     .line 115
     const-string v2, "SSRSRP"
@@ -141,12 +141,12 @@
     or-int/lit8 v1, v1, 0x6
 
     .line 118
-    :cond_5
+    :cond_4e
     and-int/lit8 v2, p0, 0x7
 
     const/4 v3, 0x7
 
-    if-ne v2, v3, :cond_6
+    if-ne v2, v3, :cond_5a
 
     .line 119
     const-string v2, "SSRSRQ"
@@ -157,12 +157,12 @@
     or-int/lit8 v1, v1, 0x7
 
     .line 122
-    :cond_6
+    :cond_5a
     and-int/lit8 v2, p0, 0x8
 
     const/16 v3, 0x8
 
-    if-ne v2, v3, :cond_7
+    if-ne v2, v3, :cond_67
 
     .line 123
     const-string v2, "SSSINR"
@@ -173,8 +173,8 @@
     or-int/lit8 v1, v1, 0x8
 
     .line 126
-    :cond_7
-    if-eq p0, v1, :cond_8
+    :cond_67
+    if-eq p0, v1, :cond_83
 
     .line 127
     new-instance v2, Ljava/lang/StringBuilder;
@@ -202,7 +202,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 129
-    :cond_8
+    :cond_83
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -213,13 +213,13 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 64
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_6
 
     .line 65
     const-string v0, "RSSI"
@@ -227,10 +227,10 @@
     return-object v0
 
     .line 67
-    :cond_0
+    :cond_6
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_c
 
     .line 68
     const-string v0, "RSCP"
@@ -238,10 +238,10 @@
     return-object v0
 
     .line 70
-    :cond_1
+    :cond_c
     const/4 v0, 0x3
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_12
 
     .line 71
     const-string v0, "RSRP"
@@ -249,10 +249,10 @@
     return-object v0
 
     .line 73
-    :cond_2
+    :cond_12
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_18
 
     .line 74
     const-string v0, "RSRQ"
@@ -260,10 +260,10 @@
     return-object v0
 
     .line 76
-    :cond_3
+    :cond_18
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1e
 
     .line 77
     const-string v0, "RSSNR"
@@ -271,10 +271,10 @@
     return-object v0
 
     .line 79
-    :cond_4
+    :cond_1e
     const/4 v0, 0x6
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_24
 
     .line 80
     const-string v0, "SSRSRP"
@@ -282,10 +282,10 @@
     return-object v0
 
     .line 82
-    :cond_5
+    :cond_24
     const/4 v0, 0x7
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_2a
 
     .line 83
     const-string v0, "SSRSRQ"
@@ -293,10 +293,10 @@
     return-object v0
 
     .line 85
-    :cond_6
+    :cond_2a
     const/16 v0, 0x8
 
-    if-ne p0, v0, :cond_7
+    if-ne p0, v0, :cond_31
 
     .line 86
     const-string v0, "SSSINR"
@@ -304,7 +304,7 @@
     return-object v0
 
     .line 88
-    :cond_7
+    :cond_31
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

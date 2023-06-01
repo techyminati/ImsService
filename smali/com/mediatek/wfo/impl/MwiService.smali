@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 66
     const/4 v0, 0x0
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 9
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
 
     .line 89
@@ -83,7 +83,7 @@
 
     .line 94
     .local v0, "telephonyManager":Landroid/telephony/TelephonyManager;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 95
     invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSimCount()I
@@ -92,16 +92,16 @@
 
     iput v1, p0, Lcom/mediatek/wfo/impl/MwiService;->mSimCount:I
 
-    goto :goto_0
+    goto :goto_30
 
     .line 97
-    :cond_0
+    :cond_2b
     const-string v1, "telephonyManager = null"
 
     invoke-static {v1}, Lcom/mediatek/wfo/impl/MwiService;->logd(Ljava/lang/String;)V
 
     .line 99
-    :goto_0
+    :goto_30
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -136,10 +136,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
+    :goto_52
     iget v2, p0, Lcom/mediatek/wfo/impl/MwiService;->mSimCount:I
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_68
 
     .line 108
     iget-object v2, p0, Lcom/mediatek/wfo/impl/MwiService;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
@@ -159,11 +159,11 @@
     .line 107
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_52
 
     .line 113
     .end local v1    # "i":I
-    :cond_1
+    :cond_68
     new-instance v1, Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     iget-object v2, p0, Lcom/mediatek/wfo/impl/MwiService;->mContext:Landroid/content/Context;
@@ -243,7 +243,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_c0
 
     .line 122
     new-instance v2, Landroid/content/IntentFilter;
@@ -263,12 +263,12 @@
 
     .line 126
     .end local v2    # "multiSimConfigChanged":Landroid/content/IntentFilter;
-    :cond_2
+    :cond_c0
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/mediatek/wfo/impl/MwiService;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/MwiService;
 
     .line 62
@@ -278,7 +278,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/mediatek/wfo/impl/MwiService;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/MwiService;
     .param p1, "x1"    # I
 
@@ -289,7 +289,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/mediatek/wfo/impl/MwiService;)[Lcom/mediatek/wfo/ril/MwiRIL;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/MwiService;
 
     .line 62
@@ -299,7 +299,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/mediatek/wfo/impl/MwiService;[Lcom/mediatek/wfo/ril/MwiRIL;)[Lcom/mediatek/wfo/ril/MwiRIL;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/MwiService;
     .param p1, "x1"    # [Lcom/mediatek/wfo/ril/MwiRIL;
 
@@ -310,7 +310,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/mediatek/wfo/impl/MwiService;)Landroid/content/Context;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/MwiService;
 
     .line 62
@@ -320,7 +320,7 @@
 .end method
 
 .method static synthetic access$300()Lcom/mediatek/wfo/impl/WifiPdnHandler;
-    .locals 1
+    .registers 1
 
     .line 62
     sget-object v0, Lcom/mediatek/wfo/impl/MwiService;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
@@ -329,7 +329,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/mediatek/wfo/impl/MwiService;)Lcom/mediatek/wfo/impl/WfcHandler;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/MwiService;
 
     .line 62
@@ -339,7 +339,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/mediatek/wfo/impl/MwiService;)Lcom/mediatek/wfo/impl/WfcLocationHandler;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/MwiService;
 
     .line 62
@@ -349,7 +349,7 @@
 .end method
 
 .method public static getInstance()Lcom/mediatek/wfo/impl/MwiService;
-    .locals 1
+    .registers 1
 
     .line 86
     sget-object v0, Lcom/mediatek/wfo/impl/MwiService;->mInstance:Lcom/mediatek/wfo/impl/MwiService;
@@ -358,13 +358,13 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Lcom/mediatek/wfo/impl/MwiService;
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
 
     .line 79
     sget-object v0, Lcom/mediatek/wfo/impl/MwiService;->mInstance:Lcom/mediatek/wfo/impl/MwiService;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 80
     new-instance v0, Lcom/mediatek/wfo/impl/MwiService;
@@ -374,14 +374,14 @@
     sput-object v0, Lcom/mediatek/wfo/impl/MwiService;->mInstance:Lcom/mediatek/wfo/impl/MwiService;
 
     .line 82
-    :cond_0
+    :cond_b
     sget-object v0, Lcom/mediatek/wfo/impl/MwiService;->mInstance:Lcom/mediatek/wfo/impl/MwiService;
 
     return-object v0
 .end method
 
 .method private is93RilMode()Z
-    .locals 2
+    .registers 3
 
     .line 168
     const-string v0, "ro.vendor.mtk_ril_mode"
@@ -396,7 +396,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 169
     const/4 v0, 0x1
@@ -404,14 +404,14 @@
     return v0
 
     .line 171
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private static logd(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "l"    # Ljava/lang/String;
 
     .line 187
@@ -440,7 +440,7 @@
 
 # virtual methods
 .method public dispose()V
-    .locals 1
+    .registers 2
 
     .line 181
     const-string v0, "dispose()"
@@ -462,13 +462,13 @@
 .end method
 
 .method public getMwiRIL(I)Lcom/mediatek/wfo/ril/MwiRIL;
-    .locals 2
+    .registers 4
     .param p1, "slotId"    # I
 
     .line 160
     iget v0, p0, Lcom/mediatek/wfo/impl/MwiService;->mSimCount:I
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_1c
 
     .line 161
     new-instance v0, Ljava/lang/StringBuilder;
@@ -495,7 +495,7 @@
     return-object v0
 
     .line 164
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Lcom/mediatek/wfo/impl/MwiService;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
 
     aget-object v0, v0, p1
@@ -504,7 +504,7 @@
 .end method
 
 .method public getWfcHandlerInterface()Lcom/mediatek/wfo/IWifiOffloadService;
-    .locals 1
+    .registers 2
 
     .line 176
     const-string v0, "getWfcHandlerInterface"

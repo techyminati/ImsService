@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/impl/WfcLocationHandler;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 229
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onCallStateChanged(ILjava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "state"    # I
     .param p2, "incomingNumber"    # Ljava/lang/String;
 
@@ -60,15 +60,16 @@
     .line 233
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_62
 
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$CallStateListener;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcLocationHandler;->isEccInProgress()Z
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$100(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_62
 
     .line 234
     const-string v0, "E911 is dialing"
@@ -78,6 +79,7 @@
     .line 235
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$CallStateListener;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mIgnoreList:Ljava/util/List;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$200(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Ljava/util/List;
 
     move-result-object v0
@@ -86,7 +88,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     .line 236
     const-string v0, "onCallStateChanged: ignore"
@@ -97,9 +99,10 @@
     return-void
 
     .line 239
-    :cond_0
+    :cond_38
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$CallStateListener;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$300(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     move-result-object v0
@@ -108,15 +111,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_57
 
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$CallStateListener;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mNetworkAvailable:Z
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$400(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_57
 
     .line 240
     const-string v0, "E911, Wi-Fi isn\'t connected and network unavailable"
@@ -126,13 +130,14 @@
     .line 241
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$CallStateListener;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcLocationHandler;->addRetryLocationRequestForECC()V
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$500(Lcom/mediatek/wfo/impl/WfcLocationHandler;)V
 
     .line 242
     return-void
 
     .line 244
-    :cond_1
+    :cond_57
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$CallStateListener;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     const/16 v1, 0xbbe
@@ -144,6 +149,6 @@
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 246
-    :cond_2
+    :cond_62
     return-void
 .end method

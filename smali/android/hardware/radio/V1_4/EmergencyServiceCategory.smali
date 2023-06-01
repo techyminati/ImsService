@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 51
@@ -55,7 +55,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_17
 
     .line 55
     const-string v2, "POLICE"
@@ -66,12 +66,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 58
-    :cond_0
+    :cond_17
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 59
     const-string v2, "AMBULANCE"
@@ -82,12 +82,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 62
-    :cond_1
+    :cond_23
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2f
 
     .line 63
     const-string v2, "FIRE_BRIGADE"
@@ -98,12 +98,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 66
-    :cond_2
+    :cond_2f
     and-int/lit8 v2, p0, 0x8
 
     const/16 v3, 0x8
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_3c
 
     .line 67
     const-string v2, "MARINE_GUARD"
@@ -114,12 +114,12 @@
     or-int/lit8 v1, v1, 0x8
 
     .line 70
-    :cond_3
+    :cond_3c
     and-int/lit8 v2, p0, 0x10
 
     const/16 v3, 0x10
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_49
 
     .line 71
     const-string v2, "MOUNTAIN_RESCUE"
@@ -130,12 +130,12 @@
     or-int/lit8 v1, v1, 0x10
 
     .line 74
-    :cond_4
+    :cond_49
     and-int/lit8 v2, p0, 0x20
 
     const/16 v3, 0x20
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_56
 
     .line 75
     const-string v2, "MIEC"
@@ -146,12 +146,12 @@
     or-int/lit8 v1, v1, 0x20
 
     .line 78
-    :cond_5
+    :cond_56
     and-int/lit8 v2, p0, 0x40
 
     const/16 v3, 0x40
 
-    if-ne v2, v3, :cond_6
+    if-ne v2, v3, :cond_63
 
     .line 79
     const-string v2, "AIEC"
@@ -162,8 +162,8 @@
     or-int/lit8 v1, v1, 0x40
 
     .line 82
-    :cond_6
-    if-eq p0, v1, :cond_7
+    :cond_63
+    if-eq p0, v1, :cond_7f
 
     .line 83
     new-instance v2, Ljava/lang/StringBuilder;
@@ -191,7 +191,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 85
-    :cond_7
+    :cond_7f
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -202,11 +202,11 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 23
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 24
     const-string v0, "UNSPECIFIED"
@@ -214,10 +214,10 @@
     return-object v0
 
     .line 26
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_b
 
     .line 27
     const-string v0, "POLICE"
@@ -225,10 +225,10 @@
     return-object v0
 
     .line 29
-    :cond_1
+    :cond_b
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_11
 
     .line 30
     const-string v0, "AMBULANCE"
@@ -236,10 +236,10 @@
     return-object v0
 
     .line 32
-    :cond_2
+    :cond_11
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_17
 
     .line 33
     const-string v0, "FIRE_BRIGADE"
@@ -247,10 +247,10 @@
     return-object v0
 
     .line 35
-    :cond_3
+    :cond_17
     const/16 v0, 0x8
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1e
 
     .line 36
     const-string v0, "MARINE_GUARD"
@@ -258,10 +258,10 @@
     return-object v0
 
     .line 38
-    :cond_4
+    :cond_1e
     const/16 v0, 0x10
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_25
 
     .line 39
     const-string v0, "MOUNTAIN_RESCUE"
@@ -269,10 +269,10 @@
     return-object v0
 
     .line 41
-    :cond_5
+    :cond_25
     const/16 v0, 0x20
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_2c
 
     .line 42
     const-string v0, "MIEC"
@@ -280,10 +280,10 @@
     return-object v0
 
     .line 44
-    :cond_6
+    :cond_2c
     const/16 v0, 0x40
 
-    if-ne p0, v0, :cond_7
+    if-ne p0, v0, :cond_33
 
     .line 45
     const-string v0, "AIEC"
@@ -291,7 +291,7 @@
     return-object v0
 
     .line 47
-    :cond_7
+    :cond_33
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

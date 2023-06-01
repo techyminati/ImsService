@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/impl/WifiPdnHandler;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     .line 665
@@ -34,23 +34,23 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
     .line 668
-    if-eqz p2, :cond_a
+    if-eqz p2, :cond_158
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    goto/16 :goto_4
+    goto/16 :goto_158
 
     .line 671
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$1;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -86,7 +86,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_45
 
     .line 673
     const/4 v0, 0x4
@@ -114,9 +114,9 @@
     .line 677
     .end local v0    # "wifiState":I
     .end local v1    # "msg":Landroid/os/Message;
-    goto/16 :goto_3
+    goto/16 :goto_157
 
-    :cond_1
+    :cond_45
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -127,7 +127,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_7c
 
     .line 679
     const-string v0, "state"
@@ -174,9 +174,9 @@
     .line 683
     .end local v0    # "isAirplaneModeOn":Z
     .end local v1    # "msg":Landroid/os/Message;
-    goto/16 :goto_3
+    goto/16 :goto_157
 
-    :cond_2
+    :cond_7c
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -187,7 +187,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_b3
 
     .line 684
     const-string v0, "android.net.wifi.extra.SCAN_AVAILABLE"
@@ -234,9 +234,9 @@
     .line 689
     .end local v0    # "state":Z
     .end local v1    # "msg":Landroid/os/Message;
-    goto/16 :goto_3
+    goto/16 :goto_157
 
-    :cond_3
+    :cond_b3
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -247,7 +247,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_120
 
     .line 690
     nop
@@ -265,24 +265,24 @@
     .local v0, "networkInfo":Landroid/net/NetworkInfo;
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_d3
 
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_d3
 
     move v3, v2
 
-    goto :goto_0
+    goto :goto_d4
 
-    :cond_4
+    :cond_d3
     move v3, v1
 
     .line 693
     .local v3, "isWifiConnected":Z
-    :goto_0
+    :goto_d4
     iget-object v4, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$1;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -295,6 +295,7 @@
 
     iget-object v6, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$1;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WifiPdnHandler;->mIsWifiConnected:Z
     invoke-static {v6}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->access$000(Lcom/mediatek/wfo/impl/WifiPdnHandler;)Z
 
     move-result v6
@@ -316,19 +317,21 @@
     .line 695
     iget-object v4, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$1;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WifiPdnHandler;->mIsWifiConnected:Z
     invoke-static {v4}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->access$000(Lcom/mediatek/wfo/impl/WifiPdnHandler;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_11a
 
     iget-object v4, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$1;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WifiPdnHandler;->mOldWifiConnectedFromNetworkInfo:Z
     invoke-static {v4}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->access$100(Lcom/mediatek/wfo/impl/WifiPdnHandler;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_11a
 
     .line 696
     iget-object v4, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$1;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
@@ -336,14 +339,14 @@
     const/16 v5, 0x3e8
 
     .line 698
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_10f
 
-    goto :goto_1
+    goto :goto_110
 
-    :cond_5
+    :cond_10f
     move v2, v1
 
-    :goto_1
+    :goto_110
     const/4 v6, 0x0
 
     .line 696
@@ -359,17 +362,18 @@
 
     .line 702
     .end local v1    # "msg":Landroid/os/Message;
-    :cond_6
+    :cond_11a
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$1;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
+    # setter for: Lcom/mediatek/wfo/impl/WifiPdnHandler;->mOldWifiConnectedFromNetworkInfo:Z
     invoke-static {v1, v3}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->access$102(Lcom/mediatek/wfo/impl/WifiPdnHandler;Z)Z
 
     .end local v0    # "networkInfo":Landroid/net/NetworkInfo;
     .end local v3    # "isWifiConnected":Z
-    goto :goto_2
+    goto :goto_156
 
     .line 703
-    :cond_7
+    :cond_120
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -380,7 +384,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_156
 
     .line 705
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$1;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
@@ -395,6 +399,7 @@
 
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$1;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WifiPdnHandler;->mIsAirplaneModeOn:Z
     invoke-static {v2}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->access$200(Lcom/mediatek/wfo/impl/WifiPdnHandler;)Z
 
     move-result v2
@@ -410,31 +415,33 @@
     .line 706
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$1;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WifiPdnHandler;->mIsAirplaneModeOn:Z
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->access$200(Lcom/mediatek/wfo/impl/WifiPdnHandler;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_157
 
     .line 707
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WifiPdnHandler$1;->this$0:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
+    # invokes: Lcom/mediatek/wfo/impl/WifiPdnHandler;->setWifiEnabled()V
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->access$300(Lcom/mediatek/wfo/impl/WifiPdnHandler;)V
 
-    goto :goto_3
+    goto :goto_157
 
     .line 703
-    :cond_8
-    :goto_2
+    :cond_156
+    :goto_156
     nop
 
     .line 710
-    :cond_9
-    :goto_3
+    :cond_157
+    :goto_157
     return-void
 
     .line 669
-    :cond_a
-    :goto_4
+    :cond_158
+    :goto_158
     return-void
 .end method

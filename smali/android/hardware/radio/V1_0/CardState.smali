@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 37
@@ -47,7 +47,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_17
 
     .line 41
     const-string v2, "PRESENT"
@@ -58,12 +58,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 44
-    :cond_0
+    :cond_17
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 45
     const-string v2, "ERROR"
@@ -74,12 +74,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 48
-    :cond_1
+    :cond_23
     and-int/lit8 v2, p0, 0x3
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2f
 
     .line 49
     const-string v2, "RESTRICTED"
@@ -90,8 +90,8 @@
     or-int/lit8 v1, v1, 0x3
 
     .line 52
-    :cond_2
-    if-eq p0, v1, :cond_3
+    :cond_2f
+    if-eq p0, v1, :cond_4b
 
     .line 53
     new-instance v2, Ljava/lang/StringBuilder;
@@ -119,7 +119,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 55
-    :cond_3
+    :cond_4b
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -130,11 +130,11 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 21
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 22
     const-string v0, "ABSENT"
@@ -142,10 +142,10 @@
     return-object v0
 
     .line 24
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_b
 
     .line 25
     const-string v0, "PRESENT"
@@ -153,10 +153,10 @@
     return-object v0
 
     .line 27
-    :cond_1
+    :cond_b
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_11
 
     .line 28
     const-string v0, "ERROR"
@@ -164,10 +164,10 @@
     return-object v0
 
     .line 30
-    :cond_2
+    :cond_11
     const/4 v0, 0x3
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_17
 
     .line 31
     const-string v0, "RESTRICTED"
@@ -175,7 +175,7 @@
     return-object v0
 
     .line 33
-    :cond_3
+    :cond_17
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

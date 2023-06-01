@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -100,7 +100,7 @@
 .end method
 
 .method public static final readVectorFromParcel(Landroid/os/HwParcel;)Ljava/util/ArrayList;
-    .locals 12
+    .registers 13
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -164,8 +164,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_24
+    if-ge v4, v2, :cond_37
 
     .line 149
     new-instance v5, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;
@@ -187,18 +187,18 @@
     .end local v5    # "_hidl_vec_element":Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 155
     .end local v2    # "_hidl_vec_size":I
     .end local v3    # "childBlob":Landroid/os/HwBlob;
     .end local v4    # "_hidl_index_0":I
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method public static final writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
-    .locals 7
+    .registers 9
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -249,8 +249,8 @@
     const/4 v3, 0x0
 
     .local v3, "_hidl_index_0":I
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_1e
+    if-ge v3, v1, :cond_2f
 
     .line 197
     invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -268,11 +268,11 @@
     .line 196
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 199
     .end local v3    # "_hidl_index_0":I
-    :cond_0
+    :cond_2f
     const-wide/16 v3, 0x0
 
     invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
@@ -289,41 +289,41 @@
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "otherObject"    # Ljava/lang/Object;
 
     .line 22
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 23
     return v0
 
     .line 25
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 26
     return v1
 
     .line 28
-    :cond_1
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
     const-class v3, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_11
 
     .line 29
     return v1
 
     .line 31
-    :cond_2
+    :cond_11
     move-object v2, p1
 
     check-cast v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;
@@ -334,101 +334,101 @@
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->ddcId:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     .line 33
     return v1
 
     .line 35
-    :cond_3
+    :cond_1b
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->interfaceId:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->interfaceId:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_22
 
     .line 36
     return v1
 
     .line 38
-    :cond_4
+    :cond_22
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->primaryCid:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->primaryCid:I
 
-    if-eq v3, v4, :cond_5
+    if-eq v3, v4, :cond_29
 
     .line 39
     return v1
 
     .line 41
-    :cond_5
+    :cond_29
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->cid:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->cid:I
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v4, :cond_30
 
     .line 42
     return v1
 
     .line 44
-    :cond_6
+    :cond_30
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->active:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->active:I
 
-    if-eq v3, v4, :cond_7
+    if-eq v3, v4, :cond_37
 
     .line 45
     return v1
 
     .line 47
-    :cond_7
+    :cond_37
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->signalingFlag:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->signalingFlag:I
 
-    if-eq v3, v4, :cond_8
+    if-eq v3, v4, :cond_3e
 
     .line 48
     return v1
 
     .line 50
-    :cond_8
+    :cond_3e
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->bearerId:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->bearerId:I
 
-    if-eq v3, v4, :cond_9
+    if-eq v3, v4, :cond_45
 
     .line 51
     return v1
 
     .line 53
-    :cond_9
+    :cond_45
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->failCause:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->failCause:I
 
-    if-eq v3, v4, :cond_a
+    if-eq v3, v4, :cond_4c
 
     .line 54
     return v1
 
     .line 56
-    :cond_a
+    :cond_4c
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->hasQos:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->hasQos:I
 
-    if-eq v3, v4, :cond_b
+    if-eq v3, v4, :cond_53
 
     .line 57
     return v1
 
     .line 59
-    :cond_b
+    :cond_53
     iget-object v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->qos:Lvendor/mediatek/hardware/mtkradioex/V3_0/Qos;
 
     iget-object v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->qos:Lvendor/mediatek/hardware/mtkradioex/V3_0/Qos;
@@ -437,24 +437,24 @@
 
     move-result v3
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_5e
 
     .line 60
     return v1
 
     .line 62
-    :cond_c
+    :cond_5e
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->hasTft:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->hasTft:I
 
-    if-eq v3, v4, :cond_d
+    if-eq v3, v4, :cond_65
 
     .line 63
     return v1
 
     .line 65
-    :cond_d
+    :cond_65
     iget-object v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->tft:Lvendor/mediatek/hardware/mtkradioex/V3_0/Tft;
 
     iget-object v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->tft:Lvendor/mediatek/hardware/mtkradioex/V3_0/Tft;
@@ -463,24 +463,24 @@
 
     move-result v3
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_70
 
     .line 66
     return v1
 
     .line 68
-    :cond_e
+    :cond_70
     iget v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->hasPcscf:I
 
     iget v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->hasPcscf:I
 
-    if-eq v3, v4, :cond_f
+    if-eq v3, v4, :cond_77
 
     .line 69
     return v1
 
     .line 71
-    :cond_f
+    :cond_77
     iget-object v3, p0, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->pcscf:Ljava/lang/String;
 
     iget-object v4, v2, Lvendor/mediatek/hardware/mtkradioex/V3_0/DedicateDataCall;->pcscf:Ljava/lang/String;
@@ -489,18 +489,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_10
+    if-nez v3, :cond_82
 
     .line 72
     return v1
 
     .line 74
-    :cond_10
+    :cond_82
     return v0
 .end method
 
 .method public final hashCode()I
-    .locals 3
+    .registers 4
 
     .line 79
     const/16 v0, 0xe
@@ -770,7 +770,7 @@
 .end method
 
 .method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
-    .locals 14
+    .registers 19
     .param p1, "parcel"    # Landroid/os/HwParcel;
     .param p2, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p3, "_hidl_offset"    # J
@@ -974,7 +974,7 @@
 .end method
 
 .method public final readFromParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 133
@@ -995,7 +995,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 98
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1162,7 +1162,7 @@
 .end method
 
 .method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-    .locals 3
+    .registers 7
     .param p1, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p2, "_hidl_offset"    # J
 
@@ -1297,7 +1297,7 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 183

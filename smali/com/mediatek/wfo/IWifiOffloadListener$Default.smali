@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 30
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method public onAllowWifiOff()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -51,7 +51,7 @@
 .end method
 
 .method public onHandover(III)V
-    .locals 0
+    .registers 4
     .param p1, "simIdx"    # I
     .param p2, "stage"    # I
     .param p3, "ratType"    # I
@@ -66,7 +66,7 @@
 .end method
 
 .method public onRequestImsSwitch(IZ)V
-    .locals 0
+    .registers 3
     .param p1, "simIdx"    # I
     .param p2, "isImsOn"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -80,7 +80,7 @@
 .end method
 
 .method public onRoveOut(IZI)V
-    .locals 0
+    .registers 4
     .param p1, "simIdx"    # I
     .param p2, "roveOut"    # Z
     .param p3, "rssi"    # I
@@ -95,7 +95,7 @@
 .end method
 
 .method public onWfcStateChanged(II)V
-    .locals 0
+    .registers 3
     .param p1, "simIdx"    # I
     .param p2, "state"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -109,7 +109,7 @@
 .end method
 
 .method public onWifiPdnOOSStateChanged(II)V
-    .locals 0
+    .registers 3
     .param p1, "simIdx"    # I
     .param p2, "oosState"    # I
     .annotation system Ldalvik/annotation/Throws;

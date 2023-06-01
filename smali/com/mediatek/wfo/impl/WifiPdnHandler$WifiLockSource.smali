@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 235
     new-instance v0, Lcom/mediatek/wfo/impl/WifiPdnHandler$WifiLockSource;
@@ -71,7 +71,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -85,7 +85,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/mediatek/wfo/impl/WifiPdnHandler$WifiLockSource;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 234
@@ -101,7 +101,7 @@
 .end method
 
 .method public static values()[Lcom/mediatek/wfo/impl/WifiPdnHandler$WifiLockSource;
-    .locals 1
+    .registers 1
 
     .line 234
     sget-object v0, Lcom/mediatek/wfo/impl/WifiPdnHandler$WifiLockSource;->$VALUES:[Lcom/mediatek/wfo/impl/WifiPdnHandler$WifiLockSource;

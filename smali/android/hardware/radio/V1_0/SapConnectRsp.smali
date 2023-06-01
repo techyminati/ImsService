@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 30
@@ -49,7 +49,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_17
 
     .line 34
     const-string v2, "CONNECT_FAILURE"
@@ -60,12 +60,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 37
-    :cond_0
+    :cond_17
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 38
     const-string v2, "MSG_SIZE_TOO_LARGE"
@@ -76,12 +76,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 41
-    :cond_1
+    :cond_23
     and-int/lit8 v2, p0, 0x3
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2f
 
     .line 42
     const-string v2, "MSG_SIZE_TOO_SMALL"
@@ -92,12 +92,12 @@
     or-int/lit8 v1, v1, 0x3
 
     .line 45
-    :cond_2
+    :cond_2f
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_3b
 
     .line 46
     const-string v2, "CONNECT_OK_CALL_ONGOING"
@@ -108,8 +108,8 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 49
-    :cond_3
-    if-eq p0, v1, :cond_4
+    :cond_3b
+    if-eq p0, v1, :cond_57
 
     .line 50
     new-instance v2, Ljava/lang/StringBuilder;
@@ -137,7 +137,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 52
-    :cond_4
+    :cond_57
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -148,11 +148,11 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 11
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 12
     const-string v0, "SUCCESS"
@@ -160,10 +160,10 @@
     return-object v0
 
     .line 14
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_b
 
     .line 15
     const-string v0, "CONNECT_FAILURE"
@@ -171,10 +171,10 @@
     return-object v0
 
     .line 17
-    :cond_1
+    :cond_b
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_11
 
     .line 18
     const-string v0, "MSG_SIZE_TOO_LARGE"
@@ -182,10 +182,10 @@
     return-object v0
 
     .line 20
-    :cond_2
+    :cond_11
     const/4 v0, 0x3
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_17
 
     .line 21
     const-string v0, "MSG_SIZE_TOO_SMALL"
@@ -193,10 +193,10 @@
     return-object v0
 
     .line 23
-    :cond_3
+    :cond_17
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1d
 
     .line 24
     const-string v0, "CONNECT_OK_CALL_ONGOING"
@@ -204,7 +204,7 @@
     return-object v0
 
     .line 26
-    :cond_4
+    :cond_1d
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

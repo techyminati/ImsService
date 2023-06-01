@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/impl/WfcLocationHandler;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
     .line 888
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .registers 8
 
     .line 891
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$2;->val$LocationInfoQueueCopy:Ljava/util/List;
@@ -50,12 +50,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_71
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -75,13 +75,14 @@
     .local v3, "retry":Ljava/lang/Boolean;
     iget-object v4, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcLocationHandler;->getGeoLocationFromLatLong(Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;Ljava/lang/Boolean;)Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
     invoke-static {v4, v1, v3}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$1300(Lcom/mediatek/wfo/impl/WfcLocationHandler;Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;Ljava/lang/Boolean;)Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
 
     move-result-object v4
 
     .line 894
     .local v4, "res":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2a
 
     .line 895
     iget-object v5, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
@@ -95,12 +96,12 @@
     invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
 
     .line 898
-    :cond_0
+    :cond_2a
     invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_70
 
     .line 899
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
@@ -115,6 +116,7 @@
 
     iget-object v6, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mGeocodingFailRetry:I
     invoke-static {v6}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$800(Lcom/mediatek/wfo/impl/WfcLocationHandler;)I
 
     move-result v6
@@ -130,6 +132,7 @@
     .line 900
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
     invoke-static {v2}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$300(Lcom/mediatek/wfo/impl/WfcLocationHandler;)Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     move-result-object v2
@@ -138,19 +141,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_70
 
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mGeocodingFailRetry:I
     invoke-static {v2}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$800(Lcom/mediatek/wfo/impl/WfcLocationHandler;)I
 
     move-result v2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_70
 
     .line 901
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcLocationHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcLocationHandler;
 
+    # operator-- for: Lcom/mediatek/wfo/impl/WfcLocationHandler;->mGeocodingFailRetry:I
     invoke-static {v2}, Lcom/mediatek/wfo/impl/WfcLocationHandler;->access$810(Lcom/mediatek/wfo/impl/WfcLocationHandler;)I
 
     .line 902
@@ -168,10 +173,10 @@
     .end local v1    # "gpsLocationInfo":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
     .end local v3    # "retry":Ljava/lang/Boolean;
     .end local v4    # "res":Lcom/mediatek/wfo/impl/WfcLocationHandler$LocationInfo;
-    :cond_1
-    goto :goto_0
+    :cond_70
+    goto :goto_6
 
     .line 906
-    :cond_2
+    :cond_71
     return-void
 .end method

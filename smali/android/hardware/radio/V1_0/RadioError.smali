@@ -175,7 +175,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -184,7 +184,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 346
@@ -207,7 +207,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_17
 
     .line 350
     const-string v2, "RADIO_NOT_AVAILABLE"
@@ -218,12 +218,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 353
-    :cond_0
+    :cond_17
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 354
     const-string v2, "GENERIC_FAILURE"
@@ -234,12 +234,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 357
-    :cond_1
+    :cond_23
     and-int/lit8 v2, p0, 0x3
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2f
 
     .line 358
     const-string v2, "PASSWORD_INCORRECT"
@@ -250,12 +250,12 @@
     or-int/lit8 v1, v1, 0x3
 
     .line 361
-    :cond_2
+    :cond_2f
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_3b
 
     .line 362
     const-string v2, "SIM_PIN2"
@@ -266,12 +266,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 365
-    :cond_3
+    :cond_3b
     and-int/lit8 v2, p0, 0x5
 
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_47
 
     .line 366
     const-string v2, "SIM_PUK2"
@@ -282,12 +282,12 @@
     or-int/lit8 v1, v1, 0x5
 
     .line 369
-    :cond_4
+    :cond_47
     and-int/lit8 v2, p0, 0x6
 
     const/4 v3, 0x6
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_53
 
     .line 370
     const-string v2, "REQUEST_NOT_SUPPORTED"
@@ -298,12 +298,12 @@
     or-int/lit8 v1, v1, 0x6
 
     .line 373
-    :cond_5
+    :cond_53
     and-int/lit8 v2, p0, 0x7
 
     const/4 v3, 0x7
 
-    if-ne v2, v3, :cond_6
+    if-ne v2, v3, :cond_5f
 
     .line 374
     const-string v2, "CANCELLED"
@@ -314,12 +314,12 @@
     or-int/lit8 v1, v1, 0x7
 
     .line 377
-    :cond_6
+    :cond_5f
     and-int/lit8 v2, p0, 0x8
 
     const/16 v3, 0x8
 
-    if-ne v2, v3, :cond_7
+    if-ne v2, v3, :cond_6c
 
     .line 378
     const-string v2, "OP_NOT_ALLOWED_DURING_VOICE_CALL"
@@ -330,12 +330,12 @@
     or-int/lit8 v1, v1, 0x8
 
     .line 381
-    :cond_7
+    :cond_6c
     and-int/lit8 v2, p0, 0x9
 
     const/16 v3, 0x9
 
-    if-ne v2, v3, :cond_8
+    if-ne v2, v3, :cond_79
 
     .line 382
     const-string v2, "OP_NOT_ALLOWED_BEFORE_REG_TO_NW"
@@ -346,12 +346,12 @@
     or-int/lit8 v1, v1, 0x9
 
     .line 385
-    :cond_8
+    :cond_79
     and-int/lit8 v2, p0, 0xa
 
     const/16 v3, 0xa
 
-    if-ne v2, v3, :cond_9
+    if-ne v2, v3, :cond_86
 
     .line 386
     const-string v2, "SMS_SEND_FAIL_RETRY"
@@ -362,12 +362,12 @@
     or-int/lit8 v1, v1, 0xa
 
     .line 389
-    :cond_9
+    :cond_86
     and-int/lit8 v2, p0, 0xb
 
     const/16 v3, 0xb
 
-    if-ne v2, v3, :cond_a
+    if-ne v2, v3, :cond_93
 
     .line 390
     const-string v2, "SIM_ABSENT"
@@ -378,12 +378,12 @@
     or-int/lit8 v1, v1, 0xb
 
     .line 393
-    :cond_a
+    :cond_93
     and-int/lit8 v2, p0, 0xc
 
     const/16 v3, 0xc
 
-    if-ne v2, v3, :cond_b
+    if-ne v2, v3, :cond_a0
 
     .line 394
     const-string v2, "SUBSCRIPTION_NOT_AVAILABLE"
@@ -394,12 +394,12 @@
     or-int/lit8 v1, v1, 0xc
 
     .line 397
-    :cond_b
+    :cond_a0
     and-int/lit8 v2, p0, 0xd
 
     const/16 v3, 0xd
 
-    if-ne v2, v3, :cond_c
+    if-ne v2, v3, :cond_ad
 
     .line 398
     const-string v2, "MODE_NOT_SUPPORTED"
@@ -410,12 +410,12 @@
     or-int/lit8 v1, v1, 0xd
 
     .line 401
-    :cond_c
+    :cond_ad
     and-int/lit8 v2, p0, 0xe
 
     const/16 v3, 0xe
 
-    if-ne v2, v3, :cond_d
+    if-ne v2, v3, :cond_ba
 
     .line 402
     const-string v2, "FDN_CHECK_FAILURE"
@@ -426,12 +426,12 @@
     or-int/lit8 v1, v1, 0xe
 
     .line 405
-    :cond_d
+    :cond_ba
     and-int/lit8 v2, p0, 0xf
 
     const/16 v3, 0xf
 
-    if-ne v2, v3, :cond_e
+    if-ne v2, v3, :cond_c7
 
     .line 406
     const-string v2, "ILLEGAL_SIM_OR_ME"
@@ -442,12 +442,12 @@
     or-int/lit8 v1, v1, 0xf
 
     .line 409
-    :cond_e
+    :cond_c7
     and-int/lit8 v2, p0, 0x10
 
     const/16 v3, 0x10
 
-    if-ne v2, v3, :cond_f
+    if-ne v2, v3, :cond_d4
 
     .line 410
     const-string v2, "MISSING_RESOURCE"
@@ -458,12 +458,12 @@
     or-int/lit8 v1, v1, 0x10
 
     .line 413
-    :cond_f
+    :cond_d4
     and-int/lit8 v2, p0, 0x11
 
     const/16 v3, 0x11
 
-    if-ne v2, v3, :cond_10
+    if-ne v2, v3, :cond_e1
 
     .line 414
     const-string v2, "NO_SUCH_ELEMENT"
@@ -474,12 +474,12 @@
     or-int/lit8 v1, v1, 0x11
 
     .line 417
-    :cond_10
+    :cond_e1
     and-int/lit8 v2, p0, 0x12
 
     const/16 v3, 0x12
 
-    if-ne v2, v3, :cond_11
+    if-ne v2, v3, :cond_ee
 
     .line 418
     const-string v2, "DIAL_MODIFIED_TO_USSD"
@@ -490,12 +490,12 @@
     or-int/lit8 v1, v1, 0x12
 
     .line 421
-    :cond_11
+    :cond_ee
     and-int/lit8 v2, p0, 0x13
 
     const/16 v3, 0x13
 
-    if-ne v2, v3, :cond_12
+    if-ne v2, v3, :cond_fb
 
     .line 422
     const-string v2, "DIAL_MODIFIED_TO_SS"
@@ -506,12 +506,12 @@
     or-int/lit8 v1, v1, 0x13
 
     .line 425
-    :cond_12
+    :cond_fb
     and-int/lit8 v2, p0, 0x14
 
     const/16 v3, 0x14
 
-    if-ne v2, v3, :cond_13
+    if-ne v2, v3, :cond_108
 
     .line 426
     const-string v2, "DIAL_MODIFIED_TO_DIAL"
@@ -522,12 +522,12 @@
     or-int/lit8 v1, v1, 0x14
 
     .line 429
-    :cond_13
+    :cond_108
     and-int/lit8 v2, p0, 0x15
 
     const/16 v3, 0x15
 
-    if-ne v2, v3, :cond_14
+    if-ne v2, v3, :cond_115
 
     .line 430
     const-string v2, "USSD_MODIFIED_TO_DIAL"
@@ -538,12 +538,12 @@
     or-int/lit8 v1, v1, 0x15
 
     .line 433
-    :cond_14
+    :cond_115
     and-int/lit8 v2, p0, 0x16
 
     const/16 v3, 0x16
 
-    if-ne v2, v3, :cond_15
+    if-ne v2, v3, :cond_122
 
     .line 434
     const-string v2, "USSD_MODIFIED_TO_SS"
@@ -554,12 +554,12 @@
     or-int/lit8 v1, v1, 0x16
 
     .line 437
-    :cond_15
+    :cond_122
     and-int/lit8 v2, p0, 0x17
 
     const/16 v3, 0x17
 
-    if-ne v2, v3, :cond_16
+    if-ne v2, v3, :cond_12f
 
     .line 438
     const-string v2, "USSD_MODIFIED_TO_USSD"
@@ -570,12 +570,12 @@
     or-int/lit8 v1, v1, 0x17
 
     .line 441
-    :cond_16
+    :cond_12f
     and-int/lit8 v2, p0, 0x18
 
     const/16 v3, 0x18
 
-    if-ne v2, v3, :cond_17
+    if-ne v2, v3, :cond_13c
 
     .line 442
     const-string v2, "SS_MODIFIED_TO_DIAL"
@@ -586,12 +586,12 @@
     or-int/lit8 v1, v1, 0x18
 
     .line 445
-    :cond_17
+    :cond_13c
     and-int/lit8 v2, p0, 0x19
 
     const/16 v3, 0x19
 
-    if-ne v2, v3, :cond_18
+    if-ne v2, v3, :cond_149
 
     .line 446
     const-string v2, "SS_MODIFIED_TO_USSD"
@@ -602,12 +602,12 @@
     or-int/lit8 v1, v1, 0x19
 
     .line 449
-    :cond_18
+    :cond_149
     and-int/lit8 v2, p0, 0x1a
 
     const/16 v3, 0x1a
 
-    if-ne v2, v3, :cond_19
+    if-ne v2, v3, :cond_156
 
     .line 450
     const-string v2, "SUBSCRIPTION_NOT_SUPPORTED"
@@ -618,12 +618,12 @@
     or-int/lit8 v1, v1, 0x1a
 
     .line 453
-    :cond_19
+    :cond_156
     and-int/lit8 v2, p0, 0x1b
 
     const/16 v3, 0x1b
 
-    if-ne v2, v3, :cond_1a
+    if-ne v2, v3, :cond_163
 
     .line 454
     const-string v2, "SS_MODIFIED_TO_SS"
@@ -634,12 +634,12 @@
     or-int/lit8 v1, v1, 0x1b
 
     .line 457
-    :cond_1a
+    :cond_163
     and-int/lit8 v2, p0, 0x24
 
     const/16 v3, 0x24
 
-    if-ne v2, v3, :cond_1b
+    if-ne v2, v3, :cond_170
 
     .line 458
     const-string v2, "LCE_NOT_SUPPORTED"
@@ -650,12 +650,12 @@
     or-int/lit8 v1, v1, 0x24
 
     .line 461
-    :cond_1b
+    :cond_170
     and-int/lit8 v2, p0, 0x25
 
     const/16 v3, 0x25
 
-    if-ne v2, v3, :cond_1c
+    if-ne v2, v3, :cond_17d
 
     .line 462
     const-string v2, "NO_MEMORY"
@@ -666,12 +666,12 @@
     or-int/lit8 v1, v1, 0x25
 
     .line 465
-    :cond_1c
+    :cond_17d
     and-int/lit8 v2, p0, 0x26
 
     const/16 v3, 0x26
 
-    if-ne v2, v3, :cond_1d
+    if-ne v2, v3, :cond_18a
 
     .line 466
     const-string v2, "INTERNAL_ERR"
@@ -682,12 +682,12 @@
     or-int/lit8 v1, v1, 0x26
 
     .line 469
-    :cond_1d
+    :cond_18a
     and-int/lit8 v2, p0, 0x27
 
     const/16 v3, 0x27
 
-    if-ne v2, v3, :cond_1e
+    if-ne v2, v3, :cond_197
 
     .line 470
     const-string v2, "SYSTEM_ERR"
@@ -698,12 +698,12 @@
     or-int/lit8 v1, v1, 0x27
 
     .line 473
-    :cond_1e
+    :cond_197
     and-int/lit8 v2, p0, 0x28
 
     const/16 v3, 0x28
 
-    if-ne v2, v3, :cond_1f
+    if-ne v2, v3, :cond_1a4
 
     .line 474
     const-string v2, "MODEM_ERR"
@@ -714,12 +714,12 @@
     or-int/lit8 v1, v1, 0x28
 
     .line 477
-    :cond_1f
+    :cond_1a4
     and-int/lit8 v2, p0, 0x29
 
     const/16 v3, 0x29
 
-    if-ne v2, v3, :cond_20
+    if-ne v2, v3, :cond_1b1
 
     .line 478
     const-string v2, "INVALID_STATE"
@@ -730,12 +730,12 @@
     or-int/lit8 v1, v1, 0x29
 
     .line 481
-    :cond_20
+    :cond_1b1
     and-int/lit8 v2, p0, 0x2a
 
     const/16 v3, 0x2a
 
-    if-ne v2, v3, :cond_21
+    if-ne v2, v3, :cond_1be
 
     .line 482
     const-string v2, "NO_RESOURCES"
@@ -746,12 +746,12 @@
     or-int/lit8 v1, v1, 0x2a
 
     .line 485
-    :cond_21
+    :cond_1be
     and-int/lit8 v2, p0, 0x2b
 
     const/16 v3, 0x2b
 
-    if-ne v2, v3, :cond_22
+    if-ne v2, v3, :cond_1cb
 
     .line 486
     const-string v2, "SIM_ERR"
@@ -762,12 +762,12 @@
     or-int/lit8 v1, v1, 0x2b
 
     .line 489
-    :cond_22
+    :cond_1cb
     and-int/lit8 v2, p0, 0x2c
 
     const/16 v3, 0x2c
 
-    if-ne v2, v3, :cond_23
+    if-ne v2, v3, :cond_1d8
 
     .line 490
     const-string v2, "INVALID_ARGUMENTS"
@@ -778,12 +778,12 @@
     or-int/lit8 v1, v1, 0x2c
 
     .line 493
-    :cond_23
+    :cond_1d8
     and-int/lit8 v2, p0, 0x2d
 
     const/16 v3, 0x2d
 
-    if-ne v2, v3, :cond_24
+    if-ne v2, v3, :cond_1e5
 
     .line 494
     const-string v2, "INVALID_SIM_STATE"
@@ -794,12 +794,12 @@
     or-int/lit8 v1, v1, 0x2d
 
     .line 497
-    :cond_24
+    :cond_1e5
     and-int/lit8 v2, p0, 0x2e
 
     const/16 v3, 0x2e
 
-    if-ne v2, v3, :cond_25
+    if-ne v2, v3, :cond_1f2
 
     .line 498
     const-string v2, "INVALID_MODEM_STATE"
@@ -810,12 +810,12 @@
     or-int/lit8 v1, v1, 0x2e
 
     .line 501
-    :cond_25
+    :cond_1f2
     and-int/lit8 v2, p0, 0x2f
 
     const/16 v3, 0x2f
 
-    if-ne v2, v3, :cond_26
+    if-ne v2, v3, :cond_1ff
 
     .line 502
     const-string v2, "INVALID_CALL_ID"
@@ -826,12 +826,12 @@
     or-int/lit8 v1, v1, 0x2f
 
     .line 505
-    :cond_26
+    :cond_1ff
     and-int/lit8 v2, p0, 0x30
 
     const/16 v3, 0x30
 
-    if-ne v2, v3, :cond_27
+    if-ne v2, v3, :cond_20c
 
     .line 506
     const-string v2, "NO_SMS_TO_ACK"
@@ -842,12 +842,12 @@
     or-int/lit8 v1, v1, 0x30
 
     .line 509
-    :cond_27
+    :cond_20c
     and-int/lit8 v2, p0, 0x31
 
     const/16 v3, 0x31
 
-    if-ne v2, v3, :cond_28
+    if-ne v2, v3, :cond_219
 
     .line 510
     const-string v2, "NETWORK_ERR"
@@ -858,12 +858,12 @@
     or-int/lit8 v1, v1, 0x31
 
     .line 513
-    :cond_28
+    :cond_219
     and-int/lit8 v2, p0, 0x32
 
     const/16 v3, 0x32
 
-    if-ne v2, v3, :cond_29
+    if-ne v2, v3, :cond_226
 
     .line 514
     const-string v2, "REQUEST_RATE_LIMITED"
@@ -874,12 +874,12 @@
     or-int/lit8 v1, v1, 0x32
 
     .line 517
-    :cond_29
+    :cond_226
     and-int/lit8 v2, p0, 0x33
 
     const/16 v3, 0x33
 
-    if-ne v2, v3, :cond_2a
+    if-ne v2, v3, :cond_233
 
     .line 518
     const-string v2, "SIM_BUSY"
@@ -890,12 +890,12 @@
     or-int/lit8 v1, v1, 0x33
 
     .line 521
-    :cond_2a
+    :cond_233
     and-int/lit8 v2, p0, 0x34
 
     const/16 v3, 0x34
 
-    if-ne v2, v3, :cond_2b
+    if-ne v2, v3, :cond_240
 
     .line 522
     const-string v2, "SIM_FULL"
@@ -906,12 +906,12 @@
     or-int/lit8 v1, v1, 0x34
 
     .line 525
-    :cond_2b
+    :cond_240
     and-int/lit8 v2, p0, 0x35
 
     const/16 v3, 0x35
 
-    if-ne v2, v3, :cond_2c
+    if-ne v2, v3, :cond_24d
 
     .line 526
     const-string v2, "NETWORK_REJECT"
@@ -922,12 +922,12 @@
     or-int/lit8 v1, v1, 0x35
 
     .line 529
-    :cond_2c
+    :cond_24d
     and-int/lit8 v2, p0, 0x36
 
     const/16 v3, 0x36
 
-    if-ne v2, v3, :cond_2d
+    if-ne v2, v3, :cond_25a
 
     .line 530
     const-string v2, "OPERATION_NOT_ALLOWED"
@@ -938,12 +938,12 @@
     or-int/lit8 v1, v1, 0x36
 
     .line 533
-    :cond_2d
+    :cond_25a
     and-int/lit8 v2, p0, 0x37
 
     const/16 v3, 0x37
 
-    if-ne v2, v3, :cond_2e
+    if-ne v2, v3, :cond_267
 
     .line 534
     const-string v2, "EMPTY_RECORD"
@@ -954,12 +954,12 @@
     or-int/lit8 v1, v1, 0x37
 
     .line 537
-    :cond_2e
+    :cond_267
     and-int/lit8 v2, p0, 0x38
 
     const/16 v3, 0x38
 
-    if-ne v2, v3, :cond_2f
+    if-ne v2, v3, :cond_274
 
     .line 538
     const-string v2, "INVALID_SMS_FORMAT"
@@ -970,12 +970,12 @@
     or-int/lit8 v1, v1, 0x38
 
     .line 541
-    :cond_2f
+    :cond_274
     and-int/lit8 v2, p0, 0x39
 
     const/16 v3, 0x39
 
-    if-ne v2, v3, :cond_30
+    if-ne v2, v3, :cond_281
 
     .line 542
     const-string v2, "ENCODING_ERR"
@@ -986,12 +986,12 @@
     or-int/lit8 v1, v1, 0x39
 
     .line 545
-    :cond_30
+    :cond_281
     and-int/lit8 v2, p0, 0x3a
 
     const/16 v3, 0x3a
 
-    if-ne v2, v3, :cond_31
+    if-ne v2, v3, :cond_28e
 
     .line 546
     const-string v2, "INVALID_SMSC_ADDRESS"
@@ -1002,12 +1002,12 @@
     or-int/lit8 v1, v1, 0x3a
 
     .line 549
-    :cond_31
+    :cond_28e
     and-int/lit8 v2, p0, 0x3b
 
     const/16 v3, 0x3b
 
-    if-ne v2, v3, :cond_32
+    if-ne v2, v3, :cond_29b
 
     .line 550
     const-string v2, "NO_SUCH_ENTRY"
@@ -1018,12 +1018,12 @@
     or-int/lit8 v1, v1, 0x3b
 
     .line 553
-    :cond_32
+    :cond_29b
     and-int/lit8 v2, p0, 0x3c
 
     const/16 v3, 0x3c
 
-    if-ne v2, v3, :cond_33
+    if-ne v2, v3, :cond_2a8
 
     .line 554
     const-string v2, "NETWORK_NOT_READY"
@@ -1034,12 +1034,12 @@
     or-int/lit8 v1, v1, 0x3c
 
     .line 557
-    :cond_33
+    :cond_2a8
     and-int/lit8 v2, p0, 0x3d
 
     const/16 v3, 0x3d
 
-    if-ne v2, v3, :cond_34
+    if-ne v2, v3, :cond_2b5
 
     .line 558
     const-string v2, "NOT_PROVISIONED"
@@ -1050,12 +1050,12 @@
     or-int/lit8 v1, v1, 0x3d
 
     .line 561
-    :cond_34
+    :cond_2b5
     and-int/lit8 v2, p0, 0x3e
 
     const/16 v3, 0x3e
 
-    if-ne v2, v3, :cond_35
+    if-ne v2, v3, :cond_2c2
 
     .line 562
     const-string v2, "NO_SUBSCRIPTION"
@@ -1066,12 +1066,12 @@
     or-int/lit8 v1, v1, 0x3e
 
     .line 565
-    :cond_35
+    :cond_2c2
     and-int/lit8 v2, p0, 0x3f
 
     const/16 v3, 0x3f
 
-    if-ne v2, v3, :cond_36
+    if-ne v2, v3, :cond_2cf
 
     .line 566
     const-string v2, "NO_NETWORK_FOUND"
@@ -1082,12 +1082,12 @@
     or-int/lit8 v1, v1, 0x3f
 
     .line 569
-    :cond_36
+    :cond_2cf
     and-int/lit8 v2, p0, 0x40
 
     const/16 v3, 0x40
 
-    if-ne v2, v3, :cond_37
+    if-ne v2, v3, :cond_2dc
 
     .line 570
     const-string v2, "DEVICE_IN_USE"
@@ -1098,12 +1098,12 @@
     or-int/lit8 v1, v1, 0x40
 
     .line 573
-    :cond_37
+    :cond_2dc
     and-int/lit8 v2, p0, 0x41
 
     const/16 v3, 0x41
 
-    if-ne v2, v3, :cond_38
+    if-ne v2, v3, :cond_2e9
 
     .line 574
     const-string v2, "ABORTED"
@@ -1114,12 +1114,12 @@
     or-int/lit8 v1, v1, 0x41
 
     .line 577
-    :cond_38
+    :cond_2e9
     and-int/lit8 v2, p0, 0x42
 
     const/16 v3, 0x42
 
-    if-ne v2, v3, :cond_39
+    if-ne v2, v3, :cond_2f6
 
     .line 578
     const-string v2, "INVALID_RESPONSE"
@@ -1130,12 +1130,12 @@
     or-int/lit8 v1, v1, 0x42
 
     .line 581
-    :cond_39
+    :cond_2f6
     and-int/lit16 v2, p0, 0x1f5
 
     const/16 v3, 0x1f5
 
-    if-ne v2, v3, :cond_3a
+    if-ne v2, v3, :cond_303
 
     .line 582
     const-string v2, "OEM_ERROR_1"
@@ -1146,12 +1146,12 @@
     or-int/lit16 v1, v1, 0x1f5
 
     .line 585
-    :cond_3a
+    :cond_303
     and-int/lit16 v2, p0, 0x1f6
 
     const/16 v3, 0x1f6
 
-    if-ne v2, v3, :cond_3b
+    if-ne v2, v3, :cond_310
 
     .line 586
     const-string v2, "OEM_ERROR_2"
@@ -1162,12 +1162,12 @@
     or-int/lit16 v1, v1, 0x1f6
 
     .line 589
-    :cond_3b
+    :cond_310
     and-int/lit16 v2, p0, 0x1f7
 
     const/16 v3, 0x1f7
 
-    if-ne v2, v3, :cond_3c
+    if-ne v2, v3, :cond_31d
 
     .line 590
     const-string v2, "OEM_ERROR_3"
@@ -1178,12 +1178,12 @@
     or-int/lit16 v1, v1, 0x1f7
 
     .line 593
-    :cond_3c
+    :cond_31d
     and-int/lit16 v2, p0, 0x1f8
 
     const/16 v3, 0x1f8
 
-    if-ne v2, v3, :cond_3d
+    if-ne v2, v3, :cond_32a
 
     .line 594
     const-string v2, "OEM_ERROR_4"
@@ -1194,12 +1194,12 @@
     or-int/lit16 v1, v1, 0x1f8
 
     .line 597
-    :cond_3d
+    :cond_32a
     and-int/lit16 v2, p0, 0x1f9
 
     const/16 v3, 0x1f9
 
-    if-ne v2, v3, :cond_3e
+    if-ne v2, v3, :cond_337
 
     .line 598
     const-string v2, "OEM_ERROR_5"
@@ -1210,12 +1210,12 @@
     or-int/lit16 v1, v1, 0x1f9
 
     .line 601
-    :cond_3e
+    :cond_337
     and-int/lit16 v2, p0, 0x1fa
 
     const/16 v3, 0x1fa
 
-    if-ne v2, v3, :cond_3f
+    if-ne v2, v3, :cond_344
 
     .line 602
     const-string v2, "OEM_ERROR_6"
@@ -1226,12 +1226,12 @@
     or-int/lit16 v1, v1, 0x1fa
 
     .line 605
-    :cond_3f
+    :cond_344
     and-int/lit16 v2, p0, 0x1fb
 
     const/16 v3, 0x1fb
 
-    if-ne v2, v3, :cond_40
+    if-ne v2, v3, :cond_351
 
     .line 606
     const-string v2, "OEM_ERROR_7"
@@ -1242,12 +1242,12 @@
     or-int/lit16 v1, v1, 0x1fb
 
     .line 609
-    :cond_40
+    :cond_351
     and-int/lit16 v2, p0, 0x1fc
 
     const/16 v3, 0x1fc
 
-    if-ne v2, v3, :cond_41
+    if-ne v2, v3, :cond_35e
 
     .line 610
     const-string v2, "OEM_ERROR_8"
@@ -1258,12 +1258,12 @@
     or-int/lit16 v1, v1, 0x1fc
 
     .line 613
-    :cond_41
+    :cond_35e
     and-int/lit16 v2, p0, 0x1fd
 
     const/16 v3, 0x1fd
 
-    if-ne v2, v3, :cond_42
+    if-ne v2, v3, :cond_36b
 
     .line 614
     const-string v2, "OEM_ERROR_9"
@@ -1274,12 +1274,12 @@
     or-int/lit16 v1, v1, 0x1fd
 
     .line 617
-    :cond_42
+    :cond_36b
     and-int/lit16 v2, p0, 0x1fe
 
     const/16 v3, 0x1fe
 
-    if-ne v2, v3, :cond_43
+    if-ne v2, v3, :cond_378
 
     .line 618
     const-string v2, "OEM_ERROR_10"
@@ -1290,12 +1290,12 @@
     or-int/lit16 v1, v1, 0x1fe
 
     .line 621
-    :cond_43
+    :cond_378
     and-int/lit16 v2, p0, 0x1ff
 
     const/16 v3, 0x1ff
 
-    if-ne v2, v3, :cond_44
+    if-ne v2, v3, :cond_385
 
     .line 622
     const-string v2, "OEM_ERROR_11"
@@ -1306,12 +1306,12 @@
     or-int/lit16 v1, v1, 0x1ff
 
     .line 625
-    :cond_44
+    :cond_385
     and-int/lit16 v2, p0, 0x200
 
     const/16 v3, 0x200
 
-    if-ne v2, v3, :cond_45
+    if-ne v2, v3, :cond_392
 
     .line 626
     const-string v2, "OEM_ERROR_12"
@@ -1322,12 +1322,12 @@
     or-int/lit16 v1, v1, 0x200
 
     .line 629
-    :cond_45
+    :cond_392
     and-int/lit16 v2, p0, 0x201
 
     const/16 v3, 0x201
 
-    if-ne v2, v3, :cond_46
+    if-ne v2, v3, :cond_39f
 
     .line 630
     const-string v2, "OEM_ERROR_13"
@@ -1338,12 +1338,12 @@
     or-int/lit16 v1, v1, 0x201
 
     .line 633
-    :cond_46
+    :cond_39f
     and-int/lit16 v2, p0, 0x202
 
     const/16 v3, 0x202
 
-    if-ne v2, v3, :cond_47
+    if-ne v2, v3, :cond_3ac
 
     .line 634
     const-string v2, "OEM_ERROR_14"
@@ -1354,12 +1354,12 @@
     or-int/lit16 v1, v1, 0x202
 
     .line 637
-    :cond_47
+    :cond_3ac
     and-int/lit16 v2, p0, 0x203
 
     const/16 v3, 0x203
 
-    if-ne v2, v3, :cond_48
+    if-ne v2, v3, :cond_3b9
 
     .line 638
     const-string v2, "OEM_ERROR_15"
@@ -1370,12 +1370,12 @@
     or-int/lit16 v1, v1, 0x203
 
     .line 641
-    :cond_48
+    :cond_3b9
     and-int/lit16 v2, p0, 0x204
 
     const/16 v3, 0x204
 
-    if-ne v2, v3, :cond_49
+    if-ne v2, v3, :cond_3c6
 
     .line 642
     const-string v2, "OEM_ERROR_16"
@@ -1386,12 +1386,12 @@
     or-int/lit16 v1, v1, 0x204
 
     .line 645
-    :cond_49
+    :cond_3c6
     and-int/lit16 v2, p0, 0x205
 
     const/16 v3, 0x205
 
-    if-ne v2, v3, :cond_4a
+    if-ne v2, v3, :cond_3d3
 
     .line 646
     const-string v2, "OEM_ERROR_17"
@@ -1402,12 +1402,12 @@
     or-int/lit16 v1, v1, 0x205
 
     .line 649
-    :cond_4a
+    :cond_3d3
     and-int/lit16 v2, p0, 0x206
 
     const/16 v3, 0x206
 
-    if-ne v2, v3, :cond_4b
+    if-ne v2, v3, :cond_3e0
 
     .line 650
     const-string v2, "OEM_ERROR_18"
@@ -1418,12 +1418,12 @@
     or-int/lit16 v1, v1, 0x206
 
     .line 653
-    :cond_4b
+    :cond_3e0
     and-int/lit16 v2, p0, 0x207
 
     const/16 v3, 0x207
 
-    if-ne v2, v3, :cond_4c
+    if-ne v2, v3, :cond_3ed
 
     .line 654
     const-string v2, "OEM_ERROR_19"
@@ -1434,12 +1434,12 @@
     or-int/lit16 v1, v1, 0x207
 
     .line 657
-    :cond_4c
+    :cond_3ed
     and-int/lit16 v2, p0, 0x208
 
     const/16 v3, 0x208
 
-    if-ne v2, v3, :cond_4d
+    if-ne v2, v3, :cond_3fa
 
     .line 658
     const-string v2, "OEM_ERROR_20"
@@ -1450,12 +1450,12 @@
     or-int/lit16 v1, v1, 0x208
 
     .line 661
-    :cond_4d
+    :cond_3fa
     and-int/lit16 v2, p0, 0x209
 
     const/16 v3, 0x209
 
-    if-ne v2, v3, :cond_4e
+    if-ne v2, v3, :cond_407
 
     .line 662
     const-string v2, "OEM_ERROR_21"
@@ -1466,12 +1466,12 @@
     or-int/lit16 v1, v1, 0x209
 
     .line 665
-    :cond_4e
+    :cond_407
     and-int/lit16 v2, p0, 0x20a
 
     const/16 v3, 0x20a
 
-    if-ne v2, v3, :cond_4f
+    if-ne v2, v3, :cond_414
 
     .line 666
     const-string v2, "OEM_ERROR_22"
@@ -1482,12 +1482,12 @@
     or-int/lit16 v1, v1, 0x20a
 
     .line 669
-    :cond_4f
+    :cond_414
     and-int/lit16 v2, p0, 0x20b
 
     const/16 v3, 0x20b
 
-    if-ne v2, v3, :cond_50
+    if-ne v2, v3, :cond_421
 
     .line 670
     const-string v2, "OEM_ERROR_23"
@@ -1498,12 +1498,12 @@
     or-int/lit16 v1, v1, 0x20b
 
     .line 673
-    :cond_50
+    :cond_421
     and-int/lit16 v2, p0, 0x20c
 
     const/16 v3, 0x20c
 
-    if-ne v2, v3, :cond_51
+    if-ne v2, v3, :cond_42e
 
     .line 674
     const-string v2, "OEM_ERROR_24"
@@ -1514,12 +1514,12 @@
     or-int/lit16 v1, v1, 0x20c
 
     .line 677
-    :cond_51
+    :cond_42e
     and-int/lit16 v2, p0, 0x20d
 
     const/16 v3, 0x20d
 
-    if-ne v2, v3, :cond_52
+    if-ne v2, v3, :cond_43b
 
     .line 678
     const-string v2, "OEM_ERROR_25"
@@ -1530,8 +1530,8 @@
     or-int/lit16 v1, v1, 0x20d
 
     .line 681
-    :cond_52
-    if-eq p0, v1, :cond_53
+    :cond_43b
+    if-eq p0, v1, :cond_457
 
     .line 682
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1559,7 +1559,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 684
-    :cond_53
+    :cond_457
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -1570,11 +1570,11 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 90
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 91
     const-string v0, "NONE"
@@ -1582,10 +1582,10 @@
     return-object v0
 
     .line 93
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_b
 
     .line 94
     const-string v0, "RADIO_NOT_AVAILABLE"
@@ -1593,10 +1593,10 @@
     return-object v0
 
     .line 96
-    :cond_1
+    :cond_b
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_11
 
     .line 97
     const-string v0, "GENERIC_FAILURE"
@@ -1604,10 +1604,10 @@
     return-object v0
 
     .line 99
-    :cond_2
+    :cond_11
     const/4 v0, 0x3
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_17
 
     .line 100
     const-string v0, "PASSWORD_INCORRECT"
@@ -1615,10 +1615,10 @@
     return-object v0
 
     .line 102
-    :cond_3
+    :cond_17
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1d
 
     .line 103
     const-string v0, "SIM_PIN2"
@@ -1626,10 +1626,10 @@
     return-object v0
 
     .line 105
-    :cond_4
+    :cond_1d
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_23
 
     .line 106
     const-string v0, "SIM_PUK2"
@@ -1637,10 +1637,10 @@
     return-object v0
 
     .line 108
-    :cond_5
+    :cond_23
     const/4 v0, 0x6
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_29
 
     .line 109
     const-string v0, "REQUEST_NOT_SUPPORTED"
@@ -1648,10 +1648,10 @@
     return-object v0
 
     .line 111
-    :cond_6
+    :cond_29
     const/4 v0, 0x7
 
-    if-ne p0, v0, :cond_7
+    if-ne p0, v0, :cond_2f
 
     .line 112
     const-string v0, "CANCELLED"
@@ -1659,10 +1659,10 @@
     return-object v0
 
     .line 114
-    :cond_7
+    :cond_2f
     const/16 v0, 0x8
 
-    if-ne p0, v0, :cond_8
+    if-ne p0, v0, :cond_36
 
     .line 115
     const-string v0, "OP_NOT_ALLOWED_DURING_VOICE_CALL"
@@ -1670,10 +1670,10 @@
     return-object v0
 
     .line 117
-    :cond_8
+    :cond_36
     const/16 v0, 0x9
 
-    if-ne p0, v0, :cond_9
+    if-ne p0, v0, :cond_3d
 
     .line 118
     const-string v0, "OP_NOT_ALLOWED_BEFORE_REG_TO_NW"
@@ -1681,10 +1681,10 @@
     return-object v0
 
     .line 120
-    :cond_9
+    :cond_3d
     const/16 v0, 0xa
 
-    if-ne p0, v0, :cond_a
+    if-ne p0, v0, :cond_44
 
     .line 121
     const-string v0, "SMS_SEND_FAIL_RETRY"
@@ -1692,10 +1692,10 @@
     return-object v0
 
     .line 123
-    :cond_a
+    :cond_44
     const/16 v0, 0xb
 
-    if-ne p0, v0, :cond_b
+    if-ne p0, v0, :cond_4b
 
     .line 124
     const-string v0, "SIM_ABSENT"
@@ -1703,10 +1703,10 @@
     return-object v0
 
     .line 126
-    :cond_b
+    :cond_4b
     const/16 v0, 0xc
 
-    if-ne p0, v0, :cond_c
+    if-ne p0, v0, :cond_52
 
     .line 127
     const-string v0, "SUBSCRIPTION_NOT_AVAILABLE"
@@ -1714,10 +1714,10 @@
     return-object v0
 
     .line 129
-    :cond_c
+    :cond_52
     const/16 v0, 0xd
 
-    if-ne p0, v0, :cond_d
+    if-ne p0, v0, :cond_59
 
     .line 130
     const-string v0, "MODE_NOT_SUPPORTED"
@@ -1725,10 +1725,10 @@
     return-object v0
 
     .line 132
-    :cond_d
+    :cond_59
     const/16 v0, 0xe
 
-    if-ne p0, v0, :cond_e
+    if-ne p0, v0, :cond_60
 
     .line 133
     const-string v0, "FDN_CHECK_FAILURE"
@@ -1736,10 +1736,10 @@
     return-object v0
 
     .line 135
-    :cond_e
+    :cond_60
     const/16 v0, 0xf
 
-    if-ne p0, v0, :cond_f
+    if-ne p0, v0, :cond_67
 
     .line 136
     const-string v0, "ILLEGAL_SIM_OR_ME"
@@ -1747,10 +1747,10 @@
     return-object v0
 
     .line 138
-    :cond_f
+    :cond_67
     const/16 v0, 0x10
 
-    if-ne p0, v0, :cond_10
+    if-ne p0, v0, :cond_6e
 
     .line 139
     const-string v0, "MISSING_RESOURCE"
@@ -1758,10 +1758,10 @@
     return-object v0
 
     .line 141
-    :cond_10
+    :cond_6e
     const/16 v0, 0x11
 
-    if-ne p0, v0, :cond_11
+    if-ne p0, v0, :cond_75
 
     .line 142
     const-string v0, "NO_SUCH_ELEMENT"
@@ -1769,10 +1769,10 @@
     return-object v0
 
     .line 144
-    :cond_11
+    :cond_75
     const/16 v0, 0x12
 
-    if-ne p0, v0, :cond_12
+    if-ne p0, v0, :cond_7c
 
     .line 145
     const-string v0, "DIAL_MODIFIED_TO_USSD"
@@ -1780,10 +1780,10 @@
     return-object v0
 
     .line 147
-    :cond_12
+    :cond_7c
     const/16 v0, 0x13
 
-    if-ne p0, v0, :cond_13
+    if-ne p0, v0, :cond_83
 
     .line 148
     const-string v0, "DIAL_MODIFIED_TO_SS"
@@ -1791,10 +1791,10 @@
     return-object v0
 
     .line 150
-    :cond_13
+    :cond_83
     const/16 v0, 0x14
 
-    if-ne p0, v0, :cond_14
+    if-ne p0, v0, :cond_8a
 
     .line 151
     const-string v0, "DIAL_MODIFIED_TO_DIAL"
@@ -1802,10 +1802,10 @@
     return-object v0
 
     .line 153
-    :cond_14
+    :cond_8a
     const/16 v0, 0x15
 
-    if-ne p0, v0, :cond_15
+    if-ne p0, v0, :cond_91
 
     .line 154
     const-string v0, "USSD_MODIFIED_TO_DIAL"
@@ -1813,10 +1813,10 @@
     return-object v0
 
     .line 156
-    :cond_15
+    :cond_91
     const/16 v0, 0x16
 
-    if-ne p0, v0, :cond_16
+    if-ne p0, v0, :cond_98
 
     .line 157
     const-string v0, "USSD_MODIFIED_TO_SS"
@@ -1824,10 +1824,10 @@
     return-object v0
 
     .line 159
-    :cond_16
+    :cond_98
     const/16 v0, 0x17
 
-    if-ne p0, v0, :cond_17
+    if-ne p0, v0, :cond_9f
 
     .line 160
     const-string v0, "USSD_MODIFIED_TO_USSD"
@@ -1835,10 +1835,10 @@
     return-object v0
 
     .line 162
-    :cond_17
+    :cond_9f
     const/16 v0, 0x18
 
-    if-ne p0, v0, :cond_18
+    if-ne p0, v0, :cond_a6
 
     .line 163
     const-string v0, "SS_MODIFIED_TO_DIAL"
@@ -1846,10 +1846,10 @@
     return-object v0
 
     .line 165
-    :cond_18
+    :cond_a6
     const/16 v0, 0x19
 
-    if-ne p0, v0, :cond_19
+    if-ne p0, v0, :cond_ad
 
     .line 166
     const-string v0, "SS_MODIFIED_TO_USSD"
@@ -1857,10 +1857,10 @@
     return-object v0
 
     .line 168
-    :cond_19
+    :cond_ad
     const/16 v0, 0x1a
 
-    if-ne p0, v0, :cond_1a
+    if-ne p0, v0, :cond_b4
 
     .line 169
     const-string v0, "SUBSCRIPTION_NOT_SUPPORTED"
@@ -1868,10 +1868,10 @@
     return-object v0
 
     .line 171
-    :cond_1a
+    :cond_b4
     const/16 v0, 0x1b
 
-    if-ne p0, v0, :cond_1b
+    if-ne p0, v0, :cond_bb
 
     .line 172
     const-string v0, "SS_MODIFIED_TO_SS"
@@ -1879,10 +1879,10 @@
     return-object v0
 
     .line 174
-    :cond_1b
+    :cond_bb
     const/16 v0, 0x24
 
-    if-ne p0, v0, :cond_1c
+    if-ne p0, v0, :cond_c2
 
     .line 175
     const-string v0, "LCE_NOT_SUPPORTED"
@@ -1890,10 +1890,10 @@
     return-object v0
 
     .line 177
-    :cond_1c
+    :cond_c2
     const/16 v0, 0x25
 
-    if-ne p0, v0, :cond_1d
+    if-ne p0, v0, :cond_c9
 
     .line 178
     const-string v0, "NO_MEMORY"
@@ -1901,10 +1901,10 @@
     return-object v0
 
     .line 180
-    :cond_1d
+    :cond_c9
     const/16 v0, 0x26
 
-    if-ne p0, v0, :cond_1e
+    if-ne p0, v0, :cond_d0
 
     .line 181
     const-string v0, "INTERNAL_ERR"
@@ -1912,10 +1912,10 @@
     return-object v0
 
     .line 183
-    :cond_1e
+    :cond_d0
     const/16 v0, 0x27
 
-    if-ne p0, v0, :cond_1f
+    if-ne p0, v0, :cond_d7
 
     .line 184
     const-string v0, "SYSTEM_ERR"
@@ -1923,10 +1923,10 @@
     return-object v0
 
     .line 186
-    :cond_1f
+    :cond_d7
     const/16 v0, 0x28
 
-    if-ne p0, v0, :cond_20
+    if-ne p0, v0, :cond_de
 
     .line 187
     const-string v0, "MODEM_ERR"
@@ -1934,10 +1934,10 @@
     return-object v0
 
     .line 189
-    :cond_20
+    :cond_de
     const/16 v0, 0x29
 
-    if-ne p0, v0, :cond_21
+    if-ne p0, v0, :cond_e5
 
     .line 190
     const-string v0, "INVALID_STATE"
@@ -1945,10 +1945,10 @@
     return-object v0
 
     .line 192
-    :cond_21
+    :cond_e5
     const/16 v0, 0x2a
 
-    if-ne p0, v0, :cond_22
+    if-ne p0, v0, :cond_ec
 
     .line 193
     const-string v0, "NO_RESOURCES"
@@ -1956,10 +1956,10 @@
     return-object v0
 
     .line 195
-    :cond_22
+    :cond_ec
     const/16 v0, 0x2b
 
-    if-ne p0, v0, :cond_23
+    if-ne p0, v0, :cond_f3
 
     .line 196
     const-string v0, "SIM_ERR"
@@ -1967,10 +1967,10 @@
     return-object v0
 
     .line 198
-    :cond_23
+    :cond_f3
     const/16 v0, 0x2c
 
-    if-ne p0, v0, :cond_24
+    if-ne p0, v0, :cond_fa
 
     .line 199
     const-string v0, "INVALID_ARGUMENTS"
@@ -1978,10 +1978,10 @@
     return-object v0
 
     .line 201
-    :cond_24
+    :cond_fa
     const/16 v0, 0x2d
 
-    if-ne p0, v0, :cond_25
+    if-ne p0, v0, :cond_101
 
     .line 202
     const-string v0, "INVALID_SIM_STATE"
@@ -1989,10 +1989,10 @@
     return-object v0
 
     .line 204
-    :cond_25
+    :cond_101
     const/16 v0, 0x2e
 
-    if-ne p0, v0, :cond_26
+    if-ne p0, v0, :cond_108
 
     .line 205
     const-string v0, "INVALID_MODEM_STATE"
@@ -2000,10 +2000,10 @@
     return-object v0
 
     .line 207
-    :cond_26
+    :cond_108
     const/16 v0, 0x2f
 
-    if-ne p0, v0, :cond_27
+    if-ne p0, v0, :cond_10f
 
     .line 208
     const-string v0, "INVALID_CALL_ID"
@@ -2011,10 +2011,10 @@
     return-object v0
 
     .line 210
-    :cond_27
+    :cond_10f
     const/16 v0, 0x30
 
-    if-ne p0, v0, :cond_28
+    if-ne p0, v0, :cond_116
 
     .line 211
     const-string v0, "NO_SMS_TO_ACK"
@@ -2022,10 +2022,10 @@
     return-object v0
 
     .line 213
-    :cond_28
+    :cond_116
     const/16 v0, 0x31
 
-    if-ne p0, v0, :cond_29
+    if-ne p0, v0, :cond_11d
 
     .line 214
     const-string v0, "NETWORK_ERR"
@@ -2033,10 +2033,10 @@
     return-object v0
 
     .line 216
-    :cond_29
+    :cond_11d
     const/16 v0, 0x32
 
-    if-ne p0, v0, :cond_2a
+    if-ne p0, v0, :cond_124
 
     .line 217
     const-string v0, "REQUEST_RATE_LIMITED"
@@ -2044,10 +2044,10 @@
     return-object v0
 
     .line 219
-    :cond_2a
+    :cond_124
     const/16 v0, 0x33
 
-    if-ne p0, v0, :cond_2b
+    if-ne p0, v0, :cond_12b
 
     .line 220
     const-string v0, "SIM_BUSY"
@@ -2055,10 +2055,10 @@
     return-object v0
 
     .line 222
-    :cond_2b
+    :cond_12b
     const/16 v0, 0x34
 
-    if-ne p0, v0, :cond_2c
+    if-ne p0, v0, :cond_132
 
     .line 223
     const-string v0, "SIM_FULL"
@@ -2066,10 +2066,10 @@
     return-object v0
 
     .line 225
-    :cond_2c
+    :cond_132
     const/16 v0, 0x35
 
-    if-ne p0, v0, :cond_2d
+    if-ne p0, v0, :cond_139
 
     .line 226
     const-string v0, "NETWORK_REJECT"
@@ -2077,10 +2077,10 @@
     return-object v0
 
     .line 228
-    :cond_2d
+    :cond_139
     const/16 v0, 0x36
 
-    if-ne p0, v0, :cond_2e
+    if-ne p0, v0, :cond_140
 
     .line 229
     const-string v0, "OPERATION_NOT_ALLOWED"
@@ -2088,10 +2088,10 @@
     return-object v0
 
     .line 231
-    :cond_2e
+    :cond_140
     const/16 v0, 0x37
 
-    if-ne p0, v0, :cond_2f
+    if-ne p0, v0, :cond_147
 
     .line 232
     const-string v0, "EMPTY_RECORD"
@@ -2099,10 +2099,10 @@
     return-object v0
 
     .line 234
-    :cond_2f
+    :cond_147
     const/16 v0, 0x38
 
-    if-ne p0, v0, :cond_30
+    if-ne p0, v0, :cond_14e
 
     .line 235
     const-string v0, "INVALID_SMS_FORMAT"
@@ -2110,10 +2110,10 @@
     return-object v0
 
     .line 237
-    :cond_30
+    :cond_14e
     const/16 v0, 0x39
 
-    if-ne p0, v0, :cond_31
+    if-ne p0, v0, :cond_155
 
     .line 238
     const-string v0, "ENCODING_ERR"
@@ -2121,10 +2121,10 @@
     return-object v0
 
     .line 240
-    :cond_31
+    :cond_155
     const/16 v0, 0x3a
 
-    if-ne p0, v0, :cond_32
+    if-ne p0, v0, :cond_15c
 
     .line 241
     const-string v0, "INVALID_SMSC_ADDRESS"
@@ -2132,10 +2132,10 @@
     return-object v0
 
     .line 243
-    :cond_32
+    :cond_15c
     const/16 v0, 0x3b
 
-    if-ne p0, v0, :cond_33
+    if-ne p0, v0, :cond_163
 
     .line 244
     const-string v0, "NO_SUCH_ENTRY"
@@ -2143,10 +2143,10 @@
     return-object v0
 
     .line 246
-    :cond_33
+    :cond_163
     const/16 v0, 0x3c
 
-    if-ne p0, v0, :cond_34
+    if-ne p0, v0, :cond_16a
 
     .line 247
     const-string v0, "NETWORK_NOT_READY"
@@ -2154,10 +2154,10 @@
     return-object v0
 
     .line 249
-    :cond_34
+    :cond_16a
     const/16 v0, 0x3d
 
-    if-ne p0, v0, :cond_35
+    if-ne p0, v0, :cond_171
 
     .line 250
     const-string v0, "NOT_PROVISIONED"
@@ -2165,10 +2165,10 @@
     return-object v0
 
     .line 252
-    :cond_35
+    :cond_171
     const/16 v0, 0x3e
 
-    if-ne p0, v0, :cond_36
+    if-ne p0, v0, :cond_178
 
     .line 253
     const-string v0, "NO_SUBSCRIPTION"
@@ -2176,10 +2176,10 @@
     return-object v0
 
     .line 255
-    :cond_36
+    :cond_178
     const/16 v0, 0x3f
 
-    if-ne p0, v0, :cond_37
+    if-ne p0, v0, :cond_17f
 
     .line 256
     const-string v0, "NO_NETWORK_FOUND"
@@ -2187,10 +2187,10 @@
     return-object v0
 
     .line 258
-    :cond_37
+    :cond_17f
     const/16 v0, 0x40
 
-    if-ne p0, v0, :cond_38
+    if-ne p0, v0, :cond_186
 
     .line 259
     const-string v0, "DEVICE_IN_USE"
@@ -2198,10 +2198,10 @@
     return-object v0
 
     .line 261
-    :cond_38
+    :cond_186
     const/16 v0, 0x41
 
-    if-ne p0, v0, :cond_39
+    if-ne p0, v0, :cond_18d
 
     .line 262
     const-string v0, "ABORTED"
@@ -2209,10 +2209,10 @@
     return-object v0
 
     .line 264
-    :cond_39
+    :cond_18d
     const/16 v0, 0x42
 
-    if-ne p0, v0, :cond_3a
+    if-ne p0, v0, :cond_194
 
     .line 265
     const-string v0, "INVALID_RESPONSE"
@@ -2220,10 +2220,10 @@
     return-object v0
 
     .line 267
-    :cond_3a
+    :cond_194
     const/16 v0, 0x1f5
 
-    if-ne p0, v0, :cond_3b
+    if-ne p0, v0, :cond_19b
 
     .line 268
     const-string v0, "OEM_ERROR_1"
@@ -2231,10 +2231,10 @@
     return-object v0
 
     .line 270
-    :cond_3b
+    :cond_19b
     const/16 v0, 0x1f6
 
-    if-ne p0, v0, :cond_3c
+    if-ne p0, v0, :cond_1a2
 
     .line 271
     const-string v0, "OEM_ERROR_2"
@@ -2242,10 +2242,10 @@
     return-object v0
 
     .line 273
-    :cond_3c
+    :cond_1a2
     const/16 v0, 0x1f7
 
-    if-ne p0, v0, :cond_3d
+    if-ne p0, v0, :cond_1a9
 
     .line 274
     const-string v0, "OEM_ERROR_3"
@@ -2253,10 +2253,10 @@
     return-object v0
 
     .line 276
-    :cond_3d
+    :cond_1a9
     const/16 v0, 0x1f8
 
-    if-ne p0, v0, :cond_3e
+    if-ne p0, v0, :cond_1b0
 
     .line 277
     const-string v0, "OEM_ERROR_4"
@@ -2264,10 +2264,10 @@
     return-object v0
 
     .line 279
-    :cond_3e
+    :cond_1b0
     const/16 v0, 0x1f9
 
-    if-ne p0, v0, :cond_3f
+    if-ne p0, v0, :cond_1b7
 
     .line 280
     const-string v0, "OEM_ERROR_5"
@@ -2275,10 +2275,10 @@
     return-object v0
 
     .line 282
-    :cond_3f
+    :cond_1b7
     const/16 v0, 0x1fa
 
-    if-ne p0, v0, :cond_40
+    if-ne p0, v0, :cond_1be
 
     .line 283
     const-string v0, "OEM_ERROR_6"
@@ -2286,10 +2286,10 @@
     return-object v0
 
     .line 285
-    :cond_40
+    :cond_1be
     const/16 v0, 0x1fb
 
-    if-ne p0, v0, :cond_41
+    if-ne p0, v0, :cond_1c5
 
     .line 286
     const-string v0, "OEM_ERROR_7"
@@ -2297,10 +2297,10 @@
     return-object v0
 
     .line 288
-    :cond_41
+    :cond_1c5
     const/16 v0, 0x1fc
 
-    if-ne p0, v0, :cond_42
+    if-ne p0, v0, :cond_1cc
 
     .line 289
     const-string v0, "OEM_ERROR_8"
@@ -2308,10 +2308,10 @@
     return-object v0
 
     .line 291
-    :cond_42
+    :cond_1cc
     const/16 v0, 0x1fd
 
-    if-ne p0, v0, :cond_43
+    if-ne p0, v0, :cond_1d3
 
     .line 292
     const-string v0, "OEM_ERROR_9"
@@ -2319,10 +2319,10 @@
     return-object v0
 
     .line 294
-    :cond_43
+    :cond_1d3
     const/16 v0, 0x1fe
 
-    if-ne p0, v0, :cond_44
+    if-ne p0, v0, :cond_1da
 
     .line 295
     const-string v0, "OEM_ERROR_10"
@@ -2330,10 +2330,10 @@
     return-object v0
 
     .line 297
-    :cond_44
+    :cond_1da
     const/16 v0, 0x1ff
 
-    if-ne p0, v0, :cond_45
+    if-ne p0, v0, :cond_1e1
 
     .line 298
     const-string v0, "OEM_ERROR_11"
@@ -2341,10 +2341,10 @@
     return-object v0
 
     .line 300
-    :cond_45
+    :cond_1e1
     const/16 v0, 0x200
 
-    if-ne p0, v0, :cond_46
+    if-ne p0, v0, :cond_1e8
 
     .line 301
     const-string v0, "OEM_ERROR_12"
@@ -2352,10 +2352,10 @@
     return-object v0
 
     .line 303
-    :cond_46
+    :cond_1e8
     const/16 v0, 0x201
 
-    if-ne p0, v0, :cond_47
+    if-ne p0, v0, :cond_1ef
 
     .line 304
     const-string v0, "OEM_ERROR_13"
@@ -2363,10 +2363,10 @@
     return-object v0
 
     .line 306
-    :cond_47
+    :cond_1ef
     const/16 v0, 0x202
 
-    if-ne p0, v0, :cond_48
+    if-ne p0, v0, :cond_1f6
 
     .line 307
     const-string v0, "OEM_ERROR_14"
@@ -2374,10 +2374,10 @@
     return-object v0
 
     .line 309
-    :cond_48
+    :cond_1f6
     const/16 v0, 0x203
 
-    if-ne p0, v0, :cond_49
+    if-ne p0, v0, :cond_1fd
 
     .line 310
     const-string v0, "OEM_ERROR_15"
@@ -2385,10 +2385,10 @@
     return-object v0
 
     .line 312
-    :cond_49
+    :cond_1fd
     const/16 v0, 0x204
 
-    if-ne p0, v0, :cond_4a
+    if-ne p0, v0, :cond_204
 
     .line 313
     const-string v0, "OEM_ERROR_16"
@@ -2396,10 +2396,10 @@
     return-object v0
 
     .line 315
-    :cond_4a
+    :cond_204
     const/16 v0, 0x205
 
-    if-ne p0, v0, :cond_4b
+    if-ne p0, v0, :cond_20b
 
     .line 316
     const-string v0, "OEM_ERROR_17"
@@ -2407,10 +2407,10 @@
     return-object v0
 
     .line 318
-    :cond_4b
+    :cond_20b
     const/16 v0, 0x206
 
-    if-ne p0, v0, :cond_4c
+    if-ne p0, v0, :cond_212
 
     .line 319
     const-string v0, "OEM_ERROR_18"
@@ -2418,10 +2418,10 @@
     return-object v0
 
     .line 321
-    :cond_4c
+    :cond_212
     const/16 v0, 0x207
 
-    if-ne p0, v0, :cond_4d
+    if-ne p0, v0, :cond_219
 
     .line 322
     const-string v0, "OEM_ERROR_19"
@@ -2429,10 +2429,10 @@
     return-object v0
 
     .line 324
-    :cond_4d
+    :cond_219
     const/16 v0, 0x208
 
-    if-ne p0, v0, :cond_4e
+    if-ne p0, v0, :cond_220
 
     .line 325
     const-string v0, "OEM_ERROR_20"
@@ -2440,10 +2440,10 @@
     return-object v0
 
     .line 327
-    :cond_4e
+    :cond_220
     const/16 v0, 0x209
 
-    if-ne p0, v0, :cond_4f
+    if-ne p0, v0, :cond_227
 
     .line 328
     const-string v0, "OEM_ERROR_21"
@@ -2451,10 +2451,10 @@
     return-object v0
 
     .line 330
-    :cond_4f
+    :cond_227
     const/16 v0, 0x20a
 
-    if-ne p0, v0, :cond_50
+    if-ne p0, v0, :cond_22e
 
     .line 331
     const-string v0, "OEM_ERROR_22"
@@ -2462,10 +2462,10 @@
     return-object v0
 
     .line 333
-    :cond_50
+    :cond_22e
     const/16 v0, 0x20b
 
-    if-ne p0, v0, :cond_51
+    if-ne p0, v0, :cond_235
 
     .line 334
     const-string v0, "OEM_ERROR_23"
@@ -2473,10 +2473,10 @@
     return-object v0
 
     .line 336
-    :cond_51
+    :cond_235
     const/16 v0, 0x20c
 
-    if-ne p0, v0, :cond_52
+    if-ne p0, v0, :cond_23c
 
     .line 337
     const-string v0, "OEM_ERROR_24"
@@ -2484,10 +2484,10 @@
     return-object v0
 
     .line 339
-    :cond_52
+    :cond_23c
     const/16 v0, 0x20d
 
-    if-ne p0, v0, :cond_53
+    if-ne p0, v0, :cond_243
 
     .line 340
     const-string v0, "OEM_ERROR_25"
@@ -2495,7 +2495,7 @@
     return-object v0
 
     .line 342
-    :cond_53
+    :cond_243
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

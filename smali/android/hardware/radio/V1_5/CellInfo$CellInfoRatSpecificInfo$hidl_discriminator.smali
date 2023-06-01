@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +39,11 @@
 .end method
 
 .method public static final getName(B)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "value"    # B
 
     .line 25
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_18
 
     .line 32
     const-string v0, "Unknown"
@@ -51,48 +51,48 @@
     return-object v0
 
     .line 31
-    :pswitch_0
+    :pswitch_6
     const-string v0, "cdma"
 
     return-object v0
 
     .line 30
-    :pswitch_1
+    :pswitch_9
     const-string v0, "nr"
 
     return-object v0
 
     .line 29
-    :pswitch_2
+    :pswitch_c
     const-string v0, "lte"
 
     return-object v0
 
     .line 28
-    :pswitch_3
+    :pswitch_f
     const-string v0, "tdscdma"
 
     return-object v0
 
     .line 27
-    :pswitch_4
+    :pswitch_12
     const-string v0, "wcdma"
 
     return-object v0
 
     .line 26
-    :pswitch_5
+    :pswitch_15
     const-string v0, "gsm"
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_18
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_15
+        :pswitch_12
+        :pswitch_f
+        :pswitch_c
+        :pswitch_9
+        :pswitch_6
     .end packed-switch
 .end method

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;Landroid/net/SocketKeepalive;Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$WfcKeepAliveCallback;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;
     .param p2, "pka"    # Landroid/net/SocketKeepalive;
     .param p3, "c"    # Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public getConfig()Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;
-    .locals 1
+    .registers 2
 
     .line 236
     iget-object v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveInfo;->config:Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;
@@ -62,7 +62,7 @@
 .end method
 
 .method public stop()V
-    .locals 2
+    .registers 3
 
     .line 240
     new-instance v0, Ljava/lang/StringBuilder;
@@ -119,7 +119,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_44
 
     iget-object v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveInfo;->callback:Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$WfcKeepAliveCallback;
 
@@ -127,15 +127,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     .line 244
-    :cond_0
+    :cond_44
     iget-object v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveInfo;->ka:Landroid/net/SocketKeepalive;
 
     invoke-virtual {v0}, Landroid/net/SocketKeepalive;->stop()V
 
     .line 246
-    :cond_1
+    :cond_49
     return-void
 .end method

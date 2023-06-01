@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 23
@@ -56,7 +56,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_17
 
     .line 27
     const-string v2, "IS_64BIT"
@@ -67,12 +67,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 30
-    :cond_0
+    :cond_17
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 31
     const-string v2, "IS_32BIT"
@@ -83,8 +83,8 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 34
-    :cond_1
-    if-eq p0, v1, :cond_2
+    :cond_23
+    if-eq p0, v1, :cond_3f
 
     .line 35
     new-instance v2, Ljava/lang/StringBuilder;
@@ -112,7 +112,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 37
-    :cond_2
+    :cond_3f
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -123,11 +123,11 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 10
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 11
     const-string v0, "UNKNOWN"
@@ -135,10 +135,10 @@
     return-object v0
 
     .line 13
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_b
 
     .line 14
     const-string v0, "IS_64BIT"
@@ -146,10 +146,10 @@
     return-object v0
 
     .line 16
-    :cond_1
+    :cond_b
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_11
 
     .line 17
     const-string v0, "IS_32BIT"
@@ -157,7 +157,7 @@
     return-object v0
 
     .line 19
-    :cond_2
+    :cond_11
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

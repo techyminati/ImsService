@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/impl/WfcHandler;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 917
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -74,7 +74,7 @@
 
     const/16 v1, 0x7d3
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
     .line 922
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
@@ -85,10 +85,10 @@
 
     invoke-virtual {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->sendMessage(Landroid/os/Message;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_1a3
 
     .line 923
-    :cond_0
+    :cond_33
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -99,7 +99,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4a
 
     .line 924
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
@@ -110,10 +110,10 @@
 
     invoke-virtual {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->sendMessage(Landroid/os/Message;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_1a3
 
     .line 925
-    :cond_1
+    :cond_4a
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -124,7 +124,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_92
 
     .line 927
     const/4 v0, -0x1
@@ -143,13 +143,13 @@
 
     .line 930
     .local v1, "mgr":Lcom/android/ims/ImsManager;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_8b
 
     invoke-virtual {v1}, Lcom/android/ims/ImsManager;->isWfcEnabledByPlatform()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_8b
 
     .line 931
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
@@ -182,17 +182,18 @@
     invoke-interface {v2}, Lcom/mediatek/wfo/op/IWosExt;->clearPDNErrorMessages()V
 
     .line 936
-    :cond_2
+    :cond_8b
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcHandler;->handleModemPower()V
     invoke-static {v2}, Lcom/mediatek/wfo/impl/WfcHandler;->access$800(Lcom/mediatek/wfo/impl/WfcHandler;)V
 
     .line 937
     .end local v0    # "phoneId":I
     .end local v1    # "mgr":Lcom/android/ims/ImsManager;
-    goto/16 :goto_1
+    goto/16 :goto_1a3
 
-    :cond_3
+    :cond_92
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -203,17 +204,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_a5
 
     .line 940
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcHandler;->createWosExt()V
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$900(Lcom/mediatek/wfo/impl/WfcHandler;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_1a3
 
     .line 942
-    :cond_4
+    :cond_a5
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -226,7 +228,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_d5
 
     .line 943
     nop
@@ -240,7 +242,7 @@
 
     .line 945
     .local v0, "parcelableExtra":Landroid/os/Parcelable;
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_d3
 
     .line 946
     move-object v2, v0
@@ -259,31 +261,33 @@
 
     sget-object v5, Landroid/net/NetworkInfo$State;->CONNECTED:Landroid/net/NetworkInfo$State;
 
-    if-ne v3, v5, :cond_5
+    if-ne v3, v5, :cond_ca
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto :goto_cb
 
-    :cond_5
+    :cond_ca
     move v5, v1
 
-    :goto_0
+    :goto_cb
+    # setter for: Lcom/mediatek/wfo/impl/WfcHandler;->mIsWifiL2Connected:Z
     invoke-static {v4, v5}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1002(Lcom/mediatek/wfo/impl/WfcHandler;Z)Z
 
     .line 950
     iget-object v4, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcHandler;->checkIfShowNoInternetError(Z)V
     invoke-static {v4, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1100(Lcom/mediatek/wfo/impl/WfcHandler;Z)V
 
     .line 952
     .end local v0    # "parcelableExtra":Landroid/os/Parcelable;
     .end local v2    # "networkInfo":Landroid/net/NetworkInfo;
     .end local v3    # "state":Landroid/net/NetworkInfo$State;
-    :cond_6
-    goto/16 :goto_1
+    :cond_d3
+    goto/16 :goto_1a3
 
-    :cond_7
+    :cond_d5
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -294,7 +298,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_110
 
     .line 953
     const-string v0, "simPropKey"
@@ -311,7 +315,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_10e
 
     .line 955
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
@@ -323,11 +327,12 @@
     .line 956
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcHandler;->updateWfcUISetting()Z
     invoke-static {v2}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1200(Lcom/mediatek/wfo/impl/WfcHandler;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_10e
 
     .line 957
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
@@ -343,14 +348,15 @@
     .line 959
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcHandler;->checkIfShowNoInternetError(Z)V
     invoke-static {v2, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1100(Lcom/mediatek/wfo/impl/WfcHandler;Z)V
 
     .line 962
     .end local v0    # "imsEnabledKey":Ljava/lang/String;
-    :cond_8
-    goto/16 :goto_1
+    :cond_10e
+    goto/16 :goto_1a3
 
-    :cond_9
+    :cond_110
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -361,11 +367,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_141
 
     .line 963
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$300(Lcom/mediatek/wfo/impl/WfcHandler;)Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     move-result-object v0
@@ -374,19 +381,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_1a3
 
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mHasWiFiDisabledPending:Z
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$400(Lcom/mediatek/wfo/impl/WfcHandler;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_1a3
 
     .line 964
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # setter for: Lcom/mediatek/wfo/impl/WfcHandler;->mHasWiFiDisabledPending:Z
     invoke-static {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$402(Lcom/mediatek/wfo/impl/WfcHandler;Z)Z
 
     .line 965
@@ -400,10 +409,10 @@
 
     invoke-virtual {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_1
+    goto :goto_1a3
 
     .line 968
-    :cond_a
+    :cond_141
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -414,7 +423,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_162
 
     .line 969
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
@@ -425,21 +434,24 @@
 
     move-result v1
 
+    # setter for: Lcom/mediatek/wfo/impl/WfcHandler;->mScreenState:I
     invoke-static {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1302(Lcom/mediatek/wfo/impl/WfcHandler;I)I
 
     .line 970
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mScreenState:I
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1300(Lcom/mediatek/wfo/impl/WfcHandler;)I
 
     move-result v1
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcHandler;->notifyEPDGScreenState(I)V
     invoke-static {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1400(Lcom/mediatek/wfo/impl/WfcHandler;I)V
 
-    goto :goto_1
+    goto :goto_1a3
 
     .line 971
-    :cond_b
+    :cond_162
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -450,7 +462,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_183
 
     .line 972
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
@@ -461,21 +473,24 @@
 
     move-result v1
 
+    # setter for: Lcom/mediatek/wfo/impl/WfcHandler;->mScreenState:I
     invoke-static {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1302(Lcom/mediatek/wfo/impl/WfcHandler;I)I
 
     .line 973
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mScreenState:I
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1300(Lcom/mediatek/wfo/impl/WfcHandler;)I
 
     move-result v1
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcHandler;->notifyEPDGScreenState(I)V
     invoke-static {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1400(Lcom/mediatek/wfo/impl/WfcHandler;I)V
 
-    goto :goto_1
+    goto :goto_1a3
 
     .line 974
-    :cond_c
+    :cond_183
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -486,7 +501,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_1a3
 
     .line 975
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
@@ -497,19 +512,22 @@
 
     move-result v1
 
+    # setter for: Lcom/mediatek/wfo/impl/WfcHandler;->mScreenState:I
     invoke-static {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1302(Lcom/mediatek/wfo/impl/WfcHandler;I)I
 
     .line 976
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$3;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mScreenState:I
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1300(Lcom/mediatek/wfo/impl/WfcHandler;)I
 
     move-result v1
 
+    # invokes: Lcom/mediatek/wfo/impl/WfcHandler;->notifyEPDGScreenState(I)V
     invoke-static {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->access$1400(Lcom/mediatek/wfo/impl/WfcHandler;I)V
 
     .line 978
-    :cond_d
-    :goto_1
+    :cond_1a3
+    :goto_1a3
     return-void
 .end method

@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -108,7 +108,7 @@
 .end method
 
 .method public static final readVectorFromParcel(Landroid/os/HwParcel;)Ljava/util/ArrayList;
-    .locals 12
+    .registers 13
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -172,8 +172,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_24
+    if-ge v4, v2, :cond_37
 
     .line 93
     new-instance v5, Landroid/hardware/radio/V1_0/CellIdentity;
@@ -195,18 +195,18 @@
     .end local v5    # "_hidl_vec_element":Landroid/hardware/radio/V1_0/CellIdentity;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 99
     .end local v2    # "_hidl_vec_size":I
     .end local v3    # "childBlob":Landroid/os/HwBlob;
     .end local v4    # "_hidl_index_0":I
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method public static final writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
-    .locals 7
+    .registers 9
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -257,8 +257,8 @@
     const/4 v3, 0x0
 
     .local v3, "_hidl_index_0":I
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_1e
+    if-ge v3, v1, :cond_2f
 
     .line 187
     invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -276,11 +276,11 @@
     .line 186
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 189
     .end local v3    # "_hidl_index_0":I
-    :cond_0
+    :cond_2f
     const-wide/16 v3, 0x0
 
     invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
@@ -297,41 +297,41 @@
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "otherObject"    # Ljava/lang/Object;
 
     .line 14
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 15
     return v0
 
     .line 17
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 18
     return v1
 
     .line 20
-    :cond_1
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
     const-class v3, Landroid/hardware/radio/V1_0/CellIdentity;
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_11
 
     .line 21
     return v1
 
     .line 23
-    :cond_2
+    :cond_11
     move-object v2, p1
 
     check-cast v2, Landroid/hardware/radio/V1_0/CellIdentity;
@@ -342,13 +342,13 @@
 
     iget v4, v2, Landroid/hardware/radio/V1_0/CellIdentity;->cellInfoType:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     .line 25
     return v1
 
     .line 27
-    :cond_3
+    :cond_1b
     iget-object v3, p0, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityGsm:Ljava/util/ArrayList;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityGsm:Ljava/util/ArrayList;
@@ -357,13 +357,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_26
 
     .line 28
     return v1
 
     .line 30
-    :cond_4
+    :cond_26
     iget-object v3, p0, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityWcdma:Ljava/util/ArrayList;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityWcdma:Ljava/util/ArrayList;
@@ -372,13 +372,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_31
 
     .line 31
     return v1
 
     .line 33
-    :cond_5
+    :cond_31
     iget-object v3, p0, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityCdma:Ljava/util/ArrayList;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityCdma:Ljava/util/ArrayList;
@@ -387,13 +387,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_3c
 
     .line 34
     return v1
 
     .line 36
-    :cond_6
+    :cond_3c
     iget-object v3, p0, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityLte:Ljava/util/ArrayList;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityLte:Ljava/util/ArrayList;
@@ -402,13 +402,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_47
 
     .line 37
     return v1
 
     .line 39
-    :cond_7
+    :cond_47
     iget-object v3, p0, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityTdscdma:Ljava/util/ArrayList;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityTdscdma:Ljava/util/ArrayList;
@@ -417,18 +417,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_52
 
     .line 40
     return v1
 
     .line 42
-    :cond_8
+    :cond_52
     return v0
 .end method
 
 .method public final hashCode()I
-    .locals 3
+    .registers 4
 
     .line 47
     const/4 v0, 0x6
@@ -538,7 +538,7 @@
 .end method
 
 .method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
-    .locals 17
+    .registers 22
     .param p1, "parcel"    # Landroid/os/HwParcel;
     .param p2, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p3, "_hidl_offset"    # J
@@ -605,8 +605,8 @@
     const/4 v2, 0x0
 
     .local v2, "_hidl_index_0":I
-    :goto_0
-    if-ge v2, v15, :cond_0
+    :goto_30
+    if-ge v2, v15, :cond_45
 
     .line 113
     new-instance v3, Landroid/hardware/radio/V1_0/CellIdentityGsm;
@@ -630,13 +630,13 @@
     .end local v3    # "_hidl_vec_element":Landroid/hardware/radio/V1_0/CellIdentityGsm;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_30
 
     .line 119
     .end local v1    # "childBlob":Landroid/os/HwBlob;
     .end local v2    # "_hidl_index_0":I
     .end local v15    # "_hidl_vec_size":I
-    :cond_0
+    :cond_45
     const-wide/16 v1, 0x18
 
     add-long v3, p3, v1
@@ -689,8 +689,8 @@
     const/4 v2, 0x0
 
     .restart local v2    # "_hidl_index_0":I
-    :goto_1
-    if-ge v2, v15, :cond_1
+    :goto_6c
+    if-ge v2, v15, :cond_81
 
     .line 126
     new-instance v3, Landroid/hardware/radio/V1_0/CellIdentityWcdma;
@@ -714,13 +714,13 @@
     .end local v3    # "_hidl_vec_element":Landroid/hardware/radio/V1_0/CellIdentityWcdma;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_6c
 
     .line 132
     .end local v1    # "childBlob":Landroid/os/HwBlob;
     .end local v2    # "_hidl_index_0":I
     .end local v15    # "_hidl_vec_size":I
-    :cond_1
+    :cond_81
     const-wide/16 v1, 0x28
 
     add-long v3, p3, v1
@@ -773,8 +773,8 @@
     const/4 v2, 0x0
 
     .restart local v2    # "_hidl_index_0":I
-    :goto_2
-    if-ge v2, v15, :cond_2
+    :goto_a8
+    if-ge v2, v15, :cond_bd
 
     .line 139
     new-instance v3, Landroid/hardware/radio/V1_0/CellIdentityCdma;
@@ -798,13 +798,13 @@
     .end local v3    # "_hidl_vec_element":Landroid/hardware/radio/V1_0/CellIdentityCdma;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_a8
 
     .line 145
     .end local v1    # "childBlob":Landroid/os/HwBlob;
     .end local v2    # "_hidl_index_0":I
     .end local v15    # "_hidl_vec_size":I
-    :cond_2
+    :cond_bd
     const-wide/16 v1, 0x38
 
     add-long v3, p3, v1
@@ -857,8 +857,8 @@
     const/4 v2, 0x0
 
     .restart local v2    # "_hidl_index_0":I
-    :goto_3
-    if-ge v2, v15, :cond_3
+    :goto_e4
+    if-ge v2, v15, :cond_f9
 
     .line 152
     new-instance v3, Landroid/hardware/radio/V1_0/CellIdentityLte;
@@ -882,13 +882,13 @@
     .end local v3    # "_hidl_vec_element":Landroid/hardware/radio/V1_0/CellIdentityLte;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_e4
 
     .line 158
     .end local v1    # "childBlob":Landroid/os/HwBlob;
     .end local v2    # "_hidl_index_0":I
     .end local v15    # "_hidl_vec_size":I
-    :cond_3
+    :cond_f9
     const-wide/16 v1, 0x48
 
     add-long v3, p3, v1
@@ -941,8 +941,8 @@
     const/4 v2, 0x0
 
     .restart local v2    # "_hidl_index_0":I
-    :goto_4
-    if-ge v2, v13, :cond_4
+    :goto_11e
+    if-ge v2, v13, :cond_133
 
     .line 165
     new-instance v3, Landroid/hardware/radio/V1_0/CellIdentityTdscdma;
@@ -966,18 +966,18 @@
     .end local v3    # "_hidl_vec_element":Landroid/hardware/radio/V1_0/CellIdentityTdscdma;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4
+    goto :goto_11e
 
     .line 170
     .end local v1    # "childBlob":Landroid/os/HwBlob;
     .end local v2    # "_hidl_index_0":I
     .end local v13    # "_hidl_vec_size":I
-    :cond_4
+    :cond_133
     return-void
 .end method
 
 .method public final readFromParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 77
@@ -998,7 +998,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 58
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1089,7 +1089,7 @@
 .end method
 
 .method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-    .locals 16
+    .registers 20
     .param p1, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p2, "_hidl_offset"    # J
 
@@ -1146,8 +1146,8 @@
     const/4 v8, 0x0
 
     .local v8, "_hidl_index_0":I
-    :goto_0
-    if-ge v8, v4, :cond_0
+    :goto_2c
+    if-ge v8, v4, :cond_3f
 
     .line 204
     iget-object v12, v0, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityGsm:Ljava/util/ArrayList;
@@ -1167,11 +1167,11 @@
     .line 203
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 206
     .end local v8    # "_hidl_index_0":I
-    :cond_0
+    :cond_3f
     add-long v12, p2, v5
 
     add-long/2addr v12, v2
@@ -1216,8 +1216,8 @@
     const/4 v13, 0x0
 
     .local v13, "_hidl_index_0":I
-    :goto_1
-    if-ge v13, v4, :cond_1
+    :goto_61
+    if-ge v13, v4, :cond_76
 
     .line 214
     iget-object v14, v0, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityWcdma:Ljava/util/ArrayList;
@@ -1239,11 +1239,11 @@
 
     const-wide/16 v9, 0xc
 
-    goto :goto_1
+    goto :goto_61
 
     .line 216
     .end local v13    # "_hidl_index_0":I
-    :cond_1
+    :cond_76
     add-long v7, p2, v7
 
     add-long/2addr v7, v2
@@ -1290,8 +1290,8 @@
     const/4 v10, 0x0
 
     .local v10, "_hidl_index_0":I
-    :goto_2
-    if-ge v10, v4, :cond_2
+    :goto_9a
+    if-ge v10, v4, :cond_ad
 
     .line 224
     iget-object v12, v0, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityCdma:Ljava/util/ArrayList;
@@ -1311,11 +1311,11 @@
     .line 223
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_2
+    goto :goto_9a
 
     .line 226
     .end local v10    # "_hidl_index_0":I
-    :cond_2
+    :cond_ad
     add-long v7, p2, v7
 
     add-long/2addr v7, v2
@@ -1362,8 +1362,8 @@
     const/4 v10, 0x0
 
     .restart local v10    # "_hidl_index_0":I
-    :goto_3
-    if-ge v10, v4, :cond_3
+    :goto_d1
+    if-ge v10, v4, :cond_e4
 
     .line 234
     iget-object v12, v0, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityLte:Ljava/util/ArrayList;
@@ -1383,11 +1383,11 @@
     .line 233
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_3
+    goto :goto_d1
 
     .line 236
     .end local v10    # "_hidl_index_0":I
-    :cond_3
+    :cond_e4
     add-long v7, p2, v7
 
     add-long/2addr v7, v2
@@ -1434,8 +1434,8 @@
     const/4 v6, 0x0
 
     .local v6, "_hidl_index_0":I
-    :goto_4
-    if-ge v6, v4, :cond_4
+    :goto_108
+    if-ge v6, v4, :cond_11b
 
     .line 244
     iget-object v9, v0, Landroid/hardware/radio/V1_0/CellIdentity;->cellIdentityTdscdma:Ljava/util/ArrayList;
@@ -1455,11 +1455,11 @@
     .line 243
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_4
+    goto :goto_108
 
     .line 246
     .end local v6    # "_hidl_index_0":I
-    :cond_4
+    :cond_11b
     add-long v6, p2, v7
 
     add-long/2addr v6, v2
@@ -1473,7 +1473,7 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 173

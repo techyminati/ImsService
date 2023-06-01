@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/ConnectivityManager;)V
-    .locals 0
+    .registers 2
     .param p1, "connectivityManager"    # Landroid/net/ConnectivityManager;
 
     .line 65
@@ -39,28 +39,28 @@
 .end method
 
 .method private checkInvalidSimIdx(ILjava/lang/String;)Z
-    .locals 1
+    .registers 4
     .param p1, "simIdx"    # I
     .param p2, "dbgMsg"    # Ljava/lang/String;
 
     .line 138
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_9
 
     iget v0, p0, Lcom/mediatek/wfo/util/RssiMonitoringProcessor;->mSimCount:I
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_7
 
-    goto :goto_0
+    goto :goto_9
 
     .line 142
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     return v0
 
     .line 139
-    :cond_1
-    :goto_0
+    :cond_9
+    :goto_9
     const-string v0, "RssiMonitoringProcessor"
 
     invoke-static {v0, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
@@ -72,18 +72,18 @@
 .end method
 
 .method private printIntArray([I)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p1, "input"    # [I
 
     .line 116
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     const-string v0, "input is null"
 
     return-object v0
 
     .line 117
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/String;
 
     invoke-direct {v0}, Ljava/lang/String;-><init>()V
@@ -93,13 +93,13 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_b
     array-length v2, p1
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_3d
 
     .line 119
-    if-nez v1, :cond_1
+    if-nez v1, :cond_24
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -117,10 +117,10 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 120
-    :cond_1
+    :cond_24
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -140,21 +140,21 @@
     move-result-object v0
 
     .line 118
-    :goto_1
+    :goto_3a
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 122
     .end local v1    # "i":I
-    :cond_2
+    :cond_3d
     return-object v0
 .end method
 
 
 # virtual methods
 .method public initialize(I)V
-    .locals 1
+    .registers 3
     .param p1, "simCount"    # I
 
     .line 70
@@ -170,7 +170,7 @@
 .end method
 
 .method public notifyMultiSimConfigChanged(I)V
-    .locals 2
+    .registers 4
     .param p1, "activeModemCount"    # I
 
     .line 75
@@ -219,7 +219,7 @@
 .end method
 
 .method public registerRssiMonitoring(II[I)V
-    .locals 7
+    .registers 11
     .param p1, "simId"    # I
     .param p2, "size"    # I
     .param p3, "rssiThresholds"    # [I
@@ -231,12 +231,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     return-void
 
     .line 86
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -276,7 +276,7 @@
     .line 89
     iget-object v0, p0, Lcom/mediatek/wfo/util/RssiMonitoringProcessor;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3d
 
     .line 90
     const-string v0, "onRssiMonitorRequest: mConnectivityManager is null"
@@ -287,7 +287,7 @@
     return-void
 
     .line 94
-    :cond_1
+    :cond_3d
     invoke-virtual {p0, p1}, Lcom/mediatek/wfo/util/RssiMonitoringProcessor;->unregisterAllRssiMonitoring(I)V
 
     .line 96
@@ -298,8 +298,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, p2, :cond_2
+    :goto_43
+    if-ge v2, p2, :cond_83
 
     .line 99
     new-instance v3, Landroid/net/NetworkRequest$Builder;
@@ -368,11 +368,11 @@
     .end local v4    # "callback":Landroid/net/ConnectivityManager$NetworkCallback;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_43
 
     .line 112
     .end local v2    # "i":I
-    :cond_2
+    :cond_83
     iget-object v1, p0, Lcom/mediatek/wfo/util/RssiMonitoringProcessor;->mRssiMonitoringList:[[Lcom/mediatek/wfo/util/RssiMonitoringProcessor$RssiMonitorRequest;
 
     aput-object v0, v1, p1
@@ -382,7 +382,7 @@
 .end method
 
 .method public unregisterAllRssiMonitoring(I)V
-    .locals 3
+    .registers 5
     .param p1, "simId"    # I
 
     .line 126
@@ -409,20 +409,20 @@
 
     aget-object v0, v0, p1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_35
 
     .line 129
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1d
     iget-object v1, p0, Lcom/mediatek/wfo/util/RssiMonitoringProcessor;->mRssiMonitoringList:[[Lcom/mediatek/wfo/util/RssiMonitoringProcessor$RssiMonitorRequest;
 
     aget-object v2, v1, p1
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_32
 
     .line 130
     iget-object v2, p0, Lcom/mediatek/wfo/util/RssiMonitoringProcessor;->mConnectivityManager:Landroid/net/ConnectivityManager;
@@ -438,16 +438,16 @@
     .line 129
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 133
     .end local v0    # "i":I
-    :cond_0
+    :cond_32
     const/4 v0, 0x0
 
     aput-object v0, v1, p1
 
     .line 135
-    :cond_1
+    :cond_35
     return-void
 .end method

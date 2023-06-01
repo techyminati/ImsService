@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,11 +35,11 @@
 .end method
 
 .method public static final getName(B)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "value"    # B
 
     .line 29
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_12
 
     .line 34
     const-string v0, "Unknown"
@@ -47,34 +47,34 @@
     return-object v0
 
     .line 33
-    :pswitch_0
+    :pswitch_6
     const-string v0, "ngranBands"
 
     return-object v0
 
     .line 32
-    :pswitch_1
+    :pswitch_9
     const-string v0, "eutranBands"
 
     return-object v0
 
     .line 31
-    :pswitch_2
+    :pswitch_c
     const-string v0, "utranBands"
 
     return-object v0
 
     .line 30
-    :pswitch_3
+    :pswitch_f
     const-string v0, "geranBands"
 
     return-object v0
 
-    :pswitch_data_0
+    :pswitch_data_12
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_f
+        :pswitch_c
+        :pswitch_9
+        :pswitch_6
     .end packed-switch
 .end method

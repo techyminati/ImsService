@@ -13145,7 +13145,7 @@
     return v0
 .end method
 
-.method public getVideoCallProvider()Lcom/android/ims/internal/IImsVideoCallProvider;
+.method public getVideoCallProvider_nope()Lcom/android/ims/internal/IImsVideoCallProvider;
     .locals 2
 
     .line 1353
@@ -16014,4 +16014,9 @@
 
     .line 5126
     return-void
+.end method
+.method public getVideoCallProvider()Lcom/android/ims/internal/IImsVideoCallProvider;
+    .locals 1
+    const/4 v0, 0x0
+    return-object v0
 .end method

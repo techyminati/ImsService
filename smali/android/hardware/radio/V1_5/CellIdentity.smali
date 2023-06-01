@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 5
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 .end method
 
 .method public static final readVectorFromParcel(Landroid/os/HwParcel;)Ljava/util/ArrayList;
-    .locals 12
+    .registers 13
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -110,8 +110,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_24
+    if-ge v4, v2, :cond_37
 
     .line 272
     new-instance v5, Landroid/hardware/radio/V1_5/CellIdentity;
@@ -133,18 +133,18 @@
     .end local v5    # "_hidl_vec_element":Landroid/hardware/radio/V1_5/CellIdentity;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 278
     .end local v2    # "_hidl_vec_size":I
     .end local v3    # "childBlob":Landroid/os/HwBlob;
     .end local v4    # "_hidl_index_0":I
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method public static final writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
-    .locals 7
+    .registers 9
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -195,8 +195,8 @@
     const/4 v3, 0x0
 
     .local v3, "_hidl_index_0":I
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_1e
+    if-ge v3, v1, :cond_2f
 
     .line 341
     invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -214,11 +214,11 @@
     .line 340
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 343
     .end local v3    # "_hidl_index_0":I
-    :cond_0
+    :cond_2f
     const-wide/16 v3, 0x0
 
     invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
@@ -235,19 +235,19 @@
 
 # virtual methods
 .method public cdma()Landroid/hardware/radio/V1_2/CellIdentityCdma;
-    .locals 4
+    .registers 5
 
     .line 122
     iget-byte v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_d:B
 
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_48
 
     .line 123
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -257,14 +257,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const-string v0, "null"
 
     .line 124
     .local v0, "className":Ljava/lang/String;
-    :goto_0
+    :goto_14
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -312,10 +312,10 @@
 
     .line 130
     .end local v0    # "className":Ljava/lang/String;
-    :cond_1
+    :cond_48
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5d
 
     const-class v1, Landroid/hardware/radio/V1_2/CellIdentityCdma;
 
@@ -323,12 +323,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_55
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 131
-    :cond_2
+    :cond_55
     new-instance v0, Ljava/lang/Error;
 
     const-string v1, "Union is in a corrupted state."
@@ -338,8 +338,8 @@
     throw v0
 
     .line 133
-    :cond_3
-    :goto_1
+    :cond_5d
+    :goto_5d
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
     check-cast v0, Landroid/hardware/radio/V1_2/CellIdentityCdma;
@@ -348,7 +348,7 @@
 .end method
 
 .method public cdma(Landroid/hardware/radio/V1_2/CellIdentityCdma;)V
-    .locals 1
+    .registers 3
     .param p1, "cdma"    # Landroid/hardware/radio/V1_2/CellIdentityCdma;
 
     .line 117
@@ -364,41 +364,41 @@
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "otherObject"    # Ljava/lang/Object;
 
     .line 181
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 182
     return v0
 
     .line 184
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 185
     return v1
 
     .line 187
-    :cond_1
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
     const-class v3, Landroid/hardware/radio/V1_5/CellIdentity;
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_11
 
     .line 188
     return v1
 
     .line 190
-    :cond_2
+    :cond_11
     move-object v2, p1
 
     check-cast v2, Landroid/hardware/radio/V1_5/CellIdentity;
@@ -409,13 +409,13 @@
 
     iget-byte v4, v2, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_d:B
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     .line 192
     return v1
 
     .line 194
-    :cond_3
+    :cond_1b
     iget-object v3, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
@@ -424,18 +424,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_26
 
     .line 195
     return v1
 
     .line 197
-    :cond_4
+    :cond_26
     return v0
 .end method
 
 .method public getDiscriminator()B
-    .locals 1
+    .registers 2
 
     .line 177
     iget-byte v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_d:B
@@ -444,19 +444,19 @@
 .end method
 
 .method public gsm()Landroid/hardware/radio/V1_5/CellIdentityGsm;
-    .locals 4
+    .registers 5
 
     .line 62
     iget-byte v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_d:B
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_48
 
     .line 63
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -466,14 +466,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const-string v0, "null"
 
     .line 64
     .local v0, "className":Ljava/lang/String;
-    :goto_0
+    :goto_14
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -521,10 +521,10 @@
 
     .line 70
     .end local v0    # "className":Ljava/lang/String;
-    :cond_1
+    :cond_48
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5d
 
     const-class v1, Landroid/hardware/radio/V1_5/CellIdentityGsm;
 
@@ -532,12 +532,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_55
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 71
-    :cond_2
+    :cond_55
     new-instance v0, Ljava/lang/Error;
 
     const-string v1, "Union is in a corrupted state."
@@ -547,8 +547,8 @@
     throw v0
 
     .line 73
-    :cond_3
-    :goto_1
+    :cond_5d
+    :goto_5d
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
     check-cast v0, Landroid/hardware/radio/V1_5/CellIdentityGsm;
@@ -557,7 +557,7 @@
 .end method
 
 .method public gsm(Landroid/hardware/radio/V1_5/CellIdentityGsm;)V
-    .locals 1
+    .registers 3
     .param p1, "gsm"    # Landroid/hardware/radio/V1_5/CellIdentityGsm;
 
     .line 57
@@ -573,7 +573,7 @@
 .end method
 
 .method public final hashCode()I
-    .locals 3
+    .registers 4
 
     .line 202
     const/4 v0, 0x2
@@ -623,19 +623,19 @@
 .end method
 
 .method public lte()Landroid/hardware/radio/V1_5/CellIdentityLte;
-    .locals 4
+    .registers 5
 
     .line 142
     iget-byte v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_d:B
 
     const/4 v1, 0x5
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_48
 
     .line 143
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -645,14 +645,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const-string v0, "null"
 
     .line 144
     .local v0, "className":Ljava/lang/String;
-    :goto_0
+    :goto_14
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -700,10 +700,10 @@
 
     .line 150
     .end local v0    # "className":Ljava/lang/String;
-    :cond_1
+    :cond_48
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5d
 
     const-class v1, Landroid/hardware/radio/V1_5/CellIdentityLte;
 
@@ -711,12 +711,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_55
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 151
-    :cond_2
+    :cond_55
     new-instance v0, Ljava/lang/Error;
 
     const-string v1, "Union is in a corrupted state."
@@ -726,8 +726,8 @@
     throw v0
 
     .line 153
-    :cond_3
-    :goto_1
+    :cond_5d
+    :goto_5d
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
     check-cast v0, Landroid/hardware/radio/V1_5/CellIdentityLte;
@@ -736,7 +736,7 @@
 .end method
 
 .method public lte(Landroid/hardware/radio/V1_5/CellIdentityLte;)V
-    .locals 1
+    .registers 3
     .param p1, "lte"    # Landroid/hardware/radio/V1_5/CellIdentityLte;
 
     .line 137
@@ -752,17 +752,17 @@
 .end method
 
 .method public noinit()Landroid/hidl/safe_union/V1_0/Monostate;
-    .locals 4
+    .registers 5
 
     .line 42
     iget-byte v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_d:B
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
     .line 43
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -772,14 +772,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const-string v0, "null"
 
     .line 44
     .local v0, "className":Ljava/lang/String;
-    :goto_0
+    :goto_13
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -827,10 +827,10 @@
 
     .line 50
     .end local v0    # "className":Ljava/lang/String;
-    :cond_1
+    :cond_47
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5c
 
     const-class v1, Landroid/hidl/safe_union/V1_0/Monostate;
 
@@ -838,12 +838,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_54
 
-    goto :goto_1
+    goto :goto_5c
 
     .line 51
-    :cond_2
+    :cond_54
     new-instance v0, Ljava/lang/Error;
 
     const-string v1, "Union is in a corrupted state."
@@ -853,8 +853,8 @@
     throw v0
 
     .line 53
-    :cond_3
-    :goto_1
+    :cond_5c
+    :goto_5c
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
     check-cast v0, Landroid/hidl/safe_union/V1_0/Monostate;
@@ -863,7 +863,7 @@
 .end method
 
 .method public noinit(Landroid/hidl/safe_union/V1_0/Monostate;)V
-    .locals 1
+    .registers 3
     .param p1, "noinit"    # Landroid/hidl/safe_union/V1_0/Monostate;
 
     .line 37
@@ -879,19 +879,19 @@
 .end method
 
 .method public nr()Landroid/hardware/radio/V1_5/CellIdentityNr;
-    .locals 4
+    .registers 5
 
     .line 162
     iget-byte v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_d:B
 
     const/4 v1, 0x6
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_48
 
     .line 163
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -901,14 +901,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const-string v0, "null"
 
     .line 164
     .local v0, "className":Ljava/lang/String;
-    :goto_0
+    :goto_14
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -956,10 +956,10 @@
 
     .line 170
     .end local v0    # "className":Ljava/lang/String;
-    :cond_1
+    :cond_48
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5d
 
     const-class v1, Landroid/hardware/radio/V1_5/CellIdentityNr;
 
@@ -967,12 +967,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_55
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 171
-    :cond_2
+    :cond_55
     new-instance v0, Ljava/lang/Error;
 
     const-string v1, "Union is in a corrupted state."
@@ -982,8 +982,8 @@
     throw v0
 
     .line 173
-    :cond_3
-    :goto_1
+    :cond_5d
+    :goto_5d
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
     check-cast v0, Landroid/hardware/radio/V1_5/CellIdentityNr;
@@ -992,7 +992,7 @@
 .end method
 
 .method public nr(Landroid/hardware/radio/V1_5/CellIdentityNr;)V
-    .locals 1
+    .registers 3
     .param p1, "nr"    # Landroid/hardware/radio/V1_5/CellIdentityNr;
 
     .line 157
@@ -1008,7 +1008,7 @@
 .end method
 
 .method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
-    .locals 3
+    .registers 8
     .param p1, "parcel"    # Landroid/os/HwParcel;
     .param p2, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p3, "_hidl_offset"    # J
@@ -1027,7 +1027,7 @@
     .line 284
     const-wide/16 v1, 0x8
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_90
 
     .line 321
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -1057,7 +1057,7 @@
     throw v0
 
     .line 316
-    :pswitch_0
+    :pswitch_2c
     new-instance v0, Landroid/hardware/radio/V1_5/CellIdentityNr;
 
     invoke-direct {v0}, Landroid/hardware/radio/V1_5/CellIdentityNr;-><init>()V
@@ -1072,10 +1072,10 @@
     invoke-virtual {v0, p1, p2, v1, v2}, Landroid/hardware/radio/V1_5/CellIdentityNr;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
 
     .line 318
-    goto :goto_0
+    goto :goto_8e
 
     .line 311
-    :pswitch_1
+    :pswitch_3a
     new-instance v0, Landroid/hardware/radio/V1_5/CellIdentityLte;
 
     invoke-direct {v0}, Landroid/hardware/radio/V1_5/CellIdentityLte;-><init>()V
@@ -1090,10 +1090,10 @@
     invoke-virtual {v0, p1, p2, v1, v2}, Landroid/hardware/radio/V1_5/CellIdentityLte;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
 
     .line 313
-    goto :goto_0
+    goto :goto_8e
 
     .line 306
-    :pswitch_2
+    :pswitch_48
     new-instance v0, Landroid/hardware/radio/V1_2/CellIdentityCdma;
 
     invoke-direct {v0}, Landroid/hardware/radio/V1_2/CellIdentityCdma;-><init>()V
@@ -1108,10 +1108,10 @@
     invoke-virtual {v0, p1, p2, v1, v2}, Landroid/hardware/radio/V1_2/CellIdentityCdma;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
 
     .line 308
-    goto :goto_0
+    goto :goto_8e
 
     .line 301
-    :pswitch_3
+    :pswitch_56
     new-instance v0, Landroid/hardware/radio/V1_5/CellIdentityTdscdma;
 
     invoke-direct {v0}, Landroid/hardware/radio/V1_5/CellIdentityTdscdma;-><init>()V
@@ -1126,10 +1126,10 @@
     invoke-virtual {v0, p1, p2, v1, v2}, Landroid/hardware/radio/V1_5/CellIdentityTdscdma;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
 
     .line 303
-    goto :goto_0
+    goto :goto_8e
 
     .line 296
-    :pswitch_4
+    :pswitch_64
     new-instance v0, Landroid/hardware/radio/V1_5/CellIdentityWcdma;
 
     invoke-direct {v0}, Landroid/hardware/radio/V1_5/CellIdentityWcdma;-><init>()V
@@ -1144,10 +1144,10 @@
     invoke-virtual {v0, p1, p2, v1, v2}, Landroid/hardware/radio/V1_5/CellIdentityWcdma;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
 
     .line 298
-    goto :goto_0
+    goto :goto_8e
 
     .line 291
-    :pswitch_5
+    :pswitch_72
     new-instance v0, Landroid/hardware/radio/V1_5/CellIdentityGsm;
 
     invoke-direct {v0}, Landroid/hardware/radio/V1_5/CellIdentityGsm;-><init>()V
@@ -1162,10 +1162,10 @@
     invoke-virtual {v0, p1, p2, v1, v2}, Landroid/hardware/radio/V1_5/CellIdentityGsm;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
 
     .line 293
-    goto :goto_0
+    goto :goto_8e
 
     .line 286
-    :pswitch_6
+    :pswitch_80
     new-instance v0, Landroid/hidl/safe_union/V1_0/Monostate;
 
     invoke-direct {v0}, Landroid/hidl/safe_union/V1_0/Monostate;-><init>()V
@@ -1183,25 +1183,25 @@
     nop
 
     .line 324
-    :goto_0
+    :goto_8e
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_90
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_80
+        :pswitch_72
+        :pswitch_64
+        :pswitch_56
+        :pswitch_48
+        :pswitch_3a
+        :pswitch_2c
     .end packed-switch
 .end method
 
 .method public final readFromParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 256
@@ -1222,19 +1222,19 @@
 .end method
 
 .method public tdscdma()Landroid/hardware/radio/V1_5/CellIdentityTdscdma;
-    .locals 4
+    .registers 5
 
     .line 102
     iget-byte v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_d:B
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_48
 
     .line 103
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -1244,14 +1244,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const-string v0, "null"
 
     .line 104
     .local v0, "className":Ljava/lang/String;
-    :goto_0
+    :goto_14
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1299,10 +1299,10 @@
 
     .line 110
     .end local v0    # "className":Ljava/lang/String;
-    :cond_1
+    :cond_48
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5d
 
     const-class v1, Landroid/hardware/radio/V1_5/CellIdentityTdscdma;
 
@@ -1310,12 +1310,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_55
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 111
-    :cond_2
+    :cond_55
     new-instance v0, Ljava/lang/Error;
 
     const-string v1, "Union is in a corrupted state."
@@ -1325,8 +1325,8 @@
     throw v0
 
     .line 113
-    :cond_3
-    :goto_1
+    :cond_5d
+    :goto_5d
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
     check-cast v0, Landroid/hardware/radio/V1_5/CellIdentityTdscdma;
@@ -1335,7 +1335,7 @@
 .end method
 
 .method public tdscdma(Landroid/hardware/radio/V1_5/CellIdentityTdscdma;)V
-    .locals 1
+    .registers 3
     .param p1, "tdscdma"    # Landroid/hardware/radio/V1_5/CellIdentityTdscdma;
 
     .line 97
@@ -1351,7 +1351,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 209
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1367,7 +1367,7 @@
     .line 211
     iget-byte v1, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_d:B
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_92
 
     .line 248
     new-instance v1, Ljava/lang/Error;
@@ -1397,7 +1397,7 @@
     throw v1
 
     .line 243
-    :pswitch_0
+    :pswitch_2d
     const-string v1, ".nr = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1410,10 +1410,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 245
-    goto :goto_0
+    goto :goto_88
 
     .line 238
-    :pswitch_1
+    :pswitch_3a
     const-string v1, ".lte = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1426,10 +1426,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 240
-    goto :goto_0
+    goto :goto_88
 
     .line 233
-    :pswitch_2
+    :pswitch_47
     const-string v1, ".cdma = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1442,10 +1442,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 235
-    goto :goto_0
+    goto :goto_88
 
     .line 228
-    :pswitch_3
+    :pswitch_54
     const-string v1, ".tdscdma = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1458,10 +1458,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 230
-    goto :goto_0
+    goto :goto_88
 
     .line 223
-    :pswitch_4
+    :pswitch_61
     const-string v1, ".wcdma = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1474,10 +1474,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 225
-    goto :goto_0
+    goto :goto_88
 
     .line 218
-    :pswitch_5
+    :pswitch_6e
     const-string v1, ".gsm = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1490,10 +1490,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 220
-    goto :goto_0
+    goto :goto_88
 
     .line 213
-    :pswitch_6
+    :pswitch_7b
     const-string v1, ".noinit = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1509,7 +1509,7 @@
     nop
 
     .line 251
-    :goto_0
+    :goto_88
     const-string v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1521,32 +1521,32 @@
 
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_92
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_7b
+        :pswitch_6e
+        :pswitch_61
+        :pswitch_54
+        :pswitch_47
+        :pswitch_3a
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public wcdma()Landroid/hardware/radio/V1_5/CellIdentityWcdma;
-    .locals 4
+    .registers 5
 
     .line 82
     iget-byte v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_d:B
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_48
 
     .line 83
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -1556,14 +1556,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const-string v0, "null"
 
     .line 84
     .local v0, "className":Ljava/lang/String;
-    :goto_0
+    :goto_14
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1611,10 +1611,10 @@
 
     .line 90
     .end local v0    # "className":Ljava/lang/String;
-    :cond_1
+    :cond_48
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5d
 
     const-class v1, Landroid/hardware/radio/V1_5/CellIdentityWcdma;
 
@@ -1622,12 +1622,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_55
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 91
-    :cond_2
+    :cond_55
     new-instance v0, Ljava/lang/Error;
 
     const-string v1, "Union is in a corrupted state."
@@ -1637,8 +1637,8 @@
     throw v0
 
     .line 93
-    :cond_3
-    :goto_1
+    :cond_5d
+    :goto_5d
     iget-object v0, p0, Landroid/hardware/radio/V1_5/CellIdentity;->hidl_o:Ljava/lang/Object;
 
     check-cast v0, Landroid/hardware/radio/V1_5/CellIdentityWcdma;
@@ -1647,7 +1647,7 @@
 .end method
 
 .method public wcdma(Landroid/hardware/radio/V1_5/CellIdentityWcdma;)V
-    .locals 1
+    .registers 3
     .param p1, "wcdma"    # Landroid/hardware/radio/V1_5/CellIdentityWcdma;
 
     .line 77
@@ -1663,7 +1663,7 @@
 .end method
 
 .method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-    .locals 3
+    .registers 7
     .param p1, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p2, "_hidl_offset"    # J
 
@@ -1681,7 +1681,7 @@
 
     const-wide/16 v1, 0x8
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_6e
 
     .line 382
     new-instance v0, Ljava/lang/Error;
@@ -1711,7 +1711,7 @@
     throw v0
 
     .line 378
-    :pswitch_0
+    :pswitch_2d
     invoke-virtual {p0}, Landroid/hardware/radio/V1_5/CellIdentity;->nr()Landroid/hardware/radio/V1_5/CellIdentityNr;
 
     move-result-object v0
@@ -1721,10 +1721,10 @@
     invoke-virtual {v0, p1, v1, v2}, Landroid/hardware/radio/V1_5/CellIdentityNr;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 379
-    goto :goto_0
+    goto :goto_6c
 
     .line 374
-    :pswitch_1
+    :pswitch_36
     invoke-virtual {p0}, Landroid/hardware/radio/V1_5/CellIdentity;->lte()Landroid/hardware/radio/V1_5/CellIdentityLte;
 
     move-result-object v0
@@ -1734,10 +1734,10 @@
     invoke-virtual {v0, p1, v1, v2}, Landroid/hardware/radio/V1_5/CellIdentityLte;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 375
-    goto :goto_0
+    goto :goto_6c
 
     .line 370
-    :pswitch_2
+    :pswitch_3f
     invoke-virtual {p0}, Landroid/hardware/radio/V1_5/CellIdentity;->cdma()Landroid/hardware/radio/V1_2/CellIdentityCdma;
 
     move-result-object v0
@@ -1747,10 +1747,10 @@
     invoke-virtual {v0, p1, v1, v2}, Landroid/hardware/radio/V1_2/CellIdentityCdma;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 371
-    goto :goto_0
+    goto :goto_6c
 
     .line 366
-    :pswitch_3
+    :pswitch_48
     invoke-virtual {p0}, Landroid/hardware/radio/V1_5/CellIdentity;->tdscdma()Landroid/hardware/radio/V1_5/CellIdentityTdscdma;
 
     move-result-object v0
@@ -1760,10 +1760,10 @@
     invoke-virtual {v0, p1, v1, v2}, Landroid/hardware/radio/V1_5/CellIdentityTdscdma;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 367
-    goto :goto_0
+    goto :goto_6c
 
     .line 362
-    :pswitch_4
+    :pswitch_51
     invoke-virtual {p0}, Landroid/hardware/radio/V1_5/CellIdentity;->wcdma()Landroid/hardware/radio/V1_5/CellIdentityWcdma;
 
     move-result-object v0
@@ -1773,10 +1773,10 @@
     invoke-virtual {v0, p1, v1, v2}, Landroid/hardware/radio/V1_5/CellIdentityWcdma;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 363
-    goto :goto_0
+    goto :goto_6c
 
     .line 358
-    :pswitch_5
+    :pswitch_5a
     invoke-virtual {p0}, Landroid/hardware/radio/V1_5/CellIdentity;->gsm()Landroid/hardware/radio/V1_5/CellIdentityGsm;
 
     move-result-object v0
@@ -1786,10 +1786,10 @@
     invoke-virtual {v0, p1, v1, v2}, Landroid/hardware/radio/V1_5/CellIdentityGsm;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 359
-    goto :goto_0
+    goto :goto_6c
 
     .line 354
-    :pswitch_6
+    :pswitch_63
     invoke-virtual {p0}, Landroid/hardware/radio/V1_5/CellIdentity;->noinit()Landroid/hidl/safe_union/V1_0/Monostate;
 
     move-result-object v0
@@ -1802,25 +1802,25 @@
     nop
 
     .line 385
-    :goto_0
+    :goto_6c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6e
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_63
+        :pswitch_5a
+        :pswitch_51
+        :pswitch_48
+        :pswitch_3f
+        :pswitch_36
+        :pswitch_2d
     .end packed-switch
 .end method
 
 .method public final writeToParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 327

@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;)V
-    .locals 2
+    .registers 4
     .param p1, "this$0"    # Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;
 
     .line 84
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>(Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;ZILjava/lang/String;ILjava/lang/String;I)V
-    .locals 1
+    .registers 9
     .param p1, "this$0"    # Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;
     .param p2, "enable"    # Z
     .param p3, "interval"    # I
@@ -126,26 +126,26 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "o"    # Ljava/lang/Object;
 
     .line 139
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 140
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     return v1
 
     .line 141
-    :cond_1
+    :cond_8
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -154,12 +154,12 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_13
 
     return v1
 
     .line 142
-    :cond_2
+    :cond_13
     move-object v2, p1
 
     check-cast v2, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;
@@ -170,7 +170,7 @@
 
     iget v4, v2, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->interval:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_3d
 
     iget-object v3, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->srcIp:Ljava/net/InetAddress;
 
@@ -181,13 +181,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_3d
 
     iget v3, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->srcPort:I
 
     iget v4, v2, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->srcPort:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_3d
 
     iget-object v3, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->dstIp:Ljava/net/InetAddress;
 
@@ -198,26 +198,26 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_3d
 
     iget v3, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->dstPort:I
 
     iget v4, v2, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->dstPort:I
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_3d
 
-    goto :goto_0
+    goto :goto_3e
 
-    :cond_3
+    :cond_3d
     move v0, v1
 
     .line 143
-    :goto_0
+    :goto_3e
     return v0
 .end method
 
 .method public getDstIp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 103
     iget-object v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->dstIp:Ljava/net/InetAddress;
@@ -230,7 +230,7 @@
 .end method
 
 .method public getDstPort()I
-    .locals 1
+    .registers 2
 
     .line 107
     iget v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->dstPort:I
@@ -239,7 +239,7 @@
 .end method
 
 .method public getSrcIp()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 95
     iget-object v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->srcIp:Ljava/net/InetAddress;
@@ -252,7 +252,7 @@
 .end method
 
 .method public getSrcPort()I
-    .locals 1
+    .registers 2
 
     .line 99
     iget v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->srcPort:I
@@ -261,7 +261,7 @@
 .end method
 
 .method public isEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 122
     iget-boolean v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->enable:Z
@@ -270,38 +270,38 @@
 .end method
 
 .method public isEnabledAndAvailable()Z
-    .locals 2
+    .registers 3
 
     .line 126
     iget-boolean v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->enable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->interval:I
 
     const/16 v1, 0x14
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_12
 
     iget v0, p0, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor$KeepAliveConfig;->dstPort:I
 
     const/16 v1, 0x1194
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_13
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 132
     new-instance v0, Ljava/lang/StringBuilder;
@@ -337,6 +337,7 @@
 
     move-result-object v2
 
+    # invokes: Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;->maskString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, v2}, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;->access$000(Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -364,6 +365,7 @@
 
     move-result-object v2
 
+    # invokes: Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;->maskString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, v2}, Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;->access$000(Lcom/mediatek/wfo/util/PacketKeepAliveProcessor;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1

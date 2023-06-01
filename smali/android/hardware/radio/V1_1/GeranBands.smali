@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 66
@@ -62,7 +62,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_12
 
     .line 69
     const-string v2, "BAND_T380"
@@ -73,12 +73,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 72
-    :cond_0
+    :cond_12
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_1e
 
     .line 73
     const-string v2, "BAND_T410"
@@ -89,12 +89,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 76
-    :cond_1
+    :cond_1e
     and-int/lit8 v2, p0, 0x3
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2a
 
     .line 77
     const-string v2, "BAND_450"
@@ -105,12 +105,12 @@
     or-int/lit8 v1, v1, 0x3
 
     .line 80
-    :cond_2
+    :cond_2a
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_36
 
     .line 81
     const-string v2, "BAND_480"
@@ -121,12 +121,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 84
-    :cond_3
+    :cond_36
     and-int/lit8 v2, p0, 0x5
 
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_42
 
     .line 85
     const-string v2, "BAND_710"
@@ -137,12 +137,12 @@
     or-int/lit8 v1, v1, 0x5
 
     .line 88
-    :cond_4
+    :cond_42
     and-int/lit8 v2, p0, 0x6
 
     const/4 v3, 0x6
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_4e
 
     .line 89
     const-string v2, "BAND_750"
@@ -153,12 +153,12 @@
     or-int/lit8 v1, v1, 0x6
 
     .line 92
-    :cond_5
+    :cond_4e
     and-int/lit8 v2, p0, 0x7
 
     const/4 v3, 0x7
 
-    if-ne v2, v3, :cond_6
+    if-ne v2, v3, :cond_5a
 
     .line 93
     const-string v2, "BAND_T810"
@@ -169,12 +169,12 @@
     or-int/lit8 v1, v1, 0x7
 
     .line 96
-    :cond_6
+    :cond_5a
     and-int/lit8 v2, p0, 0x8
 
     const/16 v3, 0x8
 
-    if-ne v2, v3, :cond_7
+    if-ne v2, v3, :cond_67
 
     .line 97
     const-string v2, "BAND_850"
@@ -185,12 +185,12 @@
     or-int/lit8 v1, v1, 0x8
 
     .line 100
-    :cond_7
+    :cond_67
     and-int/lit8 v2, p0, 0x9
 
     const/16 v3, 0x9
 
-    if-ne v2, v3, :cond_8
+    if-ne v2, v3, :cond_74
 
     .line 101
     const-string v2, "BAND_P900"
@@ -201,12 +201,12 @@
     or-int/lit8 v1, v1, 0x9
 
     .line 104
-    :cond_8
+    :cond_74
     and-int/lit8 v2, p0, 0xa
 
     const/16 v3, 0xa
 
-    if-ne v2, v3, :cond_9
+    if-ne v2, v3, :cond_81
 
     .line 105
     const-string v2, "BAND_E900"
@@ -217,12 +217,12 @@
     or-int/lit8 v1, v1, 0xa
 
     .line 108
-    :cond_9
+    :cond_81
     and-int/lit8 v2, p0, 0xb
 
     const/16 v3, 0xb
 
-    if-ne v2, v3, :cond_a
+    if-ne v2, v3, :cond_8e
 
     .line 109
     const-string v2, "BAND_R900"
@@ -233,12 +233,12 @@
     or-int/lit8 v1, v1, 0xb
 
     .line 112
-    :cond_a
+    :cond_8e
     and-int/lit8 v2, p0, 0xc
 
     const/16 v3, 0xc
 
-    if-ne v2, v3, :cond_b
+    if-ne v2, v3, :cond_9b
 
     .line 113
     const-string v2, "BAND_DCS1800"
@@ -249,12 +249,12 @@
     or-int/lit8 v1, v1, 0xc
 
     .line 116
-    :cond_b
+    :cond_9b
     and-int/lit8 v2, p0, 0xd
 
     const/16 v3, 0xd
 
-    if-ne v2, v3, :cond_c
+    if-ne v2, v3, :cond_a8
 
     .line 117
     const-string v2, "BAND_PCS1900"
@@ -265,12 +265,12 @@
     or-int/lit8 v1, v1, 0xd
 
     .line 120
-    :cond_c
+    :cond_a8
     and-int/lit8 v2, p0, 0xe
 
     const/16 v3, 0xe
 
-    if-ne v2, v3, :cond_d
+    if-ne v2, v3, :cond_b5
 
     .line 121
     const-string v2, "BAND_ER900"
@@ -281,8 +281,8 @@
     or-int/lit8 v1, v1, 0xe
 
     .line 124
-    :cond_d
-    if-eq p0, v1, :cond_e
+    :cond_b5
+    if-eq p0, v1, :cond_d1
 
     .line 125
     new-instance v2, Ljava/lang/StringBuilder;
@@ -310,7 +310,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 127
-    :cond_e
+    :cond_d1
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -321,13 +321,13 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 20
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_6
 
     .line 21
     const-string v0, "BAND_T380"
@@ -335,10 +335,10 @@
     return-object v0
 
     .line 23
-    :cond_0
+    :cond_6
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_c
 
     .line 24
     const-string v0, "BAND_T410"
@@ -346,10 +346,10 @@
     return-object v0
 
     .line 26
-    :cond_1
+    :cond_c
     const/4 v0, 0x3
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_12
 
     .line 27
     const-string v0, "BAND_450"
@@ -357,10 +357,10 @@
     return-object v0
 
     .line 29
-    :cond_2
+    :cond_12
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_18
 
     .line 30
     const-string v0, "BAND_480"
@@ -368,10 +368,10 @@
     return-object v0
 
     .line 32
-    :cond_3
+    :cond_18
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1e
 
     .line 33
     const-string v0, "BAND_710"
@@ -379,10 +379,10 @@
     return-object v0
 
     .line 35
-    :cond_4
+    :cond_1e
     const/4 v0, 0x6
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_24
 
     .line 36
     const-string v0, "BAND_750"
@@ -390,10 +390,10 @@
     return-object v0
 
     .line 38
-    :cond_5
+    :cond_24
     const/4 v0, 0x7
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_2a
 
     .line 39
     const-string v0, "BAND_T810"
@@ -401,10 +401,10 @@
     return-object v0
 
     .line 41
-    :cond_6
+    :cond_2a
     const/16 v0, 0x8
 
-    if-ne p0, v0, :cond_7
+    if-ne p0, v0, :cond_31
 
     .line 42
     const-string v0, "BAND_850"
@@ -412,10 +412,10 @@
     return-object v0
 
     .line 44
-    :cond_7
+    :cond_31
     const/16 v0, 0x9
 
-    if-ne p0, v0, :cond_8
+    if-ne p0, v0, :cond_38
 
     .line 45
     const-string v0, "BAND_P900"
@@ -423,10 +423,10 @@
     return-object v0
 
     .line 47
-    :cond_8
+    :cond_38
     const/16 v0, 0xa
 
-    if-ne p0, v0, :cond_9
+    if-ne p0, v0, :cond_3f
 
     .line 48
     const-string v0, "BAND_E900"
@@ -434,10 +434,10 @@
     return-object v0
 
     .line 50
-    :cond_9
+    :cond_3f
     const/16 v0, 0xb
 
-    if-ne p0, v0, :cond_a
+    if-ne p0, v0, :cond_46
 
     .line 51
     const-string v0, "BAND_R900"
@@ -445,10 +445,10 @@
     return-object v0
 
     .line 53
-    :cond_a
+    :cond_46
     const/16 v0, 0xc
 
-    if-ne p0, v0, :cond_b
+    if-ne p0, v0, :cond_4d
 
     .line 54
     const-string v0, "BAND_DCS1800"
@@ -456,10 +456,10 @@
     return-object v0
 
     .line 56
-    :cond_b
+    :cond_4d
     const/16 v0, 0xd
 
-    if-ne p0, v0, :cond_c
+    if-ne p0, v0, :cond_54
 
     .line 57
     const-string v0, "BAND_PCS1900"
@@ -467,10 +467,10 @@
     return-object v0
 
     .line 59
-    :cond_c
+    :cond_54
     const/16 v0, 0xe
 
-    if-ne p0, v0, :cond_d
+    if-ne p0, v0, :cond_5b
 
     .line 60
     const-string v0, "BAND_ER900"
@@ -478,7 +478,7 @@
     return-object v0
 
     .line 62
-    :cond_d
+    :cond_5b
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

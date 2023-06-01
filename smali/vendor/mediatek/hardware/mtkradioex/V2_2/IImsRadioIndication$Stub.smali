@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1397
     invoke-direct {p0}, Landroid/os/HwBinder;-><init>()V
@@ -30,14 +30,14 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IHwBinder;
-    .locals 0
+    .registers 1
 
     .line 1400
     return-object p0
 .end method
 
 .method public debug(Landroid/os/NativeHandle;Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 3
     .param p1, "fd"    # Landroid/os/NativeHandle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,38 +54,38 @@
     return-void
 .end method
 
-.method public final getDebugInfo()Landroid/hidl/base/V1_0/DebugInfo;
-    .locals 3
+.method public final getDebugInfo()Landroid/internal/hidl/base/V1_0/DebugInfo;
+    .registers 4
 
     .line 1454
-    new-instance v0, Landroid/hidl/base/V1_0/DebugInfo;
+    new-instance v0, Landroid/internal/hidl/base/V1_0/DebugInfo;
 
-    invoke-direct {v0}, Landroid/hidl/base/V1_0/DebugInfo;-><init>()V
+    invoke-direct {v0}, Landroid/internal/hidl/base/V1_0/DebugInfo;-><init>()V
 
     .line 1455
-    .local v0, "info":Landroid/hidl/base/V1_0/DebugInfo;
+    .local v0, "info":Landroid/internal/hidl/base/V1_0/DebugInfo;
     invoke-static {}, Landroid/os/HidlSupport;->getPidIfSharable()I
 
     move-result v1
 
-    iput v1, v0, Landroid/hidl/base/V1_0/DebugInfo;->pid:I
+    iput v1, v0, Landroid/internal/hidl/base/V1_0/DebugInfo;->pid:I
 
     .line 1456
     const-wide/16 v1, 0x0
 
-    iput-wide v1, v0, Landroid/hidl/base/V1_0/DebugInfo;->ptr:J
+    iput-wide v1, v0, Landroid/internal/hidl/base/V1_0/DebugInfo;->ptr:J
 
     .line 1457
     const/4 v1, 0x0
 
-    iput v1, v0, Landroid/hidl/base/V1_0/DebugInfo;->arch:I
+    iput v1, v0, Landroid/internal/hidl/base/V1_0/DebugInfo;->arch:I
 
     .line 1458
     return-object v0
 .end method
 
 .method public final getHashChain()Ljava/util/ArrayList;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -105,7 +105,7 @@
 
     new-array v3, v2, [B
 
-    fill-array-data v3, :array_0
+    fill-array-data v3, :array_30
 
     const/4 v4, 0x0
 
@@ -113,7 +113,7 @@
 
     new-array v3, v2, [B
 
-    fill-array-data v3, :array_1
+    fill-array-data v3, :array_44
 
     const/4 v4, 0x1
 
@@ -121,7 +121,7 @@
 
     new-array v3, v2, [B
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_58
 
     const/4 v4, 0x2
 
@@ -129,7 +129,7 @@
 
     new-array v2, v2, [B
 
-    fill-array-data v2, :array_3
+    fill-array-data v2, :array_6c
 
     const/4 v3, 0x3
 
@@ -145,7 +145,7 @@
 
     nop
 
-    :array_0
+    :array_30
     .array-data 1
         0x15t
         -0x4ct
@@ -181,7 +181,7 @@
         -0x71t
     .end array-data
 
-    :array_1
+    :array_44
     .array-data 1
         0x41t
         0x3bt
@@ -217,7 +217,7 @@
         0x4dt
     .end array-data
 
-    :array_2
+    :array_58
     .array-data 1
         -0x72t
         0x30t
@@ -253,7 +253,7 @@
         -0x55t
     .end array-data
 
-    :array_3
+    :array_6c
     .array-data 1
         -0x14t
         0x7ft
@@ -291,7 +291,7 @@
 .end method
 
 .method public final interfaceChain()Ljava/util/ArrayList;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -326,7 +326,7 @@
 .end method
 
 .method public final interfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 1421
     const-string v0, "vendor.mediatek.hardware.mtkradioex@2.2::IImsRadioIndication"
@@ -335,7 +335,7 @@
 .end method
 
 .method public final linkToDeath(Landroid/os/IHwBinder$DeathRecipient;J)Z
-    .locals 1
+    .registers 5
     .param p1, "recipient"    # Landroid/os/IHwBinder$DeathRecipient;
     .param p2, "cookie"    # J
 
@@ -346,7 +346,7 @@
 .end method
 
 .method public final notifySyspropsChanged()V
-    .locals 0
+    .registers 1
 
     .line 1464
     invoke-static {}, Landroid/os/HwBinder;->enableInstrumentation()V
@@ -356,7 +356,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
-    .locals 20
+    .registers 25
     .param p1, "_hidl_code"    # I
     .param p2, "_hidl_request"    # Landroid/os/HwParcel;
     .param p3, "_hidl_reply"    # Landroid/os/HwParcel;
@@ -380,45 +380,45 @@
 
     const-string v2, "vendor.mediatek.hardware.mtkradioex@2.0::IImsRadioIndication"
 
-    sparse-switch p1, :sswitch_data_0
+    sparse-switch p1, :sswitch_data_55e
 
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2203
-    :sswitch_0
+    :sswitch_10
     invoke-virtual {v10, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2205
     invoke-virtual/range {p0 .. p0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->notifySyspropsChanged()V
 
     .line 2206
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2192
-    :sswitch_1
+    :sswitch_18
     invoke-virtual {v10, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2194
-    invoke-virtual/range {p0 .. p0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->getDebugInfo()Landroid/hidl/base/V1_0/DebugInfo;
+    invoke-virtual/range {p0 .. p0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->getDebugInfo()Landroid/internal/hidl/base/V1_0/DebugInfo;
 
     move-result-object v1
 
     .line 2195
-    .local v1, "_hidl_out_info":Landroid/hidl/base/V1_0/DebugInfo;
+    .local v1, "_hidl_out_info":Landroid/internal/hidl/base/V1_0/DebugInfo;
     invoke-virtual {v11, v0}, Landroid/os/HwParcel;->writeStatus(I)V
 
     .line 2196
-    invoke-virtual {v1, v11}, Landroid/hidl/base/V1_0/DebugInfo;->writeToParcel(Landroid/os/HwParcel;)V
+    invoke-virtual {v1, v11}, Landroid/internal/hidl/base/V1_0/DebugInfo;->writeToParcel(Landroid/os/HwParcel;)V
 
     .line 2197
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 2198
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2182
-    .end local v1    # "_hidl_out_info":Landroid/hidl/base/V1_0/DebugInfo;
-    :sswitch_2
+    .end local v1    # "_hidl_out_info":Landroid/internal/hidl/base/V1_0/DebugInfo;
+    :sswitch_2a
     invoke-virtual {v10, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2184
@@ -431,24 +431,24 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 2187
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2177
-    :sswitch_3
-    goto/16 :goto_1
+    :sswitch_38
+    goto/16 :goto_55d
 
     .line 2169
-    :sswitch_4
+    :sswitch_3a
     invoke-virtual {v10, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2171
     invoke-virtual/range {p0 .. p0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->setHALInstrumentation()V
 
     .line 2172
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2135
-    :sswitch_5
+    :sswitch_42
     invoke-virtual {v10, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2137
@@ -496,8 +496,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v3, :cond_1
+    :goto_69
+    if-ge v4, v3, :cond_8a
 
     .line 2148
     mul-int/lit8 v5, v4, 0x20
@@ -514,13 +514,13 @@
 
     .line 2151
     .local v7, "_hidl_array_item_1":[B
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_82
 
     array-length v8, v7
 
     const/16 v12, 0x20
 
-    if-ne v8, v12, :cond_0
+    if-ne v8, v12, :cond_82
 
     .line 2155
     invoke-virtual {v0, v5, v6, v7}, Landroid/os/HwBlob;->putInt8Array(J[B)V
@@ -533,12 +533,12 @@
     .end local v7    # "_hidl_array_item_1":[B
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_69
 
     .line 2152
     .restart local v5    # "_hidl_array_offset_1":J
     .restart local v7    # "_hidl_array_item_1":[B
-    :cond_0
+    :cond_82
     new-instance v8, Ljava/lang/IllegalArgumentException;
 
     const-string v12, "Array element is not of the expected length"
@@ -551,7 +551,7 @@
     .end local v4    # "_hidl_index_0":I
     .end local v5    # "_hidl_array_offset_1":J
     .end local v7    # "_hidl_array_item_1":[B
-    :cond_1
+    :cond_8a
     const-wide/16 v4, 0x0
 
     invoke-virtual {v2, v4, v5, v0}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
@@ -566,11 +566,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 2164
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2124
     .end local v1    # "_hidl_out_hashchain":Ljava/util/ArrayList;, "Ljava/util/ArrayList<[B>;"
-    :sswitch_6
+    :sswitch_97
     invoke-virtual {v10, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2126
@@ -589,11 +589,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 2130
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2112
     .end local v1    # "_hidl_out_descriptor":Ljava/lang/String;
-    :sswitch_7
+    :sswitch_a9
     invoke-virtual {v10, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2114
@@ -618,12 +618,12 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 2119
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2101
     .end local v1    # "fd":Landroid/os/NativeHandle;
     .end local v2    # "options":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :sswitch_8
+    :sswitch_bf
     invoke-virtual {v10, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2103
@@ -642,11 +642,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/HwParcel;->send()V
 
     .line 2107
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2091
     .end local v1    # "_hidl_out_descriptors":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :sswitch_9
+    :sswitch_d1
     const-string v0, "vendor.mediatek.hardware.mtkradioex@2.2::IImsRadioIndication"
 
     invoke-virtual {v10, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
@@ -667,12 +667,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->videoRingtoneEventInd(ILjava/util/ArrayList;)V
 
     .line 2096
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2081
     .end local v0    # "type":I
     .end local v1    # "event":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :sswitch_a
+    :sswitch_e3
     const-string v0, "vendor.mediatek.hardware.mtkradioex@2.1::IImsRadioIndication"
 
     invoke-virtual {v10, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
@@ -693,12 +693,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->onMDInternetUsageInd(ILjava/util/ArrayList;)V
 
     .line 2086
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2071
     .end local v0    # "type":I
     .end local v1    # "info":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
-    :sswitch_b
+    :sswitch_f5
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2073
@@ -717,12 +717,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->onSsacStatus(ILjava/util/ArrayList;)V
 
     .line 2076
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2061
     .end local v0    # "type":I
     .end local v1    # "status":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
-    :sswitch_c
+    :sswitch_105
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2063
@@ -741,12 +741,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsRegInfoInd(ILjava/util/ArrayList;)V
 
     .line 2066
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2050
     .end local v0    # "type":I
     .end local v1    # "info":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
-    :sswitch_d
+    :sswitch_115
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2052
@@ -768,12 +768,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsRegStatusReport(ILvendor/mediatek/hardware/mtkradioex/V2_0/ImsRegStatusInfo;)V
 
     .line 2056
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2038
     .end local v0    # "type":I
     .end local v1    # "report":Lvendor/mediatek/hardware/mtkradioex/V2_0/ImsRegStatusInfo;
-    :sswitch_e
+    :sswitch_129
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2040
@@ -804,14 +804,14 @@
     invoke-virtual {v9, v0, v1, v2, v3}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->sipRegInfoInd(IIILjava/util/ArrayList;)V
 
     .line 2045
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2027
     .end local v0    # "type":I
     .end local v1    # "account_id":I
     .end local v2    # "response_code":I
     .end local v3    # "info":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :sswitch_f
+    :sswitch_141
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2029
@@ -836,13 +836,13 @@
     invoke-virtual {v9, v0, v1, v2}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->callRatIndication(III)V
 
     .line 2033
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2017
     .end local v0    # "type":I
     .end local v1    # "domain":I
     .end local v2    # "rat":I
-    :sswitch_10
+    :sswitch_155
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2019
@@ -861,12 +861,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->sipHeaderReport(ILjava/util/ArrayList;)V
 
     .line 2022
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 2006
     .end local v0    # "type":I
     .end local v1    # "data":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :sswitch_11
+    :sswitch_165
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 2008
@@ -891,13 +891,13 @@
     invoke-virtual {v9, v0, v1, v2}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->callAdditionalInfoInd(IILjava/util/ArrayList;)V
 
     .line 2012
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1996
     .end local v0    # "type":I
     .end local v1    # "ciType":I
     .end local v2    # "info":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :sswitch_12
+    :sswitch_179
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1998
@@ -916,12 +916,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->sendVopsIndication(II)V
 
     .line 2001
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1985
     .end local v0    # "type":I
     .end local v1    # "vops":I
-    :sswitch_13
+    :sswitch_189
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1987
@@ -946,13 +946,13 @@
     invoke-virtual {v9, v0, v1, v2}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->audioIndication(III)V
 
     .line 1991
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1974
     .end local v0    # "type":I
     .end local v1    # "callId":I
     .end local v2    # "audio":I
-    :sswitch_14
+    :sswitch_19d
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1976
@@ -977,13 +977,13 @@
     invoke-virtual {v9, v0, v1, v2}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->rttModifyRequestReceive(III)V
 
     .line 1980
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1962
     .end local v0    # "type":I
     .end local v1    # "callId":I
     .end local v2    # "rttType":I
-    :sswitch_15
+    :sswitch_1b1
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1964
@@ -1014,14 +1014,14 @@
     invoke-virtual {v9, v0, v1, v2, v3}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->rttTextReceive(IIILjava/lang/String;)V
 
     .line 1969
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1951
     .end local v0    # "type":I
     .end local v1    # "callId":I
     .end local v2    # "lenOfString":I
     .end local v3    # "text":Ljava/lang/String;
-    :sswitch_16
+    :sswitch_1c9
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1953
@@ -1046,13 +1046,13 @@
     invoke-virtual {v9, v0, v1, v2}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->rttModifyResponse(III)V
 
     .line 1957
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1937
     .end local v0    # "type":I
     .end local v1    # "callId":I
     .end local v2    # "result":I
-    :sswitch_17
+    :sswitch_1dd
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1939
@@ -1109,7 +1109,7 @@
     invoke-virtual/range {v0 .. v6}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->rttCapabilityIndication(IIIIII)V
 
     .line 1946
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1921
     .end local v7    # "type":I
@@ -1118,7 +1118,7 @@
     .end local v13    # "remoteCap":I
     .end local v14    # "localStatus":I
     .end local v15    # "remoteStatus":I
-    :sswitch_18
+    :sswitch_205
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1923
@@ -1191,7 +1191,7 @@
     invoke-virtual/range {v0 .. v8}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsRtpInfo(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1932
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1911
     .end local v12    # "type":I
@@ -1202,7 +1202,7 @@
     .end local v17    # "recvPktLost":Ljava/lang/String;
     .end local v18    # "jitter":Ljava/lang/String;
     .end local v19    # "delay":Ljava/lang/String;
-    :sswitch_19
+    :sswitch_23b
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1913
@@ -1221,12 +1221,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsRedialEmergencyIndication(ILjava/lang/String;)V
 
     .line 1916
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1902
     .end local v0    # "type":I
     .end local v1    # "callId":Ljava/lang/String;
-    :sswitch_1a
+    :sswitch_24b
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1904
@@ -1239,11 +1239,11 @@
     invoke-virtual {v9, v0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->noEmergencyCallbackMode(I)V
 
     .line 1906
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1891
     .end local v0    # "type":I
-    :sswitch_1b
+    :sswitch_257
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1893
@@ -1265,12 +1265,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->cdmaNewSmsEx(ILandroid/hardware/radio/V1_0/CdmaSmsMessage;)V
 
     .line 1897
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1881
     .end local v0    # "type":I
     .end local v1    # "msg":Landroid/hardware/radio/V1_0/CdmaSmsMessage;
-    :sswitch_1c
+    :sswitch_26b
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1883
@@ -1289,12 +1289,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->newSmsStatusReportEx(ILjava/util/ArrayList;)V
 
     .line 1886
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1871
     .end local v0    # "type":I
     .end local v1    # "pdu":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Byte;>;"
-    :sswitch_1d
+    :sswitch_27b
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1873
@@ -1313,12 +1313,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->newSmsEx(ILjava/util/ArrayList;)V
 
     .line 1876
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1859
     .end local v0    # "type":I
     .end local v1    # "pdu":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Byte;>;"
-    :sswitch_1e
+    :sswitch_28b
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1861
@@ -1349,14 +1349,14 @@
     invoke-virtual {v9, v0, v1, v2, v3}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsDataInfoNotify(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1866
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1850
     .end local v0    # "type":I
     .end local v1    # "capability":Ljava/lang/String;
     .end local v2    # "event":Ljava/lang/String;
     .end local v3    # "extra":Ljava/lang/String;
-    :sswitch_1f
+    :sswitch_2a3
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1852
@@ -1369,11 +1369,11 @@
     invoke-virtual {v9, v0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsCfgConfigLoaded(I)V
 
     .line 1854
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1838
     .end local v0    # "type":I
-    :sswitch_20
+    :sswitch_2af
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1840
@@ -1404,14 +1404,14 @@
     invoke-virtual {v9, v0, v1, v2, v3}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsCfgConfigChanged(IILjava/lang/String;Ljava/lang/String;)V
 
     .line 1845
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1826
     .end local v0    # "type":I
     .end local v1    # "phoneId":I
     .end local v2    # "configId":Ljava/lang/String;
     .end local v3    # "value":Ljava/lang/String;
-    :sswitch_21
+    :sswitch_2c7
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1828
@@ -1442,14 +1442,14 @@
     invoke-virtual {v9, v0, v1, v2, v3}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsCfgFeatureChanged(IIII)V
 
     .line 1833
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1817
     .end local v0    # "type":I
     .end local v1    # "phoneId":I
     .end local v2    # "featureId":I
     .end local v3    # "value":I
-    :sswitch_22
+    :sswitch_2df
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1819
@@ -1462,11 +1462,11 @@
     invoke-virtual {v9, v0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsCfgDynamicImsSwitchComplete(I)V
 
     .line 1821
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1807
     .end local v0    # "type":I
-    :sswitch_23
+    :sswitch_2eb
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1809
@@ -1485,12 +1485,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsDialogIndication(ILjava/util/ArrayList;)V
 
     .line 1812
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1793
     .end local v0    # "type":I
     .end local v1    # "dialogList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lvendor/mediatek/hardware/mtkradioex/V2_0/Dialog;>;"
-    :sswitch_24
+    :sswitch_2fb
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1795
@@ -1547,7 +1547,7 @@
     invoke-virtual/range {v0 .. v6}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->lteMessageWaitingIndication(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1802
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1783
     .end local v7    # "type":I
@@ -1556,7 +1556,7 @@
     .end local v13    # "urcIdx":Ljava/lang/String;
     .end local v14    # "totalUrcCount":Ljava/lang/String;
     .end local v15    # "rawData":Ljava/lang/String;
-    :sswitch_25
+    :sswitch_323
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1785
@@ -1575,12 +1575,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsConferenceInfoIndication(ILjava/util/ArrayList;)V
 
     .line 1788
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1773
     .end local v0    # "type":I
     .end local v1    # "participants":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lvendor/mediatek/hardware/mtkradioex/V2_0/ImsConfParticipant;>;"
-    :sswitch_26
+    :sswitch_333
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1775
@@ -1599,12 +1599,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->speechCodecInfoIndication(II)V
 
     .line 1778
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1762
     .end local v0    # "type":I
     .end local v1    # "info":I
-    :sswitch_27
+    :sswitch_343
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1764
@@ -1629,13 +1629,13 @@
     invoke-virtual {v9, v0, v1, v2}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsRadioInfoChange(ILjava/lang/String;Ljava/lang/String;)V
 
     .line 1768
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1752
     .end local v0    # "type":I
     .end local v1    # "iid":Ljava/lang/String;
     .end local v2    # "info":Ljava/lang/String;
-    :sswitch_28
+    :sswitch_357
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1754
@@ -1654,12 +1654,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsSupportEcc(II)V
 
     .line 1757
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1742
     .end local v0    # "type":I
     .end local v1    # "supportLteEcc":I
-    :sswitch_29
+    :sswitch_367
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1744
@@ -1678,12 +1678,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->multiImsCount(II)V
 
     .line 1747
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1733
     .end local v0    # "type":I
     .end local v1    # "count":I
-    :sswitch_2a
+    :sswitch_377
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1735
@@ -1696,11 +1696,11 @@
     invoke-virtual {v9, v0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsDeregDone(I)V
 
     .line 1737
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1724
     .end local v0    # "type":I
-    :sswitch_2b
+    :sswitch_383
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1726
@@ -1713,11 +1713,11 @@
     invoke-virtual {v9, v0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsBearerInit(I)V
 
     .line 1728
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1712
     .end local v0    # "type":I
-    :sswitch_2c
+    :sswitch_38f
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1714
@@ -1748,14 +1748,14 @@
     invoke-virtual {v9, v0, v1, v2, v3}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsBearerStateNotify(IIILjava/lang/String;)V
 
     .line 1719
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1702
     .end local v0    # "type":I
     .end local v1    # "aid":I
     .end local v2    # "action":I
     .end local v3    # "capability":Ljava/lang/String;
-    :sswitch_2d
+    :sswitch_3a7
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1704
@@ -1774,12 +1774,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->volteSetting(IZ)V
 
     .line 1707
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1690
     .end local v0    # "type":I
     .end local v1    # "isEnable":Z
-    :sswitch_2e
+    :sswitch_3b7
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1692
@@ -1810,14 +1810,14 @@
     invoke-virtual {v9, v0, v1, v2, v3}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->ectIndication(IIII)V
 
     .line 1697
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1681
     .end local v0    # "type":I
     .end local v1    # "call_id":I
     .end local v2    # "ectResult":I
     .end local v3    # "cause":I
-    :sswitch_2f
+    :sswitch_3cf
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1683
@@ -1830,11 +1830,11 @@
     invoke-virtual {v9, v0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsDisableStart(I)V
 
     .line 1685
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1672
     .end local v0    # "type":I
-    :sswitch_30
+    :sswitch_3db
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1674
@@ -1847,11 +1847,11 @@
     invoke-virtual {v9, v0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsEnableStart(I)V
 
     .line 1676
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1663
     .end local v0    # "type":I
-    :sswitch_31
+    :sswitch_3e7
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1665
@@ -1864,11 +1864,11 @@
     invoke-virtual {v9, v0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsDisableDone(I)V
 
     .line 1667
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1654
     .end local v0    # "type":I
-    :sswitch_32
+    :sswitch_3f3
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1656
@@ -1881,11 +1881,11 @@
     invoke-virtual {v9, v0}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsEnableDone(I)V
 
     .line 1658
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1643
     .end local v0    # "type":I
-    :sswitch_33
+    :sswitch_3ff
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1645
@@ -1910,13 +1910,13 @@
     invoke-virtual {v9, v0, v1, v2}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsRegistrationInfo(III)V
 
     .line 1649
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1629
     .end local v0    # "type":I
     .end local v1    # "registerState":I
     .end local v2    # "capability":I
-    :sswitch_34
+    :sswitch_413
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1631
@@ -1973,7 +1973,7 @@
     invoke-virtual/range {v0 .. v6}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->imsEventPackageIndication(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1638
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1618
     .end local v7    # "type":I
@@ -1982,7 +1982,7 @@
     .end local v13    # "urcIdx":Ljava/lang/String;
     .end local v14    # "totalUrcCount":Ljava/lang/String;
     .end local v15    # "rawData":Ljava/lang/String;
-    :sswitch_35
+    :sswitch_43b
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1620
@@ -2004,12 +2004,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->suppSvcNotify(ILandroid/hardware/radio/V1_0/SuppSvcNotification;)V
 
     .line 1624
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1608
     .end local v0    # "type":I
     .end local v1    # "suppSvc":Landroid/hardware/radio/V1_0/SuppSvcNotification;
-    :sswitch_36
+    :sswitch_44f
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1610
@@ -2028,12 +2028,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->onVolteSubscription(II)V
 
     .line 1613
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1596
     .end local v0    # "type":I
     .end local v1    # "status":I
-    :sswitch_37
+    :sswitch_45f
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1598
@@ -2064,14 +2064,14 @@
     invoke-virtual {v9, v0, v1, v2, v3}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->onXui(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1603
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1585
     .end local v0    # "type":I
     .end local v1    # "accountId":Ljava/lang/String;
     .end local v2    # "broadcastFlag":Ljava/lang/String;
     .end local v3    # "xuiInfo":Ljava/lang/String;
-    :sswitch_38
+    :sswitch_477
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1587
@@ -2096,13 +2096,13 @@
     invoke-virtual {v9, v0, v1, v2}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->getProvisionDone(ILjava/lang/String;Ljava/lang/String;)V
 
     .line 1591
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1574
     .end local v0    # "type":I
     .end local v1    # "result1":Ljava/lang/String;
     .end local v2    # "result2":Ljava/lang/String;
-    :sswitch_39
+    :sswitch_48b
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1576
@@ -2127,13 +2127,13 @@
     invoke-virtual {v9, v0, v1, v2}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->onUssi(IILjava/lang/String;)V
 
     .line 1580
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1562
     .end local v0    # "type":I
     .end local v1    # "modeType":I
     .end local v2    # "msg":Ljava/lang/String;
-    :sswitch_3a
+    :sswitch_49f
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1564
@@ -2164,14 +2164,14 @@
     invoke-virtual {v9, v0, v1, v2, v3}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->videoCapabilityIndicator(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1569
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1548
     .end local v0    # "type":I
     .end local v1    # "callId":Ljava/lang/String;
     .end local v2    # "localVideoCap":Ljava/lang/String;
     .end local v3    # "remoteVideoCap":Ljava/lang/String;
-    :sswitch_3b
+    :sswitch_4b7
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1550
@@ -2228,7 +2228,7 @@
     invoke-virtual/range {v0 .. v6}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->callmodChangeIndicator(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1557
-    goto/16 :goto_1
+    goto/16 :goto_55d
 
     .line 1533
     .end local v7    # "type":I
@@ -2237,7 +2237,7 @@
     .end local v13    # "videoState":Ljava/lang/String;
     .end local v14    # "audioDirection":Ljava/lang/String;
     .end local v15    # "pau":Ljava/lang/String;
-    :sswitch_3c
+    :sswitch_4df
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1535
@@ -2302,7 +2302,7 @@
     invoke-virtual/range {v0 .. v7}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->sipCallProgressIndicator(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1543
-    goto :goto_1
+    goto :goto_55d
 
     .line 1518
     .end local v8    # "type":I
@@ -2312,7 +2312,7 @@
     .end local v15    # "method":Ljava/lang/String;
     .end local v16    # "responseCode":Ljava/lang/String;
     .end local v17    # "reasonText":Ljava/lang/String;
-    :sswitch_3d
+    :sswitch_50d
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1520
@@ -2377,7 +2377,7 @@
     invoke-virtual/range {v0 .. v7}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->econfResultIndication(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1528
-    goto :goto_1
+    goto :goto_55d
 
     .line 1508
     .end local v8    # "type":I
@@ -2387,7 +2387,7 @@
     .end local v15    # "result":Ljava/lang/String;
     .end local v16    # "cause":Ljava/lang/String;
     .end local v17    # "joinedCallId":Ljava/lang/String;
-    :sswitch_3e
+    :sswitch_53b
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1510
@@ -2406,12 +2406,12 @@
     invoke-virtual {v9, v0, v1}, Lvendor/mediatek/hardware/mtkradioex/V2_2/IImsRadioIndication$Stub;->callInfoIndication(ILjava/util/ArrayList;)V
 
     .line 1513
-    goto :goto_1
+    goto :goto_55d
 
     .line 1497
     .end local v0    # "type":I
     .end local v1    # "data":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :sswitch_3f
+    :sswitch_54a
     invoke-virtual {v10, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1499
@@ -2438,87 +2438,87 @@
     .line 2215
     .end local v0    # "type":I
     .end local v1    # "inCallNotify":Lvendor/mediatek/hardware/mtkradioex/V2_0/IncomingCallNotification;
-    :goto_1
+    :goto_55d
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_55e
     .sparse-switch
-        0x1 -> :sswitch_3f
-        0x2 -> :sswitch_3e
-        0x3 -> :sswitch_3d
-        0x4 -> :sswitch_3c
-        0x5 -> :sswitch_3b
-        0x6 -> :sswitch_3a
-        0x7 -> :sswitch_39
-        0x8 -> :sswitch_38
-        0x9 -> :sswitch_37
-        0xa -> :sswitch_36
-        0xb -> :sswitch_35
-        0xc -> :sswitch_34
-        0xd -> :sswitch_33
-        0xe -> :sswitch_32
-        0xf -> :sswitch_31
-        0x10 -> :sswitch_30
-        0x11 -> :sswitch_2f
-        0x12 -> :sswitch_2e
-        0x13 -> :sswitch_2d
-        0x14 -> :sswitch_2c
-        0x15 -> :sswitch_2b
-        0x16 -> :sswitch_2a
-        0x17 -> :sswitch_29
-        0x18 -> :sswitch_28
-        0x19 -> :sswitch_27
-        0x1a -> :sswitch_26
-        0x1b -> :sswitch_25
-        0x1c -> :sswitch_24
-        0x1d -> :sswitch_23
-        0x1e -> :sswitch_22
-        0x1f -> :sswitch_21
-        0x20 -> :sswitch_20
-        0x21 -> :sswitch_1f
-        0x22 -> :sswitch_1e
-        0x23 -> :sswitch_1d
-        0x24 -> :sswitch_1c
-        0x25 -> :sswitch_1b
-        0x26 -> :sswitch_1a
-        0x27 -> :sswitch_19
-        0x28 -> :sswitch_18
-        0x29 -> :sswitch_17
-        0x2a -> :sswitch_16
-        0x2b -> :sswitch_15
-        0x2c -> :sswitch_14
-        0x2d -> :sswitch_13
-        0x2e -> :sswitch_12
-        0x2f -> :sswitch_11
-        0x30 -> :sswitch_10
-        0x31 -> :sswitch_f
-        0x32 -> :sswitch_e
-        0x33 -> :sswitch_d
-        0x34 -> :sswitch_c
-        0x35 -> :sswitch_b
-        0x36 -> :sswitch_a
-        0x37 -> :sswitch_9
-        0xf43484e -> :sswitch_8
-        0xf444247 -> :sswitch_7
-        0xf445343 -> :sswitch_6
-        0xf485348 -> :sswitch_5
-        0xf494e54 -> :sswitch_4
-        0xf4c5444 -> :sswitch_3
-        0xf504e47 -> :sswitch_2
-        0xf524546 -> :sswitch_1
-        0xf535953 -> :sswitch_0
+        0x1 -> :sswitch_54a
+        0x2 -> :sswitch_53b
+        0x3 -> :sswitch_50d
+        0x4 -> :sswitch_4df
+        0x5 -> :sswitch_4b7
+        0x6 -> :sswitch_49f
+        0x7 -> :sswitch_48b
+        0x8 -> :sswitch_477
+        0x9 -> :sswitch_45f
+        0xa -> :sswitch_44f
+        0xb -> :sswitch_43b
+        0xc -> :sswitch_413
+        0xd -> :sswitch_3ff
+        0xe -> :sswitch_3f3
+        0xf -> :sswitch_3e7
+        0x10 -> :sswitch_3db
+        0x11 -> :sswitch_3cf
+        0x12 -> :sswitch_3b7
+        0x13 -> :sswitch_3a7
+        0x14 -> :sswitch_38f
+        0x15 -> :sswitch_383
+        0x16 -> :sswitch_377
+        0x17 -> :sswitch_367
+        0x18 -> :sswitch_357
+        0x19 -> :sswitch_343
+        0x1a -> :sswitch_333
+        0x1b -> :sswitch_323
+        0x1c -> :sswitch_2fb
+        0x1d -> :sswitch_2eb
+        0x1e -> :sswitch_2df
+        0x1f -> :sswitch_2c7
+        0x20 -> :sswitch_2af
+        0x21 -> :sswitch_2a3
+        0x22 -> :sswitch_28b
+        0x23 -> :sswitch_27b
+        0x24 -> :sswitch_26b
+        0x25 -> :sswitch_257
+        0x26 -> :sswitch_24b
+        0x27 -> :sswitch_23b
+        0x28 -> :sswitch_205
+        0x29 -> :sswitch_1dd
+        0x2a -> :sswitch_1c9
+        0x2b -> :sswitch_1b1
+        0x2c -> :sswitch_19d
+        0x2d -> :sswitch_189
+        0x2e -> :sswitch_179
+        0x2f -> :sswitch_165
+        0x30 -> :sswitch_155
+        0x31 -> :sswitch_141
+        0x32 -> :sswitch_129
+        0x33 -> :sswitch_115
+        0x34 -> :sswitch_105
+        0x35 -> :sswitch_f5
+        0x36 -> :sswitch_e3
+        0x37 -> :sswitch_d1
+        0xf43484e -> :sswitch_bf
+        0xf444247 -> :sswitch_a9
+        0xf445343 -> :sswitch_97
+        0xf485348 -> :sswitch_42
+        0xf494e54 -> :sswitch_3a
+        0xf4c5444 -> :sswitch_38
+        0xf504e47 -> :sswitch_2a
+        0xf524546 -> :sswitch_18
+        0xf535953 -> :sswitch_10
     .end sparse-switch
 .end method
 
 .method public final ping()V
-    .locals 0
+    .registers 1
 
     .line 1448
     return-void
 .end method
 
 .method public queryLocalInterface(Ljava/lang/String;)Landroid/os/IHwInterface;
-    .locals 1
+    .registers 3
     .param p1, "descriptor"    # Ljava/lang/String;
 
     .line 1476
@@ -2528,20 +2528,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1477
     return-object p0
 
     .line 1479
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public registerAsService(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "serviceName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2557,14 +2557,14 @@
 .end method
 
 .method public final setHALInstrumentation()V
-    .locals 0
+    .registers 1
 
     .line 1438
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 1488
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2589,7 +2589,7 @@
 .end method
 
 .method public final unlinkToDeath(Landroid/os/IHwBinder$DeathRecipient;)Z
-    .locals 1
+    .registers 3
     .param p1, "recipient"    # Landroid/os/IHwBinder$DeathRecipient;
 
     .line 1470

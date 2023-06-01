@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 34
     new-instance v0, Lcom/mediatek/wfo/DisconnectCause$1;
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 0
+    .registers 3
     .param p1, "error"    # I
     .param p2, "subError"    # I
 
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 1
+    .registers 2
 
     .line 25
     const/4 v0, 0x0
@@ -68,7 +68,7 @@
 .end method
 
 .method public getErrorCause()I
-    .locals 1
+    .registers 2
 
     .line 16
     iget v0, p0, Lcom/mediatek/wfo/DisconnectCause;->errorCause:I
@@ -77,7 +77,7 @@
 .end method
 
 .method public getSubErrorCause()I
-    .locals 1
+    .registers 2
 
     .line 20
     iget v0, p0, Lcom/mediatek/wfo/DisconnectCause;->subErrorCause:I
@@ -86,7 +86,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 47
     new-instance v0, Ljava/lang/StringBuilder;
@@ -121,7 +121,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 

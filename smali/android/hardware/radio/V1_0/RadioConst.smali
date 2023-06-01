@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .param p0, "o"    # I
 
     .line 62
@@ -60,7 +60,7 @@
 
     const/16 v3, 0x40
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_13
 
     .line 65
     const-string v2, "CDMA_ALPHA_INFO_BUFFER_LENGTH"
@@ -71,12 +71,12 @@
     or-int/lit8 v1, v1, 0x40
 
     .line 68
-    :cond_0
+    :cond_13
     and-int/lit8 v2, p0, 0x51
 
     const/16 v4, 0x51
 
-    if-ne v2, v4, :cond_1
+    if-ne v2, v4, :cond_20
 
     .line 69
     const-string v2, "CDMA_NUMBER_INFO_BUFFER_LENGTH"
@@ -87,12 +87,12 @@
     or-int/lit8 v1, v1, 0x51
 
     .line 72
-    :cond_1
+    :cond_20
     and-int/lit8 v2, p0, 0x3
 
     const/4 v4, 0x3
 
-    if-ne v2, v4, :cond_2
+    if-ne v2, v4, :cond_2c
 
     .line 73
     const-string v2, "MAX_RILDS"
@@ -103,12 +103,12 @@
     or-int/lit8 v1, v1, 0x3
 
     .line 76
-    :cond_2
+    :cond_2c
     and-int/lit8 v2, p0, 0x6
 
     const/4 v4, 0x6
 
-    if-ne v2, v4, :cond_3
+    if-ne v2, v4, :cond_38
 
     .line 77
     const-string v2, "MAX_SOCKET_NAME_LENGTH"
@@ -119,12 +119,12 @@
     or-int/lit8 v1, v1, 0x6
 
     .line 80
-    :cond_3
+    :cond_38
     and-int/lit8 v2, p0, 0x2
 
     const/4 v4, 0x2
 
-    if-ne v2, v4, :cond_4
+    if-ne v2, v4, :cond_44
 
     .line 81
     const-string v2, "MAX_CLIENT_ID_LENGTH"
@@ -135,12 +135,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 84
-    :cond_4
+    :cond_44
     and-int/lit8 v2, p0, 0xc
 
     const/16 v4, 0xc
 
-    if-ne v2, v4, :cond_5
+    if-ne v2, v4, :cond_51
 
     .line 85
     const-string v2, "MAX_DEBUG_SOCKET_NAME_LENGTH"
@@ -151,12 +151,12 @@
     or-int/lit8 v1, v1, 0xc
 
     .line 88
-    :cond_5
+    :cond_51
     and-int/lit8 v2, p0, 0xb
 
     const/16 v4, 0xb
 
-    if-ne v2, v4, :cond_6
+    if-ne v2, v4, :cond_5e
 
     .line 89
     const-string v2, "MAX_QEMU_PIPE_NAME_LENGTH"
@@ -167,10 +167,10 @@
     or-int/lit8 v1, v1, 0xb
 
     .line 92
-    :cond_6
+    :cond_5e
     and-int/lit8 v2, p0, 0x40
 
-    if-ne v2, v3, :cond_7
+    if-ne v2, v3, :cond_69
 
     .line 93
     const-string v2, "MAX_UUID_LENGTH"
@@ -181,12 +181,12 @@
     or-int/lit8 v1, v1, 0x40
 
     .line 96
-    :cond_7
+    :cond_69
     and-int/lit8 v2, p0, 0x8
 
     const/16 v3, 0x8
 
-    if-ne v2, v3, :cond_8
+    if-ne v2, v3, :cond_76
 
     .line 97
     const-string v2, "CARD_MAX_APPS"
@@ -197,12 +197,12 @@
     or-int/lit8 v1, v1, 0x8
 
     .line 100
-    :cond_8
+    :cond_76
     and-int/lit8 v2, p0, 0xa
 
     const/16 v3, 0xa
 
-    if-ne v2, v3, :cond_9
+    if-ne v2, v3, :cond_83
 
     .line 101
     const-string v2, "CDMA_MAX_NUMBER_OF_INFO_RECS"
@@ -213,12 +213,12 @@
     or-int/lit8 v1, v1, 0xa
 
     .line 104
-    :cond_9
+    :cond_83
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_a
+    if-ne v2, v3, :cond_8f
 
     .line 105
     const-string v2, "SS_INFO_MAX"
@@ -229,12 +229,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 108
-    :cond_a
+    :cond_8f
     and-int/lit8 v2, p0, 0x7
 
     const/4 v3, 0x7
 
-    if-ne v2, v3, :cond_b
+    if-ne v2, v3, :cond_9b
 
     .line 109
     const-string v2, "NUM_SERVICE_CLASSES"
@@ -245,12 +245,12 @@
     or-int/lit8 v1, v1, 0x7
 
     .line 112
-    :cond_b
+    :cond_9b
     and-int/lit8 v2, p0, 0x5
 
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_c
+    if-ne v2, v3, :cond_a7
 
     .line 113
     const-string v2, "NUM_TX_POWER_LEVELS"
@@ -261,8 +261,8 @@
     or-int/lit8 v1, v1, 0x5
 
     .line 116
-    :cond_c
-    if-eq p0, v1, :cond_d
+    :cond_a7
+    if-eq p0, v1, :cond_c3
 
     .line 117
     new-instance v2, Ljava/lang/StringBuilder;
@@ -290,7 +290,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 119
-    :cond_d
+    :cond_c3
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -301,13 +301,13 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 19
     const/16 v0, 0x40
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_7
 
     .line 20
     const-string v0, "CDMA_ALPHA_INFO_BUFFER_LENGTH"
@@ -315,10 +315,10 @@
     return-object v0
 
     .line 22
-    :cond_0
+    :cond_7
     const/16 v1, 0x51
 
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_e
 
     .line 23
     const-string v0, "CDMA_NUMBER_INFO_BUFFER_LENGTH"
@@ -326,10 +326,10 @@
     return-object v0
 
     .line 25
-    :cond_1
+    :cond_e
     const/4 v1, 0x3
 
-    if-ne p0, v1, :cond_2
+    if-ne p0, v1, :cond_14
 
     .line 26
     const-string v0, "MAX_RILDS"
@@ -337,10 +337,10 @@
     return-object v0
 
     .line 28
-    :cond_2
+    :cond_14
     const/4 v1, 0x6
 
-    if-ne p0, v1, :cond_3
+    if-ne p0, v1, :cond_1a
 
     .line 29
     const-string v0, "MAX_SOCKET_NAME_LENGTH"
@@ -348,10 +348,10 @@
     return-object v0
 
     .line 31
-    :cond_3
+    :cond_1a
     const/4 v1, 0x2
 
-    if-ne p0, v1, :cond_4
+    if-ne p0, v1, :cond_20
 
     .line 32
     const-string v0, "MAX_CLIENT_ID_LENGTH"
@@ -359,10 +359,10 @@
     return-object v0
 
     .line 34
-    :cond_4
+    :cond_20
     const/16 v1, 0xc
 
-    if-ne p0, v1, :cond_5
+    if-ne p0, v1, :cond_27
 
     .line 35
     const-string v0, "MAX_DEBUG_SOCKET_NAME_LENGTH"
@@ -370,10 +370,10 @@
     return-object v0
 
     .line 37
-    :cond_5
+    :cond_27
     const/16 v1, 0xb
 
-    if-ne p0, v1, :cond_6
+    if-ne p0, v1, :cond_2e
 
     .line 38
     const-string v0, "MAX_QEMU_PIPE_NAME_LENGTH"
@@ -381,8 +381,8 @@
     return-object v0
 
     .line 40
-    :cond_6
-    if-ne p0, v0, :cond_7
+    :cond_2e
+    if-ne p0, v0, :cond_33
 
     .line 41
     const-string v0, "MAX_UUID_LENGTH"
@@ -390,10 +390,10 @@
     return-object v0
 
     .line 43
-    :cond_7
+    :cond_33
     const/16 v0, 0x8
 
-    if-ne p0, v0, :cond_8
+    if-ne p0, v0, :cond_3a
 
     .line 44
     const-string v0, "CARD_MAX_APPS"
@@ -401,10 +401,10 @@
     return-object v0
 
     .line 46
-    :cond_8
+    :cond_3a
     const/16 v0, 0xa
 
-    if-ne p0, v0, :cond_9
+    if-ne p0, v0, :cond_41
 
     .line 47
     const-string v0, "CDMA_MAX_NUMBER_OF_INFO_RECS"
@@ -412,10 +412,10 @@
     return-object v0
 
     .line 49
-    :cond_9
+    :cond_41
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_a
+    if-ne p0, v0, :cond_47
 
     .line 50
     const-string v0, "SS_INFO_MAX"
@@ -423,10 +423,10 @@
     return-object v0
 
     .line 52
-    :cond_a
+    :cond_47
     const/4 v0, 0x7
 
-    if-ne p0, v0, :cond_b
+    if-ne p0, v0, :cond_4d
 
     .line 53
     const-string v0, "NUM_SERVICE_CLASSES"
@@ -434,10 +434,10 @@
     return-object v0
 
     .line 55
-    :cond_b
+    :cond_4d
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_c
+    if-ne p0, v0, :cond_53
 
     .line 56
     const-string v0, "NUM_TX_POWER_LEVELS"
@@ -445,7 +445,7 @@
     return-object v0
 
     .line 58
-    :cond_c
+    :cond_53
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

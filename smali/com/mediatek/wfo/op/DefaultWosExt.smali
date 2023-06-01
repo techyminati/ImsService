@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 42
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public clearPDNErrorMessages()V
-    .locals 2
+    .registers 3
 
     .line 51
     const-string v0, "DefaultWosExt"
@@ -46,7 +46,7 @@
 .end method
 
 .method public dispose()V
-    .locals 2
+    .registers 3
 
     .line 67
     const-string v0, "DefaultWosExt"
@@ -60,7 +60,7 @@
 .end method
 
 .method public factoryReset()V
-    .locals 2
+    .registers 3
 
     .line 55
     const-string v0, "DefaultWosExt"
@@ -74,7 +74,7 @@
 .end method
 
 .method public initialize(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 63
@@ -89,7 +89,7 @@
 .end method
 
 .method public setWfcRegErrorCode(II)V
-    .locals 2
+    .registers 5
     .param p1, "mainErr"    # I
     .param p2, "simIdx"    # I
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public showLocationTimeoutMessage()V
-    .locals 2
+    .registers 3
 
     .line 59
     const-string v0, "DefaultWosExt"
@@ -119,7 +119,7 @@
 .end method
 
 .method public showPDNErrorMessages(I)V
-    .locals 2
+    .registers 4
     .param p1, "errorCode"    # I
 
     .line 47

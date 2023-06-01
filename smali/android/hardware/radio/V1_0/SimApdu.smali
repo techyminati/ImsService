@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method public static final readVectorFromParcel(Landroid/os/HwParcel;)Ljava/util/ArrayList;
-    .locals 12
+    .registers 13
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -121,8 +121,8 @@
     const/4 v4, 0x0
 
     .local v4, "_hidl_index_0":I
-    :goto_0
-    if-ge v4, v2, :cond_0
+    :goto_24
+    if-ge v4, v2, :cond_37
 
     .line 100
     new-instance v5, Landroid/hardware/radio/V1_0/SimApdu;
@@ -144,18 +144,18 @@
     .end local v5    # "_hidl_vec_element":Landroid/hardware/radio/V1_0/SimApdu;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
     .line 106
     .end local v2    # "_hidl_vec_size":I
     .end local v3    # "childBlob":Landroid/os/HwBlob;
     .end local v4    # "_hidl_index_0":I
-    :cond_0
+    :cond_37
     return-object v0
 .end method
 
 .method public static final writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
-    .locals 7
+    .registers 9
     .param p0, "parcel"    # Landroid/os/HwParcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -206,8 +206,8 @@
     const/4 v3, 0x0
 
     .local v3, "_hidl_index_0":I
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_1e
+    if-ge v3, v1, :cond_2f
 
     .line 141
     invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -225,11 +225,11 @@
     .line 140
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 143
     .end local v3    # "_hidl_index_0":I
-    :cond_0
+    :cond_2f
     const-wide/16 v3, 0x0
 
     invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
@@ -246,41 +246,41 @@
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
+    .registers 7
     .param p1, "otherObject"    # Ljava/lang/Object;
 
     .line 15
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 16
     return v0
 
     .line 18
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     .line 19
     return v1
 
     .line 21
-    :cond_1
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
     const-class v3, Landroid/hardware/radio/V1_0/SimApdu;
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_11
 
     .line 22
     return v1
 
     .line 24
-    :cond_2
+    :cond_11
     move-object v2, p1
 
     check-cast v2, Landroid/hardware/radio/V1_0/SimApdu;
@@ -291,68 +291,68 @@
 
     iget v4, v2, Landroid/hardware/radio/V1_0/SimApdu;->sessionId:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_1b
 
     .line 26
     return v1
 
     .line 28
-    :cond_3
+    :cond_1b
     iget v3, p0, Landroid/hardware/radio/V1_0/SimApdu;->cla:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/SimApdu;->cla:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_22
 
     .line 29
     return v1
 
     .line 31
-    :cond_4
+    :cond_22
     iget v3, p0, Landroid/hardware/radio/V1_0/SimApdu;->instruction:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/SimApdu;->instruction:I
 
-    if-eq v3, v4, :cond_5
+    if-eq v3, v4, :cond_29
 
     .line 32
     return v1
 
     .line 34
-    :cond_5
+    :cond_29
     iget v3, p0, Landroid/hardware/radio/V1_0/SimApdu;->p1:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/SimApdu;->p1:I
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v4, :cond_30
 
     .line 35
     return v1
 
     .line 37
-    :cond_6
+    :cond_30
     iget v3, p0, Landroid/hardware/radio/V1_0/SimApdu;->p2:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/SimApdu;->p2:I
 
-    if-eq v3, v4, :cond_7
+    if-eq v3, v4, :cond_37
 
     .line 38
     return v1
 
     .line 40
-    :cond_7
+    :cond_37
     iget v3, p0, Landroid/hardware/radio/V1_0/SimApdu;->p3:I
 
     iget v4, v2, Landroid/hardware/radio/V1_0/SimApdu;->p3:I
 
-    if-eq v3, v4, :cond_8
+    if-eq v3, v4, :cond_3e
 
     .line 41
     return v1
 
     .line 43
-    :cond_8
+    :cond_3e
     iget-object v3, p0, Landroid/hardware/radio/V1_0/SimApdu;->data:Ljava/lang/String;
 
     iget-object v4, v2, Landroid/hardware/radio/V1_0/SimApdu;->data:Ljava/lang/String;
@@ -361,18 +361,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_49
 
     .line 44
     return v1
 
     .line 46
-    :cond_9
+    :cond_49
     return v0
 .end method
 
 .method public final hashCode()I
-    .locals 3
+    .registers 4
 
     .line 51
     const/4 v0, 0x7
@@ -517,7 +517,7 @@
 .end method
 
 .method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
-    .locals 15
+    .registers 20
     .param p1, "parcel"    # Landroid/os/HwParcel;
     .param p2, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p3, "_hidl_offset"    # J
@@ -638,7 +638,7 @@
 .end method
 
 .method public final readFromParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 84
@@ -659,7 +659,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 63
     new-instance v0, Ljava/lang/StringBuilder;
@@ -756,7 +756,7 @@
 .end method
 
 .method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-    .locals 3
+    .registers 7
     .param p1, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p2, "_hidl_offset"    # J
 
@@ -828,7 +828,7 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/HwParcel;)V
-    .locals 3
+    .registers 5
     .param p1, "parcel"    # Landroid/os/HwParcel;
 
     .line 127

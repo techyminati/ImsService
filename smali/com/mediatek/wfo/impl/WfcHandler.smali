@@ -153,7 +153,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 101
     const-string v0, "wfc_aid_value"
@@ -202,7 +202,7 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_34
 
     sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
 
@@ -213,20 +213,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_32
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_0
+    :cond_32
     move v0, v1
 
-    goto :goto_1
+    goto :goto_35
 
-    :cond_1
-    :goto_0
+    :cond_34
+    :goto_34
     move v0, v2
 
-    :goto_1
+    :goto_35
     sput-boolean v0, Lcom/mediatek/wfo/impl/WfcHandler;->USR_BUILD:Z
 
     .line 197
@@ -236,18 +236,18 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_40
 
     move v1, v2
 
-    :cond_2
+    :cond_40
     sput-boolean v1, Lcom/mediatek/wfo/impl/WfcHandler;->TELDBG:Z
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/mediatek/wfo/impl/WifiPdnHandler;ILandroid/os/Looper;[Lcom/mediatek/wfo/ril/MwiRIL;)V
-    .locals 2
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "wifiHandler"    # Lcom/mediatek/wfo/impl/WifiPdnHandler;
     .param p3, "simCount"    # I
@@ -309,20 +309,20 @@
     iput-object p2, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
 
     .line 453
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_35
 
     .line 454
     invoke-virtual {p2, p0}, Lcom/mediatek/wfo/impl/WifiPdnHandler;->setWfcHandler(Lcom/mediatek/wfo/impl/WfcHandler;)V
 
     .line 456
-    :cond_0
+    :cond_35
     const/4 v0, 0x4
 
-    if-gt p3, v0, :cond_1
+    if-gt p3, v0, :cond_39
 
     move v0, p3
 
-    :cond_1
+    :cond_39
     iput v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mSimCount:I
 
     .line 457
@@ -354,7 +354,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/mediatek/wfo/impl/WfcHandler;)Landroid/os/RemoteCallbackList;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 96
@@ -364,7 +364,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/mediatek/wfo/impl/WfcHandler;ILjava/lang/String;)Z
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
     .param p1, "x1"    # I
     .param p2, "x2"    # Ljava/lang/String;
@@ -378,7 +378,7 @@
 .end method
 
 .method static synthetic access$1002(Lcom/mediatek/wfo/impl/WfcHandler;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
     .param p1, "x1"    # Z
 
@@ -389,7 +389,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/mediatek/wfo/impl/WfcHandler;Z)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
     .param p1, "x1"    # Z
 
@@ -400,7 +400,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/mediatek/wfo/impl/WfcHandler;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 96
@@ -412,7 +412,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/mediatek/wfo/impl/WfcHandler;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 96
@@ -422,7 +422,7 @@
 .end method
 
 .method static synthetic access$1302(Lcom/mediatek/wfo/impl/WfcHandler;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
     .param p1, "x1"    # I
 
@@ -433,7 +433,7 @@
 .end method
 
 .method static synthetic access$1400(Lcom/mediatek/wfo/impl/WfcHandler;I)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
     .param p1, "x1"    # I
 
@@ -444,7 +444,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/mediatek/wfo/impl/WfcHandler;)[Lcom/mediatek/wfo/DisconnectCause;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 96
@@ -454,7 +454,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/mediatek/wfo/impl/WfcHandler;)Lcom/mediatek/wfo/impl/WifiPdnHandler;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 96
@@ -464,7 +464,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/mediatek/wfo/impl/WfcHandler;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 96
@@ -474,7 +474,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/mediatek/wfo/impl/WfcHandler;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
     .param p1, "x1"    # Z
 
@@ -485,7 +485,7 @@
 .end method
 
 .method static synthetic access$500()Landroid/net/Uri;
-    .locals 1
+    .registers 1
 
     .line 96
     sget-object v0, Lcom/mediatek/wfo/impl/WfcHandler;->AID_SETTING_URI:Landroid/net/Uri;
@@ -494,7 +494,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/mediatek/wfo/impl/WfcHandler;)Landroid/content/Context;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 96
@@ -504,7 +504,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/mediatek/wfo/impl/WfcHandler;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 96
@@ -514,7 +514,7 @@
 .end method
 
 .method static synthetic access$702(Lcom/mediatek/wfo/impl/WfcHandler;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
     .param p1, "x1"    # Ljava/lang/String;
 
@@ -525,7 +525,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/mediatek/wfo/impl/WfcHandler;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 96
@@ -535,7 +535,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/mediatek/wfo/impl/WfcHandler;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 96
@@ -545,7 +545,7 @@
 .end method
 
 .method private checkIfShowNoInternetError(Z)V
-    .locals 7
+    .registers 9
     .param p1, "showImmediately"    # Z
 
     .line 1068
@@ -581,31 +581,31 @@
     .local v3, "isWifiConnected":Z
     const/4 v4, -0x1
 
-    if-ne v0, v4, :cond_0
+    if-ne v0, v4, :cond_1a
 
     .line 1076
     return-void
 
     .line 1079
-    :cond_0
+    :cond_1a
     iget-object v4, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mIsWfcSettingsOn:[Z
 
     aget-boolean v4, v4, v0
 
     const/16 v5, 0x7d2
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4b
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_4b
 
     iget-boolean v4, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mIsWifiL2Connected:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4b
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_4b
 
     .line 1082
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_34
 
     .line 1083
     iget-object v4, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWosExt:Lcom/mediatek/wfo/op/IWosExt;
@@ -618,12 +618,12 @@
     return-void
 
     .line 1087
-    :cond_1
+    :cond_34
     invoke-virtual {p0, v5}, Lcom/mediatek/wfo/impl/WfcHandler;->hasMessages(I)Z
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_59
 
     .line 1088
     const-string v4, "checkIfShowNoInternetError(): start 8s timeout"
@@ -645,15 +645,15 @@
     .line 1089
     invoke-virtual {p0, v4, v5, v6}, Lcom/mediatek/wfo/impl/WfcHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto :goto_0
+    goto :goto_59
 
     .line 1095
-    :cond_2
+    :cond_4b
     invoke-virtual {p0, v5}, Lcom/mediatek/wfo/impl/WfcHandler;->hasMessages(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_59
 
     .line 1096
     const-string v4, "checkIfShowNoInternetError(): cancel 8s timeout"
@@ -664,34 +664,34 @@
     invoke-virtual {p0, v5}, Lcom/mediatek/wfo/impl/WfcHandler;->removeMessages(I)V
 
     .line 1100
-    :cond_3
-    :goto_0
+    :cond_59
+    :goto_59
     return-void
 .end method
 
 .method private checkInvalidSimIdx(ILjava/lang/String;)Z
-    .locals 1
+    .registers 4
     .param p1, "simIdx"    # I
     .param p2, "dbgMsg"    # Ljava/lang/String;
 
     .line 783
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_9
 
     iget v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mSimCount:I
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_7
 
-    goto :goto_0
+    goto :goto_9
 
     .line 787
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     return v0
 
     .line 784
-    :cond_1
-    :goto_0
+    :cond_9
+    :goto_9
     invoke-virtual {p0, p2}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
 
     .line 785
@@ -701,12 +701,12 @@
 .end method
 
 .method private createWosExt()V
-    .locals 3
+    .registers 4
 
     .line 1109
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWosExt:Lcom/mediatek/wfo/op/IWosExt;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 1110
     invoke-interface {v0}, Lcom/mediatek/wfo/op/IWosExt;->dispose()V
@@ -717,7 +717,7 @@
     iput-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWosExt:Lcom/mediatek/wfo/op/IWosExt;
 
     .line 1113
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/mediatek/wfo/op/OpWosCustomizationUtils;->getOpFactory(Landroid/content/Context;)Lcom/mediatek/wfo/op/OpWosCustomizationFactoryBase;
@@ -744,7 +744,7 @@
 .end method
 
 .method private getBooleanCarrierConfig(Ljava/lang/String;I)Z
-    .locals 5
+    .registers 8
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "subId"    # I
 
@@ -765,7 +765,7 @@
 
     .line 1204
     .local v1, "b":Landroid/os/PersistableBundle;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 1205
     invoke-virtual {v0, p2}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
@@ -773,8 +773,8 @@
     move-result-object v1
 
     .line 1209
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_11
+    if-eqz v1, :cond_18
 
     .line 1210
     invoke-virtual {v1, p1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
@@ -782,11 +782,11 @@
     move-result v2
 
     .local v2, "ret":Z
-    goto :goto_0
+    goto :goto_25
 
     .line 1213
     .end local v2    # "ret":Z
-    :cond_1
+    :cond_18
     const-string v2, "getBooleanCarrierConfig: get from default config"
 
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
@@ -802,7 +802,7 @@
 
     .line 1217
     .restart local v2    # "ret":Z
-    :goto_0
+    :goto_25
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -836,7 +836,7 @@
 .end method
 
 .method private getCurrentAssociatedApCount()I
-    .locals 12
+    .registers 13
 
     .line 1147
     const/4 v0, 0x0
@@ -857,7 +857,7 @@
     .local v1, "wifiManager":Landroid/net/wifi/WifiManager;
     const-string v2, "WfcHandler"
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_79
 
     .line 1152
     invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->getScanResults()Ljava/util/List;
@@ -872,21 +872,21 @@
 
     .line 1155
     .local v4, "wifiConfigList":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/WifiConfiguration;>;"
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5c
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5c
 
     .line 1158
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_0
+    :goto_1f
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_5b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -900,12 +900,12 @@
 
     move-result-object v6
 
-    :goto_1
+    :goto_2f
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_5a
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -921,7 +921,7 @@
     .local v8, "strTrimmed":Ljava/lang/String;
     iget-object v9, v7, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_4b
 
     .line 1162
     iget-object v9, v7, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
@@ -935,10 +935,10 @@
     move-result-object v8
 
     .line 1164
-    :cond_0
+    :cond_4b
     iget-object v9, v5, Landroid/net/wifi/ScanResult;->SSID:Ljava/lang/String;
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_59
 
     iget-object v9, v5, Landroid/net/wifi/ScanResult;->SSID:Ljava/lang/String;
 
@@ -946,7 +946,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_59
 
     .line 1166
     add-int/lit8 v0, v0, 0x1
@@ -954,19 +954,19 @@
     .line 1168
     .end local v7    # "configuredAP":Landroid/net/wifi/WifiConfiguration;
     .end local v8    # "strTrimmed":Ljava/lang/String;
-    :cond_1
-    goto :goto_1
+    :cond_59
+    goto :goto_2f
 
     .line 1169
     .end local v5    # "appInfo":Landroid/net/wifi/ScanResult;
-    :cond_2
-    goto :goto_0
+    :cond_5a
+    goto :goto_1f
 
-    :cond_3
-    goto :goto_2
+    :cond_5b
+    goto :goto_78
 
     .line 1171
-    :cond_4
+    :cond_5c
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -992,17 +992,17 @@
     .line 1174
     .end local v3    # "scanResults":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
     .end local v4    # "wifiConfigList":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/WifiConfiguration;>;"
-    :goto_2
-    goto :goto_3
+    :goto_78
+    goto :goto_7e
 
     .line 1175
-    :cond_5
+    :cond_79
     const-string v3, "getCurrentAssociatedApCount() wifiManager null"
 
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1178
-    :goto_3
+    :goto_7e
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1024,7 +1024,7 @@
 .end method
 
 .method public static getInstance()Lcom/mediatek/wfo/impl/WfcHandler;
-    .locals 1
+    .registers 1
 
     .line 434
     sget-object v0, Lcom/mediatek/wfo/impl/WfcHandler;->mInstance:Lcom/mediatek/wfo/impl/WfcHandler;
@@ -1033,7 +1033,7 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;Lcom/mediatek/wfo/impl/WifiPdnHandler;ILandroid/os/Looper;[Lcom/mediatek/wfo/ril/MwiRIL;)Lcom/mediatek/wfo/impl/WfcHandler;
-    .locals 7
+    .registers 12
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "wifiHandler"    # Lcom/mediatek/wfo/impl/WifiPdnHandler;
     .param p2, "simCount"    # I
@@ -1043,7 +1043,7 @@
     .line 440
     sget-object v0, Lcom/mediatek/wfo/impl/WfcHandler;->mInstance:Lcom/mediatek/wfo/impl/WfcHandler;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 441
     new-instance v0, Lcom/mediatek/wfo/impl/WfcHandler;
@@ -1065,14 +1065,14 @@
     sput-object v0, Lcom/mediatek/wfo/impl/WfcHandler;->mInstance:Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 443
-    :cond_0
+    :cond_11
     sget-object v0, Lcom/mediatek/wfo/impl/WfcHandler;->mInstance:Lcom/mediatek/wfo/impl/WfcHandler;
 
     return-object v0
 .end method
 
 .method private getMainCapabilityPhoneId()I
-    .locals 3
+    .registers 4
 
     .line 1048
     const-string v0, "persist.vendor.radio.simswitch"
@@ -1087,16 +1087,16 @@
 
     .line 1049
     .local v0, "phoneId":I
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_f
 
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_26
 
     .line 1050
-    :cond_0
+    :cond_f
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1119,12 +1119,12 @@
     const/4 v0, -0x1
 
     .line 1053
-    :cond_1
+    :cond_26
     return v0
 .end method
 
 .method private getMwiRil()Lcom/mediatek/wfo/ril/MwiRIL;
-    .locals 2
+    .registers 3
 
     .line 1057
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcHandler;->getMainCapabilityPhoneId()I
@@ -1135,7 +1135,7 @@
     .local v0, "phoneId":I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     .line 1060
     const/4 v1, 0x0
@@ -1143,7 +1143,7 @@
     return-object v1
 
     .line 1062
-    :cond_0
+    :cond_9
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
 
     aget-object v1, v1, v0
@@ -1152,7 +1152,7 @@
 .end method
 
 .method private getSubIdBySlot(I)I
-    .locals 2
+    .registers 4
     .param p1, "slot"    # I
 
     .line 1103
@@ -1162,25 +1162,25 @@
 
     .line 1104
     .local v0, "subId":[I
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 v1, 0x0
 
     aget v1, v0, v1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_a
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultSubscriptionId()I
 
     move-result v1
 
-    :goto_0
+    :goto_e
     return v1
 .end method
 
 .method private handleModemPower()V
-    .locals 2
+    .registers 3
 
     .line 801
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1216,34 +1216,34 @@
     .line 809
     iget-boolean v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mIsWifiEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_31
 
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcHandler;->isWfcSettingsEnabledAny()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_31
 
     .line 810
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/mediatek/wfo/impl/WfcHandler;->notifyPowerOnModem(Z)V
 
-    goto :goto_0
+    goto :goto_35
 
     .line 812
-    :cond_0
+    :cond_31
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/mediatek/wfo/impl/WfcHandler;->notifyPowerOnModem(Z)V
 
     .line 814
-    :goto_0
+    :goto_35
     return-void
 .end method
 
 .method private handleRetry(ILandroid/os/AsyncResult;)V
-    .locals 2
+    .registers 5
     .param p1, "msgId"    # I
     .param p2, "result"    # Landroid/os/AsyncResult;
 
@@ -1252,18 +1252,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 278
     return-void
 
     .line 281
-    :cond_0
-    if-eqz p2, :cond_1
+    :cond_7
+    if-eqz p2, :cond_12
 
     iget-object v0, p2, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 282
     const-wide/16 v0, 0xbb8
@@ -1271,12 +1271,12 @@
     invoke-virtual {p0, p1, v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->sendEmptyMessageDelayed(IJ)Z
 
     .line 284
-    :cond_1
+    :cond_12
     return-void
 .end method
 
 .method private initialize()V
-    .locals 2
+    .registers 3
 
     .line 468
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mContext:Landroid/content/Context;
@@ -1335,23 +1335,23 @@
 .end method
 
 .method private isWfcSettingsEnabledAny()Z
-    .locals 3
+    .registers 4
 
     .line 834
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mSimCount:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_24
 
     .line 836
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mIsWfcSettingsOn:[Z
 
     aget-boolean v1, v1, v0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 837
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1376,27 +1376,27 @@
     return v1
 
     .line 834
-    :cond_0
+    :cond_21
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 841
     .end local v0    # "i":I
-    :cond_1
+    :cond_24
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private messageToString(Landroid/os/Message;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 287
     iget v0, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_3c
 
     .line 324
     const-string v0, "UNKNOWN"
@@ -1404,133 +1404,133 @@
     return-object v0
 
     .line 316
-    :sswitch_0
+    :sswitch_8
     const-string v0, "RESPONSE_NOTIFY_EPDG_SCREEN_STATE"
 
     return-object v0
 
     .line 314
-    :sswitch_1
+    :sswitch_b
     const-string v0, "EVENT_ON_ALLOW_WIFI_OFF"
 
     return-object v0
 
     .line 310
-    :sswitch_2
+    :sswitch_e
     const-string v0, "EVENT_ON_LOCATION_TIMEOUT"
 
     return-object v0
 
     .line 306
-    :sswitch_3
+    :sswitch_11
     const-string v0, "RESPONSE_SET_WFC_EMERGENCY_ADDRESS_ID"
 
     return-object v0
 
     .line 318
-    :sswitch_4
+    :sswitch_14
     const-string v0, "EVENT_HANDLE_WFC_STATE_CHANGED"
 
     return-object v0
 
     .line 308
-    :sswitch_5
+    :sswitch_17
     const-string v0, "EVENT_ON_WIFI_PDN_OOS"
 
     return-object v0
 
     .line 304
-    :sswitch_6
+    :sswitch_1a
     const-string v0, "EVENT_ON_WFC_PDN_STATE_CHANGED"
 
     return-object v0
 
     .line 302
-    :sswitch_7
+    :sswitch_1d
     const-string v0, "EVENT_ON_ROVE_OUT"
 
     return-object v0
 
     .line 300
-    :sswitch_8
+    :sswitch_20
     const-string v0, "EVENT_ON_PDN_ERROR"
 
     return-object v0
 
     .line 298
-    :sswitch_9
+    :sswitch_23
     const-string v0, "EVENT_ON_PDN_HANDOVER"
 
     return-object v0
 
     .line 322
-    :sswitch_a
+    :sswitch_26
     const-string v0, "EVENT_MULTI_SIM_CONFIG_CHANGED"
 
     return-object v0
 
     .line 320
-    :sswitch_b
+    :sswitch_29
     const-string v0, "EVENT_INITIALIZE"
 
     return-object v0
 
     .line 294
-    :sswitch_c
+    :sswitch_2c
     const-string v0, "EVENT_NOTIFY_EPDG_SCREEN_STATE"
 
     return-object v0
 
     .line 312
-    :sswitch_d
+    :sswitch_2f
     const-string v0, "EVENT_HANDLE_WIFI_STATE_CHANGE"
 
     return-object v0
 
     .line 296
-    :sswitch_e
+    :sswitch_32
     const-string v0, "EVENT_NOTIFY_WIFI_NO_INTERNET"
 
     return-object v0
 
     .line 292
-    :sswitch_f
+    :sswitch_35
     const-string v0, "EVENT_SET_WFC_EMERGENCY_ADDRESS_ID"
 
     return-object v0
 
     .line 290
-    :sswitch_10
+    :sswitch_38
     const-string v0, "EVENT_HANDLE_MODEM_POWER"
 
     return-object v0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_3c
     .sparse-switch
-        0x7d0 -> :sswitch_10
-        0x7d1 -> :sswitch_f
-        0x7d2 -> :sswitch_e
-        0x7d3 -> :sswitch_d
-        0x7d4 -> :sswitch_c
-        0x7d5 -> :sswitch_b
-        0x7d6 -> :sswitch_a
-        0x834 -> :sswitch_9
-        0x835 -> :sswitch_8
-        0x836 -> :sswitch_7
-        0x837 -> :sswitch_6
-        0x838 -> :sswitch_5
-        0x839 -> :sswitch_4
-        0x898 -> :sswitch_3
-        0x899 -> :sswitch_2
-        0x89a -> :sswitch_1
-        0x89b -> :sswitch_0
+        0x7d0 -> :sswitch_38
+        0x7d1 -> :sswitch_35
+        0x7d2 -> :sswitch_32
+        0x7d3 -> :sswitch_2f
+        0x7d4 -> :sswitch_2c
+        0x7d5 -> :sswitch_29
+        0x7d6 -> :sswitch_26
+        0x834 -> :sswitch_23
+        0x835 -> :sswitch_20
+        0x836 -> :sswitch_1d
+        0x837 -> :sswitch_1a
+        0x838 -> :sswitch_17
+        0x839 -> :sswitch_14
+        0x898 -> :sswitch_11
+        0x899 -> :sswitch_e
+        0x89a -> :sswitch_b
+        0x89b -> :sswitch_8
     .end sparse-switch
 .end method
 
 .method private notifyEPDGScreenState(I)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # I
 
     .line 983
@@ -1570,20 +1570,20 @@
 .end method
 
 .method private notifyLocationTimeout()V
-    .locals 2
+    .registers 3
 
     .line 1130
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWosExt:Lcom/mediatek/wfo/op/IWosExt;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 1131
     invoke-interface {v0}, Lcom/mediatek/wfo/op/IWosExt;->showLocationTimeoutMessage()V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 1133
-    :cond_0
+    :cond_8
     const-string v0, "WfcHandler"
 
     const-string v1, "notifyLocationTimeout: mWosExt null"
@@ -1591,12 +1591,12 @@
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1135
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method private notifyOnAllowWifiOff()V
-    .locals 3
+    .registers 4
 
     .line 416
     const-string v0, "notifyOnAllowWifiOff"
@@ -1612,14 +1612,14 @@
 
     .line 418
     .local v0, "i":I
-    :goto_0
-    if-lez v0, :cond_0
+    :goto_b
+    if-lez v0, :cond_29
 
     .line 419
     add-int/lit8 v0, v0, -0x1
 
     .line 421
-    :try_start_0
+    :try_start_f
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v1, v0}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
@@ -1629,14 +1629,14 @@
     check-cast v1, Lcom/mediatek/wfo/IWifiOffloadListener;
 
     invoke-interface {v1}, Lcom/mediatek/wfo/IWifiOffloadListener;->onAllowWifiOff()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Landroid/os/RemoteException; {:try_start_f .. :try_end_1a} :catch_22
+    .catch Ljava/lang/IllegalStateException; {:try_start_f .. :try_end_1a} :catch_1b
 
-    goto :goto_1
+    goto :goto_28
 
     .line 426
-    :catch_0
+    :catch_1b
     move-exception v1
 
     .line 427
@@ -1646,10 +1646,10 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
 
     .end local v1    # "e":Ljava/lang/IllegalStateException;
-    goto :goto_1
+    goto :goto_28
 
     .line 422
-    :catch_1
+    :catch_22
     move-exception v1
 
     .line 425
@@ -1660,11 +1660,11 @@
 
     .line 428
     .end local v1    # "e":Landroid/os/RemoteException;
-    :goto_1
-    goto :goto_0
+    :goto_28
+    goto :goto_b
 
     .line 430
-    :cond_0
+    :cond_29
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v1}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
@@ -1674,7 +1674,7 @@
 .end method
 
 .method private notifyOnHandover(III)V
-    .locals 3
+    .registers 7
     .param p1, "simIdx"    # I
     .param p2, "stage"    # I
     .param p3, "ratType"    # I
@@ -1717,14 +1717,14 @@
 
     .line 992
     .local v0, "i":I
-    :goto_0
-    if-lez v0, :cond_0
+    :goto_2a
+    if-lez v0, :cond_48
 
     .line 993
     add-int/lit8 v0, v0, -0x1
 
     .line 995
-    :try_start_0
+    :try_start_2e
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v1, v0}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
@@ -1734,14 +1734,14 @@
     check-cast v1, Lcom/mediatek/wfo/IWifiOffloadListener;
 
     invoke-interface {v1, p1, p2, p3}, Lcom/mediatek/wfo/IWifiOffloadListener;->onHandover(III)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_39
+    .catch Landroid/os/RemoteException; {:try_start_2e .. :try_end_39} :catch_41
+    .catch Ljava/lang/IllegalStateException; {:try_start_2e .. :try_end_39} :catch_3a
 
-    goto :goto_1
+    goto :goto_47
 
     .line 1000
-    :catch_0
+    :catch_3a
     move-exception v1
 
     .line 1001
@@ -1751,10 +1751,10 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
 
     .end local v1    # "e":Ljava/lang/IllegalStateException;
-    goto :goto_1
+    goto :goto_47
 
     .line 996
-    :catch_1
+    :catch_41
     move-exception v1
 
     .line 999
@@ -1765,11 +1765,11 @@
 
     .line 1002
     .end local v1    # "e":Landroid/os/RemoteException;
-    :goto_1
-    goto :goto_0
+    :goto_47
+    goto :goto_2a
 
     .line 1004
-    :cond_0
+    :cond_48
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v1}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
@@ -1779,7 +1779,7 @@
 .end method
 
 .method private notifyOnRoveOut(IZI)V
-    .locals 3
+    .registers 7
     .param p1, "simIdx"    # I
     .param p2, "roveOut"    # Z
     .param p3, "rssi"    # I
@@ -1822,14 +1822,14 @@
 
     .line 1010
     .local v0, "i":I
-    :goto_0
-    if-lez v0, :cond_0
+    :goto_2a
+    if-lez v0, :cond_41
 
     .line 1011
     add-int/lit8 v0, v0, -0x1
 
     .line 1013
-    :try_start_0
+    :try_start_2e
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v1, v0}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
@@ -1839,13 +1839,13 @@
     check-cast v1, Lcom/mediatek/wfo/IWifiOffloadListener;
 
     invoke-interface {v1, p1, p2, p3}, Lcom/mediatek/wfo/IWifiOffloadListener;->onRoveOut(IZI)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_39
+    .catch Landroid/os/RemoteException; {:try_start_2e .. :try_end_39} :catch_3a
 
-    goto :goto_1
+    goto :goto_40
 
     .line 1014
-    :catch_0
+    :catch_3a
     move-exception v1
 
     .line 1015
@@ -1856,11 +1856,11 @@
 
     .line 1016
     .end local v1    # "e":Landroid/os/RemoteException;
-    :goto_1
-    goto :goto_0
+    :goto_40
+    goto :goto_2a
 
     .line 1018
-    :cond_0
+    :cond_41
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v1}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
@@ -1870,7 +1870,7 @@
 .end method
 
 .method private notifyOnWifiPdnOOS(Ljava/lang/String;III)V
-    .locals 3
+    .registers 8
     .param p1, "apn"    # Ljava/lang/String;
     .param p2, "callId"    # I
     .param p3, "oosState"    # I
@@ -1920,14 +1920,14 @@
 
     .line 1026
     .local v0, "i":I
-    :goto_0
-    if-lez v0, :cond_0
+    :goto_32
+    if-lez v0, :cond_4e
 
     .line 1027
     add-int/lit8 v0, v0, -0x1
 
     .line 1029
-    :try_start_0
+    :try_start_36
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v1, v0}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
@@ -1942,13 +1942,13 @@
     const-string v1, "onWifiPdnOOSStateChanged"
 
     invoke-virtual {p0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_46
+    .catch Landroid/os/RemoteException; {:try_start_36 .. :try_end_46} :catch_47
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 1031
-    :catch_0
+    :catch_47
     move-exception v1
 
     .line 1032
@@ -1959,11 +1959,11 @@
 
     .line 1033
     .end local v1    # "e":Landroid/os/RemoteException;
-    :goto_1
-    goto :goto_0
+    :goto_4d
+    goto :goto_32
 
     .line 1035
-    :cond_0
+    :cond_4e
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v1}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
@@ -1973,7 +1973,7 @@
 .end method
 
 .method private notifyPowerOnModem(Z)V
-    .locals 2
+    .registers 4
     .param p1, "isModemOn"    # Z
 
     .line 817
@@ -1989,7 +1989,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 818
     const-string v0, "modem always on, no need to control it!"
@@ -2000,10 +2000,10 @@
     return-void
 
     .line 822
-    :cond_0
+    :cond_14
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mContext:Landroid/content/Context;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     .line 823
     const-string v0, "context is null, can\'t control modem!"
@@ -2014,7 +2014,7 @@
     return-void
 
     .line 827
-    :cond_1
+    :cond_1e
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "mediatek.intent.action.WFC_POWER_ON_MODEM"
@@ -2042,7 +2042,7 @@
 .end method
 
 .method private onMultiSimConfigChanged(I)V
-    .locals 5
+    .registers 7
     .param p1, "activeModemCount"    # I
 
     .line 496
@@ -2083,24 +2083,24 @@
     invoke-static {v2, v1}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 501
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_2d
 
     return-void
 
     .line 503
-    :cond_0
+    :cond_2d
     iput p1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mSimCount:I
 
     .line 505
-    if-le v0, p1, :cond_1
+    if-le v0, p1, :cond_35
 
     .line 507
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcHandler;->updateWfcUISetting()Z
 
-    goto :goto_1
+    goto :goto_86
 
     .line 509
-    :cond_1
+    :cond_35
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mDisconnectCause:[Lcom/mediatek/wfo/DisconnectCause;
 
     invoke-static {v1, p1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -2136,8 +2136,8 @@
     move v1, v0
 
     .local v1, "i":I
-    :goto_0
-    if-ge v1, p1, :cond_2
+    :goto_53
+    if-ge v1, p1, :cond_86
 
     .line 517
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
@@ -2189,17 +2189,17 @@
     .line 516
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_53
 
     .line 529
     .end local v1    # "i":I
-    :cond_2
-    :goto_1
+    :cond_86
+    :goto_86
     return-void
 .end method
 
 .method private onPdnHandover(Landroid/os/Message;)V
-    .locals 9
+    .registers 11
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 576
@@ -2217,7 +2217,7 @@
     .local v1, "result":[I
     const-string v2, "WfcHandler"
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 580
     const-string v3, "onPdnHandover(): result is null"
@@ -2228,12 +2228,12 @@
     return-void
 
     .line 583
-    :cond_0
+    :cond_12
     array-length v3, v1
 
     const/4 v4, 0x5
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_1c
 
     .line 584
     const-string v3, "onPdnHandover(): Bad params"
@@ -2244,14 +2244,14 @@
     return-void
 
     .line 587
-    :cond_1
+    :cond_1c
     const/4 v2, 0x0
 
     aget v2, v1, v2
 
     .line 588
     .local v2, "pdnType":I
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_27
 
     .line 589
     const-string v3, "onPdnHandover(): Not IMS PDN, ignore"
@@ -2262,7 +2262,7 @@
     return-void
 
     .line 593
-    :cond_2
+    :cond_27
     const/4 v3, 0x1
 
     aget v4, v1, v3
@@ -2290,9 +2290,9 @@
     invoke-direct {p0, v8, v4, v7}, Lcom/mediatek/wfo/impl/WfcHandler;->notifyOnHandover(III)V
 
     .line 599
-    if-ne v4, v3, :cond_3
+    if-ne v4, v3, :cond_3f
 
-    if-eq v7, v5, :cond_3
+    if-eq v7, v5, :cond_3f
 
     .line 601
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWosExt:Lcom/mediatek/wfo/op/IWosExt;
@@ -2300,12 +2300,12 @@
     invoke-interface {v3}, Lcom/mediatek/wfo/op/IWosExt;->clearPDNErrorMessages()V
 
     .line 603
-    :cond_3
+    :cond_3f
     return-void
 .end method
 
 .method private onWfcPdnError(Landroid/os/Message;)V
-    .locals 14
+    .registers 16
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 606
@@ -2323,7 +2323,7 @@
     .local v1, "result":[I
     const-string v2, "WfcHandler"
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 610
     const-string v3, "onWfcPdnError(): result is null"
@@ -2334,12 +2334,12 @@
     return-void
 
     .line 613
-    :cond_0
+    :cond_12
     array-length v3, v1
 
     const/4 v4, 0x4
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_1c
 
     .line 614
     const-string v3, "onWfcPdnError(): Bad params"
@@ -2350,7 +2350,7 @@
     return-void
 
     .line 617
-    :cond_1
+    :cond_1c
     const/4 v3, 0x0
 
     aget v4, v1, v3
@@ -2419,7 +2419,7 @@
     invoke-static {v2, v9}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 626
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_b6
 
     .line 628
     iget-object v9, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWosExt:Lcom/mediatek/wfo/op/IWosExt;
@@ -2442,11 +2442,11 @@
     .line 633
     sget v10, Lcom/mediatek/wfo/impl/WfcHandler;->CODE_WFC_EPDG_IPSEC_SETUP_ERROR:I
 
-    if-ne v5, v10, :cond_2
+    if-ne v5, v10, :cond_af
 
     sget v10, Lcom/mediatek/wfo/impl/WfcHandler;->SUB_CAUSE_IKEV2_24:I
 
-    if-ne v7, v10, :cond_2
+    if-ne v7, v10, :cond_af
 
     .line 637
     new-instance v10, Landroid/telephony/ims/ImsReasonInfo;
@@ -2494,7 +2494,7 @@
 
     .line 647
     .local v6, "bVal":Z
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_af
 
     .line 648
     const-string v11, "Set WFC setting OFF."
@@ -2516,7 +2516,7 @@
     .end local v2    # "mgr":Lcom/android/ims/ImsManager;
     .end local v6    # "bVal":Z
     .end local v10    # "imsReasonInfo":Landroid/telephony/ims/ImsReasonInfo;
-    :cond_2
+    :cond_af
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mContext:Landroid/content/Context;
 
     const-string v3, "com.mediatek.permission.IMS_ERR_NOTIFICATION"
@@ -2525,8 +2525,8 @@
 
     .line 656
     .end local v9    # "intent":Landroid/content/Intent;
-    :cond_3
-    if-nez v4, :cond_4
+    :cond_b6
+    if-nez v4, :cond_be
 
     .line 657
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWosExt:Lcom/mediatek/wfo/op/IWosExt;
@@ -2537,7 +2537,7 @@
     return-void
 
     .line 660
-    :cond_4
+    :cond_be
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWosExt:Lcom/mediatek/wfo/op/IWosExt;
 
     invoke-interface {v2, v5}, Lcom/mediatek/wfo/op/IWosExt;->showPDNErrorMessages(I)V
@@ -2547,7 +2547,7 @@
 .end method
 
 .method private onWfcPdnStateChanged(Landroid/os/Message;)V
-    .locals 7
+    .registers 9
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 716
@@ -2563,7 +2563,7 @@
 
     .line 719
     .local v1, "result":[I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 720
     const-string v2, "WfcHandler"
@@ -2576,7 +2576,7 @@
     return-void
 
     .line 723
-    :cond_0
+    :cond_12
     const/4 v2, 0x0
 
     aget v2, v1, v2
@@ -2591,7 +2591,7 @@
     .local v4, "simIdx":I
     iget v5, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mSimCount:I
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_20
 
     .line 727
     iget-object v5, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWfcState:[I
@@ -2599,7 +2599,7 @@
     aput v2, v5, v4
 
     .line 730
-    :cond_1
+    :cond_20
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -2623,7 +2623,7 @@
     invoke-virtual {p0, v5}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
 
     .line 731
-    if-ne v3, v2, :cond_2
+    if-ne v3, v2, :cond_43
 
     .line 732
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWosExt:Lcom/mediatek/wfo/op/IWosExt;
@@ -2631,7 +2631,7 @@
     invoke-interface {v3}, Lcom/mediatek/wfo/op/IWosExt;->clearPDNErrorMessages()V
 
     .line 735
-    :cond_2
+    :cond_43
     iget-object v3, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v3}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
@@ -2640,14 +2640,14 @@
 
     .line 736
     .local v3, "i":I
-    :goto_0
-    if-lez v3, :cond_3
+    :goto_49
+    if-lez v3, :cond_67
 
     .line 737
     add-int/lit8 v3, v3, -0x1
 
     .line 739
-    :try_start_0
+    :try_start_4d
     iget-object v5, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v5, v3}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
@@ -2657,14 +2657,14 @@
     check-cast v5, Lcom/mediatek/wfo/IWifiOffloadListener;
 
     invoke-interface {v5, v4, v2}, Lcom/mediatek/wfo/IWifiOffloadListener;->onWfcStateChanged(II)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_58
+    .catch Landroid/os/RemoteException; {:try_start_4d .. :try_end_58} :catch_60
+    .catch Ljava/lang/IllegalStateException; {:try_start_4d .. :try_end_58} :catch_59
 
-    goto :goto_1
+    goto :goto_66
 
     .line 744
-    :catch_0
+    :catch_59
     move-exception v5
 
     .line 745
@@ -2674,10 +2674,10 @@
     invoke-virtual {p0, v6}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
 
     .end local v5    # "e":Ljava/lang/IllegalStateException;
-    goto :goto_1
+    goto :goto_66
 
     .line 740
-    :catch_1
+    :catch_60
     move-exception v5
 
     .line 743
@@ -2688,11 +2688,11 @@
 
     .line 746
     .end local v5    # "e":Landroid/os/RemoteException;
-    :goto_1
-    goto :goto_0
+    :goto_66
+    goto :goto_49
 
     .line 748
-    :cond_3
+    :cond_67
     iget-object v5, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v5}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
@@ -2702,7 +2702,7 @@
 .end method
 
 .method private onWfcStatusChanged()V
-    .locals 1
+    .registers 2
 
     .line 1222
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
@@ -2711,11 +2711,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     iget-boolean v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mHasWiFiDisabledPending:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 1223
     const/4 v0, 0x0
@@ -2732,12 +2732,12 @@
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/impl/WfcHandler;->sendMessage(Landroid/os/Message;)Z
 
     .line 1226
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method private onWifiPdnOOS(Landroid/os/Message;)V
-    .locals 11
+    .registers 13
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 758
@@ -2755,7 +2755,7 @@
     .local v1, "result":[Ljava/lang/String;
     const-string v2, "WfcHandler"
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 762
     const-string v3, "onWifiPdnOOS(): result is null"
@@ -2766,12 +2766,12 @@
     return-void
 
     .line 765
-    :cond_0
+    :cond_12
     array-length v3, v1
 
     const/4 v4, 0x4
 
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_1c
 
     .line 766
     const-string v3, "onWifiPdnOOS(): Bad params"
@@ -2782,7 +2782,7 @@
     return-void
 
     .line 771
-    :cond_1
+    :cond_1c
     const/4 v3, 0x3
 
     const/4 v4, 0x2
@@ -2791,7 +2791,7 @@
 
     const/4 v6, 0x0
 
-    :try_start_0
+    :try_start_20
     aget-object v7, v1, v6
 
     .line 772
@@ -2821,18 +2821,18 @@
     .line 775
     .local v10, "simIdx":I
     invoke-direct {p0, v7, v8, v9, v10}, Lcom/mediatek/wfo/impl/WfcHandler;->notifyOnWifiPdnOOS(Ljava/lang/String;III)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_37
+    .catch Ljava/lang/Exception; {:try_start_20 .. :try_end_37} :catch_38
 
     .line 779
     .end local v7    # "apn":Ljava/lang/String;
     .end local v8    # "callId":I
     .end local v9    # "oosState":I
     .end local v10    # "simIdx":I
-    goto :goto_0
+    goto :goto_7e
 
     .line 776
-    :catch_0
+    :catch_38
     move-exception v7
 
     .line 777
@@ -2897,12 +2897,12 @@
 
     .line 780
     .end local v7    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_7e
     return-void
 .end method
 
 .method private onWifiRoveout(Landroid/os/Message;)V
-    .locals 16
+    .registers 18
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 666
@@ -2928,7 +2928,7 @@
     .local v4, "result":[Ljava/lang/String;
     const-string v5, "WfcHandler"
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_18
 
     .line 670
     const-string v0, "onWifiRoveout(): result is null"
@@ -2939,7 +2939,7 @@
     return-void
 
     .line 674
-    :cond_0
+    :cond_18
     array-length v0, v4
 
     const/4 v6, 0x4
@@ -2958,7 +2958,7 @@
 
     const/4 v13, 0x1
 
-    if-ne v0, v9, :cond_1
+    if-ne v0, v9, :cond_52
 
     .line 675
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2995,13 +2995,13 @@
 
     invoke-virtual {v1, v0}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_88
 
     .line 677
-    :cond_1
+    :cond_52
     array-length v0, v4
 
-    if-ne v0, v6, :cond_8
+    if-ne v0, v6, :cond_161
 
     .line 678
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3045,8 +3045,8 @@
     invoke-virtual {v1, v0}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
 
     .line 686
-    :goto_0
-    :try_start_0
+    :goto_88
+    :try_start_88
     aget-object v0, v4, v11
 
     .line 687
@@ -3057,21 +3057,21 @@
 
     move-result v7
 
-    if-ne v7, v13, :cond_2
+    if-ne v7, v13, :cond_94
 
     move v7, v13
 
-    goto :goto_1
+    goto :goto_95
 
-    :cond_2
+    :cond_94
     move v7, v11
 
     .line 688
     .local v7, "roveOut":Z
-    :goto_1
+    :goto_95
     array-length v14, v4
 
-    if-ne v14, v6, :cond_3
+    if-ne v14, v6, :cond_a2
 
     aget-object v6, v4, v10
 
@@ -3079,18 +3079,18 @@
 
     move-result v6
 
-    if-ne v6, v13, :cond_3
+    if-ne v6, v13, :cond_a2
 
     move v6, v13
 
-    goto :goto_2
+    goto :goto_a3
 
-    :cond_3
+    :cond_a2
     move v6, v11
 
     .line 689
     .local v6, "mobike_ind":Z
-    :goto_2
+    :goto_a3
     array-length v14, v4
 
     sub-int/2addr v14, v13
@@ -3103,7 +3103,7 @@
 
     .line 690
     .local v14, "simIdx":I
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_b6
 
     .line 691
     iget-object v15, v1, Lcom/mediatek/wfo/impl/WfcHandler;->mWifiPdnHandler:Lcom/mediatek/wfo/impl/WifiPdnHandler;
@@ -3115,8 +3115,8 @@
     invoke-direct {v1, v14, v7, v15}, Lcom/mediatek/wfo/impl/WfcHandler;->notifyOnRoveOut(IZI)V
 
     .line 693
-    :cond_4
-    if-eqz v6, :cond_7
+    :cond_b6
+    if-eqz v6, :cond_104
 
     .line 694
     new-instance v15, Ljava/lang/StringBuilder;
@@ -3148,22 +3148,22 @@
     .line 696
     iget-boolean v10, v1, Lcom/mediatek/wfo/impl/WfcHandler;->mIsWifiConnected:Z
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_ff
 
     iget v10, v1, Lcom/mediatek/wfo/impl/WfcHandler;->mPartialScanCount:I
 
-    if-lt v10, v9, :cond_6
+    if-lt v10, v9, :cond_ff
 
     invoke-direct/range {p0 .. p0}, Lcom/mediatek/wfo/impl/WfcHandler;->getCurrentAssociatedApCount()I
 
     move-result v9
 
-    if-gt v9, v13, :cond_5
+    if-gt v9, v13, :cond_e7
 
-    goto :goto_3
+    goto :goto_ff
 
     .line 699
-    :cond_5
+    :cond_e7
     const-string v9, "Mobike disconnect+startscan"
 
     invoke-virtual {v1, v9}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
@@ -3190,19 +3190,19 @@
     .line 704
     iput v11, v1, Lcom/mediatek/wfo/impl/WfcHandler;->mPartialScanCount:I
 
-    goto :goto_4
+    goto :goto_104
 
     .line 697
     .end local v9    # "wifiMngr":Landroid/net/wifi/WifiManager;
-    :cond_6
-    :goto_3
+    :cond_ff
+    :goto_ff
     const-string v9, "No need to partial scan."
 
     invoke-virtual {v1, v9}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
 
     .line 707
-    :cond_7
-    :goto_4
+    :cond_104
+    :goto_104
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -3226,18 +3226,18 @@
     move-result-object v9
 
     invoke-virtual {v1, v9}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_124
+    .catch Ljava/lang/Exception; {:try_start_88 .. :try_end_124} :catch_125
 
     .line 711
     .end local v0    # "ifname":Ljava/lang/String;
     .end local v6    # "mobike_ind":Z
     .end local v7    # "roveOut":Z
     .end local v14    # "simIdx":I
-    goto :goto_5
+    goto :goto_160
 
     .line 708
-    :catch_0
+    :catch_125
     move-exception v0
 
     .line 709
@@ -3294,11 +3294,11 @@
 
     .line 712
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_5
+    :goto_160
     return-void
 
     .line 681
-    :cond_8
+    :cond_161
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3324,7 +3324,7 @@
 .end method
 
 .method private registerForBroadcast()V
-    .locals 3
+    .registers 4
 
     .line 541
     new-instance v0, Landroid/content/IntentFilter;
@@ -3389,18 +3389,18 @@
 .end method
 
 .method private registerForWfcAidObserver()V
-    .locals 4
+    .registers 5
 
     .line 532
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mContext:Landroid/content/Context;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 533
     return-void
 
     .line 535
-    :cond_0
+    :cond_5
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -3423,16 +3423,16 @@
 .end method
 
 .method private registerIndication()V
-    .locals 4
+    .registers 5
 
     .line 559
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mSimCount:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_36
 
     .line 560
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mMwiRil:[Lcom/mediatek/wfo/ril/MwiRIL;
@@ -3484,16 +3484,16 @@
     .line 559
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 571
     .end local v0    # "i":I
-    :cond_0
+    :cond_36
     return-void
 .end method
 
 .method private setEmergencyAddressId()V
-    .locals 3
+    .registers 4
 
     .line 791
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWfcEccAid:Ljava/lang/String;
@@ -3502,7 +3502,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 792
     const-string v0, "Current AID is empty"
@@ -3513,7 +3513,7 @@
     return-void
 
     .line 795
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3554,7 +3554,7 @@
 .end method
 
 .method private updateWfcUISetting()Z
-    .locals 11
+    .registers 12
 
     .line 873
     const/4 v0, 0x0
@@ -3575,16 +3575,16 @@
 
     const-string v5, "carrier_default_wfc_ims_enabled_bool"
 
-    if-le v1, v2, :cond_3
+    if-le v1, v2, :cond_5d
 
     .line 875
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_11
     iget v2, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mSimCount:I
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_5c
 
     .line 876
     const-string v2, "wfc_ims_enabled"
@@ -3655,29 +3655,29 @@
 
     aget-boolean v9, v7, v1
 
-    if-ne v8, v9, :cond_1
+    if-ne v8, v9, :cond_5b
 
     aget-boolean v7, v7, v1
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_58
 
-    goto :goto_1
+    goto :goto_5b
 
     .line 875
     .end local v2    # "key":Ljava/lang/String;
     .end local v6    # "defValue":Z
     .end local v8    # "oldValue":Z
-    :cond_0
+    :cond_58
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 886
     .restart local v2    # "key":Ljava/lang/String;
     .restart local v6    # "defValue":Z
     .restart local v8    # "oldValue":Z
-    :cond_1
-    :goto_1
+    :cond_5b
+    :goto_5b
     const/4 v0, 0x1
 
     .line 875
@@ -3685,11 +3685,11 @@
     .end local v2    # "key":Ljava/lang/String;
     .end local v6    # "defValue":Z
     .end local v8    # "oldValue":Z
-    :cond_2
-    goto :goto_2
+    :cond_5c
+    goto :goto_c6
 
     .line 891
-    :cond_3
+    :cond_5d
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcHandler;->getMainCapabilityPhoneId()I
 
     move-result v1
@@ -3713,11 +3713,11 @@
     invoke-virtual {p0, v2}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
 
     .line 893
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_bf
 
     iget v2, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mSimCount:I
 
-    if-ge v1, v2, :cond_6
+    if-ge v1, v2, :cond_bf
 
     .line 894
     const-string v2, "wfc_ims_enabled"
@@ -3788,25 +3788,25 @@
 
     aget-boolean v4, v3, v1
 
-    if-ne v7, v4, :cond_4
+    if-ne v7, v4, :cond_bd
 
     aget-boolean v3, v3, v1
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_be
 
     .line 907
-    :cond_4
+    :cond_bd
     const/4 v0, 0x1
 
     .line 909
     .end local v2    # "key":Ljava/lang/String;
     .end local v5    # "defValue":Z
     .end local v7    # "oldValue":Z
-    :cond_5
-    goto :goto_2
+    :cond_be
+    goto :goto_c6
 
     .line 910
-    :cond_6
+    :cond_bf
     const-string v2, "WfcHandler"
 
     const-string v3, "updateWfcUISetting(): mainCapabilityPhoneId invalid"
@@ -3815,12 +3815,12 @@
 
     .line 914
     .end local v1    # "mainCapabilityPhoneId":I
-    :goto_2
+    :goto_c6
     return v0
 .end method
 
 .method private updateWifiEnabled()V
-    .locals 4
+    .registers 5
 
     .line 1184
     invoke-static {}, Landroid/os/storage/StorageManager;->inCryptKeeperBounce()Z
@@ -3831,7 +3831,7 @@
 
     const-string v2, "WfcHandler"
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     .line 1185
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mContext:Landroid/content/Context;
@@ -3847,7 +3847,7 @@
 
     .line 1187
     .local v0, "wifiMngr":Landroid/net/wifi/WifiManager;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 1188
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
@@ -3856,10 +3856,10 @@
 
     iput-boolean v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mIsWifiEnabled:Z
 
-    goto :goto_0
+    goto :goto_23
 
     .line 1190
-    :cond_0
+    :cond_1c
     const-string v3, "updateWifiEnabled: WifiManager null"
 
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
@@ -3869,11 +3869,11 @@
 
     .line 1193
     .end local v0    # "wifiMngr":Landroid/net/wifi/WifiManager;
-    :goto_0
-    goto :goto_1
+    :goto_23
+    goto :goto_2b
 
     .line 1194
-    :cond_1
+    :cond_24
     const-string v0, "updateWifiEnabled: inCryptKeeperBounce"
 
     invoke-static {v2, v0}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
@@ -3882,7 +3882,7 @@
     iput-boolean v1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mIsWifiEnabled:Z
 
     .line 1197
-    :goto_1
+    :goto_2b
     const/16 v0, 0x7d0
 
     invoke-virtual {p0, v0}, Lcom/mediatek/wfo/impl/WfcHandler;->obtainMessage(I)Landroid/os/Message;
@@ -3898,14 +3898,14 @@
 
 # virtual methods
 .method public getHandler()Landroid/os/Handler;
-    .locals 0
+    .registers 1
 
     .line 329
     return-object p0
 .end method
 
 .method public getWfcState(I)I
-    .locals 2
+    .registers 4
     .param p1, "simIdx"    # I
 
     .line 752
@@ -3944,7 +3944,7 @@
 .end method
 
 .method public getWfoInterface()Lcom/mediatek/wfo/IWifiOffloadService;
-    .locals 1
+    .registers 2
 
     .line 1039
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mWfoService:Lcom/mediatek/wfo/IWifiOffloadService;
@@ -3953,7 +3953,7 @@
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .registers 5
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 206
@@ -3980,12 +3980,12 @@
     .line 208
     iget v0, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_8e
 
-    goto/16 :goto_0
+    goto/16 :goto_8d
 
     .line 256
-    :sswitch_0
+    :sswitch_1f
     const/16 v0, 0x7d4
 
     const/4 v1, 0x0
@@ -3993,24 +3993,24 @@
     invoke-direct {p0, v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->handleRetry(ILandroid/os/AsyncResult;)V
 
     .line 257
-    goto/16 :goto_0
+    goto/16 :goto_8d
 
     .line 252
-    :sswitch_1
+    :sswitch_27
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcHandler;->notifyOnAllowWifiOff()V
 
     .line 253
-    goto/16 :goto_0
+    goto/16 :goto_8d
 
     .line 246
-    :sswitch_2
+    :sswitch_2c
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcHandler;->notifyLocationTimeout()V
 
     .line 247
-    goto :goto_0
+    goto :goto_8d
 
     .line 242
-    :sswitch_3
+    :sswitch_30
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
@@ -4022,53 +4022,53 @@
     invoke-direct {p0, v1, v0}, Lcom/mediatek/wfo/impl/WfcHandler;->handleRetry(ILandroid/os/AsyncResult;)V
 
     .line 244
-    goto :goto_0
+    goto :goto_8d
 
     .line 259
     .end local v0    # "ar":Landroid/os/AsyncResult;
-    :sswitch_4
+    :sswitch_3a
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcHandler;->onWfcStatusChanged()V
 
     .line 260
-    goto :goto_0
+    goto :goto_8d
 
     .line 238
-    :sswitch_5
+    :sswitch_3e
     invoke-direct {p0, p1}, Lcom/mediatek/wfo/impl/WfcHandler;->onWifiPdnOOS(Landroid/os/Message;)V
 
     .line 239
-    goto :goto_0
+    goto :goto_8d
 
     .line 235
-    :sswitch_6
+    :sswitch_42
     invoke-direct {p0, p1}, Lcom/mediatek/wfo/impl/WfcHandler;->onWfcPdnStateChanged(Landroid/os/Message;)V
 
     .line 236
-    goto :goto_0
+    goto :goto_8d
 
     .line 232
-    :sswitch_7
+    :sswitch_46
     invoke-direct {p0, p1}, Lcom/mediatek/wfo/impl/WfcHandler;->onWifiRoveout(Landroid/os/Message;)V
 
     .line 233
-    goto :goto_0
+    goto :goto_8d
 
     .line 229
-    :sswitch_8
+    :sswitch_4a
     invoke-direct {p0, p1}, Lcom/mediatek/wfo/impl/WfcHandler;->onWfcPdnError(Landroid/os/Message;)V
 
     .line 230
-    goto :goto_0
+    goto :goto_8d
 
     .line 226
-    :sswitch_9
+    :sswitch_4e
     invoke-direct {p0, p1}, Lcom/mediatek/wfo/impl/WfcHandler;->onPdnHandover(Landroid/os/Message;)V
 
     .line 227
-    goto :goto_0
+    goto :goto_8d
 
     .line 266
-    :sswitch_a
+    :sswitch_52
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/Integer;
@@ -4099,107 +4099,107 @@
     invoke-direct {p0, v0}, Lcom/mediatek/wfo/impl/WfcHandler;->onMultiSimConfigChanged(I)V
 
     .line 269
-    goto :goto_0
+    goto :goto_8d
 
     .line 262
     .end local v0    # "activeModemCount":I
-    :sswitch_b
+    :sswitch_72
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcHandler;->initialize()V
 
     .line 263
-    goto :goto_0
+    goto :goto_8d
 
     .line 221
-    :sswitch_c
+    :sswitch_76
     iget v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mScreenState:I
 
     invoke-direct {p0, v0}, Lcom/mediatek/wfo/impl/WfcHandler;->notifyEPDGScreenState(I)V
 
     .line 222
-    goto :goto_0
+    goto :goto_8d
 
     .line 249
-    :sswitch_d
+    :sswitch_7c
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcHandler;->updateWifiEnabled()V
 
     .line 250
-    goto :goto_0
+    goto :goto_8d
 
     .line 217
-    :sswitch_e
+    :sswitch_80
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/mediatek/wfo/impl/WfcHandler;->checkIfShowNoInternetError(Z)V
 
     .line 218
-    goto :goto_0
+    goto :goto_8d
 
     .line 214
-    :sswitch_f
+    :sswitch_85
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcHandler;->setEmergencyAddressId()V
 
     .line 215
-    goto :goto_0
+    goto :goto_8d
 
     .line 211
-    :sswitch_10
+    :sswitch_89
     invoke-direct {p0}, Lcom/mediatek/wfo/impl/WfcHandler;->handleModemPower()V
 
     .line 212
     nop
 
     .line 274
-    :goto_0
+    :goto_8d
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_8e
     .sparse-switch
-        0x7d0 -> :sswitch_10
-        0x7d1 -> :sswitch_f
-        0x7d2 -> :sswitch_e
-        0x7d3 -> :sswitch_d
-        0x7d4 -> :sswitch_c
-        0x7d5 -> :sswitch_b
-        0x7d6 -> :sswitch_a
-        0x834 -> :sswitch_9
-        0x835 -> :sswitch_8
-        0x836 -> :sswitch_7
-        0x837 -> :sswitch_6
-        0x838 -> :sswitch_5
-        0x839 -> :sswitch_4
-        0x898 -> :sswitch_3
-        0x899 -> :sswitch_2
-        0x89a -> :sswitch_1
-        0x89b -> :sswitch_0
+        0x7d0 -> :sswitch_89
+        0x7d1 -> :sswitch_85
+        0x7d2 -> :sswitch_80
+        0x7d3 -> :sswitch_7c
+        0x7d4 -> :sswitch_76
+        0x7d5 -> :sswitch_72
+        0x7d6 -> :sswitch_52
+        0x834 -> :sswitch_4e
+        0x835 -> :sswitch_4a
+        0x836 -> :sswitch_46
+        0x837 -> :sswitch_42
+        0x838 -> :sswitch_3e
+        0x839 -> :sswitch_3a
+        0x898 -> :sswitch_30
+        0x899 -> :sswitch_2c
+        0x89a -> :sswitch_27
+        0x89b -> :sswitch_1f
     .end sparse-switch
 .end method
 
 .method protected log(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "s"    # Ljava/lang/String;
 
     .line 1119
     sget-boolean v0, Lcom/mediatek/wfo/impl/WfcHandler;->USR_BUILD:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     sget-boolean v0, Lcom/mediatek/wfo/impl/WfcHandler;->TELDBG:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     .line 1120
-    :cond_0
+    :cond_8
     const-string v0, "WfcHandler"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1122
-    :cond_1
+    :cond_d
     return-void
 .end method
 
 .method protected notifyMultiSimConfigChanged(I[Lcom/mediatek/wfo/ril/MwiRIL;)V
-    .locals 2
+    .registers 5
     .param p1, "activeModemCount"    # I
     .param p2, "mwiRil"    # [Lcom/mediatek/wfo/ril/MwiRIL;
 
@@ -4226,7 +4226,7 @@
 .end method
 
 .method public onLocationTimeout()V
-    .locals 1
+    .registers 2
 
     .line 1125
     const/16 v0, 0x899
@@ -4244,7 +4244,7 @@
 .end method
 
 .method public updatedWifiConnectedStatus(Z)V
-    .locals 2
+    .registers 4
     .param p1, "isConnected"    # Z
 
     .line 1138
@@ -4268,7 +4268,7 @@
     iput-boolean p1, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mIsWifiConnected:Z
 
     .line 1140
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1b
 
     .line 1141
     const/4 v0, 0x0
@@ -4276,6 +4276,6 @@
     iput v0, p0, Lcom/mediatek/wfo/impl/WfcHandler;->mPartialScanCount:I
 
     .line 1143
-    :cond_0
+    :cond_1b
     return-void
 .end method

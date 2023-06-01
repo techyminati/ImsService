@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 74
@@ -71,7 +71,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_17
 
     .line 78
     const-string v2, "TELEPHONY"
@@ -82,12 +82,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 81
-    :cond_0
+    :cond_17
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 82
     const-string v2, "RESERVED_2"
@@ -98,12 +98,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 85
-    :cond_1
+    :cond_23
     and-int/lit8 v2, p0, 0x3
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2f
 
     .line 86
     const-string v2, "DATA"
@@ -114,12 +114,12 @@
     or-int/lit8 v1, v1, 0x3
 
     .line 89
-    :cond_2
+    :cond_2f
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_3b
 
     .line 90
     const-string v2, "TELEX"
@@ -130,12 +130,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 93
-    :cond_3
+    :cond_3b
     and-int/lit8 v2, p0, 0x5
 
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_47
 
     .line 94
     const-string v2, "RESERVED_5"
@@ -146,12 +146,12 @@
     or-int/lit8 v1, v1, 0x5
 
     .line 97
-    :cond_4
+    :cond_47
     and-int/lit8 v2, p0, 0x6
 
     const/4 v3, 0x6
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_53
 
     .line 98
     const-string v2, "RESERVED_6"
@@ -162,12 +162,12 @@
     or-int/lit8 v1, v1, 0x6
 
     .line 101
-    :cond_5
+    :cond_53
     and-int/lit8 v2, p0, 0x7
 
     const/4 v3, 0x7
 
-    if-ne v2, v3, :cond_6
+    if-ne v2, v3, :cond_5f
 
     .line 102
     const-string v2, "RESERVED_7"
@@ -178,12 +178,12 @@
     or-int/lit8 v1, v1, 0x7
 
     .line 105
-    :cond_6
+    :cond_5f
     and-int/lit8 v2, p0, 0x8
 
     const/16 v3, 0x8
 
-    if-ne v2, v3, :cond_7
+    if-ne v2, v3, :cond_6c
 
     .line 106
     const-string v2, "RESERVED_8"
@@ -194,12 +194,12 @@
     or-int/lit8 v1, v1, 0x8
 
     .line 109
-    :cond_7
+    :cond_6c
     and-int/lit8 v2, p0, 0x9
 
     const/16 v3, 0x9
 
-    if-ne v2, v3, :cond_8
+    if-ne v2, v3, :cond_79
 
     .line 110
     const-string v2, "PRIVATE"
@@ -210,12 +210,12 @@
     or-int/lit8 v1, v1, 0x9
 
     .line 113
-    :cond_8
+    :cond_79
     and-int/lit8 v2, p0, 0xa
 
     const/16 v3, 0xa
 
-    if-ne v2, v3, :cond_9
+    if-ne v2, v3, :cond_86
 
     .line 114
     const-string v2, "RESERVED_10"
@@ -226,12 +226,12 @@
     or-int/lit8 v1, v1, 0xa
 
     .line 117
-    :cond_9
+    :cond_86
     and-int/lit8 v2, p0, 0xb
 
     const/16 v3, 0xb
 
-    if-ne v2, v3, :cond_a
+    if-ne v2, v3, :cond_93
 
     .line 118
     const-string v2, "RESERVED_11"
@@ -242,12 +242,12 @@
     or-int/lit8 v1, v1, 0xb
 
     .line 121
-    :cond_a
+    :cond_93
     and-int/lit8 v2, p0, 0xc
 
     const/16 v3, 0xc
 
-    if-ne v2, v3, :cond_b
+    if-ne v2, v3, :cond_a0
 
     .line 122
     const-string v2, "RESERVED_12"
@@ -258,12 +258,12 @@
     or-int/lit8 v1, v1, 0xc
 
     .line 125
-    :cond_b
+    :cond_a0
     and-int/lit8 v2, p0, 0xd
 
     const/16 v3, 0xd
 
-    if-ne v2, v3, :cond_c
+    if-ne v2, v3, :cond_ad
 
     .line 126
     const-string v2, "RESERVED_13"
@@ -274,12 +274,12 @@
     or-int/lit8 v1, v1, 0xd
 
     .line 129
-    :cond_c
+    :cond_ad
     and-int/lit8 v2, p0, 0xe
 
     const/16 v3, 0xe
 
-    if-ne v2, v3, :cond_d
+    if-ne v2, v3, :cond_ba
 
     .line 130
     const-string v2, "RESERVED_14"
@@ -290,12 +290,12 @@
     or-int/lit8 v1, v1, 0xe
 
     .line 133
-    :cond_d
+    :cond_ba
     and-int/lit8 v2, p0, 0xf
 
     const/16 v3, 0xf
 
-    if-ne v2, v3, :cond_e
+    if-ne v2, v3, :cond_c7
 
     .line 134
     const-string v2, "RESERVED_15"
@@ -306,8 +306,8 @@
     or-int/lit8 v1, v1, 0xf
 
     .line 137
-    :cond_e
-    if-eq p0, v1, :cond_f
+    :cond_c7
+    if-eq p0, v1, :cond_e3
 
     .line 138
     new-instance v2, Ljava/lang/StringBuilder;
@@ -335,7 +335,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 140
-    :cond_f
+    :cond_e3
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -346,11 +346,11 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 22
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 23
     const-string v0, "UNKNOWN"
@@ -358,10 +358,10 @@
     return-object v0
 
     .line 25
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_b
 
     .line 26
     const-string v0, "TELEPHONY"
@@ -369,10 +369,10 @@
     return-object v0
 
     .line 28
-    :cond_1
+    :cond_b
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_11
 
     .line 29
     const-string v0, "RESERVED_2"
@@ -380,10 +380,10 @@
     return-object v0
 
     .line 31
-    :cond_2
+    :cond_11
     const/4 v0, 0x3
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_17
 
     .line 32
     const-string v0, "DATA"
@@ -391,10 +391,10 @@
     return-object v0
 
     .line 34
-    :cond_3
+    :cond_17
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1d
 
     .line 35
     const-string v0, "TELEX"
@@ -402,10 +402,10 @@
     return-object v0
 
     .line 37
-    :cond_4
+    :cond_1d
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_23
 
     .line 38
     const-string v0, "RESERVED_5"
@@ -413,10 +413,10 @@
     return-object v0
 
     .line 40
-    :cond_5
+    :cond_23
     const/4 v0, 0x6
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_29
 
     .line 41
     const-string v0, "RESERVED_6"
@@ -424,10 +424,10 @@
     return-object v0
 
     .line 43
-    :cond_6
+    :cond_29
     const/4 v0, 0x7
 
-    if-ne p0, v0, :cond_7
+    if-ne p0, v0, :cond_2f
 
     .line 44
     const-string v0, "RESERVED_7"
@@ -435,10 +435,10 @@
     return-object v0
 
     .line 46
-    :cond_7
+    :cond_2f
     const/16 v0, 0x8
 
-    if-ne p0, v0, :cond_8
+    if-ne p0, v0, :cond_36
 
     .line 47
     const-string v0, "RESERVED_8"
@@ -446,10 +446,10 @@
     return-object v0
 
     .line 49
-    :cond_8
+    :cond_36
     const/16 v0, 0x9
 
-    if-ne p0, v0, :cond_9
+    if-ne p0, v0, :cond_3d
 
     .line 50
     const-string v0, "PRIVATE"
@@ -457,10 +457,10 @@
     return-object v0
 
     .line 52
-    :cond_9
+    :cond_3d
     const/16 v0, 0xa
 
-    if-ne p0, v0, :cond_a
+    if-ne p0, v0, :cond_44
 
     .line 53
     const-string v0, "RESERVED_10"
@@ -468,10 +468,10 @@
     return-object v0
 
     .line 55
-    :cond_a
+    :cond_44
     const/16 v0, 0xb
 
-    if-ne p0, v0, :cond_b
+    if-ne p0, v0, :cond_4b
 
     .line 56
     const-string v0, "RESERVED_11"
@@ -479,10 +479,10 @@
     return-object v0
 
     .line 58
-    :cond_b
+    :cond_4b
     const/16 v0, 0xc
 
-    if-ne p0, v0, :cond_c
+    if-ne p0, v0, :cond_52
 
     .line 59
     const-string v0, "RESERVED_12"
@@ -490,10 +490,10 @@
     return-object v0
 
     .line 61
-    :cond_c
+    :cond_52
     const/16 v0, 0xd
 
-    if-ne p0, v0, :cond_d
+    if-ne p0, v0, :cond_59
 
     .line 62
     const-string v0, "RESERVED_13"
@@ -501,10 +501,10 @@
     return-object v0
 
     .line 64
-    :cond_d
+    :cond_59
     const/16 v0, 0xe
 
-    if-ne p0, v0, :cond_e
+    if-ne p0, v0, :cond_60
 
     .line 65
     const-string v0, "RESERVED_14"
@@ -512,10 +512,10 @@
     return-object v0
 
     .line 67
-    :cond_e
+    :cond_60
     const/16 v0, 0xf
 
-    if-ne p0, v0, :cond_f
+    if-ne p0, v0, :cond_67
 
     .line 68
     const-string v0, "RESERVED_15"
@@ -523,7 +523,7 @@
     return-object v0
 
     .line 70
-    :cond_f
+    :cond_67
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

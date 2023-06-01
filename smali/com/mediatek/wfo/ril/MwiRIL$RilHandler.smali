@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/mediatek/wfo/ril/MwiRIL;Landroid/os/Looper;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/mediatek/wfo/ril/MwiRIL;
     .param p2, "looper"    # Landroid/os/Looper;
 
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 7
+    .registers 9
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 365
@@ -45,13 +45,13 @@
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_d6
 
-    :pswitch_0
-    goto/16 :goto_0
+    :pswitch_6
+    goto/16 :goto_d4
 
     .line 423
-    :pswitch_1
+    :pswitch_8
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -107,46 +107,50 @@
 
     cmp-long v0, v2, v4
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_d4
 
     .line 426
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
 
+    # invokes: Lcom/mediatek/wfo/ril/MwiRIL;->resetProxyAndRequestList()V
     invoke-static {v0}, Lcom/mediatek/wfo/ril/MwiRIL;->access$500(Lcom/mediatek/wfo/ril/MwiRIL;)V
 
     .line 430
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
 
+    # invokes: Lcom/mediatek/wfo/ril/MwiRIL;->getRadioProxy(Landroid/os/Message;)Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
     invoke-static {v0, v1}, Lcom/mediatek/wfo/ril/MwiRIL;->access$600(Lcom/mediatek/wfo/ril/MwiRIL;Landroid/os/Message;)Lvendor/mediatek/hardware/mtkradioex/V3_0/IMtkRadioEx;
 
-    goto/16 :goto_0
+    goto/16 :goto_d4
 
     .line 403
-    :pswitch_2
+    :pswitch_50
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     .line 404
     .local v0, "serial":I
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
 
+    # invokes: Lcom/mediatek/wfo/ril/MwiRIL;->findAndRemoveRequestFromList(I)Lcom/mediatek/wfo/ril/RILRequest;
     invoke-static {v2, v0}, Lcom/mediatek/wfo/ril/MwiRIL;->access$100(Lcom/mediatek/wfo/ril/MwiRIL;I)Lcom/mediatek/wfo/ril/RILRequest;
 
     move-result-object v2
 
     .line 406
     .local v2, "rr":Lcom/mediatek/wfo/ril/RILRequest;
-    if-nez v2, :cond_0
+    if-nez v2, :cond_5c
 
     .line 407
-    goto/16 :goto_0
+    goto/16 :goto_d4
 
     .line 411
-    :cond_0
+    :cond_5c
     iget-object v3, v2, Lcom/mediatek/wfo/ril/RILRequest;->mResult:Landroid/os/Message;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_83
 
     .line 412
+    # invokes: Lcom/mediatek/wfo/ril/MwiRIL;->getResponseForTimedOutRILRequest(Lcom/mediatek/wfo/ril/RILRequest;)Ljava/lang/Object;
     invoke-static {v2}, Lcom/mediatek/wfo/ril/MwiRIL;->access$200(Lcom/mediatek/wfo/ril/RILRequest;)Ljava/lang/Object;
 
     move-result-object v3
@@ -165,6 +169,7 @@
     .line 415
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
 
+    # getter for: Lcom/mediatek/wfo/ril/MwiRIL;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
     invoke-static {v1}, Lcom/mediatek/wfo/ril/MwiRIL;->access$300(Lcom/mediatek/wfo/ril/MwiRIL;)Lcom/android/internal/telephony/metrics/TelephonyMetrics;
 
     move-result-object v1
@@ -185,39 +190,41 @@
 
     .line 418
     .end local v3    # "timeoutResponse":Ljava/lang/Object;
-    :cond_1
+    :cond_83
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
 
+    # invokes: Lcom/mediatek/wfo/ril/MwiRIL;->decrementWakeLock(Lcom/mediatek/wfo/ril/RILRequest;)V
     invoke-static {v1, v2}, Lcom/mediatek/wfo/ril/MwiRIL;->access$400(Lcom/mediatek/wfo/ril/MwiRIL;Lcom/mediatek/wfo/ril/RILRequest;)V
 
     .line 419
     invoke-virtual {v2}, Lcom/mediatek/wfo/ril/RILRequest;->release()V
 
     .line 420
-    goto :goto_0
+    goto :goto_d4
 
     .line 395
     .end local v0    # "serial":I
     .end local v2    # "rr":Lcom/mediatek/wfo/ril/RILRequest;
-    :pswitch_3
+    :pswitch_8c
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
 
     iget v1, v1, Lcom/mediatek/wfo/ril/MwiRIL;->mAckWlSequenceNum:I
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_d4
 
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
 
     const/4 v1, 0x1
 
+    # invokes: Lcom/mediatek/wfo/ril/MwiRIL;->clearWakeLock(I)Z
     invoke-static {v0, v1}, Lcom/mediatek/wfo/ril/MwiRIL;->access$000(Lcom/mediatek/wfo/ril/MwiRIL;I)Z
 
-    goto :goto_0
+    goto :goto_d4
 
     .line 378
-    :pswitch_4
+    :pswitch_9b
     iget-object v0, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
 
     iget-object v0, v0, Lcom/mediatek/wfo/ril/MwiRIL;->mRequestList:Landroid/util/SparseArray;
@@ -225,24 +232,25 @@
     monitor-enter v0
 
     .line 379
-    :try_start_0
+    :try_start_a0
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     iget-object v2, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
 
     iget v2, v2, Lcom/mediatek/wfo/ril/MwiRIL;->mWlSequenceNum:I
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_cf
 
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
 
     const/4 v2, 0x0
 
+    # invokes: Lcom/mediatek/wfo/ril/MwiRIL;->clearWakeLock(I)Z
     invoke-static {v1, v2}, Lcom/mediatek/wfo/ril/MwiRIL;->access$000(Lcom/mediatek/wfo/ril/MwiRIL;I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_cf
 
     .line 381
     iget-object v1, p0, Lcom/mediatek/wfo/ril/MwiRIL$RilHandler;->this$0:Lcom/mediatek/wfo/ril/MwiRIL;
@@ -275,35 +283,35 @@
 
     .line 391
     .end local v1    # "count":I
-    :cond_2
+    :cond_cf
     monitor-exit v0
 
     .line 392
-    goto :goto_0
+    goto :goto_d4
 
     .line 391
-    :catchall_0
+    :catchall_d1
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d3
+    .catchall {:try_start_a0 .. :try_end_d3} :catchall_d1
 
     throw v1
 
     .line 434
-    :cond_3
-    :goto_0
+    :cond_d4
+    :goto_d4
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_d6
     .packed-switch 0x2
-        :pswitch_4
-        :pswitch_0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_9b
+        :pswitch_6
+        :pswitch_8c
+        :pswitch_50
+        :pswitch_8
     .end packed-switch
 .end method

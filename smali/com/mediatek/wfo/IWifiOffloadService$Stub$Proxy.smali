@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .locals 0
+    .registers 2
     .param p1, "remote"    # Landroid/os/IBinder;
 
     .line 233
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .registers 2
 
     .line 238
     iget-object v0, p0, Lcom/mediatek/wfo/IWifiOffloadService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -52,7 +52,7 @@
 .end method
 
 .method public factoryReset()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -72,7 +72,7 @@
 
     .line 479
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -90,14 +90,14 @@
 
     .line 481
     .local v2, "_status":Z
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2c
 
     .line 482
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2c
 
     .line 483
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -105,8 +105,8 @@
     move-result-object v3
 
     invoke-interface {v3}, Lcom/mediatek/wfo/IWifiOffloadService;->factoryReset()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catchall {:try_start_8 .. :try_end_25} :catchall_37
 
     .line 490
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -118,11 +118,11 @@
     return-void
 
     .line 487
-    :cond_0
-    :try_start_1
+    :cond_2c
+    :try_start_2c
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2f
+    .catchall {:try_start_2c .. :try_end_2f} :catchall_37
 
     .line 490
     .end local v2    # "_status":Z
@@ -138,7 +138,7 @@
     return-void
 
     .line 490
-    :catchall_0
+    :catchall_37
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -151,7 +151,7 @@
 .end method
 
 .method public getDisconnectCause(I)Lcom/mediatek/wfo/DisconnectCause;
-    .locals 5
+    .registers 7
     .param p1, "simIdx"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -172,7 +172,7 @@
 
     .line 315
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -193,14 +193,14 @@
 
     .line 318
     .local v2, "_status":Z
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2f
 
     .line 319
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2f
 
     .line 320
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -210,8 +210,8 @@
     invoke-interface {v3, p1}, Lcom/mediatek/wfo/IWifiOffloadService;->getDisconnectCause(I)Lcom/mediatek/wfo/DisconnectCause;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_8 .. :try_end_28} :catchall_4a
 
     .line 332
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -223,8 +223,8 @@
     return-object v3
 
     .line 323
-    :cond_0
-    :try_start_1
+    :cond_2f
+    :try_start_2f
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
     .line 324
@@ -232,7 +232,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_41
 
     .line 325
     sget-object v3, Lcom/mediatek/wfo/DisconnectCause;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -242,21 +242,21 @@
     move-result-object v3
 
     check-cast v3, Lcom/mediatek/wfo/DisconnectCause;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_40
+    .catchall {:try_start_2f .. :try_end_40} :catchall_4a
 
     .local v3, "_result":Lcom/mediatek/wfo/DisconnectCause;
-    goto :goto_0
+    goto :goto_42
 
     .line 328
     .end local v3    # "_result":Lcom/mediatek/wfo/DisconnectCause;
-    :cond_1
+    :cond_41
     const/4 v3, 0x0
 
     .line 332
     .end local v2    # "_status":Z
     .restart local v3    # "_result":Lcom/mediatek/wfo/DisconnectCause;
-    :goto_0
+    :goto_42
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 333
@@ -270,7 +270,7 @@
 
     .line 332
     .end local v3    # "_result":Lcom/mediatek/wfo/DisconnectCause;
-    :catchall_0
+    :catchall_4a
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -283,7 +283,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 242
     const-string v0, "com.mediatek.wfo.IWifiOffloadService"
@@ -292,7 +292,7 @@
 .end method
 
 .method public getMccMncAllowList(I)[Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p1, "mode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -313,7 +313,7 @@
 
     .line 457
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -334,14 +334,14 @@
 
     .line 460
     .local v2, "_status":Z
-    if-nez v2, :cond_0
+    if-nez v2, :cond_30
 
     .line 461
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_30
 
     .line 462
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -351,8 +351,8 @@
     invoke-interface {v3, p1}, Lcom/mediatek/wfo/IWifiOffloadService;->getMccMncAllowList(I)[Ljava/lang/String;
 
     move-result-object v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_8 .. :try_end_29} :catchall_40
 
     .line 469
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -364,16 +364,16 @@
     return-object v3
 
     .line 465
-    :cond_0
-    :try_start_1
+    :cond_30
+    :try_start_30
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
     .line 466
     invoke-virtual {v1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
 
     move-result-object v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_37
+    .catchall {:try_start_30 .. :try_end_37} :catchall_40
 
     move-object v2, v3
 
@@ -392,7 +392,7 @@
 
     .line 469
     .end local v2    # "_result":[Ljava/lang/String;
-    :catchall_0
+    :catchall_40
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -405,7 +405,7 @@
 .end method
 
 .method public getRatType(I)I
-    .locals 5
+    .registers 7
     .param p1, "simIdx"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -426,7 +426,7 @@
 
     .line 292
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -447,14 +447,14 @@
 
     .line 295
     .local v2, "_status":Z
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2f
 
     .line 296
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2f
 
     .line 297
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -464,8 +464,8 @@
     invoke-interface {v3, p1}, Lcom/mediatek/wfo/IWifiOffloadService;->getRatType(I)I
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_8 .. :try_end_28} :catchall_3f
 
     .line 304
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -477,16 +477,16 @@
     return v3
 
     .line 300
-    :cond_0
-    :try_start_1
+    :cond_2f
+    :try_start_2f
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
     .line 301
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_36
+    .catchall {:try_start_2f .. :try_end_36} :catchall_3f
 
     move v2, v3
 
@@ -505,7 +505,7 @@
 
     .line 304
     .end local v2    # "_result":I
-    :catchall_0
+    :catchall_3f
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -518,7 +518,7 @@
 .end method
 
 .method public isWifiConnected()Z
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -538,7 +538,7 @@
 
     .line 390
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -556,14 +556,14 @@
 
     .line 392
     .local v2, "_status":Z
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2c
 
     .line 393
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2c
 
     .line 394
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -573,8 +573,8 @@
     invoke-interface {v3}, Lcom/mediatek/wfo/IWifiOffloadService;->isWifiConnected()Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_25
+    .catchall {:try_start_8 .. :try_end_25} :catchall_3f
 
     .line 401
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -586,22 +586,22 @@
     return v3
 
     .line 397
-    :cond_0
-    :try_start_1
+    :cond_2c
+    :try_start_2c
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
     .line 398
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_33
+    .catchall {:try_start_2c .. :try_end_33} :catchall_3f
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_36
 
     const/4 v4, 0x1
 
-    :cond_1
+    :cond_36
     move v2, v4
 
     .line 401
@@ -619,7 +619,7 @@
 
     .line 401
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_3f
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -632,7 +632,7 @@
 .end method
 
 .method public registerForHandoverEvent(Lcom/mediatek/wfo/IWifiOffloadListener;)V
-    .locals 5
+    .registers 7
     .param p1, "listener"    # Lcom/mediatek/wfo/IWifiOffloadListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -653,24 +653,24 @@
 
     .line 249
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 250
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     invoke-interface {p1}, Lcom/mediatek/wfo/IWifiOffloadListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_15
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 251
@@ -686,14 +686,14 @@
 
     .line 252
     .local v2, "_status":Z
-    if-nez v2, :cond_1
+    if-nez v2, :cond_36
 
     .line 253
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_36
 
     .line 254
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -701,8 +701,8 @@
     move-result-object v3
 
     invoke-interface {v3, p1}, Lcom/mediatek/wfo/IWifiOffloadService;->registerForHandoverEvent(Lcom/mediatek/wfo/IWifiOffloadListener;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2f
+    .catchall {:try_start_8 .. :try_end_2f} :catchall_41
 
     .line 261
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -714,11 +714,11 @@
     return-void
 
     .line 258
-    :cond_1
-    :try_start_1
+    :cond_36
+    :try_start_36
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_39
+    .catchall {:try_start_36 .. :try_end_39} :catchall_41
 
     .line 261
     .end local v2    # "_status":Z
@@ -734,7 +734,7 @@
     return-void
 
     .line 261
-    :catchall_0
+    :catchall_41
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -747,7 +747,7 @@
 .end method
 
 .method public setEpdgFqdn(ILjava/lang/String;Z)V
-    .locals 5
+    .registers 9
     .param p1, "simIdx"    # I
     .param p2, "fqdn"    # Ljava/lang/String;
     .param p3, "wfcEnabled"    # Z
@@ -770,7 +770,7 @@
 
     .line 342
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -784,16 +784,16 @@
     .line 345
     const/4 v2, 0x0
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_18
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     move v3, v2
 
-    :goto_0
+    :goto_19
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 346
@@ -807,14 +807,14 @@
 
     .line 347
     .local v2, "_status":Z
-    if-nez v2, :cond_1
+    if-nez v2, :cond_39
 
     .line 348
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_39
 
     .line 349
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -822,8 +822,8 @@
     move-result-object v3
 
     invoke-interface {v3, p1, p2, p3}, Lcom/mediatek/wfo/IWifiOffloadService;->setEpdgFqdn(ILjava/lang/String;Z)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_32
+    .catchall {:try_start_8 .. :try_end_32} :catchall_44
 
     .line 356
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -835,11 +835,11 @@
     return-void
 
     .line 353
-    :cond_1
-    :try_start_1
+    :cond_39
+    :try_start_39
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3c
+    .catchall {:try_start_39 .. :try_end_3c} :catchall_44
 
     .line 356
     .end local v2    # "_status":Z
@@ -855,7 +855,7 @@
     return-void
 
     .line 356
-    :catchall_0
+    :catchall_44
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -868,7 +868,7 @@
 .end method
 
 .method public setMccMncAllowList([Ljava/lang/String;)Z
-    .locals 5
+    .registers 7
     .param p1, "allowList"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -889,7 +889,7 @@
 
     .line 434
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -910,14 +910,14 @@
 
     .line 437
     .local v2, "_status":Z
-    if-nez v2, :cond_0
+    if-nez v2, :cond_30
 
     .line 438
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_30
 
     .line 439
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -927,8 +927,8 @@
     invoke-interface {v3, p1}, Lcom/mediatek/wfo/IWifiOffloadService;->setMccMncAllowList([Ljava/lang/String;)Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_8 .. :try_end_29} :catchall_43
 
     .line 446
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -940,22 +940,22 @@
     return v3
 
     .line 442
-    :cond_0
-    :try_start_1
+    :cond_30
+    :try_start_30
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
     .line 443
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_37
+    .catchall {:try_start_30 .. :try_end_37} :catchall_43
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3a
 
     const/4 v4, 0x1
 
-    :cond_1
+    :cond_3a
     move v2, v4
 
     .line 446
@@ -973,7 +973,7 @@
 
     .line 446
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_43
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -986,7 +986,7 @@
 .end method
 
 .method public setWifiOff()Z
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1006,7 +1006,7 @@
 
     .line 500
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1024,14 +1024,14 @@
 
     .line 502
     .local v2, "_status":Z
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2d
 
     .line 503
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2d
 
     .line 504
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -1041,8 +1041,8 @@
     invoke-interface {v3}, Lcom/mediatek/wfo/IWifiOffloadService;->setWifiOff()Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_8 .. :try_end_26} :catchall_40
 
     .line 511
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1054,22 +1054,22 @@
     return v3
 
     .line 507
-    :cond_0
-    :try_start_1
+    :cond_2d
+    :try_start_2d
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
     .line 508
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_34
+    .catchall {:try_start_2d .. :try_end_34} :catchall_40
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_37
 
     const/4 v4, 0x1
 
-    :cond_1
+    :cond_37
     move v2, v4
 
     .line 511
@@ -1087,7 +1087,7 @@
 
     .line 511
     .end local v2    # "_result":Z
-    :catchall_0
+    :catchall_40
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1100,7 +1100,7 @@
 .end method
 
 .method public unregisterForHandoverEvent(Lcom/mediatek/wfo/IWifiOffloadListener;)V
-    .locals 5
+    .registers 7
     .param p1, "listener"    # Lcom/mediatek/wfo/IWifiOffloadListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1121,24 +1121,24 @@
 
     .line 270
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 271
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     invoke-interface {p1}, Lcom/mediatek/wfo/IWifiOffloadListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_15
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 272
@@ -1154,14 +1154,14 @@
 
     .line 273
     .local v2, "_status":Z
-    if-nez v2, :cond_1
+    if-nez v2, :cond_36
 
     .line 274
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_36
 
     .line 275
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -1169,8 +1169,8 @@
     move-result-object v3
 
     invoke-interface {v3, p1}, Lcom/mediatek/wfo/IWifiOffloadService;->unregisterForHandoverEvent(Lcom/mediatek/wfo/IWifiOffloadListener;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2f
+    .catchall {:try_start_8 .. :try_end_2f} :catchall_41
 
     .line 282
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1182,11 +1182,11 @@
     return-void
 
     .line 279
-    :cond_1
-    :try_start_1
+    :cond_36
+    :try_start_36
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_39
+    .catchall {:try_start_36 .. :try_end_39} :catchall_41
 
     .line 282
     .end local v2    # "_status":Z
@@ -1202,7 +1202,7 @@
     return-void
 
     .line 282
-    :catchall_0
+    :catchall_41
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1215,7 +1215,7 @@
 .end method
 
 .method public updateCallState(IIII)V
-    .locals 5
+    .registers 10
     .param p1, "simIdx"    # I
     .param p2, "callId"    # I
     .param p3, "callType"    # I
@@ -1239,7 +1239,7 @@
 
     .line 365
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1269,14 +1269,14 @@
 
     .line 371
     .local v2, "_status":Z
-    if-nez v2, :cond_0
+    if-nez v2, :cond_37
 
     .line 372
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_37
 
     .line 373
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -1284,8 +1284,8 @@
     move-result-object v3
 
     invoke-interface {v3, p1, p2, p3, p4}, Lcom/mediatek/wfo/IWifiOffloadService;->updateCallState(IIII)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_30
+    .catchall {:try_start_8 .. :try_end_30} :catchall_42
 
     .line 380
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1297,11 +1297,11 @@
     return-void
 
     .line 377
-    :cond_0
-    :try_start_1
+    :cond_37
+    :try_start_37
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3a
+    .catchall {:try_start_37 .. :try_end_3a} :catchall_42
 
     .line 380
     .end local v2    # "_status":Z
@@ -1317,7 +1317,7 @@
     return-void
 
     .line 380
-    :catchall_0
+    :catchall_42
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1330,7 +1330,7 @@
 .end method
 
 .method public updateRadioState(II)V
-    .locals 5
+    .registers 8
     .param p1, "simIdx"    # I
     .param p2, "radioState"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -1352,7 +1352,7 @@
 
     .line 411
     .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
+    :try_start_8
     const-string v2, "com.mediatek.wfo.IWifiOffloadService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1376,14 +1376,14 @@
 
     .line 415
     .local v2, "_status":Z
-    if-nez v2, :cond_0
+    if-nez v2, :cond_32
 
     .line 416
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_32
 
     .line 417
     invoke-static {}, Lcom/mediatek/wfo/IWifiOffloadService$Stub;->getDefaultImpl()Lcom/mediatek/wfo/IWifiOffloadService;
@@ -1391,8 +1391,8 @@
     move-result-object v3
 
     invoke-interface {v3, p1, p2}, Lcom/mediatek/wfo/IWifiOffloadService;->updateRadioState(II)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_8 .. :try_end_2b} :catchall_3d
 
     .line 424
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1404,11 +1404,11 @@
     return-void
 
     .line 421
-    :cond_0
-    :try_start_1
+    :cond_32
+    :try_start_32
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_35
+    .catchall {:try_start_32 .. :try_end_35} :catchall_3d
 
     .line 424
     .end local v2    # "_status":Z
@@ -1424,7 +1424,7 @@
     return-void
 
     .line 424
-    :catchall_0
+    :catchall_3d
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

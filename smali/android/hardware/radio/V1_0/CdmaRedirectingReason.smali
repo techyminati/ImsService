@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 38
@@ -53,7 +53,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_17
 
     .line 42
     const-string v2, "CALL_FORWARDING_BUSY"
@@ -64,12 +64,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 45
-    :cond_0
+    :cond_17
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 46
     const-string v2, "CALL_FORWARDING_NO_REPLY"
@@ -80,12 +80,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 49
-    :cond_1
+    :cond_23
     and-int/lit8 v2, p0, 0x9
 
     const/16 v3, 0x9
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_30
 
     .line 50
     const-string v2, "CALLED_DTE_OUT_OF_ORDER"
@@ -96,12 +96,12 @@
     or-int/lit8 v1, v1, 0x9
 
     .line 53
-    :cond_2
+    :cond_30
     and-int/lit8 v2, p0, 0xa
 
     const/16 v3, 0xa
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_3d
 
     .line 54
     const-string v2, "CALL_FORWARDING_BY_THE_CALLED_DTE"
@@ -112,12 +112,12 @@
     or-int/lit8 v1, v1, 0xa
 
     .line 57
-    :cond_3
+    :cond_3d
     and-int/lit8 v2, p0, 0xf
 
     const/16 v3, 0xf
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_4a
 
     .line 58
     const-string v2, "CALL_FORWARDING_UNCONDITIONAL"
@@ -128,12 +128,12 @@
     or-int/lit8 v1, v1, 0xf
 
     .line 61
-    :cond_4
+    :cond_4a
     and-int/lit8 v2, p0, 0x10
 
     const/16 v3, 0x10
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_57
 
     .line 62
     const-string v2, "RESERVED"
@@ -144,8 +144,8 @@
     or-int/lit8 v1, v1, 0x10
 
     .line 65
-    :cond_5
-    if-eq p0, v1, :cond_6
+    :cond_57
+    if-eq p0, v1, :cond_73
 
     .line 66
     new-instance v2, Ljava/lang/StringBuilder;
@@ -173,7 +173,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 68
-    :cond_6
+    :cond_73
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -184,11 +184,11 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 13
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 14
     const-string v0, "UNKNOWN"
@@ -196,10 +196,10 @@
     return-object v0
 
     .line 16
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_b
 
     .line 17
     const-string v0, "CALL_FORWARDING_BUSY"
@@ -207,10 +207,10 @@
     return-object v0
 
     .line 19
-    :cond_1
+    :cond_b
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_11
 
     .line 20
     const-string v0, "CALL_FORWARDING_NO_REPLY"
@@ -218,10 +218,10 @@
     return-object v0
 
     .line 22
-    :cond_2
+    :cond_11
     const/16 v0, 0x9
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_18
 
     .line 23
     const-string v0, "CALLED_DTE_OUT_OF_ORDER"
@@ -229,10 +229,10 @@
     return-object v0
 
     .line 25
-    :cond_3
+    :cond_18
     const/16 v0, 0xa
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1f
 
     .line 26
     const-string v0, "CALL_FORWARDING_BY_THE_CALLED_DTE"
@@ -240,10 +240,10 @@
     return-object v0
 
     .line 28
-    :cond_4
+    :cond_1f
     const/16 v0, 0xf
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_26
 
     .line 29
     const-string v0, "CALL_FORWARDING_UNCONDITIONAL"
@@ -251,10 +251,10 @@
     return-object v0
 
     .line 31
-    :cond_5
+    :cond_26
     const/16 v0, 0x10
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_2d
 
     .line 32
     const-string v0, "RESERVED"
@@ -262,7 +262,7 @@
     return-object v0
 
     .line 34
-    :cond_6
+    :cond_2d
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

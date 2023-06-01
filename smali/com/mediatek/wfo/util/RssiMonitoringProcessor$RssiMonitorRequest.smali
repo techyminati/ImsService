@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/util/RssiMonitoringProcessor;Landroid/net/NetworkRequest;Landroid/net/ConnectivityManager$NetworkCallback;)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/mediatek/wfo/util/RssiMonitoringProcessor;
     .param p2, "request"    # Landroid/net/NetworkRequest;
     .param p3, "callback"    # Landroid/net/ConnectivityManager$NetworkCallback;

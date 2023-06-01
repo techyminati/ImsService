@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 86
@@ -77,7 +77,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_17
 
     .line 90
     const-string v2, "BAND_MODE_EURO"
@@ -88,12 +88,12 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 93
-    :cond_0
+    :cond_17
     and-int/lit8 v2, p0, 0x2
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_23
 
     .line 94
     const-string v2, "BAND_MODE_USA"
@@ -104,12 +104,12 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 97
-    :cond_1
+    :cond_23
     and-int/lit8 v2, p0, 0x3
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_2f
 
     .line 98
     const-string v2, "BAND_MODE_JPN"
@@ -120,12 +120,12 @@
     or-int/lit8 v1, v1, 0x3
 
     .line 101
-    :cond_2
+    :cond_2f
     and-int/lit8 v2, p0, 0x4
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_3b
 
     .line 102
     const-string v2, "BAND_MODE_AUS"
@@ -136,12 +136,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 105
-    :cond_3
+    :cond_3b
     and-int/lit8 v2, p0, 0x5
 
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_47
 
     .line 106
     const-string v2, "BAND_MODE_AUS_2"
@@ -152,12 +152,12 @@
     or-int/lit8 v1, v1, 0x5
 
     .line 109
-    :cond_4
+    :cond_47
     and-int/lit8 v2, p0, 0x6
 
     const/4 v3, 0x6
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_53
 
     .line 110
     const-string v2, "BAND_MODE_CELL_800"
@@ -168,12 +168,12 @@
     or-int/lit8 v1, v1, 0x6
 
     .line 113
-    :cond_5
+    :cond_53
     and-int/lit8 v2, p0, 0x7
 
     const/4 v3, 0x7
 
-    if-ne v2, v3, :cond_6
+    if-ne v2, v3, :cond_5f
 
     .line 114
     const-string v2, "BAND_MODE_PCS"
@@ -184,12 +184,12 @@
     or-int/lit8 v1, v1, 0x7
 
     .line 117
-    :cond_6
+    :cond_5f
     and-int/lit8 v2, p0, 0x8
 
     const/16 v3, 0x8
 
-    if-ne v2, v3, :cond_7
+    if-ne v2, v3, :cond_6c
 
     .line 118
     const-string v2, "BAND_MODE_JTACS"
@@ -200,12 +200,12 @@
     or-int/lit8 v1, v1, 0x8
 
     .line 121
-    :cond_7
+    :cond_6c
     and-int/lit8 v2, p0, 0x9
 
     const/16 v3, 0x9
 
-    if-ne v2, v3, :cond_8
+    if-ne v2, v3, :cond_79
 
     .line 122
     const-string v2, "BAND_MODE_KOREA_PCS"
@@ -216,12 +216,12 @@
     or-int/lit8 v1, v1, 0x9
 
     .line 125
-    :cond_8
+    :cond_79
     and-int/lit8 v2, p0, 0xa
 
     const/16 v3, 0xa
 
-    if-ne v2, v3, :cond_9
+    if-ne v2, v3, :cond_86
 
     .line 126
     const-string v2, "BAND_MODE_5_450M"
@@ -232,12 +232,12 @@
     or-int/lit8 v1, v1, 0xa
 
     .line 129
-    :cond_9
+    :cond_86
     and-int/lit8 v2, p0, 0xb
 
     const/16 v3, 0xb
 
-    if-ne v2, v3, :cond_a
+    if-ne v2, v3, :cond_93
 
     .line 130
     const-string v2, "BAND_MODE_IMT2000"
@@ -248,12 +248,12 @@
     or-int/lit8 v1, v1, 0xb
 
     .line 133
-    :cond_a
+    :cond_93
     and-int/lit8 v2, p0, 0xc
 
     const/16 v3, 0xc
 
-    if-ne v2, v3, :cond_b
+    if-ne v2, v3, :cond_a0
 
     .line 134
     const-string v2, "BAND_MODE_7_700M_2"
@@ -264,12 +264,12 @@
     or-int/lit8 v1, v1, 0xc
 
     .line 137
-    :cond_b
+    :cond_a0
     and-int/lit8 v2, p0, 0xd
 
     const/16 v3, 0xd
 
-    if-ne v2, v3, :cond_c
+    if-ne v2, v3, :cond_ad
 
     .line 138
     const-string v2, "BAND_MODE_8_1800M"
@@ -280,12 +280,12 @@
     or-int/lit8 v1, v1, 0xd
 
     .line 141
-    :cond_c
+    :cond_ad
     and-int/lit8 v2, p0, 0xe
 
     const/16 v3, 0xe
 
-    if-ne v2, v3, :cond_d
+    if-ne v2, v3, :cond_ba
 
     .line 142
     const-string v2, "BAND_MODE_9_900M"
@@ -296,12 +296,12 @@
     or-int/lit8 v1, v1, 0xe
 
     .line 145
-    :cond_d
+    :cond_ba
     and-int/lit8 v2, p0, 0xf
 
     const/16 v3, 0xf
 
-    if-ne v2, v3, :cond_e
+    if-ne v2, v3, :cond_c7
 
     .line 146
     const-string v2, "BAND_MODE_10_800M_2"
@@ -312,12 +312,12 @@
     or-int/lit8 v1, v1, 0xf
 
     .line 149
-    :cond_e
+    :cond_c7
     and-int/lit8 v2, p0, 0x10
 
     const/16 v3, 0x10
 
-    if-ne v2, v3, :cond_f
+    if-ne v2, v3, :cond_d4
 
     .line 150
     const-string v2, "BAND_MODE_EURO_PAMR_400M"
@@ -328,12 +328,12 @@
     or-int/lit8 v1, v1, 0x10
 
     .line 153
-    :cond_f
+    :cond_d4
     and-int/lit8 v2, p0, 0x11
 
     const/16 v3, 0x11
 
-    if-ne v2, v3, :cond_10
+    if-ne v2, v3, :cond_e1
 
     .line 154
     const-string v2, "BAND_MODE_AWS"
@@ -344,12 +344,12 @@
     or-int/lit8 v1, v1, 0x11
 
     .line 157
-    :cond_10
+    :cond_e1
     and-int/lit8 v2, p0, 0x12
 
     const/16 v3, 0x12
 
-    if-ne v2, v3, :cond_11
+    if-ne v2, v3, :cond_ee
 
     .line 158
     const-string v2, "BAND_MODE_USA_2500M"
@@ -360,8 +360,8 @@
     or-int/lit8 v1, v1, 0x12
 
     .line 161
-    :cond_11
-    if-eq p0, v1, :cond_12
+    :cond_ee
+    if-eq p0, v1, :cond_10a
 
     .line 162
     new-instance v2, Ljava/lang/StringBuilder;
@@ -389,7 +389,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 164
-    :cond_12
+    :cond_10a
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -400,11 +400,11 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 25
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 26
     const-string v0, "BAND_MODE_UNSPECIFIED"
@@ -412,10 +412,10 @@
     return-object v0
 
     .line 28
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_b
 
     .line 29
     const-string v0, "BAND_MODE_EURO"
@@ -423,10 +423,10 @@
     return-object v0
 
     .line 31
-    :cond_1
+    :cond_b
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_11
 
     .line 32
     const-string v0, "BAND_MODE_USA"
@@ -434,10 +434,10 @@
     return-object v0
 
     .line 34
-    :cond_2
+    :cond_11
     const/4 v0, 0x3
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_17
 
     .line 35
     const-string v0, "BAND_MODE_JPN"
@@ -445,10 +445,10 @@
     return-object v0
 
     .line 37
-    :cond_3
+    :cond_17
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_1d
 
     .line 38
     const-string v0, "BAND_MODE_AUS"
@@ -456,10 +456,10 @@
     return-object v0
 
     .line 40
-    :cond_4
+    :cond_1d
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_23
 
     .line 41
     const-string v0, "BAND_MODE_AUS_2"
@@ -467,10 +467,10 @@
     return-object v0
 
     .line 43
-    :cond_5
+    :cond_23
     const/4 v0, 0x6
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_29
 
     .line 44
     const-string v0, "BAND_MODE_CELL_800"
@@ -478,10 +478,10 @@
     return-object v0
 
     .line 46
-    :cond_6
+    :cond_29
     const/4 v0, 0x7
 
-    if-ne p0, v0, :cond_7
+    if-ne p0, v0, :cond_2f
 
     .line 47
     const-string v0, "BAND_MODE_PCS"
@@ -489,10 +489,10 @@
     return-object v0
 
     .line 49
-    :cond_7
+    :cond_2f
     const/16 v0, 0x8
 
-    if-ne p0, v0, :cond_8
+    if-ne p0, v0, :cond_36
 
     .line 50
     const-string v0, "BAND_MODE_JTACS"
@@ -500,10 +500,10 @@
     return-object v0
 
     .line 52
-    :cond_8
+    :cond_36
     const/16 v0, 0x9
 
-    if-ne p0, v0, :cond_9
+    if-ne p0, v0, :cond_3d
 
     .line 53
     const-string v0, "BAND_MODE_KOREA_PCS"
@@ -511,10 +511,10 @@
     return-object v0
 
     .line 55
-    :cond_9
+    :cond_3d
     const/16 v0, 0xa
 
-    if-ne p0, v0, :cond_a
+    if-ne p0, v0, :cond_44
 
     .line 56
     const-string v0, "BAND_MODE_5_450M"
@@ -522,10 +522,10 @@
     return-object v0
 
     .line 58
-    :cond_a
+    :cond_44
     const/16 v0, 0xb
 
-    if-ne p0, v0, :cond_b
+    if-ne p0, v0, :cond_4b
 
     .line 59
     const-string v0, "BAND_MODE_IMT2000"
@@ -533,10 +533,10 @@
     return-object v0
 
     .line 61
-    :cond_b
+    :cond_4b
     const/16 v0, 0xc
 
-    if-ne p0, v0, :cond_c
+    if-ne p0, v0, :cond_52
 
     .line 62
     const-string v0, "BAND_MODE_7_700M_2"
@@ -544,10 +544,10 @@
     return-object v0
 
     .line 64
-    :cond_c
+    :cond_52
     const/16 v0, 0xd
 
-    if-ne p0, v0, :cond_d
+    if-ne p0, v0, :cond_59
 
     .line 65
     const-string v0, "BAND_MODE_8_1800M"
@@ -555,10 +555,10 @@
     return-object v0
 
     .line 67
-    :cond_d
+    :cond_59
     const/16 v0, 0xe
 
-    if-ne p0, v0, :cond_e
+    if-ne p0, v0, :cond_60
 
     .line 68
     const-string v0, "BAND_MODE_9_900M"
@@ -566,10 +566,10 @@
     return-object v0
 
     .line 70
-    :cond_e
+    :cond_60
     const/16 v0, 0xf
 
-    if-ne p0, v0, :cond_f
+    if-ne p0, v0, :cond_67
 
     .line 71
     const-string v0, "BAND_MODE_10_800M_2"
@@ -577,10 +577,10 @@
     return-object v0
 
     .line 73
-    :cond_f
+    :cond_67
     const/16 v0, 0x10
 
-    if-ne p0, v0, :cond_10
+    if-ne p0, v0, :cond_6e
 
     .line 74
     const-string v0, "BAND_MODE_EURO_PAMR_400M"
@@ -588,10 +588,10 @@
     return-object v0
 
     .line 76
-    :cond_10
+    :cond_6e
     const/16 v0, 0x11
 
-    if-ne p0, v0, :cond_11
+    if-ne p0, v0, :cond_75
 
     .line 77
     const-string v0, "BAND_MODE_AWS"
@@ -599,10 +599,10 @@
     return-object v0
 
     .line 79
-    :cond_11
+    :cond_75
     const/16 v0, 0x12
 
-    if-ne p0, v0, :cond_12
+    if-ne p0, v0, :cond_7c
 
     .line 80
     const-string v0, "BAND_MODE_USA_2500M"
@@ -610,7 +610,7 @@
     return-object v0
 
     .line 82
-    :cond_12
+    :cond_7c
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

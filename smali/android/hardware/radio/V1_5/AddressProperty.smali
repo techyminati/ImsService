@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method public static final dumpBitfield(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "o"    # I
 
     .line 21
@@ -43,7 +43,7 @@
 
     const/16 v3, 0x20
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_18
 
     .line 25
     const-string v2, "DEPRECATED"
@@ -54,8 +54,8 @@
     or-int/lit8 v1, v1, 0x20
 
     .line 28
-    :cond_0
-    if-eq p0, v1, :cond_1
+    :cond_18
+    if-eq p0, v1, :cond_34
 
     .line 29
     new-instance v2, Ljava/lang/StringBuilder;
@@ -83,7 +83,7 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 31
-    :cond_1
+    :cond_34
     const-string v2, " | "
 
     invoke-static {v2, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -94,11 +94,11 @@
 .end method
 
 .method public static final toString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "o"    # I
 
     .line 11
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 12
     const-string v0, "NONE"
@@ -106,10 +106,10 @@
     return-object v0
 
     .line 14
-    :cond_0
+    :cond_5
     const/16 v0, 0x20
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_c
 
     .line 15
     const-string v0, "DEPRECATED"
@@ -117,7 +117,7 @@
     return-object v0
 
     .line 17
-    :cond_1
+    :cond_c
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

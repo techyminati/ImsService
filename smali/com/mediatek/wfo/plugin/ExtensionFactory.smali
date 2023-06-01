@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,13 +24,13 @@
 .end method
 
 .method public static makeLegacyComponentFactory(Landroid/content/Context;)Lcom/mediatek/wfo/plugin/LegacyComponentFactory;
-    .locals 5
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
 
     .line 76
     sget-object v0, Lcom/mediatek/wfo/plugin/ExtensionFactory;->sLegacyComponentFactory:Lcom/mediatek/wfo/plugin/LegacyComponentFactory;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_62
 
     .line 77
     const-string v0, "ro.vendor.md_auto_setup_ims"
@@ -47,17 +47,17 @@
 
     const-string v1, "WfoExtensionFactory"
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 78
     const-string v0, "Gen93 detected !"
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_57
 
     .line 81
-    :cond_0
+    :cond_1a
     const-string v0, "ro.vendor.mtk_telephony_add_on_policy"
 
     const-string v2, "0"
@@ -70,10 +70,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_57
 
     .line 83
-    :try_start_0
+    :try_start_28
     new-instance v0, Ldalvik/system/PathClassLoader;
 
     const-string v2, "/system/framework/mediatek-wfo-legacy.jar"
@@ -119,8 +119,8 @@
     const-string v3, "Use Legacy\'s LegacyComponentFactory"
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4f
+    .catch Ljava/lang/Exception; {:try_start_28 .. :try_end_4f} :catch_51
 
     .line 93
     nop
@@ -128,10 +128,10 @@
     .end local v0    # "pathClassLoader":Ldalvik/system/PathClassLoader;
     .end local v2    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v4    # "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
-    goto :goto_0
+    goto :goto_57
 
     .line 91
-    :catch_0
+    :catch_51
     move-exception v0
 
     .line 92
@@ -142,11 +142,11 @@
 
     .line 97
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_1
-    :goto_0
+    :cond_57
+    :goto_57
     sget-object v0, Lcom/mediatek/wfo/plugin/ExtensionFactory;->sLegacyComponentFactory:Lcom/mediatek/wfo/plugin/LegacyComponentFactory;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_62
 
     .line 98
     new-instance v0, Lcom/mediatek/wfo/plugin/impl/LegacyComponentFactoryBase;
@@ -156,7 +156,7 @@
     sput-object v0, Lcom/mediatek/wfo/plugin/ExtensionFactory;->sLegacyComponentFactory:Lcom/mediatek/wfo/plugin/LegacyComponentFactory;
 
     .line 102
-    :cond_2
+    :cond_62
     sget-object v0, Lcom/mediatek/wfo/plugin/ExtensionFactory;->sLegacyComponentFactory:Lcom/mediatek/wfo/plugin/LegacyComponentFactory;
 
     return-object v0

@@ -3,7 +3,7 @@
 .source "IAssistRadioResponse.java"
 
 # interfaces
-.implements Landroid/hidl/base/V1_0/IBase;
+.implements Landroid/internal/hidl/base/V1_0/IBase;
 
 
 # annotations
@@ -21,19 +21,19 @@
 
 # direct methods
 .method public static asInterface(Landroid/os/IHwBinder;)Lvendor/mediatek/hardware/mtkradioex/V2_0/IAssistRadioResponse;
-    .locals 7
+    .registers 8
     .param p0, "binder"    # Landroid/os/IHwBinder;
 
     .line 16
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 17
     return-object v0
 
     .line 20
-    :cond_0
+    :cond_4
     nop
 
     .line 21
@@ -45,11 +45,11 @@
 
     .line 23
     .local v2, "iface":Landroid/os/IHwInterface;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_15
 
     instance-of v3, v2, Lvendor/mediatek/hardware/mtkradioex/V2_0/IAssistRadioResponse;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_15
 
     .line 24
     move-object v0, v2
@@ -59,14 +59,14 @@
     return-object v0
 
     .line 27
-    :cond_1
+    :cond_15
     new-instance v3, Lvendor/mediatek/hardware/mtkradioex/V2_0/IAssistRadioResponse$Proxy;
 
     invoke-direct {v3, p0}, Lvendor/mediatek/hardware/mtkradioex/V2_0/IAssistRadioResponse$Proxy;-><init>(Landroid/os/IHwBinder;)V
 
     .line 30
     .local v3, "proxy":Lvendor/mediatek/hardware/mtkradioex/V2_0/IAssistRadioResponse;
-    :try_start_0
+    :try_start_1a
     invoke-interface {v3}, Lvendor/mediatek/hardware/mtkradioex/V2_0/IAssistRadioResponse;->interfaceChain()Ljava/util/ArrayList;
 
     move-result-object v4
@@ -75,12 +75,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_22
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_36
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -93,44 +93,44 @@
     invoke-virtual {v5, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_32
+    .catch Landroid/os/RemoteException; {:try_start_1a .. :try_end_32} :catch_37
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_35
 
     .line 32
     return-object v3
 
     .line 34
     .end local v5    # "descriptor":Ljava/lang/String;
-    :cond_2
-    goto :goto_0
+    :cond_35
+    goto :goto_22
 
     .line 36
-    :cond_3
-    goto :goto_1
+    :cond_36
+    goto :goto_38
 
     .line 35
-    :catch_0
+    :catch_37
     move-exception v1
 
     .line 38
-    :goto_1
+    :goto_38
     return-object v0
 .end method
 
 .method public static castFrom(Landroid/os/IHwInterface;)Lvendor/mediatek/hardware/mtkradioex/V2_0/IAssistRadioResponse;
-    .locals 1
+    .registers 2
     .param p0, "iface"    # Landroid/os/IHwInterface;
 
     .line 45
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_4
     invoke-interface {p0}, Landroid/os/IHwInterface;->asBinder()Landroid/os/IHwBinder;
 
     move-result-object v0
@@ -139,12 +139,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public static getService()Lvendor/mediatek/hardware/mtkradioex/V2_0/IAssistRadioResponse;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -165,7 +165,7 @@
 .end method
 
 .method public static getService(Ljava/lang/String;)Lvendor/mediatek/hardware/mtkradioex/V2_0/IAssistRadioResponse;
-    .locals 1
+    .registers 2
     .param p0, "serviceName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -191,7 +191,7 @@
 .end method
 
 .method public static getService(Ljava/lang/String;Z)Lvendor/mediatek/hardware/mtkradioex/V2_0/IAssistRadioResponse;
-    .locals 1
+    .registers 3
     .param p0, "serviceName"    # Ljava/lang/String;
     .param p1, "retry"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -215,7 +215,7 @@
 .end method
 
 .method public static getService(Z)Lvendor/mediatek/hardware/mtkradioex/V2_0/IAssistRadioResponse;
-    .locals 1
+    .registers 2
     .param p0, "retry"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -256,7 +256,7 @@
     .end annotation
 .end method
 
-.method public abstract getDebugInfo()Landroid/hidl/base/V1_0/DebugInfo;
+.method public abstract getDebugInfo()Landroid/internal/hidl/base/V1_0/DebugInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

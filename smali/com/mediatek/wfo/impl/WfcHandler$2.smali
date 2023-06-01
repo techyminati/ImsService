@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/mediatek/wfo/impl/WfcHandler;Landroid/os/Handler;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/mediatek/wfo/impl/WfcHandler;
     .param p2, "arg0"    # Landroid/os/Handler;
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
-    .locals 5
+    .registers 8
     .param p1, "selfChange"    # Z
     .param p2, "uri"    # Landroid/net/Uri;
 
@@ -65,6 +65,7 @@
     invoke-virtual {v0, v1}, Lcom/mediatek/wfo/impl/WfcHandler;->log(Ljava/lang/String;)V
 
     .line 851
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->AID_SETTING_URI:Landroid/net/Uri;
     invoke-static {}, Lcom/mediatek/wfo/impl/WfcHandler;->access$500()Landroid/net/Uri;
 
     move-result-object v0
@@ -73,12 +74,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_90
 
     .line 852
     iget-object v0, p0, Lcom/mediatek/wfo/impl/WfcHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
     .line 853
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$600(Lcom/mediatek/wfo/impl/WfcHandler;)Landroid/content/Context;
 
     move-result-object v0
@@ -100,7 +102,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_55
 
     .line 857
     iget-object v1, p0, Lcom/mediatek/wfo/impl/WfcHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
@@ -125,9 +127,10 @@
     return-void
 
     .line 860
-    :cond_0
+    :cond_55
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # setter for: Lcom/mediatek/wfo/impl/WfcHandler;->mWfcEccAid:Ljava/lang/String;
     invoke-static {v2, v0}, Lcom/mediatek/wfo/impl/WfcHandler;->access$702(Lcom/mediatek/wfo/impl/WfcHandler;Ljava/lang/String;)Ljava/lang/String;
 
     .line 862
@@ -143,6 +146,7 @@
 
     iget-object v4, p0, Lcom/mediatek/wfo/impl/WfcHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mWfcEccAid:Ljava/lang/String;
     invoke-static {v4}, Lcom/mediatek/wfo/impl/WfcHandler;->access$700(Lcom/mediatek/wfo/impl/WfcHandler;)Ljava/lang/String;
 
     move-result-object v4
@@ -158,6 +162,7 @@
     .line 865
     iget-object v2, p0, Lcom/mediatek/wfo/impl/WfcHandler$2;->this$0:Lcom/mediatek/wfo/impl/WfcHandler;
 
+    # getter for: Lcom/mediatek/wfo/impl/WfcHandler;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/mediatek/wfo/impl/WfcHandler;->access$600(Lcom/mediatek/wfo/impl/WfcHandler;)Landroid/content/Context;
 
     move-result-object v2
@@ -183,6 +188,6 @@
 
     .line 869
     .end local v0    # "aid":Ljava/lang/String;
-    :cond_1
+    :cond_90
     return-void
 .end method
