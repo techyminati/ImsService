@@ -1,0 +1,25 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: ImsService.apk
+compressionType: false
+doNotCompress:
+- classes.dex
+- resources.arsc
+- png
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '29'
+  targetSdkVersion: '29'
+sharedLibrary: false
+sparseResources: false
+unknownFiles: {}
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.7.0
+versionInfo:
+  versionCode: '29'
+  versionName: '10'
